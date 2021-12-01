@@ -3,56 +3,33 @@ variables:
 
 stages:
   - doc
-  - spectrumanalyzer
   - ana
-  - test
 
-image: registry.gitlab.com/ganymede/jupyterlab:ana
+image: registry.gitlab.com/ody5-dev/docker/jupyterlab/ana
 
 docs:html:
   stage: doc
   allow_failure: true
   before_script:
-    - cd spectrumanalyzer && python -m pip install -e . && cd ..
     - cd ana && python -m pip install -e . && cd ..
-    - cd EVE && python -m pip install -e . && cd ..
-    - cd docs/modules && git clone http://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.ody5.de/jp/FORC-data.git forc && cd ../..
-    - cd docs/info && git clone http://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.ody5.de/agm/Group.wiki.git
-    - git clone http://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.ody5.de/agm/EVE.wiki.git && cd ../..
+    - cd docs/modules && git clone http://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/ody55eus/FORC-data.git forc && cd ../..
   script:
     - make clean html && make html
+    - mv _build/html public
   artifacts:
     paths:
-      - _build
+      - public
   only:
     - master
     - release/*
-spectrumanalyzer:test:
-  stage: spectrumanalyzer
-  before_script:
-    - cd spectrumanalyzer && python -m pip install -e . && cd ..
-    - cd ana && python -m pip install -e . && cd ..
-    - cd EVE && python -m pip install -e . && cd ..
-    - python -m pip install coverage
-    - cd spectrumanalyzer
-    - mkdir img
-  script:
-    - coverage run -m pytest spectrumanalyzer
-    - coverage report -m
-  artifacts:
-    paths:
-      - img
-  only:
-    - master
 
 ana:prepair:
   stage: ana
   variables:
     TEST_DIR: tests/ana/prepair
   before_script:
-    - cd spectrumanalyzer && python -m pip install -e . && cd ..
+    - python -m pip install git+http://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/ody55eus/spectrumanalyzer.git
     - cd ana && python -m pip install -e . && cd ..
-    - cd EVE && python -m pip install -e . && cd ..
     - python -m pip install coverage
     - cd ana
     - mkdir output
@@ -75,10 +52,3 @@ ana:visualize:
   extends: ana:prepair
   variables:
     TEST_DIR: tests/ana/visualize
-
-sast:
-  stage: test
-include:
-- template: Security/SAST.gitlab-ci.yml
-- template: Security/Dependency-Scanning.gitlab-ci.yml
-- template: Security/License-Scanning.gitlab-ci.yml
