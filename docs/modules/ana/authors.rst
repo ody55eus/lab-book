@@ -1,0 +1,1 @@
+.. include:: ../../../ana/AUTHORS.rst

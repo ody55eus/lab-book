@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generiert durch Microsoft Visio, SVG Export lab-book.svg Page-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="6.94395in" height="6.23221in"
+		viewBox="0 0 499.965 448.719" xml:space="preserve" color-interpolation-filters="sRGB" class="st11">
+	<v:documentProperties v:langID="1031" v:metric="true" v:viewMarkup="false">
+		<v:userDefs>
+			<v:ud v:nameU="visPPO" v:val="VT0(2):26"/>
+			<v:ud v:nameU="OutlineWndFlags" v:val="VT0(4):26"/>
+			<v:ud v:nameU="OutlineWndWidth" v:val="VT0(170):26"/>
+			<v:ud v:nameU="OutlineWndHeight" v:val="VT0(200):26"/>
+			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>
+			<v:ud v:nameU="msvNoSubprocess" v:prompt="" v:val="VT0(1):26"/>
+		</v:userDefs>
+	</v:documentProperties>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#4672c4;stroke:#c8c8c8;stroke-width:0.25}
+		.st2 {fill:#feffff;font-family:Calibri;font-size:1.99999em;font-weight:bold}
+		.st3 {stroke:#000000;stroke-linecap:butt;stroke-width:3.12}
+		.st4 {fill:#1a2d51;font-family:Calibri;font-size:1.16666em}
+		.st5 {marker-end:url(#mrkr4-13);stroke:#4672c4;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
+		.st6 {fill:#4672c4;fill-opacity:1;stroke:#4672c4;stroke-opacity:1;stroke-width:0.28409090909091}
+		.st7 {font-size:1em}
+		.st8 {fill:#2a4475;stroke:#c8c8c8;stroke-width:0.25}
+		.st9 {fill:#4672c4;stroke:#4672c4;stroke-width:0.25;visibility:hidden}
+		.st10 {fill:#feffff;font-family:Calibri;font-size:1.00001em}
+		.st11 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Markers">
+		<g id="lend4">
+			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr4-13" class="st6" v:arrowType="4" v:arrowSize="2" v:setback="6.68" refX="-6.68" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(-3.52,-3.52) "/>
+		</marker>
+	</defs>
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<v:userDefs>
+			<v:ud v:nameU="OutlineWndPos" v:val="VT0(1):26"/>
+			<v:ud v:nameU="msvSDStructureDisabled" v:prompt="" v:val="VT0(1):26"/>
+			<v:ud v:nameU="msvThemeOrder" v:val="VT0(0):26"/>
+		</v:userDefs>
+		<title>Zeichenblatt-1</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="9"
+				v:shadowOffsetY="-9"/>
+		<v:layer v:name="Verbinder" v:index="0"/>
+		<g id="shape1-1" v:mID="1" v:groupContext="shape" transform="translate(177.098,-182.98)">
+			<title>Hauptthema</title>
+			<desc>Lab Book</desc>
+			<v:custProps>
+				<v:cp v:nameU="shapelook" v:lbl="" v:type="0" v:format="1;Oval;2;Wolke;3;Rechteck;4;Stern" v:sortKey=""
+						v:invis="true" v:ask="false" v:langID="1031" v:cal="0" v:val="VT0(0):26"/>
+			</v:custProps>
+			<v:userDefs>
+				<v:ud v:nameU="solsh" v:val="VT15({1E3B3066-9E48-43AD-812D-67A2086F19C3}):41"/>
+				<v:ud v:nameU="shapetype" v:val="VT0(1):26"/>
+				<v:ud v:nameU="shapelook" v:prompt="1;Oval;2;Wolke;3;Rechteck;4;Stern" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="FlipX" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="FlipY" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="DeltaX" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="DeltaY" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="PageLoc" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="ParLocX" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="ParLocY" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="ParLoc" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="TreePos" v:prompt="" v:val="VT0(0):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72" cy="412.719" width="144" height="72"/>
+			<path d="M144 412 A72 35.2779 -180 1 0 0 412 A72 35.2779 -180 1 0 144 412 Z" class="st1"/>
+			<text x="26.46" y="419.92" class="st2" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Lab Book</text>		</g>
+		<g id="shape2-4" v:mID="2" v:groupContext="shape" transform="translate(189.746,-280.419)">
+			<title>Thema</title>
+			<desc>Data</desc>
+			<v:custProps>
+				<v:cp v:nameU="shapelook" v:lbl="" v:type="0" v:format="1;Oval;2;Wolke;3;Rechteck;5;Linie;6;Freihand;7;Welle"
+						v:sortKey="" v:invis="true" v:ask="false" v:langID="1031" v:cal="0" v:val="VT0(0):26"/>
+			</v:custProps>
+			<v:userDefs>
+				<v:ud v:nameU="solsh" v:val="VT15({1E3B3066-9E48-43AD-812D-67A2086F19C3}):41"/>
+				<v:ud v:nameU="shapetype" v:val="VT0(2):26"/>
+				<v:ud v:nameU="shapelook" v:prompt="1;Oval;2;Wolke;3;Rechteck;5;Linie;6;Freihand;7;Welle" v:val="VT0(5):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="OPRIndicator" v:val="VT0(0):26"/>
+				<v:ud v:nameU="FlipX" v:prompt="" v:val="VT0(-1):26"/>
+				<v:ud v:nameU="FlipY" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="DeltaX" v:prompt="" v:val="VT0(-0.199338):26"/>
+				<v:ud v:nameU="DeltaY" v:prompt="" v:val="VT0(1.103319):26"/>
+				<v:ud v:nameU="PageLoc" v:prompt="" v:val="VT7(PNT(3.260362261,4.144712458IN)):40"/>
+				<v:ud v:nameU="ParLocX" v:prompt="" v:val="VT0(3.459700261):1"/>
+				<v:ud v:nameU="ParLocY" v:prompt="" v:val="VT0(3.041393458):0"/>
+				<v:ud v:nameU="ParLoc" v:prompt="" v:val="VT7(PNT(3.459700261,3.041393458IN)):40"/>
+				<v:ud v:nameU="TreePos" v:prompt="" v:val="VT0(0):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197" v:verticalAlign="2"/>
+			<v:textRect cx="45" cy="410.919" width="90" height="36"/>
+			<path d="M0 430.72 L90 430.72" class="st3"/>
+			<text x="31.64" y="424.72" class="st4" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Data</text>		</g>
+		<g id="shape3-8" v:mID="3" v:groupContext="shape" v:layerMember="0" transform="translate(249.098,-254.98)">
+			<title>Dynamischer Verbinder</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 448.72 C-0 436 25.96 436 36.65 425.38 C42.55 419.53 43.81 410.45 37.51 406.84 L37.16 406.76" class="st5"/>
+		</g>
+		<g id="shape4-14" v:mID="4" v:groupContext="shape" transform="translate(218.093,-121.254)">
+			<title>Thema.4</title>
+			<desc>Software</desc>
+			<v:custProps>
+				<v:cp v:nameU="shapelook" v:lbl="" v:type="0" v:format="1;Oval;2;Wolke;3;Rechteck;5;Linie;6;Freihand;7;Welle"
+						v:sortKey="" v:invis="true" v:ask="false" v:langID="1031" v:cal="0" v:val="VT0(0):26"/>
+			</v:custProps>
+			<v:userDefs>
+				<v:ud v:nameU="solsh" v:val="VT15({1E3B3066-9E48-43AD-812D-67A2086F19C3}):41"/>
+				<v:ud v:nameU="shapetype" v:val="VT0(2):26"/>
+				<v:ud v:nameU="shapelook" v:prompt="1;Oval;2;Wolke;3;Rechteck;5;Linie;6;Freihand;7;Welle" v:val="VT0(5):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="OPRIndicator" v:val="VT0(0):26"/>
+				<v:ud v:nameU="FlipX" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="FlipY" v:prompt="" v:val="VT0(-1):26"/>
+				<v:ud v:nameU="DeltaX" v:prompt="" v:val="VT0(0.194363):26"/>
+				<v:ud v:nameU="DeltaY" v:prompt="" v:val="VT0(-1.107311):26"/>
+				<v:ud v:nameU="PageLoc" v:prompt="" v:val="VT7(PNT(3.654063261,1.934082458IN)):40"/>
+				<v:ud v:nameU="ParLocX" v:prompt="" v:val="VT0(3.459700261):1"/>
+				<v:ud v:nameU="ParLocY" v:prompt="" v:val="VT0(3.041393458):0"/>
+				<v:ud v:nameU="ParLoc" v:prompt="" v:val="VT7(PNT(3.459700261,3.041393458IN)):40"/>
+				<v:ud v:nameU="TreePos" v:prompt="" v:val="VT0(1):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197" v:verticalAlign="2"/>
+			<v:textRect cx="45" cy="410.919" width="90" height="36"/>
+			<path d="M0 430.72 L90 430.72" class="st3"/>
+			<text x="19.33" y="424.72" class="st4" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Software</text>		</g>
+		<g id="shape5-18" v:mID="5" v:groupContext="shape" v:layerMember="0" transform="translate(249.098,-182.98)">
+			<title>Dynamischer Verbinder.5</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 448.72 C-0 461.58 -26.16 461.58 -36.94 472.25 C-42.89 478.13 -44.16 487.25 -37.87 490.88 L-37.52 490.96"
+					class="st5"/>
+		</g>
+		<g id="shape6-23" v:mID="6" v:groupContext="shape" transform="translate(72.7461,-374.919)">
+			<title>Thema.6</title>
+			<desc>Hysteresis Loop</desc>
+			<v:custProps>
+				<v:cp v:nameU="shapelook" v:lbl="" v:type="0" v:format="1;Oval;2;Wolke;3;Rechteck;5;Linie;6;Freihand;7;Welle"
+						v:sortKey="" v:invis="true" v:ask="false" v:langID="1031" v:cal="0" v:val="VT0(0):26"/>
+			</v:custProps>
+			<v:userDefs>
+				<v:ud v:nameU="solsh" v:val="VT15({1E3B3066-9E48-43AD-812D-67A2086F19C3}):41"/>
+				<v:ud v:nameU="shapetype" v:val="VT0(2):26"/>
+				<v:ud v:nameU="shapelook" v:prompt="1;Oval;2;Wolke;3;Rechteck;5;Linie;6;Freihand;7;Welle" v:val="VT0(5):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="OPRIndicator" v:val="VT0(0):26"/>
+				<v:ud v:nameU="FlipX" v:prompt="" v:val="VT0(-1):26"/>
+				<v:ud v:nameU="FlipY" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="DeltaX" v:prompt="" v:val="VT0(1.625):26"/>
+				<v:ud v:nameU="DeltaY" v:prompt="" v:val="VT0(1.3125):26"/>
+				<v:ud v:nameU="PageLoc" v:prompt="" v:val="VT7(PNT(1.635362261,5.457212458)):40"/>
+				<v:ud v:nameU="ParLocX" v:prompt="" v:val="VT0(3.260362261):1"/>
+				<v:ud v:nameU="ParLocY" v:prompt="" v:val="VT0(4.144712458):1"/>
+				<v:ud v:nameU="ParLoc" v:prompt="" v:val="VT7(PNT(3.260362261,4.144712458)):40"/>
+				<v:ud v:nameU="TreePos" v:prompt="" v:val="VT0(0):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197" v:verticalAlign="2"/>
+			<v:textRect cx="45" cy="410.919" width="90" height="36"/>
+			<path d="M0 430.72 L90 430.72" class="st3"/>
+			<text x="0.31" y="424.72" class="st4" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Hysteresis Loop</text>		</g>
+		<g id="shape7-27" v:mID="7" v:groupContext="shape" v:layerMember="0" transform="translate(189.746,-298.419)">
+			<title>Dynamischer Verbinder.7</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 448.72 C-13.5 448.72 -13.5 425.09 -13.5 401.47 C-13.5 382.53 -13.5 363.59 -20.46 356.82 L-20.79 356.69"
+					class="st5"/>
+		</g>
+		<g id="shape8-32" v:mID="8" v:groupContext="shape" transform="translate(72.7461,-311.919)">
+			<title>Thema.8</title>
+			<desc>Signal Analyzer (SR785)</desc>
+			<v:custProps>
+				<v:cp v:nameU="shapelook" v:lbl="" v:type="0" v:format="1;Oval;2;Wolke;3;Rechteck;5;Linie;6;Freihand;7;Welle"
+						v:sortKey="" v:invis="true" v:ask="false" v:langID="1031" v:cal="0" v:val="VT0(0):26"/>
+			</v:custProps>
+			<v:userDefs>
+				<v:ud v:nameU="solsh" v:val="VT15({1E3B3066-9E48-43AD-812D-67A2086F19C3}):41"/>
+				<v:ud v:nameU="shapetype" v:val="VT0(2):26"/>
+				<v:ud v:nameU="shapelook" v:prompt="1;Oval;2;Wolke;3;Rechteck;5;Linie;6;Freihand;7;Welle" v:val="VT0(5):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="OPRIndicator" v:val="VT0(0):26"/>
+				<v:ud v:nameU="FlipX" v:prompt="" v:val="VT0(-1):26"/>
+				<v:ud v:nameU="FlipY" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="DeltaX" v:prompt="" v:val="VT0(1.625):26"/>
+				<v:ud v:nameU="DeltaY" v:prompt="" v:val="VT0(0.4375):26"/>
+				<v:ud v:nameU="PageLoc" v:prompt="" v:val="VT7(PNT(1.635362261,4.582212458)):40"/>
+				<v:ud v:nameU="ParLocX" v:prompt="" v:val="VT0(3.260362261):1"/>
+				<v:ud v:nameU="ParLocY" v:prompt="" v:val="VT0(4.144712458):1"/>
+				<v:ud v:nameU="ParLoc" v:prompt="" v:val="VT7(PNT(3.260362261,4.144712458)):40"/>
+				<v:ud v:nameU="TreePos" v:prompt="" v:val="VT0(1):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197" v:verticalAlign="2"/>
+			<v:textRect cx="45" cy="410.919" width="90" height="36"/>
+			<path d="M0 430.72 L90 430.72" class="st3"/>
+			<text x="2.12" y="407.92" class="st4" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Signal Analyzer <tspan
+						x="23.09" dy="1.2em" class="st7">(SR785)</tspan></text>		</g>
+		<g id="shape9-37" v:mID="9" v:groupContext="shape" v:layerMember="0" transform="translate(189.746,-298.419)">
+			<title>Dynamischer Verbinder.9</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 448.72 C-10.95 448.72 -13.02 428 -20.61 420.17 L-20.94 420.02" class="st5"/>
+		</g>
+		<g id="shape10-42" v:mID="10" v:groupContext="shape" transform="translate(72.7461,-248.919)">
+			<title>Thema.10</title>
+			<desc>RAW Measurements</desc>
+			<v:custProps>
+				<v:cp v:nameU="shapelook" v:lbl="" v:type="0" v:format="1;Oval;2;Wolke;3;Rechteck;5;Linie;6;Freihand;7;Welle"
+						v:sortKey="" v:invis="true" v:ask="false" v:langID="1031" v:cal="0" v:val="VT0(0):26"/>
+			</v:custProps>
+			<v:userDefs>
+				<v:ud v:nameU="solsh" v:val="VT15({1E3B3066-9E48-43AD-812D-67A2086F19C3}):41"/>
+				<v:ud v:nameU="shapetype" v:val="VT0(2):26"/>
+				<v:ud v:nameU="shapelook" v:prompt="1;Oval;2;Wolke;3;Rechteck;5;Linie;6;Freihand;7;Welle" v:val="VT0(5):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="OPRIndicator" v:val="VT0(0):26"/>
+				<v:ud v:nameU="FlipX" v:prompt="" v:val="VT0(-1):26"/>
+				<v:ud v:nameU="FlipY" v:prompt="" v:val="VT0(-1):26"/>
+				<v:ud v:nameU="DeltaX" v:prompt="" v:val="VT0(1.625):26"/>
+				<v:ud v:nameU="DeltaY" v:prompt="" v:val="VT0(-0.4375):26"/>
+				<v:ud v:nameU="PageLoc" v:prompt="" v:val="VT7(PNT(1.635362261,3.707212458)):40"/>
+				<v:ud v:nameU="ParLocX" v:prompt="" v:val="VT0(3.260362261):1"/>
+				<v:ud v:nameU="ParLocY" v:prompt="" v:val="VT0(4.144712458):1"/>
+				<v:ud v:nameU="ParLoc" v:prompt="" v:val="VT7(PNT(3.260362261,4.144712458)):40"/>
+				<v:ud v:nameU="TreePos" v:prompt="" v:val="VT0(2):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197" v:verticalAlign="2"/>
+			<v:textRect cx="45" cy="410.919" width="90" height="36"/>
+			<path d="M0 430.72 L90 430.72" class="st3"/>
+			<text x="30.92" y="407.92" class="st4" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>RAW <tspan x="2.01"
+						dy="1.2em" class="st7">Measurements</tspan></text>		</g>
+		<g id="shape11-47" v:mID="11" v:groupContext="shape" v:layerMember="0" transform="translate(189.746,-298.419)">
+			<title>Dynamischer Verbinder.11</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 448.72 C-10.95 448.72 -13.02 469.44 -20.61 477.27 L-20.94 477.42" class="st5"/>
+		</g>
+		<g id="shape12-52" v:mID="12" v:groupContext="shape" transform="translate(72.7461,-185.919)">
+			<title>Thema.12</title>
+			<desc>MFN Measurements</desc>
+			<v:custProps>
+				<v:cp v:nameU="shapelook" v:lbl="" v:type="0" v:format="1;Oval;2;Wolke;3;Rechteck;5;Linie;6;Freihand;7;Welle"
+						v:sortKey="" v:invis="true" v:ask="false" v:langID="1031" v:cal="0" v:val="VT0(0):26"/>
+			</v:custProps>
+			<v:userDefs>
+				<v:ud v:nameU="solsh" v:val="VT15({1E3B3066-9E48-43AD-812D-67A2086F19C3}):41"/>
+				<v:ud v:nameU="shapetype" v:val="VT0(2):26"/>
+				<v:ud v:nameU="shapelook" v:prompt="1;Oval;2;Wolke;3;Rechteck;5;Linie;6;Freihand;7;Welle" v:val="VT0(5):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="OPRIndicator" v:val="VT0(0):26"/>
+				<v:ud v:nameU="FlipX" v:prompt="" v:val="VT0(-1):26"/>
+				<v:ud v:nameU="FlipY" v:prompt="" v:val="VT0(-1):26"/>
+				<v:ud v:nameU="DeltaX" v:prompt="" v:val="VT0(1.625):26"/>
+				<v:ud v:nameU="DeltaY" v:prompt="" v:val="VT0(-1.3125):26"/>
+				<v:ud v:nameU="PageLoc" v:prompt="" v:val="VT7(PNT(1.635362261,2.832212458)):40"/>
+				<v:ud v:nameU="ParLocX" v:prompt="" v:val="VT0(3.260362261):1"/>
+				<v:ud v:nameU="ParLocY" v:prompt="" v:val="VT0(4.144712458):1"/>
+				<v:ud v:nameU="ParLoc" v:prompt="" v:val="VT7(PNT(3.260362261,4.144712458)):40"/>
+				<v:ud v:nameU="TreePos" v:prompt="" v:val="VT0(3):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197" v:verticalAlign="2"/>
+			<v:textRect cx="45" cy="410.919" width="90" height="36"/>
+			<path d="M0 430.72 L90 430.72" class="st3"/>
+			<text x="31.28" y="407.92" class="st4" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>MFN  <tspan x="2.01"
+						dy="1.2em" class="st7">Measurements</tspan></text>		</g>
+		<g id="shape13-57" v:mID="13" v:groupContext="shape" v:layerMember="0" transform="translate(189.746,-298.419)">
+			<title>Dynamischer Verbinder.13</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 448.72 C-13.5 448.72 -13.5 472.34 -13.5 495.97 C-13.5 514.91 -13.5 533.85 -20.46 540.62 L-20.79 540.75"
+					class="st5"/>
+		</g>
+		<g id="shape16-62" v:mID="16" v:groupContext="shape" transform="translate(335.451,-213.38)">
+			<title>Thema.16</title>
+			<desc>Jupyter Notebooks</desc>
+			<v:custProps>
+				<v:cp v:nameU="shapelook" v:lbl="" v:type="0" v:format="1;Oval;2;Wolke;3;Rechteck;5;Linie;6;Freihand;7;Welle"
+						v:sortKey="" v:invis="true" v:ask="false" v:langID="1031" v:cal="0" v:val="VT0(0):26"/>
+			</v:custProps>
+			<v:userDefs>
+				<v:ud v:nameU="solsh" v:val="VT15({1E3B3066-9E48-43AD-812D-67A2086F19C3}):41"/>
+				<v:ud v:nameU="shapetype" v:val="VT0(2):26"/>
+				<v:ud v:nameU="shapelook" v:prompt="1;Oval;2;Wolke;3;Rechteck;5;Linie;6;Freihand;7;Welle" v:val="VT0(5):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="OPRIndicator" v:val="VT0(0):26"/>
+				<v:ud v:nameU="FlipX" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="FlipY" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="DeltaX" v:prompt="" v:val="VT0(1.629975):26"/>
+				<v:ud v:nameU="DeltaY" v:prompt="" v:val="VT0(-1.279528):26"/>
+				<v:ud v:nameU="PageLoc" v:prompt="" v:val="VT7(PNT(5.284038261,3.213610458)):40"/>
+				<v:ud v:nameU="ParLocX" v:prompt="" v:val="VT0(3.654063261):1"/>
+				<v:ud v:nameU="ParLocY" v:prompt="" v:val="VT0(1.934082458):1"/>
+				<v:ud v:nameU="ParLoc" v:prompt="" v:val="VT7(PNT(3.654063261,1.934082458)):40"/>
+				<v:ud v:nameU="TreePos" v:prompt="" v:val="VT0(0):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197" v:verticalAlign="2"/>
+			<v:textRect cx="45" cy="410.919" width="90" height="36"/>
+			<path d="M0 430.72 L90 430.72" class="st3"/>
+			<text x="23.98" y="407.92" class="st4" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Jupyter <tspan
+						x="13.98" dy="1.2em" class="st7">Notebooks</tspan></text>		</g>
+		<g id="shape17-67" v:mID="17" v:groupContext="shape" v:layerMember="0" transform="translate(308.093,-139.254)">
+			<title>Dynamischer Verbinder.17</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 448.72 C13.68 448.72 13.68 425.69 13.68 402.66 C13.68 384.15 13.68 365.65 20.77 359.09 L21.11 358.96"
+					class="st5"/>
+		</g>
+		<g id="shape18-72" v:mID="18" v:groupContext="shape" transform="translate(335.451,-156.687)">
+			<title>Thema.18</title>
+			<desc>Ana</desc>
+			<v:custProps>
+				<v:cp v:nameU="shapelook" v:lbl="" v:type="0" v:format="1;Oval;2;Wolke;3;Rechteck;5;Linie;6;Freihand;7;Welle"
+						v:sortKey="" v:invis="true" v:ask="false" v:langID="1031" v:cal="0" v:val="VT0(0):26"/>
+			</v:custProps>
+			<v:userDefs>
+				<v:ud v:nameU="solsh" v:val="VT15({1E3B3066-9E48-43AD-812D-67A2086F19C3}):41"/>
+				<v:ud v:nameU="shapetype" v:val="VT0(2):26"/>
+				<v:ud v:nameU="shapelook" v:prompt="1;Oval;2;Wolke;3;Rechteck;5;Linie;6;Freihand;7;Welle" v:val="VT0(5):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="OPRIndicator" v:val="VT0(0):26"/>
+				<v:ud v:nameU="FlipX" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="FlipY" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="DeltaX" v:prompt="" v:val="VT0(1.629975):26"/>
+				<v:ud v:nameU="DeltaY" v:prompt="" v:val="VT0(-0.492126):26"/>
+				<v:ud v:nameU="PageLoc" v:prompt="" v:val="VT7(PNT(5.284038261,2.426208458)):40"/>
+				<v:ud v:nameU="ParLocX" v:prompt="" v:val="VT0(3.654063261):1"/>
+				<v:ud v:nameU="ParLocY" v:prompt="" v:val="VT0(1.934082458):1"/>
+				<v:ud v:nameU="ParLoc" v:prompt="" v:val="VT7(PNT(3.654063261,1.934082458)):40"/>
+				<v:ud v:nameU="TreePos" v:prompt="" v:val="VT0(1):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197" v:verticalAlign="2"/>
+			<v:textRect cx="45" cy="410.919" width="90" height="36"/>
+			<path d="M0 430.72 L90 430.72" class="st3"/>
+			<text x="33.92" y="424.72" class="st4" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Ana</text>		</g>
+		<g id="shape19-76" v:mID="19" v:groupContext="shape" v:layerMember="0" transform="translate(308.093,-139.254)">
+			<title>Dynamischer Verbinder.19</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 448.72 C11.17 448.72 13.22 425.07 21.05 416.42 L21.37 416.26" class="st5"/>
+		</g>
+		<g id="shape20-81" v:mID="20" v:groupContext="shape" transform="translate(335.451,-88.8681)">
+			<title>Thema.20</title>
+			<desc>Spectrum Analyzer</desc>
+			<v:custProps>
+				<v:cp v:nameU="shapelook" v:lbl="" v:type="0" v:format="1;Oval;2;Wolke;3;Rechteck;5;Linie;6;Freihand;7;Welle"
+						v:sortKey="" v:invis="true" v:ask="false" v:langID="1031" v:cal="0" v:val="VT0(0):26"/>
+			</v:custProps>
+			<v:userDefs>
+				<v:ud v:nameU="solsh" v:val="VT15({1E3B3066-9E48-43AD-812D-67A2086F19C3}):41"/>
+				<v:ud v:nameU="shapetype" v:val="VT0(2):26"/>
+				<v:ud v:nameU="shapelook" v:prompt="1;Oval;2;Wolke;3;Rechteck;5;Linie;6;Freihand;7;Welle" v:val="VT0(5):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="OPRIndicator" v:val="VT0(0):26"/>
+				<v:ud v:nameU="FlipX" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="FlipY" v:prompt="" v:val="VT0(-1):26"/>
+				<v:ud v:nameU="DeltaX" v:prompt="" v:val="VT0(1.629975):26"/>
+				<v:ud v:nameU="DeltaY" v:prompt="" v:val="VT0(0.449803):26"/>
+				<v:ud v:nameU="PageLoc" v:prompt="" v:val="VT7(PNT(5.284038261,1.484279458)):40"/>
+				<v:ud v:nameU="ParLocX" v:prompt="" v:val="VT0(3.654063261):1"/>
+				<v:ud v:nameU="ParLocY" v:prompt="" v:val="VT0(1.934082458):1"/>
+				<v:ud v:nameU="ParLoc" v:prompt="" v:val="VT7(PNT(3.654063261,1.934082458)):40"/>
+				<v:ud v:nameU="TreePos" v:prompt="" v:val="VT0(2):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197" v:verticalAlign="2"/>
+			<v:textRect cx="45" cy="410.919" width="90" height="36"/>
+			<path d="M0 430.72 L90 430.72" class="st3"/>
+			<text x="17.61" y="407.92" class="st4" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Spectrum <tspan
+						x="20.46" dy="1.2em" class="st7">Analyzer</tspan></text>		</g>
+		<g id="shape21-86" v:mID="21" v:groupContext="shape" v:layerMember="0" transform="translate(308.093,-139.254)">
+			<title>Dynamischer Verbinder.21</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 448.72 C11.13 448.72 13.21 470.17 20.97 478.16 L21.29 478.31" class="st5"/>
+		</g>
+		<g id="shape22-91" v:mID="22" v:groupContext="shape" transform="translate(335.451,-25.8681)">
+			<title>Thema.22</title>
+			<desc>EVE</desc>
+			<v:custProps>
+				<v:cp v:nameU="shapelook" v:lbl="" v:type="0" v:format="1;Oval;2;Wolke;3;Rechteck;5;Linie;6;Freihand;7;Welle"
+						v:sortKey="" v:invis="true" v:ask="false" v:langID="1031" v:cal="0" v:val="VT0(0):26"/>
+			</v:custProps>
+			<v:userDefs>
+				<v:ud v:nameU="solsh" v:val="VT15({1E3B3066-9E48-43AD-812D-67A2086F19C3}):41"/>
+				<v:ud v:nameU="shapetype" v:val="VT0(2):26"/>
+				<v:ud v:nameU="shapelook" v:prompt="1;Oval;2;Wolke;3;Rechteck;5;Linie;6;Freihand;7;Welle" v:val="VT0(5):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="OPRIndicator" v:val="VT0(0):26"/>
+				<v:ud v:nameU="FlipX" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="FlipY" v:prompt="" v:val="VT0(-1):26"/>
+				<v:ud v:nameU="DeltaX" v:prompt="" v:val="VT0(1.629975):26"/>
+				<v:ud v:nameU="DeltaY" v:prompt="" v:val="VT0(1.324803):26"/>
+				<v:ud v:nameU="PageLoc" v:prompt="" v:val="VT7(PNT(5.284038261,0.609279458)):40"/>
+				<v:ud v:nameU="ParLocX" v:prompt="" v:val="VT0(3.654063261):1"/>
+				<v:ud v:nameU="ParLocY" v:prompt="" v:val="VT0(1.934082458):1"/>
+				<v:ud v:nameU="ParLoc" v:prompt="" v:val="VT7(PNT(3.654063261,1.934082458)):40"/>
+				<v:ud v:nameU="TreePos" v:prompt="" v:val="VT0(3):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197" v:verticalAlign="2"/>
+			<v:textRect cx="45" cy="410.919" width="90" height="36"/>
+			<path d="M0 430.72 L90 430.72" class="st3"/>
+			<text x="34.19" y="424.72" class="st4" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>EVE</text>		</g>
+		<g id="shape23-95" v:mID="23" v:groupContext="shape" v:layerMember="0" transform="translate(308.093,-139.254)">
+			<title>Dynamischer Verbinder.23</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 448.72 C13.68 448.72 13.68 472.57 13.68 496.41 C13.68 515.59 13.68 534.78 20.8 541.55 L21.13 541.68"
+					class="st5"/>
+		</g>
+		<g id="group24-100" transform="translate(24.4913,187.576) rotate(-90) scale(-1,1)" v:mID="24" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="ShadowColor" v:val="VT5(#84877b)"/>
+				<v:ud v:nameU="ShadowPercentage" v:val="VT0(0.6):26"/>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ShadowColor" v:prompt="" v:val="VT5(#2a4475)"/>
+			</v:userDefs>
+			<title>Pfeil nach oben</title>
+			<desc>Data aquisition, analysis, visualization</desc>
+			<g id="shape25-101" v:mID="25" v:groupContext="shape">
+				<title>Tabelle.25</title>
+				<path d="M14.17 392.03 L22.68 400.53 L22.68 457.22 L14.17 448.72 L14.17 392.03 Z" class="st8"/>
+			</g>
+			<g id="shape26-103" v:mID="26" v:groupContext="shape">
+				<title>Tabelle.26</title>
+				<path d="M234.39 434.55 L14.17 434.55 L22.68 443.05 L242.89 443.05 L234.39 434.55 L242.89 443.05 L242.89 414.7 L234.39
+							 406.2 L234.39 434.55 Z" class="st8"/>
+			</g>
+			<g id="shape27-105" v:mID="27" v:groupContext="shape" transform="translate(233.39,-14.2982)">
+				<title>Tabelle.27</title>
+				<rect x="0" y="420.748" width="2" height="27.8465" class="st9"/>
+			</g>
+			<g id="shape28-107" v:mID="28" v:groupContext="shape">
+				<title>Tabelle.28</title>
+				<path d="M234.39 434.55 L14.17 434.55 L14.17 448.72 L0 420.37 L14.17 392.03 L14.17 406.2 L234.39 406.2 L234.39 434.55
+							 Z" class="st1"/>
+			</g>
+			<g id="shape24-109" v:mID="24" v:groupContext="groupContent">
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="117.195" cy="420.373" width="234.39" height="56.6929" transform="rotate(360)"/>
+				<text x="-208.92" y="423.97" transform="scale(-1,1)" class="st10" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Data aquisition, analysis, visualization</text>			</g>
+		</g>
+		<g id="group29-111" transform="translate(475.473,274.032) rotate(90) scale(-1,1)" v:mID="29" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="ShadowColor" v:val="VT5(#84877b)"/>
+				<v:ud v:nameU="ShadowPercentage" v:val="VT0(0.6):26"/>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ShadowColor" v:prompt="" v:val="VT5(#2a4475)"/>
+			</v:userDefs>
+			<title>Pfeil nach oben.29</title>
+			<desc>Measurement Timetable</desc>
+			<g id="shape30-112" v:mID="30" v:groupContext="shape">
+				<title>Tabelle.30</title>
+				<path d="M14.17 392.03 L22.68 400.53 L22.68 457.22 L14.17 448.72 L14.17 392.03 Z" class="st8"/>
+			</g>
+			<g id="shape31-114" v:mID="31" v:groupContext="shape">
+				<title>Tabelle.31</title>
+				<path d="M234.39 434.55 L14.17 434.55 L22.68 443.05 L242.89 443.05 L234.39 434.55 L242.89 443.05 L242.89 414.7 L234.39
+							 406.2 L234.39 434.55 Z" class="st8"/>
+			</g>
+			<g id="shape32-116" v:mID="32" v:groupContext="shape" transform="translate(233.39,-14.2982)">
+				<title>Tabelle.32</title>
+				<rect x="0" y="420.748" width="2" height="27.8465" class="st9"/>
+			</g>
+			<g id="shape33-118" v:mID="33" v:groupContext="shape">
+				<title>Tabelle.33</title>
+				<path d="M234.39 434.55 L14.17 434.55 L14.17 448.72 L0 420.37 L14.17 392.03 L14.17 406.2 L234.39 406.2 L234.39 434.55
+							 Z" class="st1"/>
+			</g>
+			<g id="shape29-120" v:mID="29" v:groupContext="groupContent">
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="117.195" cy="420.373" width="234.39" height="56.6929" transform="rotate(180)"/>
+				<text x="56.85" y="-416.77" transform="scale(1,-1)" class="st10" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Measurement Timetable</text>			</g>
+		</g>
+	</g>
+</svg>

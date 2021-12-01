@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generiert durch Microsoft Visio, SVG Export data-science-venn.svg Page-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="4.87309in" height="4.71211in"
+		viewBox="0 0 350.862 339.272" xml:space="preserve" color-interpolation-filters="sRGB" class="st9">
+	<title>Data Science Venn Diagram (from Drew Conway)</title>
+	<v:documentProperties v:langID="1031" v:metric="true" v:viewMarkup="false">
+		<v:userDefs>
+			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>
+		</v:userDefs>
+	</v:documentProperties>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#ffc000;fill-opacity:0.5}
+		.st2 {stroke:#c7c8c8;stroke-width:0.25;visibility:hidden}
+		.st3 {fill:#5b9bd5;fill-opacity:0.5}
+		.st4 {fill:#feffff;font-family:Calibri;font-size:1.5em}
+		.st5 {fill:#70ad47;fill-opacity:0.5}
+		.st6 {fill:none;stroke:none;stroke-width:0.25}
+		.st7 {font-size:1em}
+		.st8 {fill:#feffff;font-family:Calibri;font-size:1.00001em}
+		.st9 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<v:userDefs>
+			<v:ud v:nameU="msvThemeOrder" v:val="VT0(0):26"/>
+		</v:userDefs>
+		<title>Zeichenblatt-1</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<g id="shape9-1" v:mID="9" v:groupContext="shape" transform="translate(18.25,-24.4038)">
+			<title>Venn-Diagramm-Shape</title>
+			<v:userDefs>
+				<v:ud v:nameU="AccentColorID" v:prompt="" v:val="VT0(6):26"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="AccentColorID" v:prompt="" v:val="VT0(4):26"/>
+			</v:userDefs>
+			<ellipse cx="92.798" cy="246.474" rx="92.798" ry="92.798" class="st1"/>
+			<ellipse cx="92.798" cy="246.474" rx="92.798" ry="92.798" class="st2"/>
+		</g>
+		<g id="shape10-4" v:mID="10" v:groupContext="shape" transform="translate(82.6331,-135.426)">
+			<title>Venn-Diagramm-Shape.10</title>
+			<desc>Math &#38; Statistics</desc>
+			<v:userDefs>
+				<v:ud v:nameU="AccentColorID" v:prompt="" v:val="VT0(6):26"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="AccentColorID" v:prompt="" v:val="VT0(5):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="92.798" cy="246.474" width="185.6" height="185.596"/>
+			<ellipse cx="92.798" cy="246.474" rx="92.798" ry="92.798" class="st3"/>
+			<ellipse cx="92.798" cy="246.474" rx="92.798" ry="92.798" class="st2"/>
+			<text x="30.37" y="251.87" class="st4" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Math &#38; Statistics</text>		</g>
+		<g id="shape11-8" v:mID="11" v:groupContext="shape" transform="translate(147.016,-24.4038)">
+			<title>Venn-Diagramm-Shape.11</title>
+			<v:userDefs>
+				<v:ud v:nameU="AccentColorID" v:prompt="" v:val="VT0(6):26"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<ellipse cx="92.798" cy="246.474" rx="92.798" ry="92.798" class="st5"/>
+			<ellipse cx="92.798" cy="246.474" rx="92.798" ry="92.798" class="st2"/>
+		</g>
+		<g id="shape12-11" v:mID="12" v:groupContext="shape" transform="translate(203.636,-96.9272)">
+			<title>Tabelle.12</title>
+			<desc>Programming Skills</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="53.8583" cy="329.272" width="107.72" height="20"/>
+			<rect x="0" y="319.272" width="107.717" height="20" class="st6"/>
+			<text x="4.23" y="323.87" class="st4" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Programming <tspan
+						x="35.92" dy="1.2em" class="st7">Skills</tspan></text>		</g>
+		<g id="shape13-15" v:mID="13" v:groupContext="shape" transform="translate(263.994,-143.168) rotate(30)">
+			<title>Tabelle.13</title>
+			<desc>Traditional Research</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="37.6792" cy="329.272" width="75.36" height="20"/>
+			<rect x="0" y="319.272" width="75.3584" height="20" class="st6"/>
+			<text x="11.31" y="325.67" class="st8" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Traditional <v:newlineChar/><tspan
+						x="15.45" dy="1.2em" class="st7">Research</tspan></text>		</g>
+		<g id="shape15-19" v:mID="15" v:groupContext="shape" transform="translate(22.6342,-107.813) rotate(-30)">
+			<title>Tabelle.15</title>
+			<desc>Machine Learning</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="43.3858" cy="329.272" width="86.78" height="20"/>
+			<rect x="0" y="319.272" width="86.7717" height="20" class="st6"/>
+			<text x="22.18" y="325.67" class="st8" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Machine <v:newlineChar/><tspan
+						x="22.41" dy="1.2em" class="st7">Learning</tspan></text>		</g>
+		<g id="shape20-23" v:mID="20" v:groupContext="shape" transform="translate(18.25,-107.202)">
+			<title>Tabelle.20</title>
+			<desc>Substantive Expertise</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="76" cy="329.272" width="152.01" height="20"/>
+			<rect x="0" y="319.272" width="152" height="20" class="st6"/>
+			<text x="33.21" y="323.87" class="st4" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Substantive <v:newlineChar/><tspan
+						x="42.29" dy="1.2em" class="st7">Expertise</tspan></text>		</g>
+		<g id="shape22-27" v:mID="22" v:groupContext="shape" transform="translate(-156.896,321.022) rotate(-90)">
+			<title>Tabelle.22</title>
+			<desc>Danger Zone</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="76" cy="329.272" width="152" height="20"/>
+			<rect x="0" y="319.272" width="152" height="20" class="st6"/>
+			<text x="44.91" y="332.87" class="st8" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Danger Zone</text>		</g>
+		<g id="shape24-30" v:mID="24" v:groupContext="shape" transform="translate(148.77,-147.951)">
+			<title>Tabelle.24</title>
+			<desc>Data Science</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="26.6614" cy="329.272" width="53.33" height="20"/>
+			<rect x="0" y="319.272" width="53.3228" height="20" class="st6"/>
+			<text x="15.21" y="325.67" class="st8" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Data <tspan x="8.33"
+						dy="1.2em" class="st7">Science</tspan></text>		</g>
+	</g>
+</svg>

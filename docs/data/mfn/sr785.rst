@@ -1,0 +1,172 @@
+====================
+MFN: Signal Analyzer
+====================
+
+.. _MFN: ../onenote/03_mfn.rst
+
+:Date: 2019
+:Angle: 90deg
+
+.. important::
+   Every parameter can be researched in detail it the OneNote notebook 03: MFN_
+
+
+Filling Helium Effect
++++++++++++++++++++++
+
+.. important::
+   
+   We found out: Filling helium into the cryostat interferes with the electric wiring of the cryostat and 
+   makes measurements impossible for the near time.
+
+
+Cite from OneNote 03: MFN_
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   :Date: 12. Juli 2019
+
+   **Measurement Plan 9**: after filling He, the **temperature was not stable**. I took 5 hours to be stable. 
+   choosing the sensitivity extremly depend on the temperature. It was on overload  when choosing 5mV. 
+
+   After stabalizing the temp, 5mV was OK.
+
+
+
+Static Field
+------------
+
+Important Measurements
+++++++++++++++++++++++
+
+Measurement Plan #11: different applied current for plusses
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Together with Measurement Plan #5: Static field effect
+
++-----+----------+-----------+---------+-----------------+
+| Nr. | Struct   |      Temp |  Dir    | Position \[mT\] | 
++=====+==========+===========+=========+=================+
+| 360 | Plusses  |         5 |  Down   |            25   |
++-----+----------+-----------+---------+-----------------+
+| 361 | Plusses  |         5 |  Up     |           -25   |
++-----+----------+-----------+---------+-----------------+
+| 280 | Crosses  |        30 |  Down   |             0   |
++-----+----------+-----------+---------+-----------------+
+| 281 | Plusses  |        30 |  Down   |             0   |
++-----+----------+-----------+---------+-----------------+
+| 310 | Empty    |        30 |  Down   |             0   |
++-----+----------+-----------+---------+-----------------+
+| 282 | Plusses  |        30 |  Down   |          -9.4   |
++-----+----------+-----------+---------+-----------------+
+| 283 | Crosses  |        30 |  Down   |          -9.4   |
++-----+----------+-----------+---------+-----------------+
+
+First measurements at 90deg
+++++++++++++++++++++++++++++
+
+:Date: 6. Juni 2019
+
+.. csv-table::
+   :file: 01-first-90deg.csv
+   :delim: ;
+
+Measurement Plan #2
+++++++++++++++++++++
+
+:Date: 13. Juni 2019
+
+.. csv-table::
+   :file: 02-plan.csv
+   :delim: ;
+   :header: Nr,Struct,Field,Permanent?,F-Span,Avg,Time
+
+
+Moving Field
+------------
+
+:Date: 13. Juni 2019
+
+Sweeping the field from positive to negative :math:`B_{max}`.
+
+.. note::
+
+   * **C**: Crosses  
+   * **P**: Plusses  
+   * **#1**: Empty Cross
+
+.. figure:: /img/03_mfn_first_field_sweeps.png
+    
+   First field sweeps
+
+
+Measurement Plan #2
++++++++++++++++++++
+
+:Date: 13. Juni 2019
+
+.. csv-table::
+   :file: 02-plan-moving.csv
+   :delim: ;
+   :header: Nr,Struct,Field From,Field To,"SR [mT/min]",F-Span,Avg,"Time [min]"
+
+:index: m322; m327; m328
+.. figure:: /img/m32278.png
+    
+   **Plan #2**: Field sweeps inside hysteresis (m322/327/328).
+
+
+
+Large Sweep Ranges
+++++++++++++++++++++++
+
+:Temperature: :math:`T = 30~K`
+
++-----+----------+-----------+---------------+
+| Nr. | Struct   |      From |            To | 
++=====+==========+===========+===============+
+| 320 | Empty    |       2 T |           1 T |
++-----+----------+-----------+---------------+
+| 325 | Crosses  |       2 T |           1 T |
++-----+----------+-----------+---------------+
+| 323 | Empty    |       1 T |          -1 T |
++-----+----------+-----------+---------------+
+| 329 | Crosses  |       1 T |          -1 T |
++-----+----------+-----------+---------------+
+| 322 | Empty    |      .5 T |         -.5 T |
++-----+----------+-----------+---------------+
+| 327 | Crosses  |      .5 T |         -.5 T |
++-----+----------+-----------+---------------+
+| 336 | Plusses  |      .5 T |         -.5 T |
++-----+----------+-----------+---------------+
+| 333 | Crosses  |     .75 T |        -.75 T |
++-----+----------+-----------+---------------+
+| 332 | Crosses  |      .3 T |         -.3 T |
++-----+----------+-----------+---------------+
+| 331 | Crosses  |      .1 T |         -.1 T |
++-----+----------+-----------+---------------+
+
+Plots
+~~~~~
+
+
+Different Sweep Rates
++++++++++++++++++++++++++
+
+.. important::
+   * T = 30K 
+   * Plusses
+   * Sweeps from :math:`-M_S \rightarrow -25 \rightarrow 25` mT
+
++-----+----------------+
+| Nr. |  Rate (mT/min) |
++=====+================+
+| 354 |              2 |
++-----+----------------+
+| 351 |              1 |
++-----+----------------+
+| 353 |            .25 |
++-----+----------------+
+| 352 |             .1 |
++-----+----------------+
+
