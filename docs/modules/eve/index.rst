@@ -3,16 +3,6 @@
 EVE
 ===
 
-.. toctree::
-   :maxdepth: 3
-   :caption: Software
-
-   readme
-   install
-   wiki
-   programming
-   source
-
 
 Licensing
 ---------

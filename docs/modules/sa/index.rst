@@ -6,5 +6,3 @@ SpectrumAnalyzer
    :caption: Content
 
    readme
-   pydoc
-   source

@@ -105,3 +105,8 @@ The following steps are done automatically by ``cut_timesignal(num)``:
 #. Return a single PSD for the ``k``th part of the signal.
 
 #. When ``k == num`` the averaged spectrum is returned.
+
+Licensing
+---------
+
+.. warning:: SpectrumAnalyzer does not have a license yet and can not be published at this point.
