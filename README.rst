@@ -24,9 +24,7 @@ and `Jupyter Notebooks`_.
 The links above point to my online GitLab server,
 which is available for reviewers with provided credentials.
 
-The code can be tested in a :doc:`local <info/usage>` or the `provided Jupyterlab`_.
-The password for the provided Jupyterlab server is:
-``y*CA#A6Tt8gRdS4KduAB^L!g7#PqKi``
+The code can be tested in a :doc:`local <info/usage>` Jupyterlab.
 
 All of these services are password protected and
 run simultaneously inside
@@ -59,16 +57,6 @@ Lab Book
 This compendium (collection of multiple data, scripts, examples, and documentation) is available under the terms of
 the `CC BY License <https://creativecommons.org/licenses/by/4.0/>`_.
 
-EVE
-~~~~~~~
-
-.. todo:: EVE does not have a license yet.
-
-Spectrumanalyzer
-~~~~~~~~~~~~~~~~~
-
-.. todo:: The spectrumanalyzer does not have a license yet.
-
 Ana
 ~~~~~~~
 
@@ -89,8 +77,7 @@ The analysis framework Ana is distributed under the terms of the `GNU GPLv3 Lice
 explicitly grant permission and **encourage users to use, modify and share**
 the code under the named terms.
 
-.. note::
-    
+.. important::
    Copyright (C) 2020 Jonathan Pieper
 
    This program is free software: you can redistribute it and/or modify
@@ -105,6 +92,3 @@ the code under the named terms.
 
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-.. todo::
-   Certify with `CII Best Practices Badge <https://bestpractices.coreinfrastructure.org/>`_.
