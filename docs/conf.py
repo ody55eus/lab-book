@@ -13,12 +13,12 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Lab Book'
-copyright = '2020, Jonathan Pieper'
+copyright = '2020/2021, Jonathan Pieper'
 author = 'Jonathan Pieper'
 
 # The full version, including alpha/beta/rc tags
-version = '0.3'
-release = '0.3.0rc'
+version = '0.4'
+release = '0.4'
 
 source_suffix = {
     '.rst': 'restructuredtext',
