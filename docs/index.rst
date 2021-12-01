@@ -8,29 +8,26 @@ Welcome to my Lab Book!
 
 :Author: Jonathan Pieper
 
-.. image:: https://img.shields.io/badge/Thesis-Print--PDF-EC1C24?style=plastic&logo=adobe-acrobat-reader
-   :target: https://gitlab.ody5.de/ganymede/master-thesis/-/jobs/2033/artifacts/raw/thesis.pdf?inline=false
-
-.. image:: https://img.shields.io/badge/Thesis-Online--PDF-EC1C24?style=plastic&logo=adobe-acrobat-reader
-   :target: https://gitlab.ody5.de/ganymede/master-thesis/-/jobs/2067/artifacts/raw/thesis.pdf?inline=false
+.. image:: https://img.shields.io/badge/Thesis-PDF-EC1C24?style=plastic&logo=adobe-acrobat-reader
+   :target: https://gitlab.com/ody55eus/master-thesis/-/jobs/artifacts/file/thesis.pdf?job=build
 
 .. image:: https://img.shields.io/badge/Thesis-LaTeX-008080?style=plastic&logo=latex
-   :target: https://gitlab.ody5.de/ganymede/master-thesis
+   :target: https://gitlab.com/ody55eus/master-thesis
 
 .. image:: https://img.shields.io/badge/LabBook-GitLab-FCA121?style=plastic&logo=gitlab
-   :target: https://gitlab.ody5.de/ganymede/lab-book
+   :target: https://gitlab.com/ody55eus/lab-book
 
 .. image:: https://img.shields.io/badge/JupyterLab-Server-F37626?style=plastic&logo=jupyter
    :target: https://lab.ody5.de
 
 .. image:: https://img.shields.io/badge/JupyterLab-Dockerfile-2496ED?style=plastic&logo=docker
-   :target: https://gitlab.com/ganymede/jupyterlab/-/blob/master/Dockerfile
+   :target: https://gitlab.com/ody5-dev/docker/jupyterlab/-/blob/master/Dockerfile
 
 .. image:: https://img.shields.io/badge/Data-Repository-FCA121?style=plastic&logo=gitlab
-   :target: https://gitlab.ody5.de/ganymede/master-data
+   :target: https://gitlab.com/ody55eus/master-data
 
 
-This Lab Book is a review of my work at the :doc:`AG Müller <info/groupwiki/home>`.
+This Lab Book is a review of my work at the :doc:`AG Müller <info/groupwiki/home>` and supplemental information to my master thesis.
 
 .. important::
    You can find all information about the :doc:`data and measurements <data/index>` 
