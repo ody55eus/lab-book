@@ -20,7 +20,7 @@ docs:html:
     paths:
       - public
   only:
-    - master
+    - main
     - release/*
 
 ana:prepair:
@@ -40,7 +40,7 @@ ana:prepair:
     paths:
       - output
   only:
-    - master
+    - main
     - develop
 
 ana:fit:
