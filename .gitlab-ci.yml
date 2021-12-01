@@ -5,7 +5,7 @@ stages:
   - doc
   - ana
 
-image: registry.gitlab.com/ody5-dev/docker/jupyterlab/ana
+image: registry.gitlab.com/ody5-dev/docker/jupyterlab:ana
 
 docs:html:
   stage: doc
