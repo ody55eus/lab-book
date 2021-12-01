@@ -27,7 +27,7 @@ Welcome to my Lab Book!
    :target: https://gitlab.com/ody55eus/master-data
 
 
-This Lab Book is a review of my work at the :doc:`AG Müller <info/groupwiki/home>` and supplemental information to my master thesis.
+This Lab Book is a review of my work at the `AG Müller <https://www.uni-frankfurt.de/49964693/Molecular_Metals_and_Magnetic_Nanostructures>` and supplemental information to my master thesis.
 
 .. important::
    You can find all information about the :doc:`data and measurements <data/index>` 

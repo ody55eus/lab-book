@@ -14,6 +14,8 @@ docs:html:
     - git clone http://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/ody55eus/ana.git ana
     - cd ana && python -m pip install -e . && cd ..
     - cd docs/modules && git clone http://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/ody55eus/FORC-data.git forc && cd ../..
+    - mv source/onenote/html docs/_static/html
+    - mv source/onenote/word docs/_static/word
   script:
     - make clean html && make html
     - mv _build/html public
