@@ -2,12 +2,12 @@
 Readme
 ==============
 
-.. _Lab Book: https://gitlab.ody5.de/ganymede/lab-book
-.. _data: https://gitlab.ody5.de/jp/master-data
-.. _EVE: https://gitlab.ody5.de/AGM/EVE
-.. _spectrumanalyzer: https://gitlab.ody5.de/AGM/spectrumanalyzer
-.. _Ana: https://gitlab.ody5.de/AGM/ana
-.. _Jupyter Notebooks: https://gitlab.ody5.de/ganymede/lab-book/-/tree/master/docs/notebooks
+.. _Lab Book: https://gitlab.com/ody55eus/lab-book
+.. _data: https://gitlab.com/ody55eus/master-data
+.. _EVE: https://gitlab.com/ody55eus/EVE
+.. _spectrumanalyzer: https://gitlab.com/ody55eus/spectrumanalyzer
+.. _Ana: https://gitlab.com/ody55eus/ana
+.. _Jupyter Notebooks: https://gitlab.com/ody55eus/lab-book/-/tree/master/docs/notebooks
 .. _provided Jupyterlab: https://lab.ody5.de
 
 Laboratory Book

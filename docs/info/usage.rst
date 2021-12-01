@@ -32,7 +32,7 @@ Run the docker container for **Jupyterlab** to start developing:
 .. code-block:: console
 
    $ docker run -d -p 8888:8888 -e "PASSWORD=YourSecurePassword" \
-                -e GIT_URL="http://192.168.6.7/jp/lab-book.git" \
+                -e GIT_URL="http://gitlab.com/ody55eus/lab-book.git" \
                 --name jupyterlab \
                 registry.gitlab.com/ganymede/jupyterlab:latest
 
@@ -42,7 +42,7 @@ If you just want the Python environment to execute the tests, use the `ana` tag:
 .. code-block:: console
 
    $ docker run -d -p 8888:8888 -e "PASSWORD=YourSecurePassword" \
-                -e GIT_URL="http://192.168.6.7/jp/lab-book.git" \
+                -e GIT_URL="http://gitlab.com/ody55eus/lab-book.git" \
                 --name python \
                 registry.gitlab.com/ganymede/jupyterlab:ana
 
@@ -73,8 +73,8 @@ Clone the repositories (change URLs accordingly) and install spectrumanalyzer an
 
 .. code-block:: console
 
-   $ python -m pip install -e git+http://192.168.6.7/AGM/spectrumanalyzer.git
-   $ python -m pip install -e git+http://192.168.6.7/AGM/ana.git
+   $ python -m pip install -e git+http://gitlab.com/ody55eus/spectrumanalyzer.git
+   $ python -m pip install -e git+http://gitlab.com/ody55eus/ana.git
    $ python -m pip install coverage
 
 
@@ -107,7 +107,7 @@ To create the Lab Book use the following docker image
 
 .. code-block:: console
 
-   $ docker run -d  -e GIT_URL="http://192.168.6.7/jp/lab-book.git" \
+   $ docker run -d  -e GIT_URL="http://gitlab.com/ody55eus/lab-book.git" \
                 -p 8888:8888 -e "PASSWORD=YourSecurePassword" \
                 --name python \
                 registry.gitlab.com/ganymede/jupyterlab:ana

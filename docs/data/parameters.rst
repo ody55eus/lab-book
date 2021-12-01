@@ -95,7 +95,7 @@ Data Aquisition (DAQ)
    filtering signal, see `SpectrumAnalyzer <../modules/sa/index>`_
    ``zero_padding``, Adding 0 for missing values
 
-.. todo:: implement ``zero_padding`` (currently different length measurements result in data loss. See <http://192.168.6.7/AGM/ana/-/blob/master/ana/mfn.py#L223>)
+.. todo:: implement ``zero_padding`` (currently different length measurements result in data loss. See <http://gitlab.com/ody55eus/ana/-/blob/master/ana/mfn.py#L223>)
 
 .. |psd| replace:: power spectral density
 .. |theta| unicode:: U+003B8 .. GREEK SMALL LETTER THETA

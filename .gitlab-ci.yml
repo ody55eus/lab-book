@@ -11,6 +11,7 @@ docs:html:
   stage: doc
   allow_failure: true
   before_script:
+    - git clone http://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/ody55eus/ana.git ana
     - cd ana && python -m pip install -e . && cd ..
     - cd docs/modules && git clone http://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/ody55eus/FORC-data.git forc && cd ../..
   script:

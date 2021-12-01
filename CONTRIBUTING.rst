@@ -14,7 +14,7 @@ Types of Contributions
 Report Bugs
 ~~~~~~~~~~~
 
-.. _issues: http://192.168.6.7/jp/lab-book/-/issues
+.. _issues: http://gitlab.com/ody55eus/lab-book/-/issues
 
 Report bugs at issues_.
 
@@ -82,7 +82,7 @@ Before you submit a merge request, check that it meets these guidelines:
    your new functionality into a function with a docstring, and add the
    feature to the list in README.rst.
 3. The merge request should work for Python 3.5, 3.6, 3.7 and 3.8. Check
-   http://192.168.6.7/jp/lab-book/-/merge_requests
+   http://gitlab.com/ody55eus/lab-book/-/merge_requests
    and make sure that the tests pass for all supported Python versions.
 
 Tips
