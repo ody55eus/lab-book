@@ -9,7 +9,7 @@ Welcome to my Lab Book!
 :Author: Jonathan Pieper
 
 .. image:: https://img.shields.io/badge/Thesis-PDF-EC1C24?style=plastic&logo=adobe-acrobat-reader
-   :target: https://gitlab.com/ody55eus/master-thesis/-/jobs/artifacts/file/thesis.pdf?job=build
+   :target: https://gitlab.com/ody55eus/master-thesis/-/jobs/artifacts/master/file/thesis.pdf?job=build
 
 .. image:: https://img.shields.io/badge/Thesis-LaTeX-008080?style=plastic&logo=latex
    :target: https://gitlab.com/ody55eus/master-thesis
@@ -27,7 +27,8 @@ Welcome to my Lab Book!
    :target: https://gitlab.com/ody55eus/master-data
 
 
-This Lab Book is a review of my work at the `AG Müller <https://www.uni-frankfurt.de/49964693/Molecular_Metals_and_Magnetic_Nanostructures>` and supplemental information to my master thesis.
+This Lab Book is a review of my work at the `AG Müller <https://www.uni-frankfurt.de/49964693/Molecular_Metals_and_Magnetic_Nanostructures>`_ (Goethe University Frankfurt).
+It also contains supplemental information and data descriptions to my master thesis.
 
 .. important::
    You can find all information about the :doc:`data and measurements <data/index>` 
