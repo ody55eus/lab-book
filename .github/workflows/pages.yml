@@ -1,0 +1,37 @@
+name: Publish to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: registry.gitlab.com/ody5-dev/docker/jupyterlab:ana
+    steps:
+      - name: Check out
+        uses: actions/checkout@v1
+
+      - name: Clone ana
+        run: git clone https://gitlab.com/ody55eus/ana.git
+
+      - name: Install ana
+        run: cd ana && python -m pip install -e . && cd ..
+
+      - name: Clone FORC data script
+        run: cd docs/modules && git clone http://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/ody55eus/FORC-data.git forc && cd ../..
+
+      - name: move OneNote exports
+        run: mv source/onenote/html docs/_static/html && mv source/onenote/word docs/_static/word
+
+      - name: Build the site
+        run: make clean html
+
+      - name: Deploy site
+        run: mv _build/html public
+
+      - name: Publish generated content to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: public
