@@ -32,8 +32,8 @@ It also contains supplemental information and data descriptions to my master the
 
 .. important::
    You can find all information about the :doc:`data and measurements <data/index>` 
-   with inside the exported :doc:`OneNote Notebooks <data/onenote/index>`
-   and the used software to :doc:`aqquire <modules/eve/index>`,
+   inside the exported :doc:`OneNote Notebooks <data/onenote/index>`
+   and the used software to :doc:`acquire <modules/eve/index>`,
    :doc:`analyze <modules/notebooks>`, and :doc:`visualize <modules/notebooks>` 
    the data:
 
@@ -53,7 +53,7 @@ It also contains supplemental information and data descriptions to my master the
 
 .. admonition:: EVE
 
-   The main software used to controll and communicate with the instruments EVE: 
+   The main software used to control and communicate with the instruments EVE:
       :doc:`modules/eve/index`
    
 .. admonition:: Data Analysis

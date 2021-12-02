@@ -26,14 +26,6 @@ which is available for reviewers with provided credentials.
 
 The code can be tested in a :doc:`local <info/usage>` Jupyterlab.
 
-All of these services are password protected and
-run simultaneously inside
-different docker containers on the same server.
-This enhances the security of this server immensely.
-The amount of different services can sometimes overload the server,
-but downtimes are anticipated and monitored
-to minimize the impact.
-
 
 .. figure:: img/lab-book.svg
 
