@@ -1,0 +1,2152 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hloop &mdash; Lab Book 0.4 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Signal Analyzer Measurements (1)" href="02.1_Signal_Analyzer.html" />
+    <link rel="prev" title="Master Thesis (All Plots)" href="00_MasterPlots.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Lab Book
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Lab Book</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/gitlab.html">GitLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/onenote/index.html">Original Lab Book</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data/index.html">About the Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/hloop/index.html">Magnetic Characterization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/mfn/index.html">Magnetic Flux Noise (MFN)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../modules/notebooks.html">Jupyter Notebooks</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00_MasterPlots.html">Master Thesis (All Plots)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Hloop</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Calculate-carrier-concentration">Calculate carrier concentration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Load-Measurement-Info-(Angles)">Load Measurement Info (Angles)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Plot-Strayfield">Plot Strayfield</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Measurement-Plan-(90deg,-Noise)">Measurement Plan (90deg, Noise)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Plot-All-measurements">Plot All measurements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Show-Measurement-Infos">Show Measurement Infos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="02.1_Signal_Analyzer.html">Signal Analyzer Measurements (1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.2_Signal_Analyzer.html">Signal Analyzer Measurements (2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.0_RAW.html">RAW Time-Signal Measurements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04.2_MFN_sweeprates.html">MFN: Compare Different Sweeprates (SR830 vs. SR785)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04.3_MFN_voltages.html">MFN: Compare Different Voltages (SR830 vs. SR785)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/ana/index.html">Data Analysis Framework (Ana)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/sa/index.html">SpectrumAnalyzer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/eve/index.html">EVE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/scripts.html">Python Scripts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../info/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/idx.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Lab Book</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../modules/notebooks.html">Jupyter Notebooks</a> &raquo;</li>
+      <li>Hloop</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/notebooks/01_Hloop.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="Hloop">
+<h1>Hloop<a class="headerlink" href="#Hloop" title="Permalink to this headline"></a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span># Important to find data directory
+import os
+os.chdir(&#39;/notebooks/ana&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib
+from mpl_toolkits.axes_grid1.inset_locator import inset_axes
+import pandas as pd
+import seaborn as sns
+import scipy
+from scipy import constants
+import os, sys, time, re # System Modules
+from glob import glob # Readout Files in Directories
+
+import ana
+%matplotlib inline
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>matplotlib.rcParams[&#39;text.latex.preamble&#39;] = r&#39;\usepackage[utf8]{inputenc}\DeclareUnicodeCharacter{2212}{-}&#39;
+</pre></div>
+</div>
+</div>
+<section id="Calculate-carrier-concentration">
+<h2>Calculate carrier concentration<a class="headerlink" href="#Calculate-carrier-concentration" title="Permalink to this headline"></a></h2>
+<div class="math notranslate nohighlight">
+\[n = \frac{I}{e \cdot V_H}\]</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>test_meas = ana.Hloop(56)
+test_meas.set_factor(1)
+test_meas.up.B /= 1e3
+test_meas.down.B /= 1e3
+x = test_meas.up.B[test_meas.up.B &gt; -.950][test_meas.up.B &lt; .950]
+y = test_meas.up.Vx8[test_meas.up.B &gt; -.950][test_meas.up.B &lt; .950]
+fit = scipy.stats.linregress(x,y)
+
+x2 = test_meas.down.B[test_meas.down.B &gt; -.950][test_meas.down.B &lt; .950]
+y2 = test_meas.down.Vx8[test_meas.down.B &gt; -.950][test_meas.down.B &lt; .950]
+fit2 = scipy.stats.linregress(x2,y2)
+e = constants.physical_constants[&#39;electron volt&#39;][0]
+slope = np.mean([fit.slope, fit2.slope])
+I = 2.5e-6
+n = I/(slope*e)
+print(&quot;Carrier concentration n = %f 1/m^2= %e 1/m^2 = %e 1/cm^2&quot; % (n,n, n*1e-4))
+
+test_meas.set_factor(1e3)
+ax = plt.figure(figsize=(12,9)).gca()
+test_meas.plot_hloop(ax, show_fitted=False, show_original=True)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Carrier concentration n = 1369288437038225.250000 1/m^2= 1.369288e+15 1/m^2 = 1.369288e+11 1/cm^2
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_5_1.png" src="../_images/notebooks_01_Hloop_5_1.png" />
+</div>
+</div>
+</section>
+<section id="Load-Measurement-Info-(Angles)">
+<h2>Load Measurement Info (Angles)<a class="headerlink" href="#Load-Measurement-Info-(Angles)" title="Permalink to this headline"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>df_pos2 = pd.read_csv(&#39;data/angles_info.csv&#39;, index_col=0)
+df_parallel2 = pd.read_csv(&#39;data/parallel_info.csv&#39;, index_col=0)
+
+
+df_together2 = pd.concat([df_pos2, df_parallel2], axis=1)
+df_together2.columns = [&#39;Plusses&#39;, &#39;Crosses&#39;, &#39;Parallel&#39;]
+df_together2
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Plusses</th>
+      <th>Crosses</th>
+      <th>Parallel</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>-90.0</th>
+      <td>155.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>-85.0</th>
+      <td>152.0</td>
+      <td>153.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>-80.0</th>
+      <td>148.0</td>
+      <td>149.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>-75.0</th>
+      <td>138.0</td>
+      <td>139.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>-70.0</th>
+      <td>134.0</td>
+      <td>136.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>-65.0</th>
+      <td>131.0</td>
+      <td>132.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>-60.0</th>
+      <td>128.0</td>
+      <td>129.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>-55.0</th>
+      <td>125.0</td>
+      <td>126.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>-50.0</th>
+      <td>122.0</td>
+      <td>123.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>-45.0</th>
+      <td>119.0</td>
+      <td>120.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>-40.0</th>
+      <td>143.0</td>
+      <td>144.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>-35.0</th>
+      <td>113.0</td>
+      <td>114.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>-30.0</th>
+      <td>110.0</td>
+      <td>111.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>-25.0</th>
+      <td>107.0</td>
+      <td>108.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>-20.0</th>
+      <td>104.0</td>
+      <td>105.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>-15.0</th>
+      <td>101.0</td>
+      <td>102.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>-10.0</th>
+      <td>98.0</td>
+      <td>99.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>-5.0</th>
+      <td>95.0</td>
+      <td>96.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>0.0</th>
+      <td>54.0</td>
+      <td>55.0</td>
+      <td>56.0</td>
+    </tr>
+    <tr>
+      <th>5.0</th>
+      <td>51.0</td>
+      <td>52.0</td>
+      <td>53.0</td>
+    </tr>
+    <tr>
+      <th>10.0</th>
+      <td>48.0</td>
+      <td>49.0</td>
+      <td>50.0</td>
+    </tr>
+    <tr>
+      <th>15.0</th>
+      <td>45.0</td>
+      <td>46.0</td>
+      <td>47.0</td>
+    </tr>
+    <tr>
+      <th>20.0</th>
+      <td>42.0</td>
+      <td>43.0</td>
+      <td>44.0</td>
+    </tr>
+    <tr>
+      <th>25.0</th>
+      <td>39.0</td>
+      <td>40.0</td>
+      <td>41.0</td>
+    </tr>
+    <tr>
+      <th>30.0</th>
+      <td>36.0</td>
+      <td>37.0</td>
+      <td>38.0</td>
+    </tr>
+    <tr>
+      <th>35.0</th>
+      <td>32.0</td>
+      <td>34.0</td>
+      <td>35.0</td>
+    </tr>
+    <tr>
+      <th>40.0</th>
+      <td>29.0</td>
+      <td>30.0</td>
+      <td>31.0</td>
+    </tr>
+    <tr>
+      <th>42.5</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>28.0</td>
+    </tr>
+    <tr>
+      <th>45.0</th>
+      <td>23.0</td>
+      <td>22.0</td>
+      <td>24.0</td>
+    </tr>
+    <tr>
+      <th>50.0</th>
+      <td>79.0</td>
+      <td>80.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>55.0</th>
+      <td>76.0</td>
+      <td>77.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>60.0</th>
+      <td>73.0</td>
+      <td>74.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>65.0</th>
+      <td>70.0</td>
+      <td>71.0</td>
+      <td>72.0</td>
+    </tr>
+    <tr>
+      <th>70.0</th>
+      <td>67.0</td>
+      <td>68.0</td>
+      <td>69.0</td>
+    </tr>
+    <tr>
+      <th>75.0</th>
+      <td>64.0</td>
+      <td>65.0</td>
+      <td>66.0</td>
+    </tr>
+    <tr>
+      <th>80.0</th>
+      <td>61.0</td>
+      <td>62.0</td>
+      <td>63.0</td>
+    </tr>
+    <tr>
+      <th>85.0</th>
+      <td>58.0</td>
+      <td>59.0</td>
+      <td>60.0</td>
+    </tr>
+    <tr>
+      <th>90.0</th>
+      <td>57.0</td>
+      <td>0.0</td>
+      <td>57.0</td>
+    </tr>
+    <tr>
+      <th>95.0</th>
+      <td>82.0</td>
+      <td>83.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>100.0</th>
+      <td>85.0</td>
+      <td>86.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>105.0</th>
+      <td>88.0</td>
+      <td>89.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>110.0</th>
+      <td>91.0</td>
+      <td>93.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="Plot-Strayfield">
+<h2>Plot Strayfield<a class="headerlink" href="#Plot-Strayfield" title="Permalink to this headline"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>def set_size(width_pt, fraction=1, subplots=(1, 1)):
+    &quot;&quot;&quot;Set figure dimensions to sit nicely in our document.
+
+    Source: https://jwalton.info/Matplotlib-latex-PGF/
+
+    Parameters
+    ----------
+    width_pt: float
+            Document width in points
+    fraction: float, optional
+            Fraction of the width which you wish the figure to occupy
+    subplots: array-like, optional
+            The number of rows and columns of subplots.
+    Returns
+    -------
+    fig_dim: tuple
+            Dimensions of figure in inches
+    &quot;&quot;&quot;
+    # Width of figure (in pts)
+    fig_width_pt = width_pt * fraction
+    # Convert from pt to inches
+    inches_per_pt = 1 / 72.27
+
+    # Golden ratio to set aesthetic figure height
+    golden_ratio = (5**.5 - 1) / 2
+
+    # Figure width in inches
+    fig_width_in = fig_width_pt * inches_per_pt
+    # Figure height in inches
+    fig_height_in = fig_width_in * golden_ratio * (subplots[0] / subplots[1])
+
+    return (fig_width_in, fig_height_in)
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>m = ana.Hloop(57)
+m.style.set_style(default=True, size=&quot;paper&quot;)
+fig, ax = plt.subplots(figsize=set_size(426))
+m.plot_strayfield(ax, &#39;m57: Strayfield ($90^\\circ$)&#39;)
+plt.savefig(&#39;90deg-stray.pgf&#39;, format=&#39;pgf&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_10_0.png" src="../_images/notebooks_01_Hloop_10_0.png" />
+</div>
+</div>
+<section id="Measurement-Plan-(90deg,-Noise)">
+<h3>Measurement Plan (90deg, Noise)<a class="headerlink" href="#Measurement-Plan-(90deg,-Noise)" title="Permalink to this headline"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span># Set Plot Style
+sns.set(context=&quot;notebook&quot;, style=&quot;ticks&quot;, palette=&quot;deep&quot;)
+plt.style.use([&#39;science&#39;, &#39;notebook&#39;])
+
+
+# Save figures?
+save_figures = True
+
+# Global information
+figsize = (16,10) # set_size(426)
+x1, x2 = -750, 750
+y1, y2 = -1.5, .5
+main_color = &#39;#CCCCFF&#39;
+#m.style.set_style(size=&quot;paper&quot;)
+
+# Inset position and limits
+## Position = x_pos, y_pos, width, height
+## unit of positions are in % of frame
+## x_pos, ypos points to lower left corner of inset
+i1pos = .69, .3, .3, .3
+i1x1, i1x2 = -100, 100
+i2pos = .65, .8, .34, .2
+i2x1, i2x2 = 530, 620
+i2y1, i2y2 = -.175, 0.05
+i3pos = .055, .65, .25, .3
+i3x1, i3x2 = -650, -250
+i3y1, i3y2 = -.05, .125
+i4pos = .06, .03, .3, .25
+i4x1, i4x2 = -100, 0
+i4y1, i4y2 = -1.35, -.75
+i5pos = .07, .36, .4, .28
+i5x1, i5x2 = -300, 50
+i5y1, i5y2 = -.7, .45
+
+# Highlighting limits
+h0range, h0color, h0alpha = 25, &#39;blue&#39;, .1
+h1x1, h1x2, h1color, h1alpha = -611, -443, &#39;orange&#39;, .1
+h2x1, h2x2, h2color, h2alpha = -291, -443, &#39;red&#39;, .1
+h3x1, h3x2, h3color, h3alpha = -291.13, 36.56, &#39;green&#39;, .1
+
+# Create Plot
+fig, ax = plt.subplots(figsize=figsize)
+
+# Plot hysetersis
+m.plot_strayfield(ax, &#39;m57: Strayfield ($90^\\circ$)&#39;)
+
+# Draw Inset 1
+inset = inset_axes(ax, width=&#39;100%&#39;, height=&#39;90%&#39;,
+                       bbox_to_anchor=i1pos,
+                       bbox_transform=ax.transAxes)
+# Highlight 0 / 3
+inset.fill([-h0range, -h0range, h0range, h0range], [y2, y1, y1, y2], h0color, alpha=h0alpha)
+inset.fill([h3x1, h3x1, h3x2, h3x2], [y2, y1, y1, y2], h3color, alpha=h3alpha)
+
+# Highlight tertiary range
+i1tert = h0range/3 # Tertiary range
+inset.plot([i1tert, i1tert], [y1, y2], &#39;b--&#39;, alpha=.5)
+inset.plot([-i1tert, -i1tert], [y1, y2], &#39;b--&#39;, alpha=.5)
+
+m.plot_strayfield(inset, &#39;$B \\in (-100, 100)$ mT&#39;, nolegend=True)
+inset.set_xlim(i1x1, i1x2)
+inset.set_ylim(y1, y2)
+
+# Draw Inset 2
+inset2 = inset_axes(ax, width=&#39;100%&#39;, height=&#39;90%&#39;,
+                       bbox_to_anchor=i2pos,
+                       bbox_transform=ax.transAxes)
+m.plot_strayfield(inset2, &#39;$B \\in (500, 600)$ mT&#39;, nolegend=True)
+inset2.set_xlim(i2x1, i2x2)
+inset2.set_ylim(i2y1, i2y2)
+
+# Draw Inset 3
+inset3 = inset_axes(ax, width=&#39;100%&#39;, height=&#39;90%&#39;,
+                       bbox_to_anchor=i3pos,
+                       bbox_transform=ax.transAxes)
+m.plot_strayfield(inset3, &#39;$B \\in (%s, %s)$ mT&#39; % (i3x1, i3x2), nolegend=True)
+inset3.set_xlim(i3x1, i3x2)
+inset3.set_ylim(i3y1, i3y2)
+# Highlight 1 / 2
+inset3.fill([h1x1, h1x1, h1x2, h1x2], [i3y1, i3y2, i3y2, i3y1], h1color, alpha=h1alpha)
+inset3.fill([h2x1, h2x1, h2x2, h2x2], [i3y1, i3y2, i3y2, i3y1], h2color, alpha=h2alpha)
+
+# Draw Inset 4
+inset4 = inset_axes(ax, width=&#39;100%&#39;, height=&#39;90%&#39;,
+                       bbox_to_anchor=i4pos,
+                       bbox_transform=ax.transAxes)
+m.plot_strayfield(inset4, &#39;$B \\in (%s, %s)$ mT&#39; % (i4x1, i4x2), nolegend=True)
+inset4.set_xlim(i4x1, i4x2)
+inset4.set_ylim(i4y1, i4y2)
+
+# Draw Inset 5
+inset5 = inset_axes(ax, width=&#39;100%&#39;, height=&#39;90%&#39;,
+                       bbox_to_anchor=i5pos,
+                       bbox_transform=ax.transAxes)
+m.plot_strayfield(inset5, &#39;$B \\in (%s, %s)$ mT&#39; % (i5x1, i5x2), nolegend=True)
+inset5.set_xlim(i5x1, i5x2)
+inset5.set_ylim(i5y1, i5y2)
+inset5.fill([h3x1, h3x1, h3x2, h3x2], [i5y2, i5y1, i5y1, i5y2], h3color, alpha=h3alpha)
+
+# Main Plot limits
+ax.set_xlim(x1, x2)
+ax.set_ylim(y1, y2)
+
+# Highlight in main plot
+ax.fill([-h0range, -h0range, h0range, h0range], [y1, y2, y2, y1], h0color, alpha=h0alpha)
+ax.fill([h1x1, h1x1, h1x2, h1x2], [y1, y2, y2, y1], h1color, alpha=h1alpha)
+ax.fill([h2x1, h2x1, h2x2, h2x2], [y1, y2, y2, y1], h2color, alpha=h2alpha)
+ax.fill([h3x1, h3x1, h3x2, h3x2], [y1, y2, y2, y1], h3color, alpha=h3alpha)
+
+# Remove x and y labels
+for i, inset_ax in enumerate([inset3, inset2, inset5, inset, inset4]):
+    inset_ax.set_xlabel(&#39;&#39;)
+    inset_ax.set_ylabel(&#39;&#39;)
+    inset_ax.set_title(&#39;&#39;)
+    ann_x, ann_xx = inset_ax.get_xlim()
+    ann_x += (ann_xx - ann_x)*.05
+    ann_yy, ann_y = inset_ax.get_ylim()
+    ann_y -= (ann_y - ann_yy)*.20
+    inset_ax.text(x=ann_x, y=ann_y, s=chr(i+97) + &#39;)&#39;,
+                  fontdict=dict(fontweight=&#39;bold&#39;, fontsize=10),
+                  bbox=dict(boxstyle=&quot;round,pad=0.1&quot;, fc=main_color, ec=&quot;b&quot;, lw=1))
+
+# Save as image (if needed)
+if save_figures:
+    m.style.save_plot(&#39;m57_zoomed&#39;, &#39;png&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_12_0.png" src="../_images/notebooks_01_Hloop_12_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;Figure size 576x432 with 0 Axes&gt;
+</pre></div></div>
+</div>
+</section>
+<section id="Plot-All-measurements">
+<h3>Plot All measurements<a class="headerlink" href="#Plot-All-measurements" title="Permalink to this headline"></a></h3>
+<section id="Compact-(4-in-One)">
+<h4>Compact (4 in One)<a class="headerlink" href="#Compact-(4-in-One)" title="Permalink to this headline"></a></h4>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>def get_measurement(meas, all_angles):
+    for i, nr in enumerate(map(int, all_angles)):
+        meas[nr] = ana.Hloop(nr)
+    return meas
+
+all_angles = df_together2.query(&#39;Crosses &gt; 0&#39;)[[&#39;Plusses&#39;, &#39;Crosses&#39;]].dropna().to_numpy().ravel()
+all_angles
+
+meas = {}
+meas = get_measurement(meas, all_angles)
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>def plot_four_measurement(meas, all_angles, axes):
+    global style
+    for i, nr in enumerate(map(int, all_angles)):
+        ax = axes[i//2][i%2]
+        # meas[nr].get_info_from_name()
+        meas[nr].style.set_style(default=True)
+        meas[nr].plot_strayfield(ax)
+
+        inset = inset_axes(ax, width=&#39;100%&#39;, height=&#39;90%&#39;,
+                       bbox_to_anchor=(.6, .08, .4, .4),
+                       bbox_transform=ax.transAxes)
+        max_b = meas[nr].up.B.max()
+        inset.plot([-max_b, max_b], [0, 0], &#39;r--&#39;, linewidth=.75)
+        B_ext, B_stray = meas[nr].get_downminusup_strayfield()
+        inset.plot(B_ext, B_stray)
+        inset.set_title(&quot;Down-minus-Up-Difference&quot;)
+
+    #plt.savefig(&#39;compare_all_strayfield.png&#39;)
+    #plt.savefig(&#39;compare_all_strayfield.pdf&#39;)
+
+
+
+for i in range(len(all_angles)//4):
+    fig, axes = plt.subplots(2,2, figsize=(16,9))
+    plot_four_measurement(meas, all_angles[4*i:4*i+4], axes)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-11-384a03c3c052&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">     23</span> <span class="ansi-green-fg">for</span> i <span class="ansi-green-fg">in</span> range<span class="ansi-blue-fg">(</span>len<span class="ansi-blue-fg">(</span>all_angles<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">//</span><span class="ansi-cyan-fg">4</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     24</span>     fig<span class="ansi-blue-fg">,</span> axes <span class="ansi-blue-fg">=</span> plt<span class="ansi-blue-fg">.</span>subplots<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span> figsize<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">16</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">9</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">---&gt; 25</span><span class="ansi-red-fg">     </span>plot_four_measurement<span class="ansi-blue-fg">(</span>meas<span class="ansi-blue-fg">,</span> all_angles<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">4</span><span class="ansi-blue-fg">*</span>i<span class="ansi-blue-fg">:</span><span class="ansi-cyan-fg">4</span><span class="ansi-blue-fg">*</span>i<span class="ansi-blue-fg">+</span><span class="ansi-cyan-fg">4</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> axes<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">&lt;ipython-input-11-384a03c3c052&gt;</span> in <span class="ansi-cyan-fg">plot_four_measurement</span><span class="ansi-blue-fg">(meas, all_angles, axes)</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span>         <span class="ansi-red-fg"># meas[nr].get_info_from_name()</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span>         meas<span class="ansi-blue-fg">[</span>nr<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>style<span class="ansi-blue-fg">.</span>set_style<span class="ansi-blue-fg">(</span>default<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg">         </span>meas<span class="ansi-blue-fg">[</span>nr<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>plot_strayfield<span class="ansi-blue-fg">(</span>ax<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      8</span>
+<span class="ansi-green-intense-fg ansi-bold">      9</span>         inset = inset_axes(ax, width=&#39;100%&#39;, height=&#39;90%&#39;,
+
+<span class="ansi-green-fg">/notebooks/ana/ana/hloop.py</span> in <span class="ansi-cyan-fg">plot_strayfield</span><span class="ansi-blue-fg">(self, ax, figtitle, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    436</span>             <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">.</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    437</span>         &#34;&#34;&#34;
+<span class="ansi-green-fg">--&gt; 438</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>set_factor<span class="ansi-blue-fg">(</span>kwargs<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;factor&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1e3</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    439</span>         self<span class="ansi-blue-fg">.</span>calculate_strayfield<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    440</span>
+
+<span class="ansi-green-fg">/notebooks/ana/ana/hloop.py</span> in <span class="ansi-cyan-fg">set_factor</span><span class="ansi-blue-fg">(self, factor)</span>
+<span class="ansi-green-intense-fg ansi-bold">    205</span>         &#34;&#34;&#34;
+<span class="ansi-green-intense-fg ansi-bold">    206</span>         self<span class="ansi-blue-fg">.</span>up<span class="ansi-blue-fg">.</span>Vx8 <span class="ansi-blue-fg">/=</span> self<span class="ansi-blue-fg">.</span>factor
+<span class="ansi-green-fg">--&gt; 207</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>down<span class="ansi-blue-fg">.</span>Vx8 <span class="ansi-blue-fg">/=</span> self<span class="ansi-blue-fg">.</span>factor
+<span class="ansi-green-intense-fg ansi-bold">    208</span>         <span class="ansi-green-fg">if</span> <span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>parallel<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    209</span>             self<span class="ansi-blue-fg">.</span>up<span class="ansi-blue-fg">.</span>Vx9 <span class="ansi-blue-fg">/=</span> self<span class="ansi-blue-fg">.</span>factor
+
+<span class="ansi-red-fg">AttributeError</span>: &#39;Hloop&#39; object has no attribute &#39;down&#39;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_16_1.png" src="../_images/notebooks_01_Hloop_16_1.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_16_2.png" src="../_images/notebooks_01_Hloop_16_2.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_16_3.png" src="../_images/notebooks_01_Hloop_16_3.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_16_4.png" src="../_images/notebooks_01_Hloop_16_4.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_16_5.png" src="../_images/notebooks_01_Hloop_16_5.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_16_6.png" src="../_images/notebooks_01_Hloop_16_6.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_16_7.png" src="../_images/notebooks_01_Hloop_16_7.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_16_8.png" src="../_images/notebooks_01_Hloop_16_8.png" />
+</div>
+</div>
+</section>
+<section id="Plot-single-measurements">
+<h4>Plot single measurements<a class="headerlink" href="#Plot-single-measurements" title="Permalink to this headline"></a></h4>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>#meas = {}
+for nr in all_angles:
+    fig, ax = plt.subplots(1, 1, figsize=(16,9))
+    meas[nr].style.set_style(default=True)
+
+    try:
+        meas[nr].plot_strayfield(ax)
+    except:
+        continue
+
+    inset = inset_axes(ax, width=&#39;100%&#39;, height=&#39;90%&#39;,
+                       bbox_to_anchor=(.6, .05, .4, .4),
+                       bbox_transform=ax.transAxes)
+    max_b = meas[nr].up.B.max()
+    inset.plot([-max_b, max_b], [0, 0], &#39;r--&#39;, linewidth=.75)
+    B_ext, B_stray = meas[nr].get_downminusup_strayfield()
+    inset.plot(B_ext, B_stray)
+    inset.set_ylabel(&quot;$\Delta B_z$ [$mT$]&quot;)
+    inset.set_title(&quot;Down-minus-Up-Difference&quot;)
+
+    #plt.savefig(&#39;plot/m%s_%s_%sdeg.png&#39; % (nr,meas[nr].data[&#39;Structure&#39;],meas[nr].data[&#39;Angle&#39;]))
+    #plt.savefig(&#39;plot/m%s_%s_%sdeg.pdf&#39; % (nr,meas[nr].data[&#39;Structure&#39;],meas[nr].data[&#39;Angle&#39;]))
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;ipython-input-12-bfb78f2f7c96&gt;:3: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig, ax = plt.subplots(1, 1, figsize=(16,9))
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_1.png" src="../_images/notebooks_01_Hloop_18_1.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_2.png" src="../_images/notebooks_01_Hloop_18_2.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_3.png" src="../_images/notebooks_01_Hloop_18_3.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_4.png" src="../_images/notebooks_01_Hloop_18_4.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_5.png" src="../_images/notebooks_01_Hloop_18_5.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_6.png" src="../_images/notebooks_01_Hloop_18_6.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_7.png" src="../_images/notebooks_01_Hloop_18_7.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_8.png" src="../_images/notebooks_01_Hloop_18_8.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_9.png" src="../_images/notebooks_01_Hloop_18_9.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_10.png" src="../_images/notebooks_01_Hloop_18_10.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_11.png" src="../_images/notebooks_01_Hloop_18_11.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_12.png" src="../_images/notebooks_01_Hloop_18_12.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_13.png" src="../_images/notebooks_01_Hloop_18_13.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_14.png" src="../_images/notebooks_01_Hloop_18_14.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_15.png" src="../_images/notebooks_01_Hloop_18_15.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_16.png" src="../_images/notebooks_01_Hloop_18_16.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_17.png" src="../_images/notebooks_01_Hloop_18_17.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_18.png" src="../_images/notebooks_01_Hloop_18_18.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_19.png" src="../_images/notebooks_01_Hloop_18_19.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_20.png" src="../_images/notebooks_01_Hloop_18_20.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_21.png" src="../_images/notebooks_01_Hloop_18_21.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_22.png" src="../_images/notebooks_01_Hloop_18_22.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_23.png" src="../_images/notebooks_01_Hloop_18_23.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_24.png" src="../_images/notebooks_01_Hloop_18_24.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_25.png" src="../_images/notebooks_01_Hloop_18_25.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_26.png" src="../_images/notebooks_01_Hloop_18_26.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_27.png" src="../_images/notebooks_01_Hloop_18_27.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_28.png" src="../_images/notebooks_01_Hloop_18_28.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_29.png" src="../_images/notebooks_01_Hloop_18_29.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_30.png" src="../_images/notebooks_01_Hloop_18_30.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_31.png" src="../_images/notebooks_01_Hloop_18_31.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_32.png" src="../_images/notebooks_01_Hloop_18_32.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_33.png" src="../_images/notebooks_01_Hloop_18_33.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_34.png" src="../_images/notebooks_01_Hloop_18_34.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_35.png" src="../_images/notebooks_01_Hloop_18_35.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_36.png" src="../_images/notebooks_01_Hloop_18_36.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_37.png" src="../_images/notebooks_01_Hloop_18_37.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_38.png" src="../_images/notebooks_01_Hloop_18_38.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_39.png" src="../_images/notebooks_01_Hloop_18_39.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_40.png" src="../_images/notebooks_01_Hloop_18_40.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_41.png" src="../_images/notebooks_01_Hloop_18_41.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_42.png" src="../_images/notebooks_01_Hloop_18_42.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_43.png" src="../_images/notebooks_01_Hloop_18_43.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_44.png" src="../_images/notebooks_01_Hloop_18_44.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_45.png" src="../_images/notebooks_01_Hloop_18_45.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_46.png" src="../_images/notebooks_01_Hloop_18_46.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_47.png" src="../_images/notebooks_01_Hloop_18_47.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_48.png" src="../_images/notebooks_01_Hloop_18_48.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_49.png" src="../_images/notebooks_01_Hloop_18_49.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_50.png" src="../_images/notebooks_01_Hloop_18_50.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_51.png" src="../_images/notebooks_01_Hloop_18_51.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_52.png" src="../_images/notebooks_01_Hloop_18_52.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_53.png" src="../_images/notebooks_01_Hloop_18_53.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_54.png" src="../_images/notebooks_01_Hloop_18_54.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_55.png" src="../_images/notebooks_01_Hloop_18_55.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_56.png" src="../_images/notebooks_01_Hloop_18_56.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_57.png" src="../_images/notebooks_01_Hloop_18_57.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_58.png" src="../_images/notebooks_01_Hloop_18_58.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_59.png" src="../_images/notebooks_01_Hloop_18_59.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_60.png" src="../_images/notebooks_01_Hloop_18_60.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_61.png" src="../_images/notebooks_01_Hloop_18_61.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_62.png" src="../_images/notebooks_01_Hloop_18_62.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_63.png" src="../_images/notebooks_01_Hloop_18_63.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_64.png" src="../_images/notebooks_01_Hloop_18_64.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_65.png" src="../_images/notebooks_01_Hloop_18_65.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_66.png" src="../_images/notebooks_01_Hloop_18_66.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_67.png" src="../_images/notebooks_01_Hloop_18_67.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_68.png" src="../_images/notebooks_01_Hloop_18_68.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_69.png" src="../_images/notebooks_01_Hloop_18_69.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_70.png" src="../_images/notebooks_01_Hloop_18_70.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_71.png" src="../_images/notebooks_01_Hloop_18_71.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_72.png" src="../_images/notebooks_01_Hloop_18_72.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_73.png" src="../_images/notebooks_01_Hloop_18_73.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_74.png" src="../_images/notebooks_01_Hloop_18_74.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_75.png" src="../_images/notebooks_01_Hloop_18_75.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_76.png" src="../_images/notebooks_01_Hloop_18_76.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_77.png" src="../_images/notebooks_01_Hloop_18_77.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_01_Hloop_18_78.png" src="../_images/notebooks_01_Hloop_18_78.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="Show-Measurement-Infos">
+<h2>Show Measurement Infos<a class="headerlink" href="#Show-Measurement-Infos" title="Permalink to this headline"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>df = pd.DataFrame({}, index=[], columns=[&#39;Type&#39;,
+                     &#39;Date&#39;,
+                     &#39;Structure&#39;,
+                     &#39;Angle&#39;,
+                     &#39;I1&#39;,
+                     &#39;I2&#39;,
+                     &#39;Vin&#39;,
+                     &#39;R11&#39;,
+                     &#39;R12&#39;,
+                     &#39;R13&#39;,
+                     &#39;R21&#39;,
+                     &#39;C11&#39;,
+                     &#39;C21&#39;,
+                     &#39;T&#39;,
+                     &#39;SR&#39;,
+                     &#39;Vrem1&#39;,
+                     &#39;Vrem2&#39;,
+                     &#39;Bcoer1&#39;,
+                     &#39;Bcoer2&#39;])
+for nr, m in meas.items():
+    data = m.info
+
+    try:
+        m.fit()
+    except:
+        pass
+
+    try:
+        rem1, rem2 = m.get_remanence()
+        data[&#39;Vrem1&#39;], data[&#39;Vrem2&#39;] = rem1.Vx8, rem2.Vx8
+    except:
+        pass
+
+    try:
+        mean, coer1, coer2 = m.get_coercive_field()
+        data[&#39;V0&#39;], data[&#39;Bcoer1&#39;], data[&#39;Bcoer2&#39;] = mean, coer1.B, coer2.B
+    except:
+        pass
+
+    newdf = pd.DataFrame(data, index=[nr])
+    if(df.empty):
+        df = newdf
+    else:
+        df = pd.concat([df, newdf])
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>df
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Type</th>
+      <th>Date</th>
+      <th>Structure</th>
+      <th>Angle</th>
+      <th>I1</th>
+      <th>I2</th>
+      <th>Vin</th>
+      <th>R11</th>
+      <th>R12</th>
+      <th>R13</th>
+      <th>...</th>
+      <th>deg</th>
+      <th>type1</th>
+      <th>dir</th>
+      <th>type2</th>
+      <th>date</th>
+      <th>time</th>
+      <th>GBIP8</th>
+      <th>B</th>
+      <th>gate</th>
+      <th>R1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>152</th>
+      <td>Hloop (Gradio)</td>
+      <td>07.04.2019 01:33</td>
+      <td>Plusses</td>
+      <td>-85</td>
+      <td>1-13</td>
+      <td>8-6</td>
+      <td>2.5</td>
+      <td>1M</td>
+      <td>7.5k</td>
+      <td>0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>153</th>
+      <td>Hloop (Gradio)</td>
+      <td>07.04.2019 10:00</td>
+      <td>Crosses</td>
+      <td>-85</td>
+      <td>2-12</td>
+      <td>8-6</td>
+      <td>2.5</td>
+      <td>1M</td>
+      <td>4k</td>
+      <td>0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>Hloop (Gradio)</td>
+      <td>06.04.2019 12:00</td>
+      <td>Plusses</td>
+      <td>-80</td>
+      <td>1-13</td>
+      <td>8-6</td>
+      <td>2.5</td>
+      <td>1M</td>
+      <td>8.25k</td>
+      <td>0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>Hloop (Gradio)</td>
+      <td>06.04.2019 17:000</td>
+      <td>Crosses</td>
+      <td>-80</td>
+      <td>2-12</td>
+      <td>8-6</td>
+      <td>2.5</td>
+      <td>1M</td>
+      <td>3.75k</td>
+      <td>0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>138</th>
+      <td>Hloop (Gradio)</td>
+      <td>02.04.2019 19:00</td>
+      <td>Plusses</td>
+      <td>-75</td>
+      <td>1-13</td>
+      <td>8-6</td>
+      <td>2.5</td>
+      <td>1M</td>
+      <td>2k</td>
+      <td>0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>Hloop (Gradio)</td>
+      <td>24.03.2019 14:00</td>
+      <td>Crosses</td>
+      <td>100</td>
+      <td>2-12</td>
+      <td>8-6</td>
+      <td>2.5</td>
+      <td>1M</td>
+      <td>2.25k</td>
+      <td>0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>None (Gradio)</td>
+      <td>NaN</td>
+      <td>Plusses</td>
+      <td>105</td>
+      <td>1-13</td>
+      <td>8-6</td>
+      <td>2.5V</td>
+      <td>1MO</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>...</td>
+      <td>105</td>
+      <td>Hloop</td>
+      <td>up</td>
+      <td>Gradio</td>
+      <td>20190324</td>
+      <td>2000</td>
+      <td>14-7</td>
+      <td>1T</td>
+      <td>0V</td>
+      <td>2.6kO</td>
+    </tr>
+    <tr>
+      <th>89</th>
+      <td>None (Gradio)</td>
+      <td>NaN</td>
+      <td>Crosses</td>
+      <td>105</td>
+      <td>1-13</td>
+      <td>8-6</td>
+      <td>2.5V</td>
+      <td>1MO</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>...</td>
+      <td>105</td>
+      <td>Hloop</td>
+      <td>down</td>
+      <td>Gradio</td>
+      <td>20190325</td>
+      <td>0800</td>
+      <td>14-7</td>
+      <td>0.75T</td>
+      <td>0V</td>
+      <td>1.4kO</td>
+    </tr>
+    <tr>
+      <th>91</th>
+      <td>Hloop (Gradio)</td>
+      <td>25.03.2019 14:00</td>
+      <td>Plusses</td>
+      <td>110</td>
+      <td>1-13</td>
+      <td>8-6</td>
+      <td>2.5</td>
+      <td>1M</td>
+      <td>5.15k</td>
+      <td>0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>Hloop (Gradio)</td>
+      <td>25.03.2019 22:00</td>
+      <td>Crosses</td>
+      <td>110</td>
+      <td>1-13</td>
+      <td>8-6</td>
+      <td>2.5</td>
+      <td>1M</td>
+      <td>2.25k</td>
+      <td>0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>78 rows × 33 columns</p>
+</div></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="00_MasterPlots.html" class="btn btn-neutral float-left" title="Master Thesis (All Plots)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02.1_Signal_Analyzer.html" class="btn btn-neutral float-right" title="Signal Analyzer Measurements (1)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020/2021, Jonathan Pieper.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

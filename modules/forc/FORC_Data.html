@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analysing FORC Data &mdash; Lab Book 0.4 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="License" href="../../info/license.html" />
+    <link rel="prev" title="Python Scripts" href="../scripts.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Lab Book
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Lab Book</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info/gitlab.html">GitLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/onenote/index.html">Original Lab Book</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../data/index.html">About the Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/hloop/index.html">Magnetic Characterization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/mfn/index.html">Magnetic Flux Noise (MFN)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ana/index.html">Data Analysis Framework (Ana)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sa/index.html">SpectrumAnalyzer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eve/index.html">EVE</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../scripts.html">Python Scripts</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../scripts.html#forc-data-script">FORC Data Script</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Analysing FORC Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#File-structure">File structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Output">Output</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../info/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info/idx.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Lab Book</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../scripts.html">Python Scripts</a> &raquo;</li>
+      <li>Analysing FORC Data</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/modules/forc/FORC_Data.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="Analysing-FORC-Data">
+<h1>Analysing FORC Data<a class="headerlink" href="#Analysing-FORC-Data" title="Permalink to this headline"></a></h1>
+<p>Assuming an Input as multiple csv files (with a space as separator) like the following Table:</p>
+<table><thead><tr><th><p><span class="math notranslate nohighlight">\(H_{ext}\)</span></p>
+</th><th><p><span class="math notranslate nohighlight">\(V_H\)</span></p>
+</th></tr><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;tr&gt;&lt;th&gt;units&lt;/th&gt;&lt;th&gt;units&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tr&gt;&lt;td&gt;$H_0$&lt;/td&gt;&lt;td&gt;$V_0$&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;$H_i$&lt;/td&gt;&lt;td&gt;$V_i$&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;$H_N$&lt;/td&gt;&lt;td&gt;$V_N$&lt;/td&gt;&lt;/tr&gt;
+</pre></div>
+</div>
+</table><p>The unit row is being ignored by this script. Optional a third row with the temperature is valid (need to change code in the end). Adjust <code class="docutils literal notranslate"><span class="pre">folder</span></code> to the place where you’ve put your <code class="docutils literal notranslate"><span class="pre">*.dat</span></code> files. <span class="math notranslate nohighlight">\(V_i\)</span> will be devided by <code class="docutils literal notranslate"><span class="pre">current</span></code> to determine the resistance <span class="math notranslate nohighlight">\(R_i\)</span>.</p>
+<section id="File-structure">
+<h2>File structure<a class="headerlink" href="#File-structure" title="Permalink to this headline"></a></h2>
+<p>The csv input files should use the following naming convention: * Every File contains <code class="docutils literal notranslate"><span class="pre">HA=</span></code> in the name to determine the reversal Field <span class="math notranslate nohighlight">\(H_A\)</span> * Immediately after <code class="docutils literal notranslate"><span class="pre">HA=</span></code> must be the field value followed by <code class="docutils literal notranslate"><span class="pre">.dat</span></code> * Down Sweeps: contain the word <code class="docutils literal notranslate"><span class="pre">down_to</span></code> in the name and will be ignored * Saturation Measurements at <span class="math notranslate nohighlight">\(H_S\)</span> (containing only information about the saturation field value): contain the word <code class="docutils literal notranslate"><span class="pre">_sat_</span></code> * All other files are up sweeps from <span class="math notranslate nohighlight">\(H_A\)</span> to <span class="math notranslate nohighlight">\(H_S\)</span></p>
+<section id="Example">
+<h3>Example<a class="headerlink" href="#Example" title="Permalink to this headline"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Some_Ignored_Informations_down_to_HA=1.500000.dat
+Some_Ignored_Informations_sat_HA=1.500000.dat
+Some_Ignored_Informations_upinformation_HA=1.500000.dat
+Some_Ignored_Informations_down_to_HA=0.000000.dat
+Some_Ignored_Informations_sat_HA=0.000000.dat
+Some_Ignored_Informations_upinformation_HA=0.000000.dat
+Some_Ignored_Informations_down_to_HA=-1.500000.dat
+Some_Ignored_Informations_sat_HA=-1.500000.dat
+Some_Ignored_Informations_upinformation_HA=-1.500000.dat
+</pre></div>
+</div>
+</section>
+</section>
+<section id="Output">
+<h2>Output<a class="headerlink" href="#Output" title="Permalink to this headline"></a></h2>
+<p>The output will be a file <code class="docutils literal notranslate"><span class="pre">output.dat</span></code> which contains a header that is readable by FORCinel and a Table like the following:</p>
+<table width="200px"><tr><td><p><span class="math notranslate nohighlight">\(\langle H_S\rangle\)</span></p>
+</td><td><p><span class="math notranslate nohighlight">\(\langle R_S \rangle\)</span></p>
+</td></tr><tr><td><p><span class="math notranslate nohighlight">\(H_{A_1}\)</span></p>
+</td><td><p><span class="math notranslate nohighlight">\(R(H_{A_1})\)</span></p>
+</td></tr><tr><td><p><span class="math notranslate nohighlight">\(H_S\)</span></p>
+</td><td><p><span class="math notranslate nohighlight">\(R(H_S)\)</span></p>
+</td></tr><tr><td></td><td></td></tr><tr><td><p><span class="math notranslate nohighlight">\(\langle H_S\rangle\)</span></p>
+</td><td><p><span class="math notranslate nohighlight">\(\langle R_S \rangle\)</span></p>
+</td></tr><tr><td><p><span class="math notranslate nohighlight">\(H_{A_2}\)</span></p>
+</td><td><p><span class="math notranslate nohighlight">\(R(H_{A_2})\)</span></p>
+</td></tr><tr><td><p><span class="math notranslate nohighlight">\(H_{i}\)</span></p>
+</td><td><p><span class="math notranslate nohighlight">\(R(H_i)\)</span></p>
+</td></tr><tr><td><p><span class="math notranslate nohighlight">\(H_S\)</span></p>
+</td><td><p><span class="math notranslate nohighlight">\(R(H_S)\)</span></p>
+</td></tr></table><p>With 2 entries for the first reversal field <span class="math notranslate nohighlight">\(H_{A_1}\)</span> and one more entry with each following reversal field (ordered by the magnitude of the reversal fields starting at <span class="math notranslate nohighlight">\(\max(H_{A_i})\)</span> and ending at <span class="math notranslate nohighlight">\(\min(H_{A_i})\)</span>)</p>
+<section id="example-1">
+<span id="id1"></span><h3>Example<a class="headerlink" href="#example-1" title="Permalink to this headline"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MicroMag 2900/3900 Data File (Series 0015)
+First-order reversal curves
+Configuration   :  VSM
+Hardware version:  0004
+Software version:  11/20/2006
+Units of measure:  mks
+Temperature in  :  Kelvin
+01/11/2007  15:01
+bg1.11 frag c.03 taped sample forc
+
+Averaging time = +1.000000E-01
+Hb1            = -1.000000E+03
+Hb2            = +1.000000E+03
+Hc1            =  0.000000E+00
+Hc2            = +3.000000E+03
+HCal           = +1.500000E-01
+HNcr           = +2.000005E-03
+HSat           = +1.500000E-01
+NCrv           = 100
+PauseCal       = +1.000000E+00
+PauseNtl       = +1.000000E+00
+PauseSat       = +1.000000E+00
+SlewRate       = +1.000000E+04
+Smoothing      = 5
+
+Field range    = +1.500000E-01
+Moment range   = +1.000000E-02
+Temperature    = +0.000000E+00
+Orientation    = +9.000001E+01
+Elapsed time   = +6.436355E+06
+Slope corr.    = N/A
+Saturation     = N/A
+NData          = 5250
+
+1.500000E+02,1.320206E+00
+
++4.820400E+01,+1.226155E+00
++1.500000E+02,+1.320205E+00
+
+1.500000E+02,1.320204E+00
+
++4.620800E+01,+1.221773E+00
++9.810400E+01,+1.293156E+00
++1.500000E+02,+1.320204E+00
+
+1.500000E+02,1.320207E+00
+
++4.421200E+01,+1.217202E+00
++7.947467E+01,+1.275475E+00
++1.147373E+02,+1.304538E+00
++1.500000E+02,+1.320206E+00
+</pre></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>__author__ = &#39;Jonathan Pieper&#39;
+__license__ = &#39;tbd&#39;
+__version__ = &#39;0.1&#39;
+__status__ = &quot;Development&quot;
+
+import os, sys, time
+from glob import glob
+import pylab as plt
+import numpy as np
+from scipy import stats
+import pandas as pd
+from scipy.interpolate import interp1d
+
+folder = &quot;C:\\Users\\user\\Documents\\cubes_theta_0deg&quot;
+header = [&#39;H&#39;, &#39;V&#39;]  # Column names
+current = 1 #2.5e-6
+fit_data = True  # Fitting gradiometry data (subtracting linear fit)
+out_name = &quot;output.dat&quot;
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>def get_filenames(datadir):
+    &quot;&quot;&quot;Returns all *.dat files in data directory&quot;&quot;&quot;
+    os.chdir(datadir)
+    return glob(&quot;*.dat&quot;)
+
+def sort_files(filenames):
+    &quot;&quot;&quot;Sorting files by filename key HA&quot;&quot;&quot;
+    sort_dict = {}
+    saturation_dict = {}
+    for f in filenames:
+        if(f.find(&quot;HA=&quot;) == -1 or    # File must have HA=
+           f.find(&quot;down_to&quot;) != -1):  # File musn&#39;t have down_to
+            continue
+
+        pos1 = f.find(&quot;HA=&quot;) + 3 # Cursor Position after HA=
+        pos2 = f.find(&quot;.dat&quot;)    # Cursor Position before .dat
+        HA = float(f[pos1:pos2]) # Number between cursor positions
+
+        if(f.find(&quot;_sat_&quot;) != -1): # Saturation for Average
+            saturation_dict[HA] = f
+        else:    # Up-Sweeps
+            sort_dict[HA] = f
+
+    new_filenames = []
+    saturation = []
+    for HA in sorted(sort_dict):
+        new_filenames.append(sort_dict[HA])
+        saturation.append(saturation_dict[HA])
+    new_filenames.reverse() # From + to -
+    saturation.reverse() # From + to -
+
+    return new_filenames, saturation
+
+def load_file(filename):
+    &quot;&quot;&quot;Loading File into an Array&quot;&quot;&quot;
+    data = np.genfromtxt(filename, skip_footer=1, skip_header=5, delimiter=&#39;\t&#39;)
+    return data
+
+def write(name, H, R, T, sat):
+    &quot;&quot;&quot;Writing results into file&quot;&quot;&quot;
+    len_data = len(H)
+    for i in range(len(H)):
+        len_data += i+2
+    num_curves = len(H)
+
+    if not T:
+        Temp = 0
+    else:
+        Temp = T[0][0]
+
+    f = open(name, &#39;w&#39;)
+    f.write(&#39;MicroMag 2900/3900 Data File (Series 0015)\n&#39; +
+&#39;First-order reversal curves\n&#39; +
+&#39;Configuration   :  VSM\n&#39; +
+&#39;Hardware version:  0004\n&#39; +
+&#39;Software version:  11/20/2006\n&#39; +
+&#39;Units of measure:  mks\n&#39; +
+&#39;Temperature in  :  Kelvin\n&#39; +
+&#39;01/11/2007  15:01\n&#39; +
+&#39;bg1.11 frag c.03 taped sample forc\n&#39;+
+&#39;\n&#39;+
+&#39;Averaging time = +1.000000E-01\n&#39; +
+&#39;Hb1            = -1.000000E+03\n&#39; +
+&#39;Hb2            = +1.000000E+03\n&#39; +
+&#39;Hc1            =  0.000000E+00\n&#39; +
+&#39;Hc2            = +3.000000E+03\n&#39; +
+&#39;HCal           = +1.500000E-01\n&#39; +
+&#39;HNcr           = +2.000005E-03\n&#39; +
+&#39;HSat           = +1.500000E-01\n&#39; +
+&#39;NCrv           = %d\n&#39; % (num_curves) +
+&#39;PauseCal       = +1.000000E+00\n&#39; +
+&#39;PauseNtl       = +1.000000E+00\n&#39; +
+&#39;PauseSat       = +1.000000E+00\n&#39; +
+&#39;SlewRate       = +1.000000E+04\n&#39; +
+&#39;Smoothing      = 5\n&#39; +
+&#39;\n&#39; +
+&#39;Field range    = +1.500000E-01\n&#39; +
+&#39;Moment range   = +1.000000E-02\n&#39; +
+&#39;Temperature    = +%.6E\n&#39; % (Temp) +
+&#39;Orientation    = +9.000001E+01\n&#39; +
+&#39;Elapsed time   = +6.436355E+06\n&#39; +
+&#39;Slope corr.    = N/A\n&#39; +
+&#39;Saturation     = N/A\n&#39; +
+&#39;NData          = %d\n&#39; % (len_data))
+
+    fig = plt.figure()
+    for i in range(len(H)):
+        c = np.linspace(H[i][0], H[i][-1], i+2)
+        # c = Array between beginning and end H with i+2 values.
+        f1 = interp1d(H[i], R[i], kind = &#39;linear&#39;)
+        if T:
+            t = interp1d(H[i], T[i], kind = &#39;linear&#39;)
+        y=[]
+        if not T:
+            f.write(&#39;\n%.6E,%.6E\n\n&#39; % (H[i][-1],sat[i]))
+        else:
+            f.write(&#39;\n%.6E,%.6E,%.6E\n\n&#39; % (H[i][-1],sat[i],T[i][-1]))
+        for k in range(len(c)):
+            val = f1(c[k])
+            y.append(val)
+            if not T:
+                f.write(&#39;%+.6E,%+.6E\n&#39; % (c[k], val))
+            else:
+                f.write(&#39;%+.6E,%+.6E,%+.6E\n&#39; % (c[k], val, t(c[k])))
+
+        plt.plot(c, y, linestyle=&quot;solid&quot;, marker=&quot;.&quot;)
+
+#    for i in range(len(H)):
+#        f.write(&quot;\n%.5E,%.5E,%.5E\n\n&quot; % (.15, sat[i], T[i][0]))
+#        for j in range(len(H[i])):
+#            f.write(&quot;%.5E,%.5E,%.5E\n&quot; % (H[i][j], R[i][j], T[i][j]))
+    f.close()
+
+    plt.xlabel(&quot;$\mu_0 H$&quot;)
+    plt.ylabel(&quot;$R_H$&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>def cut_data(data):
+    &quot;&quot;&quot;Cuts off the first and last values that are equal.
+    Returns Index of first and last value.
+    e.g.: [1,1,1,.5,0,0,0] -&gt; (2, 4)&quot;&quot;&quot;
+    min_A = max_A = 0
+
+    if(data[0] == data[1]):
+        for i in range(len(data)):
+            if data[i] == data[i+1]:
+                min_A += 1
+            else:
+                break
+
+    if(data[-1] == data[-2]):
+        for i in range(len(data)-1):
+            if data[-(i+1)] == data[-(i+2)]:
+                max_A += 1
+            else:
+                break
+    return min_A, -max_A
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>all_files = get_filenames(folder)
+all_files_sorted, saturation = sort_files(all_files)
+#fig = plt.figure()
+H_list = []
+R_list = []
+T_list = []
+for f in all_files_sorted:
+    data = pd.read_csv(f, sep=&#39; &#39;, header=2, names=header, index_col=False)
+    H = np.array(data.H)
+    V = np.array(data.V)
+
+    if fit_data:
+        fit_area = data[data.H &lt; data.H.min() + 150]
+        fit = scipy.stats.linregress(fit_area.H, fit_area.H)
+        fitting_line = (data.H*fit.slope + fit.intercept)
+        V = V - fitting_line
+
+    #data = filehandler.load_file(f)
+    #H = [data[i][H_idx] for i in np.arange(len(data))]
+    #V = [data[i][V_idx] for i in np.arange(len(data))]
+    #T = [data[i][T_idx] for i in np.arange(len(data))]
+
+    # Cut of unneccessary data and calculate R_H
+    #min_H, max_H = cut_data(H)
+    #H = np.array(H[min_H:max_H])
+    #V = np.array(V[min_H:max_H])
+    #T = np.array(T[min_H:max_H])
+    R = V/current
+
+    H_list.append(H)
+    R_list.append(R)
+    #T_list.append(T)
+
+    #plt.plot(list(H) ,list(R))
+
+sat_avg = []
+for sat in saturation:
+    sat_data = pd.read_csv(sat, sep=&#39; &#39;, header=2, names=header, index_col=False)
+    sat_V = np.array(sat_data.V)
+    sat_R = sat_V/current
+
+    sat_avg.append(np.average(sat_R))
+
+write(out_name, H_list, R_list, T_list, sat_avg)
+
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/modules_forc_FORC_Data_4_0.png" src="../../_images/modules_forc_FORC_Data_4_0.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../scripts.html" class="btn btn-neutral float-left" title="Python Scripts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../info/license.html" class="btn btn-neutral float-right" title="License" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020/2021, Jonathan Pieper.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

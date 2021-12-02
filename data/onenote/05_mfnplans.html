@@ -1,0 +1,3374 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>05: Measurement Plans &mdash; Lab Book 0.4 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="About the Data" href="../index.html" />
+    <link rel="prev" title="04: Data Aquisition Measurements" href="04_sr830daq.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Lab Book
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Lab Book</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info/gitlab.html">GitLab</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Original Lab Book</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="about.html">About OneNote Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="html-files.html">HTML Files</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="exported.html">Exported Notebooks</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="01_angles.html">01: Angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_temp.html">02: Temperature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03_mfn.html">03: Magnetic Flux Noise</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_sr830daq.html">04: Data Aquisition Measurements</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">05: Measurement Plans</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#measurements-while-sweeping-field">Measurements while sweeping field</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#measurement-plan-2">Measurement Plan #2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#measurement-plan-3-magnetic-field-effect">Measurement Plan #3_magnetic field effect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#measurement-plan-4-temp-effect">Measurement Plan #4_Temp effect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#measurement-plan-5-static-field-effect">Measurement Plan #5_Static field effect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#measurement-plan-6-dynamic-field-interval-effect">Measurement Plan #6_dynamic field interval effect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#measurement-plan-8">Measurement Plan #8</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#measurement-plan-11-different-applied-current-for-plusses">Measurement Plan #11_different applied current__for plusses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#measurement-plan-12-plusses-different-regimes-db-50mt">Measurement Plan #12_plusses_different regimes (DB = 50mT)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">About the Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hloop/index.html">Magnetic Characterization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfn/index.html">Magnetic Flux Noise (MFN)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/notebooks.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/ana/index.html">Data Analysis Framework (Ana)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/sa/index.html">SpectrumAnalyzer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/eve/index.html">EVE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/scripts.html">Python Scripts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../info/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info/idx.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Lab Book</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Original Lab Book</a> &raquo;</li>
+          <li><a href="exported.html">Exported Notebooks</a> &raquo;</li>
+      <li>05: Measurement Plans</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/data/onenote/05_mfnplans.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="measurement-plans">
+<h1>05: Measurement Plans<a class="headerlink" href="#measurement-plans" title="Permalink to this headline"></a></h1>
+<p>Thursday, 19. December 2019</p>
+<p>11:03</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sensor 26 3um Tetrahedral CoFe nanostructures D B x A and B: old square ASI</p>
+</aside>
+<section id="measurements-while-sweeping-field">
+<h2>Measurements while sweeping field<a class="headerlink" href="#measurements-while-sweeping-field" title="Permalink to this headline"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">Date<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Donnerstag, 13. Juni 2019</p>
+</dd>
+</dl>
+<p>14:06</p>
+<section id="sweeping-from-2-t">
+<h3>Sweeping from ± 2 T<a class="headerlink" href="#sweeping-from-2-t" title="Permalink to this headline"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>From</p></th>
+<th class="head"><p>To</p></th>
+<th class="head"><p>Structures</p></th>
+<th class="head"><p>Sweeping Rate
+[mT/min]</p></th>
+<th class="head"><p>Measurement</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Crosses</p></td>
+<td><p>48</p></td>
+<td><p><a class="reference external" href="onenote:#m302_m302.1%20MFN_down%20sweeping%20%202T%20to%20-2T&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={661773AF-F247-4763-AF8F-80C64C681846}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m302</a></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Crosses</p></td>
+<td><p>48</p></td>
+<td><p><a class="reference external" href="onenote:#m303_m303.1%20MFN_up%20sweeping%20%20-2T%20to%202T&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={EB705DBD-2C72-4184-9BE4-A7C270A1AE43}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m303</a></p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Plusses</p></td>
+<td><p>48</p></td>
+<td><p><a class="reference external" href="onenote:#m304_m304.1%20MFN_down%20sweeping%20%20-2T%20to%202T&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={9C733169-D5CF-4B48-921A-B533F8EE3C7D}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m304</a></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Empty #1</p></td>
+<td><p>48</p></td>
+<td><p><a class="reference external" href="onenote:#m305_m305.1%20MFN_down%20sweeping%202T%20to%20-2T&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={A641346D-5ABA-4B34-99CE-80D7DDD0B11C}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m305</a></p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Plusses</p></td>
+<td><p>7.86</p></td>
+<td><p><a class="reference external" href="onenote:#m306_m306.1%20MFN_down%20sweeping%20%20-2T%20to%202T&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={89B28326-DCC6-4031-ACA5-93F235A08EAE}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m306</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sweeping-down-and-up-again">
+<h3>Sweeping down and up again<a class="headerlink" href="#sweeping-down-and-up-again" title="Permalink to this headline"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Limit [± mT]</p></th>
+<th class="head"><p>Structures</p></th>
+<th class="head"><p>Sweeping Rate
+[mT/min]</p></th>
+<th class="head"><p>Measurement</p></th>
+<th class="head"><p>.</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>± 250</p></td>
+<td><p>Plusses</p></td>
+<td><p>11.86</p></td>
+<td><p><a class="reference external" href="onenote:#m307_m308.1%20MFN_down%20and%20up%20sweeping%200.25T&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={32FC4D94-FE71-4BD4-B863-349BD9FDE1D2}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m307</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>± 500</p></td>
+<td><p>Plusses</p></td>
+<td><p>23.7</p></td>
+<td><p><a href="#id11"><span class="problematic" id="id12">`m308 &lt;
+onenote:#m308_
+m308.1%20MFN_d
+own%20and%20up
+%20sweeping%20
+0.5T&amp;section-i
+d={5FAD0518-E3
+49-4A07-93E8-5
+D105BD4AEB4}&amp;p
+age-id={15D6D7
+6C-DD01-4EAC-9
+A30-321373CE0D
+3A}&amp;end&amp;base-p
+ath=https://go
+etheuniversita
+et.sharepoint.
+com/sites/Proj
+ect4/SiteAsset
+s/Project%204%
+20Notebook/Mag
+netic%20Flux%2
+0Noise.one&gt;`__</span></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>± 100</p></td>
+<td><p>Plusses</p></td>
+<td><p>4.7</p></td>
+<td><p><a href="#id11"><span class="problematic" id="id13">`m309 &lt;
+onenote:#m309_
+m309.1%20MFN_d
+own%20and%20up
+%20sweeping%20
+0.1T&amp;section-i
+d={5FAD0518-E3
+49-4A07-93E8-5
+D105BD4AEB4}&amp;p
+age-id={E1DA13
+48-EC34-4A9B-A
+B57-21BF33F586
+78}&amp;end&amp;base-p
+ath=https://go
+etheuniversita
+et.sharepoint.
+com/sites/Proj
+ect4/SiteAsset
+s/Project%204%
+20Notebook/Mag
+netic%20Flux%2
+0Noise.one&gt;`__</span></a></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="measurement-plan-2">
+<h2>Measurement Plan #2<a class="headerlink" href="#measurement-plan-2" title="Permalink to this headline"></a></h2>
+<p>:Date:Donnerstag, 13. Juni 2019</p>
+<p>16:41</p>
+<p>Static Field (compare with <a class="reference external" href="onenote:#measurements%20at%2090deg%20(static%20field)&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={319207B4-D488-4405-82E8-C67B1992E815}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">measurements at 90deg (static
+field)</a>)</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nr</p></th>
+<th class="head"><p>Struct</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>PM?</p></th>
+<th class="head"><p>F-Span</p></th>
+<th class="head"><p>Avg</p></th>
+<th class="head"><p>Time</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="onenote:#m310%20MFN_1_0T_PM&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={095095A7-1F24-485F-93B8-FDFB7ECFB753}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m31
+0</a></p></td>
+<td><p>#1 Empty</p></td>
+<td><p>0</p></td>
+<td><p>PM</p></td>
+<td><p>6 / 3</p></td>
+<td><p>30</p></td>
+<td><p>90 min</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="onenote:#m311%20MFN_-0.572500T_down%20sweep_%20Empty_over%20night&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={B365CF1D-484A-410C-8892-037075463356}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m
+311</a></p></td>
+<td></td>
+<td><p>-572.5
+mT</p></td>
+<td><p>PM</p></td>
+<td><p>12 / 6 /
+3 / 1 /
+0.78</p></td>
+<td><p>30</p></td>
+<td><p>500 min</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="onenote:#m312%20MFN_250mT_up%20sweep_Empty&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={414B1D4F-2371-46B8-804B-A9915637E48C}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m3
+12</a></p></td>
+<td></td>
+<td><p>250 mT</p></td>
+<td><p>PM</p></td>
+<td><p><em>3.125,
+1
+.5625Hz</em></p></td>
+<td><p>30</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="onenote:#m313%20MFN_500mT_up%20sweep_Empty&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={9D4CD50A-5CA9-429E-8D11-D84AB4F9D6CA}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m3
+13</a></p></td>
+<td></td>
+<td><p>500 mT</p></td>
+<td><p>PM</p></td>
+<td><p><em>3.125,
+1
+.5625Hz</em></p></td>
+<td><p>30</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="onenote:#m314%20MFN_1.5T_up%20sweep_Empty&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={934479EB-32BA-4849-B2FB-2539246FED44}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m
+314</a></p></td>
+<td></td>
+<td><p>1.5 T</p></td>
+<td><p>PM</p></td>
+<td><p><em>3.125,
+1
+.5625Hz</em></p></td>
+<td><p>30</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>`
+m319: &lt;o
+nenote:#
+m319%20M
+FN_2T_Em
+pty%20&amp;s
+ection-i
+d={5FAD0
+518-E349
+-4A07-93
+E8-5D105
+BD4AEB4}
+&amp;page-id
+={DA906F
+ED-A6E4-
+41F1-A61
+0-E456F0
+9AF024}&amp;
+end&amp;base
+-path=ht
+tps://go
+etheuniv
+ersitaet
+.sharepo
+int.com/
+sites/Pr
+oject4/S
+iteAsset
+s/Projec
+t%204%20
+Notebook
+/Magneti
+c%20Flux
+%20Noise
+.one&gt;`__</p></td>
+<td></td>
+<td><p>2 T</p></td>
+<td><p>PM</p></td>
+<td><p><em>1.56 /
+0.78 Hz</em></p></td>
+<td><p>30</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><dl class="simple">
+<dt><a href="#id1"><span class="problematic" id="id2">`</span></a>m315</dt><dd><p>&lt;onenot</p>
+</dd>
+</dl>
+<p>e:#m315%
+20MFN_25
+0mT_up%2
+0sweep_C
+rosses&amp;s
+ection-i
+d={5FAD0
+518-E349
+-4A07-93
+E8-5D105
+BD4AEB4}
+&amp;page-id
+={34FAA8
+5F-F6E1-
+4707-9D6
+3-67B512
+7E9D34}&amp;
+end&amp;base
+-path=ht
+tps://go
+etheuniv
+ersitaet
+.sharepo
+int.com/
+sites/Pr
+oject4/S
+iteAsset
+s/Projec
+t%204%20
+Notebook
+/Magneti
+c%20Flux
+%20Noise
+.one&gt;`__</p>
+</td>
+<td><p>Crosses</p></td>
+<td><p>250 mT</p></td>
+<td><p>PM</p></td>
+<td><p><em>1.56 /
+0.78 Hz</em></p></td>
+<td><p>30</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="onenote:#M316%20MFN_500mT_Crosses&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={CF372427-82BC-48C7-9592-EC31EB532D3B}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m
+316</a></p></td>
+<td></td>
+<td><p>500 mT</p></td>
+<td><p>PM</p></td>
+<td><p><em>1.56 /
+0.78 Hz</em></p></td>
+<td><p>30</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="onenote:#m317%20MFN_1.5T_Crosses&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={C2016F98-40C1-4E8B-A319-46B6320553E6}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m
+317:</a></p></td>
+<td></td>
+<td><p>1.5 T</p></td>
+<td><p>PM</p></td>
+<td><p><em>1.56 /
+0.78 Hz</em></p></td>
+<td><p>30</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a href="#id11"><span class="problematic" id="id14">`m318: &lt;
+onenote:
+#m318%20
+MFN_2T_C
+rosses&amp;s
+ection-i
+d={5FAD0
+518-E349
+-4A07-93
+E8-5D105
+BD4AEB4}
+&amp;page-id
+={179FB9
+50-EB2F-
+42C8-8B3
+B-B2B38D
+3D1A86}&amp;
+end&amp;base
+-path=ht
+tps://go
+etheuniv
+ersitaet
+.sharepo
+int.com/
+sites/Pr
+oject4/S
+iteAsset
+s/Projec
+t%204%20
+Notebook
+/Magneti
+c%20Flux
+%20Noise
+.one&gt;`__</span></a></p></td>
+<td></td>
+<td><p>2 T</p></td>
+<td><p>PM</p></td>
+<td><p><em>1.56 /
+0.78 Hz</em></p></td>
+<td><p>30</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Sweeping Field (compare with <a class="reference external" href="onenote:#Measurements%20while%20sweeping%20field&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={03B9AE70-0C9E-4DF3-8E0A-B28A5EA8879D}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">Measurements while sweeping
+field</a>
+)</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nr</p></th>
+<th class="head"><p>S
+truct</p></th>
+<th class="head"><p>Field
+From</p></th>
+<th class="head"><p>Field
+To</p></th>
+<th class="head"><p>SR
+[mT
+/min]</p></th>
+<th class="head"><p>F
+-Span</p></th>
+<th class="head"><p>Avg</p></th>
+<th class="head"><p>Time
+[min]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="onenote:#m320%20MFN_sweep_2T-1T_Empty&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={431B31EF-F373-4BD3-8984-B58D984A43E2}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m3
+20</a></p></td>
+<td><p>#1
+Empty</p></td>
+<td><p>2T</p></td>
+<td><p>1 T</p></td>
+<td><p>9.434</p></td>
+<td><p>1
+.5625</p></td>
+<td><p>25</p></td>
+<td><p>107</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="onenote:#m321%20MFN_sweep_2T-1T_Empty&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={D5C6A9D2-DD0F-4AAA-89E7-4C530619DAF7}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m3
+21</a></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>4,7</p></td>
+<td><p>0.78</p></td>
+<td></td>
+<td><p>214</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="onenote:#m322%20MFN_sweep_500mT_Empty&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={AB71DA5D-16DC-48A7-A910-03C171CDA367}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m3
+22</a></p></td>
+<td></td>
+<td><p>500
+mT</p></td>
+<td><p>-500
+mT</p></td>
+<td><p>9.4</p></td>
+<td><p>1.56</p></td>
+<td></td>
+<td><p>107</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>4.7</p></td>
+<td><p>0.78</p></td>
+<td></td>
+<td><p>214</p></td>
+</tr>
+<tr class="row-even"><td><dl class="simple">
+<dt><a href="#id3"><span class="problematic" id="id4">`</span></a>m323</dt><dd><p>&lt;one</p>
+</dd>
+</dl>
+<p>note:
+#m323
+%20MF
+N_swe
+ep_1T
+_Empt
+y&amp;sec
+tion-
+id={5
+FAD05
+18-E3
+49-4A
+07-93
+E8-5D
+105BD
+4AEB4
+}&amp;pag
+e-id=
+{8542
+1CEF-
+782C-
+463C-
+BF01-
+4AB2A
+CAAB2
+FD}&amp;e
+nd&amp;ba
+se-pa
+th=ht
+tps:/
+/goet
+heuni
+versi
+taet.
+share
+point
+.com/
+sites
+/Proj
+ect4/
+SiteA
+ssets
+/Proj
+ect%2
+04%20
+Noteb
+ook/M
+agnet
+ic%20
+Flux%
+20Noi
+se.on
+e&gt;`__</p>
+</td>
+<td></td>
+<td><p>1 T</p></td>
+<td><p>-1 T</p></td>
+<td><p>9.4</p></td>
+<td><p>0.78</p></td>
+<td></td>
+<td><p>214</p></td>
+</tr>
+<tr class="row-odd"><td><dl class="simple">
+<dt><a href="#id5"><span class="problematic" id="id6">`</span></a>m324</dt><dd><p>&lt;one</p>
+</dd>
+</dl>
+<p>note:
+#m324
+%20MF
+N_swe
+ep_1T
+_Empt
+y_lon
+g&amp;sec
+tion-
+id={5
+FAD05
+18-E3
+49-4A
+07-93
+E8-5D
+105BD
+4AEB4
+}&amp;pag
+e-id=
+{668C
+E667-
+FFA9-
+40E1-
+A502-
+4B3DB
+9776B
+B4}&amp;e
+nd&amp;ba
+se-pa
+th=ht
+tps:/
+/goet
+heuni
+versi
+taet.
+share
+point
+.com/
+sites
+/Proj
+ect4/
+SiteA
+ssets
+/Proj
+ect%2
+04%20
+Noteb
+ook/M
+agnet
+ic%20
+Flux%
+20Noi
+se.on
+e&gt;`__</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>4.7</p></td>
+<td><p>0.39</p></td>
+<td></td>
+<td><p>407</p></td>
+</tr>
+<tr class="row-even"><td><p><a href="#id11"><span class="problematic" id="id15">`m
+325 &lt;
+oneno
+te:#m
+325%2
+0MFN_
+sweep
+_2T%2
+0to%2
+01T_C
+rosse
+s&amp;sec
+tion-
+id={5
+FAD05
+18-E3
+49-4A
+07-93
+E8-5D
+105BD
+4AEB4
+}&amp;pag
+e-id=
+{C799
+963E-
+FEFB-
+4C02-
+882C-
+22440
+DCBD0
+F1}&amp;e
+nd&amp;ba
+se-pa
+th=ht
+tps:/
+/goet
+heuni
+versi
+taet.
+share
+point
+.com/
+sites
+/Proj
+ect4/
+SiteA
+ssets
+/Proj
+ect%2
+04%20
+Noteb
+ook/M
+agnet
+ic%20
+Flux%
+20Noi
+se.on
+e&gt;`__</span></a></p></td>
+<td><p>Cr
+osses</p></td>
+<td><p>2 T</p></td>
+<td><p>1 T</p></td>
+<td><p>9.4</p></td>
+<td><p>1.56</p></td>
+<td></td>
+<td><p>107</p></td>
+</tr>
+<tr class="row-odd"><td><p><a href="#id11"><span class="problematic" id="id16">`m3
+26: &lt;
+oneno
+te:#m
+326%2
+0MFN_
+sweep
+_2T%2
+0to%2
+01T_4
+.7mT.
+min_C
+rosse
+s_0.7
+8%20H
+z&amp;sec
+tion-
+id={5
+FAD05
+18-E3
+49-4A
+07-93
+E8-5D
+105BD
+4AEB4
+}&amp;pag
+e-id=
+{FDB6
+250B-
+488A-
+406A-
+B585-
+F2887
+1412D
+03}&amp;e
+nd&amp;ba
+se-pa
+th=ht
+tps:/
+/goet
+heuni
+versi
+taet.
+share
+point
+.com/
+sites
+/Proj
+ect4/
+SiteA
+ssets
+/Proj
+ect%2
+04%20
+Noteb
+ook/M
+agnet
+ic%20
+Flux%
+20Noi
+se.on
+e&gt;`__</span></a></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>4.7</p></td>
+<td><p>0.78</p></td>
+<td></td>
+<td><p>214</p></td>
+</tr>
+<tr class="row-even"><td><p><a href="#id11"><span class="problematic" id="id17">`m3
+27: &lt;
+oneno
+te:#m
+327%2
+0MFN_
+sweep
+_0.5T
+%20to
+%20-0
+.5T_9
+.4mT.
+min_C
+rosse
+s_1.5
+6%20H
+z&amp;sec
+tion-
+id={5
+FAD05
+18-E3
+49-4A
+07-93
+E8-5D
+105BD
+4AEB4
+}&amp;pag
+e-id=
+{3840
+9C27-
+EF24-
+4E1F-
+82E7-
+F7F25
+7F779
+88}&amp;e
+nd&amp;ba
+se-pa
+th=ht
+tps:/
+/goet
+heuni
+versi
+taet.
+share
+point
+.com/
+sites
+/Proj
+ect4/
+SiteA
+ssets
+/Proj
+ect%2
+04%20
+Noteb
+ook/M
+agnet
+ic%20
+Flux%
+20Noi
+se.on
+e&gt;`__</span></a></p></td>
+<td></td>
+<td><p>500
+mT</p></td>
+<td><p>-500
+mT</p></td>
+<td><p>9.4</p></td>
+<td><p>1.56</p></td>
+<td></td>
+<td><p>107</p></td>
+</tr>
+<tr class="row-odd"><td><p>`
+m328:</p>
+<blockquote>
+<div><p>&lt;one</p>
+</div></blockquote>
+<p>note:
+#m328
+%20MF
+N_swe
+ep_0.
+5T%20
+to%20
+-0.5T
+_4.7m
+T.min
+_Cros
+ses_0
+.7812
+5%20H
+z&amp;sec
+tion-
+id={5
+FAD05
+18-E3
+49-4A
+07-93
+E8-5D
+105BD
+4AEB4
+}&amp;pag
+e-id=
+{7046
+08EA-
+B37C-
+4082-
+A674-
+A0214
+49075
+35}&amp;e
+nd&amp;ba
+se-pa
+th=ht
+tps:/
+/goet
+heuni
+versi
+taet.
+share
+point
+.com/
+sites
+/Proj
+ect4/
+SiteA
+ssets
+/Proj
+ect%2
+04%20
+Noteb
+ook/M
+agnet
+ic%20
+Flux%
+20Noi
+se.on
+e&gt;`__</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>4.7</p></td>
+<td><p>0.78</p></td>
+<td></td>
+<td><p>214</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="onenote:#m329%20MFN_sweep_1T%20to%20-1T_9.4mT.min_Crosses_0.78%20Hz&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={1BF227F9-DD77-411A-89F3-D5BE75BDC375}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m32
+9:</a></p></td>
+<td></td>
+<td><p>1 T</p></td>
+<td><p>-1 T</p></td>
+<td><p>9.4</p></td>
+<td><p>0.78</p></td>
+<td></td>
+<td><p>214</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="onenote:#m330%20MFN_sweep_1T%20to%20-1T_4.9mT.min_Crosses_0.39%20Hz&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={2EBD7CAA-E741-4117-9DD9-5A6471172E96}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m33
+0:</a></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>4.7</p></td>
+<td><p>0.39</p></td>
+<td></td>
+<td><p>407</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="onenote:#m331%20MFN_sweep_0.5T%20to%20-0.5T_9.4mT.min_Crosses_1.5Hz&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={C1207692-2116-49B8-A662-61B2B830389F}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m33
+1:</a></p></td>
+<td></td>
+<td><p>500
+mT</p></td>
+<td><p>-500
+mT</p></td>
+<td><p>9.4</p></td>
+<td><p>1.56</p></td>
+<td><p>25</p></td>
+<td><p>107</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="onenote:#m332%20MFN_sweep_0.3T%20to%20-0.3T_2.8mT.min_Crosses_0.78Hz&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={CBE52222-7C7C-4E14-BA8E-77669E7BEF0E}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m332
+:</a></p></td>
+<td></td>
+<td><p>300</p></td>
+<td><p>-300</p></td>
+<td><p>2.8</p></td>
+<td><p>0.78</p></td>
+<td><p>25</p></td>
+<td><p>214</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="onenote:#m333%20MFN_sweep_0.75T%20to%20-0.75T_2.8mT.min_Crosses_0.78Hz&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={BDEF478E-1C2F-44C8-A0E8-934E6774B562}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m
+333:</a></p></td>
+<td></td>
+<td><p>750</p></td>
+<td><p>-750</p></td>
+<td><p>7</p></td>
+<td><p>0.78</p></td>
+<td><p>25</p></td>
+<td><p>214</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="onenote:#m334%20MFN_sweep_0.1T%20to%20-0.1T_0.093mT.min_Crosses_0.78Hz&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={55FAE8CC-0FCC-49EB-8B89-DFA96C9571B5}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m
+334:</a></p></td>
+<td></td>
+<td><p>0.1</p></td>
+<td><p>0.1</p></td>
+<td><p>0.093</p></td>
+<td><p>0.78</p></td>
+<td><p>25</p></td>
+<td><p>214</p></td>
+</tr>
+<tr class="row-even"><td><p>`
+m335:</p>
+<blockquote>
+<div><p>&lt;one</p>
+</div></blockquote>
+<p>note:
+#m335
+%20MF
+N_swe
+ep_0.
+5T%20
+to%20
+-0.5T
+_9.4m
+T.min
+_Empt
+y_1.5
+Hz_re
+peate
+d%20t
+o%20c
+ompar
+e&amp;sec
+tion-
+id={5
+FAD05
+18-E3
+49-4A
+07-93
+E8-5D
+105BD
+4AEB4
+}&amp;pag
+e-id=
+{9B28
+8ADD-
+F6A0-
+43BB-
+82B5-
+2AB17
+141AA
+50}&amp;e
+nd&amp;ba
+se-pa
+th=ht
+tps:/
+/goet
+heuni
+versi
+taet.
+share
+point
+.com/
+sites
+/Proj
+ect4/
+SiteA
+ssets
+/Proj
+ect%2
+04%20
+Noteb
+ook/M
+agnet
+ic%20
+Flux%
+20Noi
+se.on
+e&gt;`__</p>
+</td>
+<td><p>#1
+Empty</p></td>
+<td><p>500
+mT</p></td>
+<td><p>-500
+mT</p></td>
+<td><p>9.4</p></td>
+<td><p>1.56</p></td>
+<td><p>25</p></td>
+<td><p>107</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="onenote:#m336%20MFN_sweep_0.5T%20to%20-0.5T_9.4mT.min_Plusses_1.5Hz_&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={D8CAFE0F-A941-4CD8-8ECF-85A69072AB20}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m336
+:</a></p></td>
+<td><p>Pl
+usses</p></td>
+<td><p>500
+mT</p></td>
+<td><p>-500
+mT</p></td>
+<td><p>9.4</p></td>
+<td><p>1.56</p></td>
+<td><p>25</p></td>
+<td><p>107</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="onenote:#m337%20MFN_sweep_0.05T%20to%20-0.05T_0.934mT.min_Plusses_1.5Hz_&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={0CC3C076-26F7-41AE-81DA-08D02639C6CC}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m33
+7:</a></p></td>
+<td></td>
+<td><p>50 mT</p></td>
+<td><p>-50
+mT</p></td>
+<td><p>0.934</p></td>
+<td><p>1.56</p></td>
+<td><p>25</p></td>
+<td><p>107</p></td>
+</tr>
+<tr class="row-odd"><td><p>`
+m338:</p>
+<blockquote>
+<div><p>&lt;one</p>
+</div></blockquote>
+<p>note:
+#m338
+%20MF
+N_swe
+ep_0.
+025T%
+20to%
+20-0.
+<a href="#id23"><span class="problematic" id="id24">025T_</span></a>
+0.934
+mT.mi
+n_Plu
+<a href="#id25"><span class="problematic" id="id26">sses_</span></a>
+1.5Hz
+_&amp;sec
+tion-
+id={5
+FAD05
+18-E3
+49-4A
+07-93
+E8-5D
+105BD
+4AEB4
+}&amp;pag
+e-id=
+{1675
+6AA0-
+797F-
+46A5-
+8256-
+76748
+34959
+0D}&amp;e
+nd&amp;ba
+se-pa
+th=ht
+tps:/
+/goet
+heuni
+versi
+taet.
+share
+point
+.com/
+sites
+/Proj
+ect4/
+SiteA
+ssets
+/Proj
+ect%2
+04%20
+Noteb
+ook/M
+agnet
+ic%20
+Flux%
+20Noi
+se.on
+e&gt;`__</p>
+</td>
+<td></td>
+<td><p>25 mT</p></td>
+<td><p>-25mT</p></td>
+<td><p>0.46</p></td>
+<td><p>1.56</p></td>
+<td><p>25</p></td>
+<td><p>107</p></td>
+</tr>
+<tr class="row-even"><td><p><a href="#id11"><span class="problematic" id="id18">`m3
+39: &lt;
+oneno
+te:#m
+339%2
+0MFN_
+sweep
+_0T%2
+0to%2
+0-0.5
+T_4.6
+mT.mi
+n_Plu
+sses_
+1.5Hz
+_&amp;sec
+tion-
+id={5
+FAD05
+18-E3
+49-4A
+07-93
+E8-5D
+105BD
+4AEB4
+}&amp;pag
+e-id=
+{A8B2
+7469-
+2B16-
+4AAB-
+BA21-
+2E9D5
+F7B14
+09}&amp;e
+nd&amp;ba
+se-pa
+th=ht
+tps:/
+/goet
+heuni
+versi
+taet.
+share
+point
+.com/
+sites
+/Proj
+ect4/
+SiteA
+ssets
+/Proj
+ect%2
+04%20
+Noteb
+ook/M
+agnet
+ic%20
+Flux%
+20Noi
+se.on
+e&gt;`__</span></a></p></td>
+<td></td>
+<td><p>0</p></td>
+<td><p>0.5</p></td>
+<td><p>4.6</p></td>
+<td><p>1.56</p></td>
+<td><p>25</p></td>
+<td><p>107</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>#1
+Empty</p></td>
+<td><p>25 mT</p></td>
+<td><p>-25mT</p></td>
+<td><p>0.46</p></td>
+<td><p>1.56</p></td>
+<td><p>25</p></td>
+<td><p>107</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Pl
+usses</p></td>
+<td><p>5mT</p></td>
+<td><p>-5mT</p></td>
+<td><p>9
+.3e-5</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="measurement-plan-3-magnetic-field-effect">
+<h2>Measurement Plan #3_magnetic field effect<a class="headerlink" href="#measurement-plan-3-magnetic-field-effect" title="Permalink to this headline"></a></h2>
+<p>:Date:02 June 2019</p>
+<p>17:30</p>
+<p>Field Sweeps (ΔB = T)</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><em>Nr</em></p></th>
+<th class="head"><p><em>St
+ruct</em></p></th>
+<th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p>Field
+From*</p>
+</th>
+<th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p>Field
+To*</p>
+</th>
+<th class="head"><p><em>Hlo
+op_br
+anch</em></p></th>
+<th class="head"><p><em>SR
+[mT/
+min]</em></p></th>
+<th class="head"><p><em>F-
+Span</em></p></th>
+<th class="head"><p><em>V
+in(V)
+/sens
+(mV)/
+gain</em></p></th>
+<th class="head"><p><em>Avg</em></p></th>
+<th class="head"><p><em>Time
+[min,
+Hr]</em></p></th>
+<th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p>Date*</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>`
+m342:</p>
+<blockquote>
+<div><p>&lt;one</p>
+</div></blockquote>
+<p>note:
+#m342
+%20MF
+N_Plu
+<a href="#id27"><span class="problematic" id="id28">sses_</span></a>
+sweep
+%20af
+ter%2
+0+%20
+satur
+ation
+%20at
+%201T
+_0.00
+5T%20
+to%20
+-0.00
+5T_mT
+.min_
+1.5,%
+200.7
+8Hz_5
+V&amp;sec
+tion-
+id={5
+FAD05
+18-E3
+49-4A
+07-93
+E8-5D
+105BD
+4AEB4
+}&amp;pag
+e-id=
+{0664
+508E-
+5C60-
+4D50-
+9F2A-
+99136
+D158C
+E7}&amp;e
+nd&amp;ba
+se-pa
+th=ht
+tps:/
+/goet
+heuni
+versi
+taet.
+share
+point
+.com/
+sites
+/Proj
+ect4/
+SiteA
+ssets
+/Proj
+ect%2
+04%20
+Noteb
+ook/M
+agnet
+ic%20
+Flux%
+20Noi
+se.on
+e&gt;`__</p>
+</td>
+<td><p>Pl
+usses</p></td>
+<td><p>25 mT</p></td>
+<td><p>-25
+mT</p></td>
+<td><p>+Satu
+rated</p></td>
+<td><p>0.11</p></td>
+<td><p>1.
+5/0.7</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>35</p></td>
+<td><p>44
+8_7.4</p></td>
+<td><p>02.07
+.2019</p></td>
+</tr>
+<tr class="row-odd"><td><p>`
+m343:</p>
+<blockquote>
+<div><p>&lt;one</p>
+</div></blockquote>
+<p>note:
+#m343
+%20MF
+N_Plu
+<a href="#id29"><span class="problematic" id="id30">sses_</span></a>
+sweep
+%20af
+ter%2
+0-%20
+satur
+ation
+%20at
+%201T
+_0.00
+5T%20
+to%20
+-0.00
+5T_mT
+.min_
+1.5,%
+200.7
+8Hz_5
+V&amp;sec
+tion-
+id={5
+FAD05
+18-E3
+49-4A
+07-93
+E8-5D
+105BD
+4AEB4
+}&amp;pag
+e-id=
+{9D1A
+8DBE-
+486A-
+444C-
+9890-
+8A4FB
+60E50
+D2}&amp;e
+nd&amp;ba
+se-pa
+th=ht
+tps:/
+/goet
+heuni
+versi
+taet.
+share
+point
+.com/
+sites
+/Proj
+ect4/
+SiteA
+ssets
+/Proj
+ect%2
+04%20
+Noteb
+ook/M
+agnet
+ic%20
+Flux%
+20Noi
+se.on
+e&gt;`__</p>
+</td>
+<td><p>Pl
+usses</p></td>
+<td><p>-25
+mT</p></td>
+<td><p>25 mT</p></td>
+<td><p>-Satu
+rated</p></td>
+<td><p>0.11</p></td>
+<td><p>1.
+5/0.7</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>35</p></td>
+<td><p>44
+8_7.4</p></td>
+<td><p>03.07
+.2019</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="onenote:#m344%20MFN_Plusses_sweep%20after_saturation%20at%20+1T_-0.443T%20to%20-0.611T_2.352mT.min_1.5,%200.78Hz_5V&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={C53AAB46-C98F-4039-8C24-F8153D391688}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m
+344:</a></p></td>
+<td><p>Pl
+usses</p></td>
+<td><p>-443
+mT</p></td>
+<td><p>-611
+mT</p></td>
+<td><p>+Satu
+rated</p></td>
+<td><p>2.352</p></td>
+<td><p>1.
+5/0.7</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>35</p></td>
+<td><p>44
+8_7.4</p></td>
+<td><p>03.07
+.2019</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="onenote:#m345%20MFN_Plusses_sweep%20after_saturation%20at%20+1T_%20-0.2913%20T%20to%20-0.443%20T_1.638mT.min_1.5,%200.78Hz_5V&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={0BD41550-00B9-4E21-A600-12F3044B3C99}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m
+345:</a></p></td>
+<td><p>Pl
+usses</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>-291
+mT*</em></p>
+</td>
+<td><p>-443
+mT</p></td>
+<td><p>+Satu
+rated</p></td>
+<td><p>0.5</p></td>
+<td><p>1.
+5/0.7</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>24</p></td>
+<td><p>303_5</p></td>
+<td><p>03.07
+.2019</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="onenote:#m346%20MFN_Plusses_sweep%20after_saturation%20at%20+1T_%20-0.06798%20T%20to%20-0.2913%20T_1.638mT.min_1.5,%200.78Hz_5V&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={5FCA0077-B82E-4798-A046-B161DE856008}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m34
+6:</a></p></td>
+<td><p>Pl
+usses</p></td>
+<td><p>36
+.56mT</p></td>
+<td><p><strong>-2
+91.13
+mT</strong></p></td>
+<td><p>+Satu
+rated</p></td>
+<td><p>0.5</p></td>
+<td><p>1.
+5/0.7</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>51</p></td>
+<td><p>655
+_10.9</p></td>
+<td><p>04.07
+.2019</p></td>
+</tr>
+<tr class="row-odd"><td><p>`
+m347:</p>
+<blockquote>
+<div><p>&lt;one</p>
+</div></blockquote>
+<p>note:
+#m347
+%20MF
+N_Plu
+<a href="#id31"><span class="problematic" id="id32">sses_</span></a>
+sweep
+%20af
+ter_s
+atura
+tion%
+20at%
+20-1T
+_%20-
+0.036
+56%20
+T%20t
+o%200
+.2913
+%20T_
+0.5mT
+.min_
+1.5%2
+0Hz_5
+V_ave
+rages
+%2015
+3&amp;sec
+tion-
+id={5
+FAD05
+18-E3
+49-4A
+07-93
+E8-5D
+105BD
+4AEB4
+}&amp;pag
+e-id=
+{16C4
+D18A-
+3947-
+458C-
+ADD2-
+F4CBD
+33558
+63}&amp;e
+nd&amp;ba
+se-pa
+th=ht
+tps:/
+/goet
+heuni
+versi
+taet.
+share
+point
+.com/
+sites
+/Proj
+ect4/
+SiteA
+ssets
+/Proj
+ect%2
+04%20
+Noteb
+ook/M
+agnet
+ic%20
+Flux%
+20Noi
+se.on
+e&gt;`__</p>
+</td>
+<td><p>Pl
+usses</p></td>
+<td><p>-36
+.56mT</p></td>
+<td><p><strong>-2
+91.13
+mT</strong></p></td>
+<td><p>-Satu
+rated</p></td>
+<td><p>0.5</p></td>
+<td><p>1.5</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>153</p></td>
+<td><p>652
+_10.9</p></td>
+<td><p>04.0
+7.201
+9_Thu
+rsday
+night</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="onenote:#m348%20MFN_Empty_sweep%20after_saturation%20at%20-1T_%20-0.03656%20T%20to%200.2913%20T_0.5mT.min_1.5%20Hz_5V_averages%20153&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={A8F12604-CEF9-4037-97CE-1E62BF0761C2}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m34
+8:</a></p></td>
+<td><p>Empty</p></td>
+<td><p>36
+.56mT</p></td>
+<td><p><strong>-2
+91.13
+mT</strong></p></td>
+<td><p>-Satu
+rated</p></td>
+<td><p>0.5</p></td>
+<td><p>1.5</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>153</p></td>
+<td><p>652
+_10.9</p></td>
+<td><p>05
+.07.2
+019_F
+riday</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="onenote:#m349%20MFN_Empty_sweep%20after_saturation%20at%20-1T_%20-0.025T%20to%200.025%20T_0.5mT.min_1.5%20Hz_5V_averages%2024&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={A1A7C247-1384-40EE-842C-EAC6A278714F}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m
+349:</a></p></td>
+<td><p>Empty</p></td>
+<td><p>-25
+mT</p></td>
+<td><p>+25
+mT</p></td>
+<td><p>-Satu
+rated</p></td>
+<td><p>0.5</p></td>
+<td><p>1.5</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>24</p></td>
+<td><p>100</p></td>
+<td><p>06.
+07.20
+19_mi
+dnigh
+t_Sat
+urday</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="onenote:#m350%20MFN_Plusses_sweep%20after_saturation%20at%20-1T_%20-0.025T%20to%200.025%20T_0.5mT.min_1.5%20Hz_5V_averages%2024&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={1EA829B7-965C-4961-9B23-F96DDD8F9E7F}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m35
+0:</a></p></td>
+<td><p>Pl
+usses</p></td>
+<td><p>-25
+mT</p></td>
+<td><p>+25
+mT</p></td>
+<td><p>-Satu
+rated</p></td>
+<td><p>0.5</p></td>
+<td><p>1.5</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>24</p></td>
+<td><p>100</p></td>
+<td><p>06.0
+7.201
+9_Sat
+urday
+_afte
+rnoon</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="onenote:#m351%20MFN_Plusses_sweep%20after_saturation%20at%20-1T_%20-0.025T%20to%200.025%20T_1mT.min_1.5%20Hz_5V_averages%2012&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={046961AE-ADE6-41BF-B254-AA185E078B79}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m
+351:</a></p></td>
+<td><p>Pl
+usses</p></td>
+<td><p>-25
+mT</p></td>
+<td><p>25 mT</p></td>
+<td><p>-Satu
+rated</p></td>
+<td><p>1</p></td>
+<td><p>1.5</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>12</p></td>
+<td><p>50</p></td>
+<td><p>06
+.07.2
+019_S
+aturd
+ay_ev
+ening</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="onenote:#m352%20MFN_Plusses_sweep%20after_saturation%20at%20-1T_%20-0.025T%20to%200.025%20T_0.1mT.min_1.5%20Hz_5V_averages%20117&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={87401F82-7B5F-4BD6-9B30-CDD5C3F109BF}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m352
+:</a></p></td>
+<td><p>Pl
+usses</p></td>
+<td><p>-25
+mT</p></td>
+<td><p>25 mT</p></td>
+<td><p>-Satu
+rated</p></td>
+<td><p>0.1</p></td>
+<td><p>1.5</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>117</p></td>
+<td><p>500</p></td>
+<td><p>06.07
+.2019
+_Satu
+<a href="#id33"><span class="problematic" id="id34">rday_</span></a>
+night</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="onenote:#m353%20MFN_Plusses_sweep%20after_saturation%20at%20-1T_%20-0.025T%20to%200.025%20T_0.25mT.min_1.5%20Hz_5V_averages%2047&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={FE9092E1-169E-4347-9969-D12D8CB66BD4}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m353
+:</a></p></td>
+<td><p>Pl
+usses</p></td>
+<td><p>-25
+mT</p></td>
+<td><p>25 mT</p></td>
+<td><p>-Satu
+rated</p></td>
+<td><p>0.25</p></td>
+<td><p>1.5</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>47</p></td>
+<td><p>200</p></td>
+<td><p>07.07
+.2019
+_Sund
+ay_mo
+rning</p></td>
+</tr>
+<tr class="row-even"><td><p>`
+m354:</p>
+<blockquote>
+<div><p>&lt;one</p>
+</div></blockquote>
+<p>note:
+#m354
+%20MF
+N_Plu
+<a href="#id35"><span class="problematic" id="id36">sses_</span></a>
+sweep
+%20af
+ter_s
+atura
+tion%
+20at%
+20-1T
+_%20-
+0.025
+T%20t
+o%200
+.025%
+20T_2
+mT.mi
+n_1.5
+%20Hz
+_5V_a
+verag
+es%20
+6&amp;sec
+tion-
+id={5
+FAD05
+18-E3
+49-4A
+07-93
+E8-5D
+105BD
+4AEB4
+}&amp;pag
+e-id=
+{962B
+DDFC-
+8A50-
+4AB8-
+A318-
+69979
+09CE9
+D1}&amp;e
+nd&amp;ba
+se-pa
+th=ht
+tps:/
+/goet
+heuni
+versi
+taet.
+share
+point
+.com/
+sites
+/Proj
+ect4/
+SiteA
+ssets
+/Proj
+ect%2
+04%20
+Noteb
+ook/M
+agnet
+ic%20
+Flux%
+20Noi
+se.on
+e&gt;`__</p>
+</td>
+<td><p>Pl
+usses</p></td>
+<td><p>-25
+mT</p></td>
+<td><p>25 mT</p></td>
+<td><p>-Satu
+rated</p></td>
+<td><p>2</p></td>
+<td><p>1.5</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>6</p></td>
+<td><p>25</p></td>
+<td><p>07.
+07.20
+19_Su
+<a href="#id37"><span class="problematic" id="id38">nday_</span></a>
+lunch
+time</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image2103.png"><img alt="image1" src="../../_images/image2103.png" style="width: 1.72917in; height: 2.79167in;" /></a><a class="reference internal" href="../../_images/image3104.png"><img alt="image2" src="../../_images/image3104.png" style="width: 1.04167in; height: 2.70833in;" /></a><a class="reference internal" href="../../_images/image4104.png"><img alt="image3" src="../../_images/image4104.png" style="width: 0.54167in; height: 0.29167in;" /></a><a class="reference internal" href="../../_images/image5103.png"><img alt="image4" src="../../_images/image5103.png" style="width: 0.66667in; height: 0.3125in;" /></a><a class="reference internal" href="../../_images/image6104.png"><img alt="image5" src="../../_images/image6104.png" style="width: 0.41667in; height: 0.29167in;" /></a><a class="reference internal" href="../../_images/image796.png"><img alt="image6" src="../../_images/image796.png" style="width: 0.8125in; height: 0.3125in;" /></a><a class="reference internal" href="../../_images/image816.png"><img alt="image7" src="../../_images/image816.png" style="width: 0.45833in; height: 0.3125in;" /></a><a class="reference internal" href="../../_images/image916.png"><img alt="image8" src="../../_images/image916.png" style="width: 0.75in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image1014.png"><img alt="image9" src="../../_images/image1014.png" style="width: 0.47917in; height: 0.3125in;" /></a><a class="reference internal" href="../../_images/image1115.png"><img alt="image10" src="../../_images/image1115.png" style="width: 0.72917in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image1215.png"><img alt="image11" src="../../_images/image1215.png" style="width: 0.375in; height: 0.29167in;" /></a><a class="reference internal" href="../../_images/image1315.png"><img alt="image12" src="../../_images/image1315.png" style="width: 0.72917in; height: 0.29167in;" /></a><a class="reference internal" href="../../_images/image1415.png"><img alt="image13" src="../../_images/image1415.png" style="width: 0.6875in; height: 0.4375in;" /></a><a class="reference internal" href="../../_images/image1514.png"><img alt="image14" src="../../_images/image1514.png" style="width: 0.25in; height: 0.52083in;" /></a><a class="reference internal" href="../../_images/image1614.png"><img alt="image15" src="../../_images/image1614.png" style="width: 0.41667in; height: 0.47917in;" /></a><a class="reference internal" href="../../_images/image1714.png"><img alt="image16" src="../../_images/image1714.png" style="width: 0.60417in; height: 0.45833in;" /></a><a class="reference internal" href="../../_images/image1814.png"><img alt="image17" src="../../_images/image1814.png" style="width: 0.33333in; height: 0.14583in;" /></a><a class="reference internal" href="../../_images/image1914.png"><img alt="image18" src="../../_images/image1914.png" style="width: 0.29167in; height: 0.4375in;" /></a><a class="reference internal" href="../../_images/image2014.png"><img alt="image19" src="../../_images/image2014.png" style="width: 0.29167in; height: 0.3125in;" /></a><a class="reference internal" href="../../_images/image2113.png"><img alt="image20" src="../../_images/image2113.png" style="width: 0.35417in; height: 0.27083in;" /></a><a class="reference internal" href="../../_images/image2214.png"><img alt="image21" src="../../_images/image2214.png" style="width: 0.20833in; height: 0.29167in;" /></a><a class="reference internal" href="../../_images/image2314.png"><img alt="image22" src="../../_images/image2314.png" style="width: 0.25in; height: 0.29167in;" /></a><a class="reference internal" href="../../_images/image6314.png"><img alt="006" src="../../_images/image6314.png" style="width: 4.35417in; height: 3.33333in;" /></a><a class="reference internal" href="../../_images/image2514.png"><img alt="image24" src="../../_images/image2514.png" style="width: 0.27083in; height: 0.16667in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image2614.png"><img alt="image25" src="../../_images/image2614.png" style="width: 0.79167in; height: 0.52083in;" /></a><a class="reference internal" href="../../_images/image2714.png"><img alt="image26" src="../../_images/image2714.png" style="width: 0.25in; height: 0.5in;" /></a><a class="reference internal" href="../../_images/image2814.png"><img alt="image27" src="../../_images/image2814.png" style="width: 0.33333in; height: 0.52083in;" /></a><a class="reference internal" href="../../_images/image2914.png"><img alt="image28" src="../../_images/image2914.png" style="width: 0.8125in; height: 0.52083in;" /></a><a class="reference internal" href="../../_images/image3014.png"><img alt="image29" src="../../_images/image3014.png" style="width: 0.41667in; height: 0.41667in;" /></a><a class="reference internal" href="../../_images/image3114.png"><img alt="image30" src="../../_images/image3114.png" style="width: 0.375in; height: 0.125in;" /></a><a class="reference internal" href="../../_images/image3214.png"><img alt="image31" src="../../_images/image3214.png" style="width: 0.35417in; height: 0.39583in;" /></a><a class="reference internal" href="../../_images/image3314.png"><img alt="image32" src="../../_images/image3314.png" style="width: 0.33333in; height: 0.45833in;" /></a><a class="reference internal" href="../../_images/image3414.png"><img alt="image33" src="../../_images/image3414.png" style="width: 0.45833in; height: 0.35417in;" /></a><a class="reference internal" href="../../_images/image3514.png"><img alt="image34" src="../../_images/image3514.png" style="width: 0.39583in; height: 0.39583in;" /></a><a class="reference internal" href="../../_images/image3614.png"><img alt="image35" src="../../_images/image3614.png" style="width: 0.16667in; height: 0.375in;" /></a><a class="reference internal" href="../../_images/image3714.png"><img alt="image36" src="../../_images/image3714.png" style="width: 0.3125in; height: 0.3125in;" /></a><a class="reference internal" href="../../_images/image3814.png"><img alt="image37" src="../../_images/image3814.png" style="width: 0.4375in; height: 0.35417in;" /></a><a class="reference internal" href="../../_images/image3914.png"><img alt="image38" src="../../_images/image3914.png" style="width: 0.25in; height: 0.29167in;" /></a><a class="reference internal" href="../../_images/image4014.png"><img alt="image39" src="../../_images/image4014.png" style="width: 0.22917in; height: 0.14583in;" /></a><a class="reference internal" href="../../_images/image4114.png"><img alt="image40" src="../../_images/image4114.png" style="width: 0.35417in; height: 0.14583in;" /></a><a class="reference internal" href="../../_images/image4214.png"><img alt="image41" src="../../_images/image4214.png" style="width: 0.25in; height: 0.16667in;" /></a></p>
+</section>
+<section id="measurement-plan-4-temp-effect">
+<h2>Measurement Plan #4_Temp effect<a class="headerlink" href="#measurement-plan-4-temp-effect" title="Permalink to this headline"></a></h2>
+<p>:Date:07 July 2019</p>
+<p>12:37</p>
+<p>Field Sweeps and Tamperature effect (ΔB = T)</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><em>Nr</em></p></th>
+<th class="head"><p><em>St
+ruct</em></p></th>
+<th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p>Field
+From*</p>
+</th>
+<th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p>Field
+To*</p>
+</th>
+<th class="head"><p><em>Hlo
+op_br
+anch</em></p></th>
+<th class="head"><p><em>T
+(K)</em></p></th>
+<th class="head"><p><em>SR
+[mT/
+min]</em></p></th>
+<th class="head"><p><em>F-
+Span</em></p></th>
+<th class="head"><p><em>V
+in(V)
+/sens
+(mV)/
+gain</em></p></th>
+<th class="head"><p><em>Avg</em></p></th>
+<th class="head"><p><em>Time
+[min,
+Hr]</em></p></th>
+<th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p>Date*</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><dl class="simple">
+<dt><a href="#id7"><span class="problematic" id="id8">`</span></a>m355</dt><dd><p>&lt;one</p>
+</dd>
+</dl>
+<p>note:
+#m355
+%20MF
+N_Plu
+<a href="#id39"><span class="problematic" id="id40">sses_</span></a>
+sweep
+%20af
+ter_s
+atura
+tion%
+20at%
+20-1T
+_%20-
+0.025
+T%20t
+o%200
+.025%
+20T_0
+.5mT.
+min_1
+.5%20
+Hz_5V
+_aver
+ages%
+<a href="#id41"><span class="problematic" id="id42">2024_</span></a>
+T=25K
+&amp;sect
+ion-i
+d={5F
+AD051
+8-E34
+9-4A0
+7-93E
+8-5D1
+05BD4
+AEB4}
+&amp;page
+-id={
+0BD37
+287-7
+24C-4
+0D7-B
+71A-6
+5A418
+99F1A
+8}&amp;en
+d&amp;bas
+e-pat
+h=htt
+ps://
+goeth
+euniv
+ersit
+aet.s
+harep
+oint.
+com/s
+ites/
+Proje
+ct4/S
+iteAs
+sets/
+Proje
+ct%20
+4%20N
+otebo
+ok/Ma
+gneti
+c%20F
+lux%2
+0Nois
+e.one
+&gt;`__:</p>
+</td>
+<td><p>Pl
+usses</p></td>
+<td><p>-25
+mT</p></td>
+<td><p>25 mT</p></td>
+<td><p>-Satu
+rated</p></td>
+<td><p>25</p></td>
+<td><p>0.5</p></td>
+<td><p>1.5</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>24</p></td>
+<td><p>100</p></td>
+<td><p>07.0
+7.201
+9_Sun
+day_</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="onenote:#m356%20MFN_Plusses_sweep%20after_saturation%20at%20-1T_%20-0.025T%20to%200.025%20T_0.5mT.min_1.5%20Hz_5V_averages%2024_T=20K&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={F66849CE-F3F6-4A85-AD3D-E5DB646F6115}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m356
+:</a></p></td>
+<td><p>Pl
+usses</p></td>
+<td><p>-25
+mT</p></td>
+<td><p>25 mT</p></td>
+<td><p>-Satu
+rated</p></td>
+<td><p>20</p></td>
+<td><p>0.5</p></td>
+<td><p>1.5</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>24</p></td>
+<td><p>100</p></td>
+<td><p>07.0
+7.201
+9_Sun
+day_</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="onenote:#m357%20MFN_Plusses_sweep%20after_saturation%20at%20-1T_%20-0.025T%20to%200.025%20T_0.5mT.min_1.5%20Hz_5V_averages%2024_T=15K&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={96C85B6D-787A-45EA-85A6-26D6982E2511}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m357
+:</a></p></td>
+<td><p>Pl
+usses</p></td>
+<td><p>-25
+mT</p></td>
+<td><p>25 mT</p></td>
+<td><p>-Satu
+rated</p></td>
+<td><p>15</p></td>
+<td><p>0.5</p></td>
+<td><p>1.5</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>24</p></td>
+<td><p>100</p></td>
+<td><p>0
+7.07.
+<a href="#id43"><span class="problematic" id="id44">2019_</span></a>
+Sunda
+y_mid
+night</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="onenote:#m358%20MFN_Plusses_sweep%20after_saturation%20at%20-1T_%20-0.025T%20to%200.025%20T_0.5mT.min_1.5%20Hz_5V_averages%2024_T=15K&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={7C829A4C-512E-4F2C-8F33-F5DBB0CEF4C1}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m358
+:</a></p></td>
+<td><p>Pl
+usses</p></td>
+<td><p>-25
+mT</p></td>
+<td><p>25 mT</p></td>
+<td><p>-Satu
+rated</p></td>
+<td><p>10</p></td>
+<td><p>0.5</p></td>
+<td><p>1.5</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>24</p></td>
+<td><p>100</p></td>
+<td><p>08.
+07.20
+19_Mo
+<a href="#id45"><span class="problematic" id="id46">nday_</span></a>
+early
+mo
+rning</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="onenote:#m359%20MFN_Plusses_sweep%20after_saturation%20at%20-1T_%20-0.025T%20to%200.025%20T_0.5mT.min_1.5%20Hz_5V_averages%2024_T=5K&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={3E121EEF-21D7-4425-A0FC-FBBD08CFEF72}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m35
+9:</a></p></td>
+<td><p>Pl
+usses</p></td>
+<td><p>-25
+mT</p></td>
+<td><p>25 mT</p></td>
+<td><p>-Satu
+rated</p></td>
+<td><p>5</p></td>
+<td><p>0.5</p></td>
+<td><p>1.5</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>24</p></td>
+<td><p>100</p></td>
+<td><p>08.
+07.20
+19_Mo
+<a href="#id47"><span class="problematic" id="id48">nday_</span></a>
+early
+mo
+rning</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image4314.png"><img alt="image42" src="../../_images/image4314.png" style="width: 0.72917in; height: 2.47917in;" /></a><a class="reference internal" href="../../_images/image4414.png"><img alt="image43" src="../../_images/image4414.png" style="width: 0.45833in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image4514.png"><img alt="image44" src="../../_images/image4514.png" style="width: 0.45833in; height: 0.29167in;" /></a><a class="reference internal" href="../../_images/image4614.png"><img alt="image45" src="../../_images/image4614.png" style="width: 0.72917in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image4714.png"><img alt="image46" src="../../_images/image4714.png" style="width: 0.79167in; height: 0.375in;" /></a><a class="reference internal" href="../../_images/image4814.png"><img alt="image47" src="../../_images/image4814.png" style="width: 0.54167in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image4914.png"><img alt="image48" src="../../_images/image4914.png" style="width: 0.54167in; height: 0.3125in;" /></a><a class="reference internal" href="../../_images/image5014.png"><img alt="image49" src="../../_images/image5014.png" style="width: 0.70833in; height: 0.35417in;" /></a><a class="reference internal" href="../../_images/image5114.png"><img alt="image50" src="../../_images/image5114.png" style="width: 0.54167in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image5214.png"><img alt="image51" src="../../_images/image5214.png" style="width: 0.625in; height: 0.35417in;" /></a><a class="reference internal" href="../../_images/image5314.png"><img alt="image52" src="../../_images/image5314.png" style="width: 0.70833in; height: 0.35417in;" /></a><a class="reference internal" href="../../_images/image5414.png"><img alt="image53" src="../../_images/image5414.png" style="width: 0.52083in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image5514.png"><img alt="image54" src="../../_images/image5514.png" style="width: 0.6875in; height: 0.4375in;" /></a><a class="reference internal" href="../../_images/image5614.png"><img alt="image55" src="../../_images/image5614.png" style="width: 0.4375in; height: 0.5in;" /></a><a class="reference internal" href="../../_images/image5714.png"><img alt="image56" src="../../_images/image5714.png" style="width: 0.41667in; height: 0.25in;" /></a><a class="reference internal" href="../../_images/image5813.png"><img alt="image57" src="../../_images/image5813.png" style="width: 0.29167in; height: 0.5in;" /></a><a class="reference internal" href="../../_images/image5914.png"><img alt="image58" src="../../_images/image5914.png" style="width: 0.16667in; height: 0.39583in;" /></a><a class="reference internal" href="../../_images/image6014.png"><img alt="image59" src="../../_images/image6014.png" style="width: 0.70833in; height: 0.39583in;" /></a><a class="reference internal" href="../../_images/image6114.png"><img alt="image60" src="../../_images/image6114.png" style="width: 0.22917in; height: 0.35417in;" /></a><a class="reference internal" href="../../_images/image6214.png"><img alt="image61" src="../../_images/image6214.png" style="width: 0.14583in; height: 0.14583in;" /></a><a class="reference internal" href="../../_images/image6314.png"><img alt="006" src="../../_images/image6314.png" style="width: 4.35417in; height: 3.33333in;" /></a></p>
+</section>
+<section id="measurement-plan-5-static-field-effect">
+<h2>Measurement Plan #5_Static field effect<a class="headerlink" href="#measurement-plan-5-static-field-effect" title="Permalink to this headline"></a></h2>
+<p>:Date:<a class="reference internal" href="../../_images/image6414.png"><img alt="image63" src="../../_images/image6414.png" style="width: 0.33333in; height: 0.5in;" /></a></p>
+<p>08 July 2019</p>
+<p>12:37</p>
+<p><a class="reference internal" href="../../_images/image6514.png"><img alt="image64" src="../../_images/image6514.png" style="width: 0.6875in; height: 0.45833in;" /></a><a class="reference internal" href="../../_images/image6614.png"><img alt="image65" src="../../_images/image6614.png" style="width: 0.39583in; height: 0.4375in;" /></a><a class="reference internal" href="../../_images/image6714.png"><img alt="image66" src="../../_images/image6714.png" style="width: 0.375in; height: 0.4375in;" /></a><a class="reference internal" href="../../_images/image6814.png"><img alt="image67" src="../../_images/image6814.png" style="width: 0.1875in; height: 0.45833in;" /></a><a class="reference internal" href="../../_images/image6914.png"><img alt="image68" src="../../_images/image6914.png" style="width: 0.33333in; height: 0.35417in;" /></a><a class="reference internal" href="../../_images/image7014.png"><img alt="image69" src="../../_images/image7014.png" style="width: 0.22917in; height: 0.16667in;" /></a><a class="reference internal" href="../../_images/image7114.png"><img alt="image70" src="../../_images/image7114.png" style="width: 0.16667in; height: 0.1875in;" /></a><a class="reference internal" href="../../_images/image7214.png"><img alt="image71" src="../../_images/image7214.png" style="width: 0.66667in; height: 0.41667in;" /></a><a class="reference internal" href="../../_images/image7314.png"><img alt="image72" src="../../_images/image7314.png" style="width: 0.16667in; height: 0.1875in;" /></a><a class="reference internal" href="../../_images/image7414.png"><img alt="image73" src="../../_images/image7414.png" style="width: 0.16667in; height: 0.22917in;" /></a><a class="reference internal" href="../../_images/image7512.png"><img alt="image74" src="../../_images/image7512.png" style="width: 0.33333in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image7612.png"><img alt="image75" src="../../_images/image7612.png" style="width: 0.27083in; height: 0.29167in;" /></a><a class="reference internal" href="../../_images/image7712.png"><img alt="image76" src="../../_images/image7712.png" style="width: 0.14583in; height: 0.22917in;" /></a><a class="reference internal" href="../../_images/image7812.png"><img alt="image77" src="../../_images/image7812.png" style="width: 0.27083in; height: 0.16667in;" /></a><a class="reference internal" href="../../_images/image797.png"><img alt="image78" src="../../_images/image797.png" style="width: 0.20833in; height: 0.14583in;" /></a><a class="reference internal" href="../../_images/image804.png"><img alt="image79" src="../../_images/image804.png" style="width: 0.29167in; height: 0.1875in;" /></a></p>
+<p>Static field effect</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><em>Nr</em></p></th>
+<th class="head"><p><em>St
+ruct</em></p></th>
+<th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p>Field
+s
+tatic
+at*</p>
+</th>
+<th class="head"><p><em>Hlo
+op_br
+anch</em></p></th>
+<th class="head"><p><em>T
+(K)</em></p></th>
+<th class="head"><p><em>F-
+Span</em></p></th>
+<th class="head"><p><em>V
+in(V)
+/sens
+(mV)/
+gain</em></p></th>
+<th class="head"><p><em>Avg</em></p></th>
+<th class="head"><p><em>Time
+[min,
+Hr]</em></p></th>
+<th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p>Date*</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="onenote:#m360%20MFN_Plusses_sweep%20after_saturation%20at%20-1T_static%20at%200.025%20T_0.5mT.min_1.5%20Hz_5V_averages%2024_T=5K&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={F2ADB3B1-7681-4A2A-8E8D-CC443B04987B}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m360
+:</a></p></td>
+<td><p>Pl
+usses</p></td>
+<td><p>25 mT</p></td>
+<td><p>-Satu
+rated</p></td>
+<td><p>5</p></td>
+<td><p>1.5</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>24</p></td>
+<td><p>100</p></td>
+<td><p>08.0
+7.201
+9_Mon
+day_</p></td>
+</tr>
+<tr class="row-odd"><td><p>`
+m361:</p>
+<blockquote>
+<div><p>&lt;one</p>
+</div></blockquote>
+<p>note:
+#m361
+%20MF
+N_Plu
+<a href="#id49"><span class="problematic" id="id50">sses_</span></a>
+sweep
+%20af
+ter_s
+atura
+tion%
+20at%
+20+1T
+_stat
+ic%20
+at%20
+-0.02
+5%20T
+_0.5m
+T.min
+_1.5%
+<a href="#id51"><span class="problematic" id="id52">20Hz_</span></a>
+5V_av
+erage
+s%202
+4_T=5
+K&amp;sec
+tion-
+id={5
+FAD05
+18-E3
+49-4A
+07-93
+E8-5D
+105BD
+4AEB4
+}&amp;pag
+e-id=
+{603A
+009E-
+7A04-
+4FFF-
+A631-
+14BAA
+91EB4
+5F}&amp;e
+nd&amp;ba
+se-pa
+th=ht
+tps:/
+/goet
+heuni
+versi
+taet.
+share
+point
+.com/
+sites
+/Proj
+ect4/
+SiteA
+ssets
+/Proj
+ect%2
+04%20
+Noteb
+ook/M
+agnet
+ic%20
+Flux%
+20Noi
+se.on
+e&gt;`__</p>
+</td>
+<td><p>Pl
+usses</p></td>
+<td><p>-25
+mT</p></td>
+<td><p>+Satu
+rated</p></td>
+<td><p>5</p></td>
+<td><p>1.5</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>24</p></td>
+<td><p>100</p></td>
+<td><p>08.0
+7.201
+9_Mon
+day_</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image817.png"><img alt="image80" src="../../_images/image817.png" style="width: 0.77083in; height: 0.3125in;" /></a><a class="reference internal" href="../../_images/image824.png"><img alt="image81" src="../../_images/image824.png" style="width: 0.39583in; height: 0.3125in;" /></a><a class="reference internal" href="../../_images/image834.png"><img alt="image82" src="../../_images/image834.png" style="width: 0.54167in; height: 0.29167in;" /></a><a class="reference internal" href="../../_images/image844.png"><img alt="image83" src="../../_images/image844.png" style="width: 0.45833in; height: 0.3125in;" /></a><a class="reference internal" href="../../_images/image854.png"><img alt="image84" src="../../_images/image854.png" style="width: 0.58333in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image864.png"><img alt="image85" src="../../_images/image864.png" style="width: 0.72917in; height: 0.3125in;" /></a><a class="reference internal" href="../../_images/image874.png"><img alt="image86" src="../../_images/image874.png" style="width: 0.39583in; height: 0.29167in;" /></a><a class="reference internal" href="../../_images/image884.png"><img alt="image87" src="../../_images/image884.png" style="width: 0.39583in; height: 0.29167in;" /></a></p>
+<p><a href="#id9"><span class="problematic" id="id10">|Static Field after Saturation Plusses ie\d Strayf UP ( -Ms Down \_ 0.2
+-30 26 m36V -26 xlf 30 20 -20|</span></a><a class="reference internal" href="../../_images/image1992.png"><img alt="Machine generated alternative text: 900 01 -40" src="../../_images/image1992.png" style="width: 5.29167in; height: 4.27083in;" /></a></p>
+</section>
+<section id="measurement-plan-6-dynamic-field-interval-effect">
+<h2>Measurement Plan #6_dynamic field interval effect<a class="headerlink" href="#measurement-plan-6-dynamic-field-interval-effect" title="Permalink to this headline"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">Date<span class="colon">:</span></dt>
+<dd class="field-odd"><p>08 July 2019</p>
+</dd>
+</dl>
+<p>12:37</p>
+<p><a class="reference internal" href="../../_images/image974.png"><img alt="image97" src="../../_images/image974.png" style="width: 0.16667in; height: 0.39583in;" /></a><a class="reference internal" href="../../_images/image984.png"><img alt="image98" src="../../_images/image984.png" style="width: 0.33333in; height: 0.47917in;" /></a><a class="reference internal" href="../../_images/image993.png"><img alt="image99" src="../../_images/image993.png" style="width: 0.16667in; height: 0.1875in;" /></a><a class="reference internal" href="../../_images/image1003.png"><img alt="image100" src="../../_images/image1003.png" style="width: 0.3125in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image1015.png"><img alt="image101" src="../../_images/image1015.png" style="width: 0.29167in; height: 0.5in;" /></a><a class="reference internal" href="../../_images/image1023.png"><img alt="image102" src="../../_images/image1023.png" style="width: 0.14583in; height: 0.14583in;" /></a><a class="reference internal" href="../../_images/image1033.png"><img alt="image103" src="../../_images/image1033.png" style="width: 0.1875in; height: 0.22917in;" /></a><a class="reference internal" href="../../_images/image1043.png"><img alt="image104" src="../../_images/image1043.png" style="width: 0.41667in; height: 0.375in;" /></a><a class="reference internal" href="../../_images/image1053.png"><img alt="image105" src="../../_images/image1053.png" style="width: 0.29167in; height: 0.25in;" /></a><a class="reference internal" href="../../_images/image1063.png"><img alt="image106" src="../../_images/image1063.png" style="width: 0.29167in; height: 0.29167in;" /></a><a class="reference internal" href="../../_images/image1073.png"><img alt="image107" src="../../_images/image1073.png" style="width: 0.20833in; height: 0.27083in;" /></a><a class="reference internal" href="../../_images/image1083.png"><img alt="image108" src="../../_images/image1083.png" style="width: 0.1875in; height: 0.16667in;" /></a><a class="reference internal" href="../../_images/image1093.png"><img alt="image109" src="../../_images/image1093.png" style="width: 0.22917in; height: 0.25in;" /></a><a class="reference internal" href="../../_images/image1105.png"><img alt="image110" src="../../_images/image1105.png" style="width: 0.125in; height: 0.20833in;" /></a><a class="reference internal" href="../../_images/image1116.png"><img alt="image111" src="../../_images/image1116.png" style="width: 0.16667in; height: 0.25in;" /></a><a class="reference internal" href="../../_images/image1123.png"><img alt="image112" src="../../_images/image1123.png" style="width: 0.14583in; height: 0.20833in;" /></a><a class="reference internal" href="../../_images/image1133.png"><img alt="image113" src="../../_images/image1133.png" style="width: 0.25in; height: 0.1875in;" /></a></p>
+<p>Dynamic field interval effect</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><em>Nr</em></p></th>
+<th class="head"><p><em>St
+ruct</em></p></th>
+<th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p>Field
+From*</p>
+</th>
+<th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p>Field
+To*</p>
+</th>
+<th class="head"><p><em>Hlo
+op_br
+anch</em></p></th>
+<th class="head"><p><em>SR
+[mT/
+min]</em></p></th>
+<th class="head"><p><em>F-
+Span</em></p></th>
+<th class="head"><p><em>V
+in(V)
+/sens
+(mV)/
+gain</em></p></th>
+<th class="head"><p><em>Avg</em></p></th>
+<th class="head"><p><em>Time
+[min,
+Hr]</em></p></th>
+<th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p>Date*</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="onenote:#m362%20MFN_Plusses_sweep%20after_saturation%20at%20-1T_%20-0.05T%20to%200.05%20T_2mT.min_1.5%20Hz_5V_averages%2012_T=5K&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={8B485E50-50D6-4E44-9DEC-F6329CE40B69}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m362
+:</a></p></td>
+<td><p>Pl
+usses</p></td>
+<td><p>-50mT</p></td>
+<td><p>50mT</p></td>
+<td><p>-Satu
+rated</p></td>
+<td><p>2</p></td>
+<td><p>1.5</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>12</p></td>
+<td><p>50</p></td>
+<td><p>08.0
+7.201
+9_Mon
+day_</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="onenote:#m363%20MFN_Plusses_sweep%20after_saturation%20at%20-1T_%20-0.075T%20to%200.075%20T_2mT.min_1.5%20Hz_5V_averages%2018_T=5K&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={783C9E1C-FBF3-42CF-B766-D39BC033182C}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m
+363:</a></p></td>
+<td><p>Pl
+usses</p></td>
+<td><p>-75
+mT</p></td>
+<td><p>75mT</p></td>
+<td><p>-Satu
+rated</p></td>
+<td><p>2</p></td>
+<td><p>1.5</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>18</p></td>
+<td><p>75</p></td>
+<td><p>08.0
+7.201
+9_Mon
+day_</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="onenote:#m364%20MFN_Plusses_sweep%20after_saturation%20at%20-1T_%20-0.01T%20to%200.01%20T_2mT.min_1.5%20Hz_5V_averages%2024_T=5K&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={1AF50FBB-AD26-4941-B347-432783927251}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m364
+:</a></p></td>
+<td><p>Pl
+usses</p></td>
+<td><p>-100
+mT</p></td>
+<td><p>100mT</p></td>
+<td><p>-Satu
+rated</p></td>
+<td><p>2</p></td>
+<td><p>1.5</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>35</p></td>
+<td><p>100</p></td>
+<td><p>08.0
+7.201
+9_Mon
+day_</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="onenote:#m366%20MFN_Plusses_sweep%20after_saturation%20at%20-1T_%20-0.125T%20to%200.125%20T_2mT.min_1.5%20Hz_5V_averages%2029_T=5K&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={A262E013-0290-43C2-A689-DB1196B5CA4F}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m
+366:</a></p></td>
+<td><p>Pl
+usses</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p>125mT</p>
+</td>
+<td><p>125mT</p></td>
+<td><p>-Satu
+rated</p></td>
+<td><p>2</p></td>
+<td><p>1.5</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>35</p></td>
+<td><p>75</p></td>
+<td><p>09.
+07.20
+19_Tu
+esday
+after
+midni
+ght_</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="onenote:#m365%20MFN_Plusses_sweep%20after_saturation%20at%20-1T_%20-0.15T%20to%200.15T_2mT.min_1.5%20Hz_5V_averages%2035_T=5K&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={4D6B25D1-7B89-4CFF-9CD8-C86D64AA46B0}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m
+365:</a></p></td>
+<td><p>Pl
+usses</p></td>
+<td><p>-150
+mT</p></td>
+<td><p>150mT</p></td>
+<td><p>-Satu
+rated</p></td>
+<td><p>2</p></td>
+<td><p>1.5</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>35</p></td>
+<td><p>150</p></td>
+<td><p>0
+9.07.
+<a href="#id53"><span class="problematic" id="id54">2019_</span></a>
+Early
+morn
+ing_</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image1143.png"><img alt="image114" src="../../_images/image1143.png" style="width: 0.6875in; height: 0.29167in;" /></a><a class="reference internal" href="../../_images/image1153.png"><img alt="image115" src="../../_images/image1153.png" style="width: 0.66667in; height: 0.27083in;" /></a><a class="reference internal" href="../../_images/image1163.png"><img alt="image116" src="../../_images/image1163.png" style="width: 0.66667in; height: 0.29167in;" /></a><a class="reference internal" href="../../_images/image1173.png"><img alt="image117" src="../../_images/image1173.png" style="width: 0.66667in; height: 0.29167in;" /></a><a class="reference internal" href="../../_images/image1183.png"><img alt="image118" src="../../_images/image1183.png" style="width: 1.70833in; height: 1.02083in;" /></a><a class="reference internal" href="../../_images/image1193.png"><img alt="image119" src="../../_images/image1193.png" style="width: 0.72917in; height: 0.35417in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image1203.png"><img alt="image120" src="../../_images/image1203.png" style="width: 0.6875in; height: 0.5in;" /></a><a class="reference internal" href="../../_images/image1216.png"><img alt="image121" src="../../_images/image1216.png" style="width: 0.5625in; height: 0.47917in;" /></a><a class="reference internal" href="../../_images/image1223.png"><img alt="image122" src="../../_images/image1223.png" style="width: 0.27083in; height: 0.39583in;" /></a><a class="reference internal" href="../../_images/image1233.png"><img alt="image123" src="../../_images/image1233.png" style="width: 0.1875in; height: 0.375in;" /></a><a class="reference internal" href="../../_images/image1243.png"><img alt="image124" src="../../_images/image1243.png" style="width: 0.25in; height: 0.375in;" /></a><a class="reference internal" href="../../_images/image1253.png"><img alt="image125" src="../../_images/image1253.png" style="width: 0.27083in; height: 0.375in;" /></a><a class="reference internal" href="../../_images/image1263.png"><img alt="image126" src="../../_images/image1263.png" style="width: 0.33333in; height: 0.39583in;" /></a><a class="reference internal" href="../../_images/image1273.png"><img alt="image127" src="../../_images/image1273.png" style="width: 0.29167in; height: 0.39583in;" /></a><a class="reference internal" href="../../_images/image1283.png"><img alt="image128" src="../../_images/image1283.png" style="width: 0.16667in; height: 0.125in;" /></a><a class="reference internal" href="../../_images/image1293.png"><img alt="image129" src="../../_images/image1293.png" style="width: 0.22917in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image1303.png"><img alt="image130" src="../../_images/image1303.png" style="width: 0.27083in; height: 0.35417in;" /></a><a class="reference internal" href="../../_images/image1316.png"><img alt="image131" src="../../_images/image1316.png" style="width: 0.16667in; height: 0.3125in;" /></a><a class="reference internal" href="../../_images/image1323.png"><img alt="image132" src="../../_images/image1323.png" style="width: 0.125in; height: 0.14583in;" /></a><a class="reference internal" href="../../_images/image1333.png"><img alt="image133" src="../../_images/image1333.png" style="width: 0.22917in; height: 0.375in;" /></a><a class="reference internal" href="../../_images/image1343.png"><img alt="image134" src="../../_images/image1343.png" style="width: 0.54167in; height: 0.3125in;" /></a><a class="reference internal" href="../../_images/image1353.png"><img alt="image135" src="../../_images/image1353.png" style="width: 0.16667in; height: 0.29167in;" /></a><a class="reference internal" href="../../_images/image1363.png"><img alt="image136" src="../../_images/image1363.png" style="width: 0.27083in; height: 0.27083in;" /></a><a class="reference internal" href="../../_images/image1373.png"><img alt="image137" src="../../_images/image1373.png" style="width: 0.14583in; height: 0.14583in;" /></a><a class="reference internal" href="../../_images/image1383.png"><img alt="image138" src="../../_images/image1383.png" style="width: 0.27083in; height: 0.3125in;" /></a><a class="reference internal" href="../../_images/image1393.png"><img alt="image139" src="../../_images/image1393.png" style="width: 0.20833in; height: 0.25in;" /></a><a class="reference internal" href="../../_images/image1403.png"><img alt="image140" src="../../_images/image1403.png" style="width: 0.14583in; height: 0.20833in;" /></a><a class="reference internal" href="../../_images/image1416.png"><img alt="image141" src="../../_images/image1416.png" style="width: 0.16667in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image1423.png"><img alt="image142" src="../../_images/image1423.png" style="width: 0.27083in; height: 0.3125in;" /></a><a class="reference internal" href="../../_images/image1433.png"><img alt="image143" src="../../_images/image1433.png" style="width: 0.22917in; height: 0.22917in;" /></a><a class="reference internal" href="../../_images/image1443.png"><img alt="image144" src="../../_images/image1443.png" style="width: 0.14583in; height: 0.16667in;" /></a><a class="reference internal" href="../../_images/image1453.png"><img alt="image145" src="../../_images/image1453.png" style="width: 0.22917in; height: 0.22917in;" /></a><a class="reference internal" href="../../_images/image1463.png"><img alt="image146" src="../../_images/image1463.png" style="width: 0.27083in; height: 0.27083in;" /></a><a class="reference internal" href="../../_images/image1472.png"><img alt="image147" src="../../_images/image1472.png" style="width: 0.25in; height: 0.25in;" /></a><a class="reference internal" href="../../_images/image1482.png"><img alt="image148" src="../../_images/image1482.png" style="width: 0.20833in; height: 0.25in;" /></a><a class="reference internal" href="../../_images/image1492.png"><img alt="image149" src="../../_images/image1492.png" style="width: 0.16667in; height: 0.20833in;" /></a><a class="reference internal" href="../../_images/image1501.png"><img alt="image150" src="../../_images/image1501.png" style="width: 0.20833in; height: 0.14583in;" /></a><a class="reference internal" href="../../_images/image1515.png"><img alt="image151" src="../../_images/image1515.png" style="width: 0.25in; height: 0.22917in;" /></a><a class="reference internal" href="../../_images/image1522.png"><img alt="image152" src="../../_images/image1522.png" style="width: 0.22917in; height: 0.14583in;" /></a><a class="reference internal" href="../../_images/image1532.png"><img alt="image153" src="../../_images/image1532.png" style="width: 0.27083in; height: 0.27083in;" /></a><a class="reference internal" href="../../_images/image1542.png"><img alt="image154" src="../../_images/image1542.png" style="width: 0.14583in; height: 0.20833in;" /></a><a class="reference internal" href="../../_images/image1552.png"><img alt="image155" src="../../_images/image1552.png" style="width: 0.22917in; height: 0.20833in;" /></a><a class="reference internal" href="../../_images/image1562.png"><img alt="image156" src="../../_images/image1562.png" style="width: 0.14583in; height: 0.20833in;" /></a><a class="reference internal" href="../../_images/image1572.png"><img alt="image157" src="../../_images/image1572.png" style="width: 0.3125in; height: 0.14583in;" /></a><a class="reference internal" href="../../_images/image1582.png"><img alt="image158" src="../../_images/image1582.png" style="width: 0.1875in; height: 0.14583in;" /></a><a class="reference internal" href="../../_images/image1592.png"><img alt="image159" src="../../_images/image1592.png" style="width: 0.20833in; height: 0.14583in;" /></a><a class="reference internal" href="../../_images/image1602.png"><img alt="image160" src="../../_images/image1602.png" style="width: 0.27083in; height: 0.25in;" /></a><a class="reference internal" href="../../_images/image1615.png"><img alt="image161" src="../../_images/image1615.png" style="width: 0.22917in; height: 0.14583in;" /></a><a class="reference internal" href="../../_images/image1622.png"><img alt="image162" src="../../_images/image1622.png" style="width: 0.1875in; height: 0.14583in;" /></a><a class="reference internal" href="../../_images/image1632.png"><img alt="image163" src="../../_images/image1632.png" style="width: 0.16667in; height: 0.375in;" /></a><a class="reference internal" href="../../_images/image1642.png"><img alt="image164" src="../../_images/image1642.png" style="width: 0.14583in; height: 0.14583in;" /></a><a class="reference internal" href="../../_images/image1652.png"><img alt="image165" src="../../_images/image1652.png" style="width: 0.22917in; height: 0.22917in;" /></a><a class="reference internal" href="../../_images/image1662.png"><img alt="image166" src="../../_images/image1662.png" style="width: 0.25in; height: 0.35417in;" /></a><a class="reference internal" href="../../_images/image1672.png"><img alt="image167" src="../../_images/image1672.png" style="width: 0.14583in; height: 0.20833in;" /></a><a class="reference internal" href="../../_images/image1682.png"><img alt="image168" src="../../_images/image1682.png" style="width: 0.14583in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image1692.png"><img alt="image169" src="../../_images/image1692.png" style="width: 0.1875in; height: 0.25in;" /></a><a class="reference internal" href="../../_images/image1702.png"><img alt="image170" src="../../_images/image1702.png" style="width: 0.1875in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image1715.png"><img alt="image171" src="../../_images/image1715.png" style="width: 0.16667in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image1722.png"><img alt="image172" src="../../_images/image1722.png" style="width: 0.22917in; height: 0.14583in;" /></a><a class="reference internal" href="../../_images/image1732.png"><img alt="image173" src="../../_images/image1732.png" style="width: 0.35417in; height: 0.29167in;" /></a><a class="reference internal" href="../../_images/image1742.png"><img alt="image174" src="../../_images/image1742.png" style="width: 0.16667in; height: 0.1875in;" /></a><a class="reference internal" href="../../_images/image1752.png"><img alt="image175" src="../../_images/image1752.png" style="width: 0.20833in; height: 0.16667in;" /></a><a class="reference internal" href="../../_images/image1762.png"><img alt="image176" src="../../_images/image1762.png" style="width: 0.22917in; height: 0.25in;" /></a><a class="reference internal" href="../../_images/image1772.png"><img alt="image177" src="../../_images/image1772.png" style="width: 0.16667in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image1782.png"><img alt="image178" src="../../_images/image1782.png" style="width: 0.22917in; height: 0.27083in;" /></a><a class="reference internal" href="../../_images/image1792.png"><img alt="image179" src="../../_images/image1792.png" style="width: 0.27083in; height: 0.27083in;" /></a><a class="reference internal" href="../../_images/image1802.png"><img alt="image180" src="../../_images/image1802.png" style="width: 0.22917in; height: 0.27083in;" /></a><a class="reference internal" href="../../_images/image1815.png"><img alt="image181" src="../../_images/image1815.png" style="width: 0.33333in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image1822.png"><img alt="image182" src="../../_images/image1822.png" style="width: 0.25in; height: 0.27083in;" /></a><a class="reference internal" href="../../_images/image1832.png"><img alt="image183" src="../../_images/image1832.png" style="width: 0.16667in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image1842.png"><img alt="image184" src="../../_images/image1842.png" style="width: 0.20833in; height: 0.25in;" /></a><a class="reference internal" href="../../_images/image1852.png"><img alt="image185" src="../../_images/image1852.png" style="width: 0.20833in; height: 0.1875in;" /></a><a class="reference internal" href="../../_images/image1862.png"><img alt="image186" src="../../_images/image1862.png" style="width: 0.14583in; height: 0.25in;" /></a><a class="reference internal" href="../../_images/image1872.png"><img alt="image187" src="../../_images/image1872.png" style="width: 0.22917in; height: 0.22917in;" /></a><a class="reference internal" href="../../_images/image1882.png"><img alt="image188" src="../../_images/image1882.png" style="width: 0.14583in; height: 0.27083in;" /></a><a class="reference internal" href="../../_images/image1892.png"><img alt="image189" src="../../_images/image1892.png" style="width: 0.22917in; height: 0.25in;" /></a><a class="reference internal" href="../../_images/image1902.png"><img alt="image190" src="../../_images/image1902.png" style="width: 0.20833in; height: 0.29167in;" /></a><a class="reference internal" href="../../_images/image1915.png"><img alt="image191" src="../../_images/image1915.png" style="width: 0.16667in; height: 0.25in;" /></a><a class="reference internal" href="../../_images/image1922.png"><img alt="image192" src="../../_images/image1922.png" style="width: 0.25in; height: 0.27083in;" /></a><a class="reference internal" href="../../_images/image1932.png"><img alt="image193" src="../../_images/image1932.png" style="width: 0.22917in; height: 0.14583in;" /></a><a class="reference internal" href="../../_images/image1942.png"><img alt="image194" src="../../_images/image1942.png" style="width: 0.16667in; height: 0.25in;" /></a><a class="reference internal" href="../../_images/image1952.png"><img alt="image195" src="../../_images/image1952.png" style="width: 0.14583in; height: 0.14583in;" /></a><a class="reference internal" href="../../_images/image1962.png"><img alt="image196" src="../../_images/image1962.png" style="width: 0.25in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image1972.png"><img alt="image197" src="../../_images/image1972.png" style="width: 0.22917in; height: 0.25in;" /></a><a class="reference internal" href="../../_images/image1982.png"><img alt="image198" src="../../_images/image1982.png" style="width: 0.14583in; height: 0.125in;" /></a><a class="reference internal" href="../../_images/image1992.png"><img alt="Machine generated alternative text: 900 01 -40" src="../../_images/image1992.png" style="width: 5.29167in; height: 4.27083in;" /></a><a class="reference internal" href="../../_images/image2002.png"><img alt="image200" src="../../_images/image2002.png" style="width: 0.14583in; height: 0.1875in;" /></a><a class="reference internal" href="../../_images/image2015.png"><img alt="image201" src="../../_images/image2015.png" style="width: 0.25in; height: 0.25in;" /></a><a class="reference internal" href="../../_images/image2022.png"><img alt="image202" src="../../_images/image2022.png" style="width: 0.1875in; height: 0.22917in;" /></a></p>
+</section>
+<section id="measurement-plan-8">
+<h2>Measurement Plan #8<a class="headerlink" href="#measurement-plan-8" title="Permalink to this headline"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">Date<span class="colon">:</span></dt>
+<dd class="field-odd"><p>08 July 2019</p>
+</dd>
+</dl>
+<p>12:37</p>
+<p>winde-ranging field with slow sweeping_comparison magnetic crosses and empty</p>
+<p>winde-ranging field with slow sweeping from positive saturation</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><em>Nr</em></p></th>
+<th class="head"><p><em>St
+ruct</em></p></th>
+<th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p>Field
+From*</p>
+</th>
+<th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p>Field
+To*</p>
+</th>
+<th class="head"><p><em>SR
+[mT/
+min]</em></p></th>
+<th class="head"><p><em>F-
+Span</em></p></th>
+<th class="head"><p><em>V
+in(V)
+/sens
+(mV)/
+gain</em></p></th>
+<th class="head"><p><em>Avg</em></p></th>
+<th class="head"><p><em>Time
+[min,
+Hr]</em></p></th>
+<th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p>Date*</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a href="#id11"><span class="problematic" id="id19">`m3
+72: &lt;
+oneno
+te:#m
+372%2
+0MFN_
+Pluss
+es_sw
+eep%2
+0afte
+r_sat
+urati
+on%20
+at%20
++1T_%
+20+1T
+%20to
+%20-1
+%20T_
+5mT.m
+in_1.
+5%20H
+z_5V_
+avera
+ges%2
+094_T
+=5K_o
+ver%2
+0nigh
+t&amp;sec
+tion-
+id={5
+FAD05
+18-E3
+49-4A
+07-93
+E8-5D
+105BD
+4AEB4
+}&amp;pag
+e-id=
+{9131
+7C38-
+6FED-
+49CC-
+9C1B-
+EEDC9
+85316
+EB}&amp;e
+nd&amp;ba
+se-pa
+th=ht
+tps:/
+/goet
+heuni
+versi
+taet.
+share
+point
+.com/
+sites
+/Proj
+ect4/
+SiteA
+ssets
+/Proj
+ect%2
+04%20
+Noteb
+ook/M
+agnet
+ic%20
+Flux%
+20Noi
+se.on
+e&gt;`__</span></a></p></td>
+<td><p>Pl
+usses</p></td>
+<td><p>+1T</p></td>
+<td><p>-1T</p></td>
+<td><p>5</p></td>
+<td><p>1.5</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>94</p></td>
+<td><p>4
+00min</p></td>
+<td><p>09.07
+.2019
+_Tues
+day_</p></td>
+</tr>
+<tr class="row-odd"><td><p>`
+m373:</p>
+<blockquote>
+<div><p>&lt;one</p>
+</div></blockquote>
+<p>note:
+#m373
+%20MF
+N_Cro
+<a href="#id55"><span class="problematic" id="id56">sses_</span></a>
+sweep
+%20af
+ter_s
+atura
+tion%
+20at%
+20+1T
+_%20+
+1T%20
+to%20
+-1%20
+T_5mT
+.min_
+1.5%2
+0Hz_5
+V_ave
+rages
+%2094
+_T=5K
+_sens
+%202m
+V&amp;sec
+tion-
+id={5
+FAD05
+18-E3
+49-4A
+07-93
+E8-5D
+105BD
+4AEB4
+}&amp;pag
+e-id=
+{F41B
+0352-
+E6FC-
+4BDF-
+A6ED-
+6807B
+9F63B
+65}&amp;e
+nd&amp;ba
+se-pa
+th=ht
+tps:/
+/goet
+heuni
+versi
+taet.
+share
+point
+.com/
+sites
+/Proj
+ect4/
+SiteA
+ssets
+/Proj
+ect%2
+04%20
+Noteb
+ook/M
+agnet
+ic%20
+Flux%
+20Noi
+se.on
+e&gt;`__</p>
+</td>
+<td><p>Cr
+osses</p></td>
+<td><p>+1T</p></td>
+<td><p>-1T</p></td>
+<td><p>5</p></td>
+<td><p>1.5</p></td>
+<td><p>5
+/2/20</p></td>
+<td><p>94</p></td>
+<td><p>4
+00min</p></td>
+<td><p>10
+.07.2
+019_W
+ednes
+day_</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="onenote:#m374%20MFN_Empty_sweep%20after_saturation%20at%20+1T_%20+1T%20to%20-1%20T_5mT.min_1.5%20Hz_5V_averages%2094_T=5K_sens%202mV&amp;section-id={5FAD0518-E349-4A07-93E8-5D105BD4AEB4}&amp;page-id={139029EC-DF8B-4905-9701-5A494592797E}&amp;end&amp;base-path=https://goetheuniversitaet.sharepoint.com/sites/Project4/SiteAssets/Project%204%20Notebook/Magnetic%20Flux%20Noise.one">m37
+4:</a></p></td>
+<td><p>Empty</p></td>
+<td><p>+1T</p></td>
+<td><p>-1T</p></td>
+<td><p>5</p></td>
+<td><p>1.5</p></td>
+<td><p>5
+/5/20</p></td>
+<td><p>94</p></td>
+<td><p>4
+00min</p></td>
+<td><p>10
+.07.2
+019_W
+ednes
+day_</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image2032.png"><img alt="image203" src="../../_images/image2032.png" style="width: 0.875in; height: 0.5in;" /></a><a class="reference internal" href="../../_images/image2042.png"><img alt="image204" src="../../_images/image2042.png" style="width: 1.72917in; height: 1.10417in;" /></a><a class="reference internal" href="../../_images/image2052.png"><img alt="image205" src="../../_images/image2052.png" style="width: 0.77083in; height: 0.29167in;" /></a><a class="reference internal" href="../../_images/image2062.png"><img alt="image206" src="../../_images/image2062.png" style="width: 0.45833in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image2072.png"><img alt="image207" src="../../_images/image2072.png" style="width: 0.9375in; height: 0.41667in;" /></a><a class="reference internal" href="../../_images/image2082.png"><img alt="image208" src="../../_images/image2082.png" style="width: 0.41667in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image2092.png"><img alt="image209" src="../../_images/image2092.png" style="width: 0.75in; height: 0.3125in;" /></a><a class="reference internal" href="../../_images/image2104.png"><img alt="image210" src="../../_images/image2104.png" style="width: 0.85417in; height: 0.47917in;" /></a><a class="reference internal" href="../../_images/image2114.png"><img alt="image211" src="../../_images/image2114.png" style="width: 0.60417in; height: 0.29167in;" /></a><a class="reference internal" href="../../_images/image2122.png"><img alt="image212" src="../../_images/image2122.png" style="width: 0.75in; height: 0.4375in;" /></a><a class="reference internal" href="../../_images/image2132.png"><img alt="image213" src="../../_images/image2132.png" style="width: 0.29167in; height: 0.4375in;" /></a><a class="reference internal" href="../../_images/image2142.png"><img alt="image214" src="../../_images/image2142.png" style="width: 0.16667in; height: 0.20833in;" /></a><a class="reference internal" href="../../_images/image2152.png"><img alt="image215" src="../../_images/image2152.png" style="width: 0.54167in; height: 0.60417in;" /></a><a class="reference internal" href="../../_images/image2162.png"><img alt="image216" src="../../_images/image2162.png" style="width: 0.14583in; height: 0.14583in;" /></a><a class="reference internal" href="../../_images/image2172.png"><img alt="image217" src="../../_images/image2172.png" style="width: 0.27083in; height: 0.41667in;" /></a><a class="reference internal" href="../../_images/image2182.png"><img alt="image218" src="../../_images/image2182.png" style="width: 0.375in; height: 0.58333in;" /></a><a class="reference internal" href="../../_images/image2192.png"><img alt="image219" src="../../_images/image2192.png" style="width: 0.45833in; height: 0.39583in;" /></a><a class="reference internal" href="../../_images/image2202.png"><img alt="image220" src="../../_images/image2202.png" style="width: 0.25in; height: 0.29167in;" /></a><a class="reference internal" href="../../_images/image2215.png"><img alt="image221" src="../../_images/image2215.png" style="width: 0.3125in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image2222.png"><img alt="image222" src="../../_images/image2222.png" style="width: 0.3125in; height: 0.3125in;" /></a><a class="reference internal" href="../../_images/image2232.png"><img alt="image223" src="../../_images/image2232.png" style="width: 0.3125in; height: 0.3125in;" /></a><a class="reference internal" href="../../_images/image2242.png"><img alt="image224" src="../../_images/image2242.png" style="width: 0.54167in; height: 0.29167in;" /></a><a class="reference internal" href="../../_images/image2252.png"><img alt="image225" src="../../_images/image2252.png" style="width: 0.25in; height: 0.3125in;" /></a><a class="reference internal" href="../../_images/image2262.png"><img alt="image226" src="../../_images/image2262.png" style="width: 0.27083in; height: 0.27083in;" /></a><a class="reference internal" href="../../_images/image2272.png"><img alt="image227" src="../../_images/image2272.png" style="width: 0.3125in; height: 0.27083in;" /></a><a class="reference internal" href="../../_images/image2282.png"><img alt="image228" src="../../_images/image2282.png" style="width: 0.16667in; height: 0.25in;" /></a><a class="reference internal" href="../../_images/image2292.png"><img alt="image229" src="../../_images/image2292.png" style="width: 0.16667in; height: 0.1875in;" /></a><a class="reference internal" href="../../_images/image2302.png"><img alt="image230" src="../../_images/image2302.png" style="width: 0.33333in; height: 0.16667in;" /></a><a class="reference internal" href="../../_images/image2315.png"><img alt="image231" src="../../_images/image2315.png" style="width: 0.125in; height: 0.125in;" /></a><a class="reference internal" href="../../_images/image2322.png"><img alt="11/07/2019 SEW swæp IT -IT um 0.5mT/rnn From+1T to-I T 1=5uA, 001 f (Hz) s em 001 cool" src="../../_images/image2322.png" style="width: 8.25in; height: 5.1875in;" /></a></p>
+</section>
+<section id="measurement-plan-11-different-applied-current-for-plusses">
+<h2>Measurement Plan #11_different applied current__for plusses<a class="headerlink" href="#measurement-plan-11-different-applied-current-for-plusses" title="Permalink to this headline"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">Date<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Samstag, 13. Juli 2019</p>
+</dd>
+</dl>
+<p>21:36</p>
+<p>Different applying current _from positive saturation</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><em>Nr</em></p></th>
+<th class="head"><p><em>St
+ruct</em></p></th>
+<th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p>Field
+From*</p>
+</th>
+<th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p>Field
+To*</p>
+</th>
+<th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p>Satur
+ation
+at*</p>
+</th>
+<th class="head"><p><em>SR
+[mT/
+min]</em></p></th>
+<th class="head"><p><em>F-
+Span</em></p></th>
+<th class="head"><p><em>V
+in(V)
+/sens
+(mV)/
+gain</em></p></th>
+<th class="head"><p><em>Avg</em></p></th>
+<th class="head"><p><em>Time
+[min,
+Hr]</em></p></th>
+<th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p>Date*</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td><p>Pl
+usses</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p>100mT</p>
+</td>
+<td><p>100mT</p></td>
+<td><p>-1T</p></td>
+<td><p>5</p></td>
+<td><p>1.5</p></td>
+<td><p>1
+/5/20</p></td>
+<td><p>10</p></td>
+<td><p>40</p></td>
+<td><p>1
+3.07.
+<a href="#id57"><span class="problematic" id="id58">2019_</span></a>
+Satur
+day_</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Pl
+usses</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p>100mT</p>
+</td>
+<td><p>100mT</p></td>
+<td><p>-1T</p></td>
+<td><p>5</p></td>
+<td><p>1.5</p></td>
+<td><p>1
+/5/20</p></td>
+<td><p>10</p></td>
+<td><p>40</p></td>
+<td><p>1
+3.07.
+<a href="#id59"><span class="problematic" id="id60">2019_</span></a>
+Satur
+day_</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image2332.png"><img alt="image233" src="../../_images/image2332.png" style="width: 3.9375in; height: 1in;" /></a><a class="reference internal" href="../../_images/image2342.png"><img alt="image234" src="../../_images/image2342.png" style="width: 3.95833in; height: 1.0625in;" /></a><a class="reference internal" href="../../_images/image2352.png"><img alt="image235" src="../../_images/image2352.png" style="width: 0.3125in; height: 0.625in;" /></a><a class="reference internal" href="../../_images/image2362.png"><img alt="image236" src="../../_images/image2362.png" style="width: 0.54167in; height: 0.625in;" /></a><a class="reference internal" href="../../_images/image2372.png"><img alt="image237" src="../../_images/image2372.png" style="width: 0.91667in; height: 0.47917in;" /></a><a class="reference internal" href="../../_images/image2382.png"><img alt="image238" src="../../_images/image2382.png" style="width: 0.8125in; height: 0.47917in;" /></a><a class="reference internal" href="../../_images/image2392.png"><img alt="image239" src="../../_images/image2392.png" style="width: 0.4375in; height: 0.35417in;" /></a><a class="reference internal" href="../../_images/image2402.png"><img alt="image240" src="../../_images/image2402.png" style="width: 0.375in; height: 0.45833in;" /></a><a class="reference internal" href="../../_images/image2414.png"><img alt="image241" src="../../_images/image2414.png" style="width: 0.47917in; height: 0.1875in;" /></a><a class="reference internal" href="../../_images/image2422.png"><img alt="image242" src="../../_images/image2422.png" style="width: 0.20833in; height: 0.375in;" /></a><a class="reference internal" href="../../_images/image2432.png"><img alt="image243" src="../../_images/image2432.png" style="width: 0.29167in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image2442.png"><img alt="image244" src="../../_images/image2442.png" style="width: 0.41667in; height: 0.14583in;" /></a><a class="reference internal" href="../../_images/image2452.png"><img alt="dff ent current effect Plusses -01 T too IT at 5mT/min 001 T, IE-4 001 f (Hz)" src="../../_images/image2452.png" style="width: 8.1875in; height: 5.08333in;" /></a></p>
+</section>
+<section id="measurement-plan-12-plusses-different-regimes-db-50mt">
+<h2>Measurement Plan #12_plusses_different regimes (DB = 50mT)<a class="headerlink" href="#measurement-plan-12-plusses-different-regimes-db-50mt" title="Permalink to this headline"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">Date<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Donnerstag, 18. Juli 2019</p>
+</dd>
+</dl>
+<p>16:10</p>
+<p>:Date:+——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| <em>Nr</em>  | * * | <em>St   | *     | *     | *     | *SR   | *F-   | *V    | *Avg</em> | <em>Time | *     |
+|       |     | ruct</em> | Field | Field | Satur | [mT/  | Span* | in(V) |       | [min, | Date* |
+|       |     |       | From* | To*   | ation | min]* |       | /sens |       | Hr]*  |       |
+|       |     |       |       |       | at*   |       |       | (mV)/ |       |       |       |
+|       |     |       |       |       |       |       |       | gain* |       |       |       |
++=======+=====+=======+=======+=======+=======+=======+=======+=======+=======+=======+=======+
+| <a href="#id11"><span class="problematic" id="id20">`m3   | 1   | Pl    | 25mT  | -25mT | +1T   | .5    | 1.5   | 5     | 24    | 100   | 1     |
+| 83: &lt; |     | usses |       |       |       |       |       | /5/20 |       |       | 8.07. |
+| oneno |     |       |       |       |       |       |       |       |       |       | 2019_ |
+| te:#m |     |       |       |       |       |       |       |       |       |       | Thurs |
+| 383%2 |     |       |       |       |       |       |       |       |       |       | day\_ |
+| 0MFN_ |     |       |       |       |       |       |       |       |       |       |       |
+| sweep |     |       |       |       |       |       |       |       |       |       |       |
+| (sat) |     |       |       |       |       |       |       |       |       |       |       |
+| _25mT |     |       |       |       |       |       |       |       |       |       |       |
+| %20to |     |       |       |       |       |       |       |       |       |       |       |
+| %20-2 |     |       |       |       |       |       |       |       |       |       |       |
+| 5mT_P |     |       |       |       |       |       |       |       |       |       |       |
+| lusse |     |       |       |       |       |       |       |       |       |       |       |
+| s&amp;sec |     |       |       |       |       |       |       |       |       |       |       |
+| tion- |     |       |       |       |       |       |       |       |       |       |       |
+| id={5 |     |       |       |       |       |       |       |       |       |       |       |
+| FAD05 |     |       |       |       |       |       |       |       |       |       |       |
+| 18-E3 |     |       |       |       |       |       |       |       |       |       |       |
+| 49-4A |     |       |       |       |       |       |       |       |       |       |       |
+| 07-93 |     |       |       |       |       |       |       |       |       |       |       |
+| E8-5D |     |       |       |       |       |       |       |       |       |       |       |
+| 105BD |     |       |       |       |       |       |       |       |       |       |       |
+| 4AEB4 |     |       |       |       |       |       |       |       |       |       |       |
+| }&amp;pag |     |       |       |       |       |       |       |       |       |       |       |
+| e-id= |     |       |       |       |       |       |       |       |       |       |       |
+| {B8D2 |     |       |       |       |       |       |       |       |       |       |       |
+| D915- |     |       |       |       |       |       |       |       |       |       |       |
+| FF82- |     |       |       |       |       |       |       |       |       |       |       |
+| 46DA- |     |       |       |       |       |       |       |       |       |       |       |
+| BEBC- |     |       |       |       |       |       |       |       |       |       |       |
+| FD952 |     |       |       |       |       |       |       |       |       |       |       |
+| BFB6B |     |       |       |       |       |       |       |       |       |       |       |
+| 0B}&amp;e |     |       |       |       |       |       |       |       |       |       |       |
+| nd&amp;ba |     |       |       |       |       |       |       |       |       |       |       |
+| se-pa |     |       |       |       |       |       |       |       |       |       |       |
+| th=ht |     |       |       |       |       |       |       |       |       |       |       |
+| tps:/ |     |       |       |       |       |       |       |       |       |       |       |
+| /goet |     |       |       |       |       |       |       |       |       |       |       |
+| heuni |     |       |       |       |       |       |       |       |       |       |       |
+| versi |     |       |       |       |       |       |       |       |       |       |       |
+| taet. |     |       |       |       |       |       |       |       |       |       |       |
+| share |     |       |       |       |       |       |       |       |       |       |       |
+| point |     |       |       |       |       |       |       |       |       |       |       |
+| .com/ |     |       |       |       |       |       |       |       |       |       |       |
+| sites |     |       |       |       |       |       |       |       |       |       |       |
+| /Proj |     |       |       |       |       |       |       |       |       |       |       |
+| ect4/ |     |       |       |       |       |       |       |       |       |       |       |
+| SiteA |     |       |       |       |       |       |       |       |       |       |       |
+| ssets |     |       |       |       |       |       |       |       |       |       |       |
+| /Proj |     |       |       |       |       |       |       |       |       |       |       |
+| ect%2 |     |       |       |       |       |       |       |       |       |       |       |
+| 04%20 |     |       |       |       |       |       |       |       |       |       |       |
+| Noteb |     |       |       |       |       |       |       |       |       |       |       |
+| ook/M |     |       |       |       |       |       |       |       |       |       |       |
+| agnet |     |       |       |       |       |       |       |       |       |       |       |
+| ic%20 |     |       |       |       |       |       |       |       |       |       |       |
+| Flux% |     |       |       |       |       |       |       |       |       |       |       |
+| 20Noi |     |       |       |       |       |       |       |       |       |       |       |
+| se.on |     |       |       |       |       |       |       |       |       |       |       |
+| e&gt;`__</span></a> |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| <a href="#id11"><span class="problematic" id="id21">`m3   |     | Pl    | -25mT | -75mT | no    | .5    | 1.5   | 5     | 24    | 100   | 19.0  |
+| 84: &lt; |     | usses |       |       | pre-  |       |       | /5/20 |       |       | 7.201 |
+| oneno |     |       |       |       | satur |       |       |       |       |       | 9_Fri |
+| te:#m |     |       |       |       | ation |       |       |       |       |       | day\_ |
+| 384%2 |     |       |       |       |       |       |       |       |       |       |       |
+| 0MFN_ |     |       |       |       |       |       |       |       |       |       |       |
+| sweep |     |       |       |       |       |       |       |       |       |       |       |
+| (sat) |     |       |       |       |       |       |       |       |       |       |       |
+| _-25m |     |       |       |       |       |       |       |       |       |       |       |
+| T-%20 |     |       |       |       |       |       |       |       |       |       |       |
+| to%20 |     |       |       |       |       |       |       |       |       |       |       |
+| -75mT |     |       |       |       |       |       |       |       |       |       |       |
+| _Plus |     |       |       |       |       |       |       |       |       |       |       |
+| ses%2 |     |       |       |       |       |       |       |       |       |       |       |
+| 0with |     |       |       |       |       |       |       |       |       |       |       |
+| out%2 |     |       |       |       |       |       |       |       |       |       |       |
+| 0satu |     |       |       |       |       |       |       |       |       |       |       |
+| ratio |     |       |       |       |       |       |       |       |       |       |       |
+| n&amp;sec |     |       |       |       |       |       |       |       |       |       |       |
+| tion- |     |       |       |       |       |       |       |       |       |       |       |
+| id={5 |     |       |       |       |       |       |       |       |       |       |       |
+| FAD05 |     |       |       |       |       |       |       |       |       |       |       |
+| 18-E3 |     |       |       |       |       |       |       |       |       |       |       |
+| 49-4A |     |       |       |       |       |       |       |       |       |       |       |
+| 07-93 |     |       |       |       |       |       |       |       |       |       |       |
+| E8-5D |     |       |       |       |       |       |       |       |       |       |       |
+| 105BD |     |       |       |       |       |       |       |       |       |       |       |
+| 4AEB4 |     |       |       |       |       |       |       |       |       |       |       |
+| }&amp;pag |     |       |       |       |       |       |       |       |       |       |       |
+| e-id= |     |       |       |       |       |       |       |       |       |       |       |
+| {2889 |     |       |       |       |       |       |       |       |       |       |       |
+| CF00- |     |       |       |       |       |       |       |       |       |       |       |
+| 04CE- |     |       |       |       |       |       |       |       |       |       |       |
+| 4407- |     |       |       |       |       |       |       |       |       |       |       |
+| 9277- |     |       |       |       |       |       |       |       |       |       |       |
+| F5197 |     |       |       |       |       |       |       |       |       |       |       |
+| E8CC2 |     |       |       |       |       |       |       |       |       |       |       |
+| CC}&amp;e |     |       |       |       |       |       |       |       |       |       |       |
+| nd&amp;ba |     |       |       |       |       |       |       |       |       |       |       |
+| se-pa |     |       |       |       |       |       |       |       |       |       |       |
+| th=ht |     |       |       |       |       |       |       |       |       |       |       |
+| tps:/ |     |       |       |       |       |       |       |       |       |       |       |
+| /goet |     |       |       |       |       |       |       |       |       |       |       |
+| heuni |     |       |       |       |       |       |       |       |       |       |       |
+| versi |     |       |       |       |       |       |       |       |       |       |       |
+| taet. |     |       |       |       |       |       |       |       |       |       |       |
+| share |     |       |       |       |       |       |       |       |       |       |       |
+| point |     |       |       |       |       |       |       |       |       |       |       |
+| .com/ |     |       |       |       |       |       |       |       |       |       |       |
+| sites |     |       |       |       |       |       |       |       |       |       |       |
+| /Proj |     |       |       |       |       |       |       |       |       |       |       |
+| ect4/ |     |       |       |       |       |       |       |       |       |       |       |
+| SiteA |     |       |       |       |       |       |       |       |       |       |       |
+| ssets |     |       |       |       |       |       |       |       |       |       |       |
+| /Proj |     |       |       |       |       |       |       |       |       |       |       |
+| ect%2 |     |       |       |       |       |       |       |       |       |       |       |
+| 04%20 |     |       |       |       |       |       |       |       |       |       |       |
+| Noteb |     |       |       |       |       |       |       |       |       |       |       |
+| ook/M |     |       |       |       |       |       |       |       |       |       |       |
+| agnet |     |       |       |       |       |       |       |       |       |       |       |
+| ic%20 |     |       |       |       |       |       |       |       |       |       |       |
+| Flux% |     |       |       |       |       |       |       |       |       |       |       |
+| 20Noi |     |       |       |       |       |       |       |       |       |       |       |
+| se.on |     |       |       |       |       |       |       |       |       |       |       |
+| e&gt;`__</span></a> |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| <a href="#id11"><span class="problematic" id="id22">`m3   | 2   | Pl    | -25mT | -75mT | +1T   | .5    | 1.5   | 5     | 24    | 100   | 19.0  |
+| 85: &lt; |     | usses |       |       |       |       |       | /5/20 |       |       | 7.201 |
+| oneno |     |       |       |       |       |       |       |       |       |       | 9_Fri |
+| te:#m |     |       |       |       |       |       |       |       |       |       | day\_ |
+| 385%2 |     |       |       |       |       |       |       |       |       |       |       |
+| 0MFN_ |     |       |       |       |       |       |       |       |       |       |       |
+| sweep |     |       |       |       |       |       |       |       |       |       |       |
+| (sat) |     |       |       |       |       |       |       |       |       |       |       |
+| _-25m |     |       |       |       |       |       |       |       |       |       |       |
+| T-%20 |     |       |       |       |       |       |       |       |       |       |       |
+| to%20 |     |       |       |       |       |       |       |       |       |       |       |
+| -75mT |     |       |       |       |       |       |       |       |       |       |       |
+| _Plus |     |       |       |       |       |       |       |       |       |       |       |
+| ses%2 |     |       |       |       |       |       |       |       |       |       |       |
+| 0with |     |       |       |       |       |       |       |       |       |       |       |
+| %20+1 |     |       |       |       |       |       |       |       |       |       |       |
+| Tsatu |     |       |       |       |       |       |       |       |       |       |       |
+| ratio |     |       |       |       |       |       |       |       |       |       |       |
+| n&amp;sec |     |       |       |       |       |       |       |       |       |       |       |
+| tion- |     |       |       |       |       |       |       |       |       |       |       |
+| id={5 |     |       |       |       |       |       |       |       |       |       |       |
+| FAD05 |     |       |       |       |       |       |       |       |       |       |       |
+| 18-E3 |     |       |       |       |       |       |       |       |       |       |       |
+| 49-4A |     |       |       |       |       |       |       |       |       |       |       |
+| 07-93 |     |       |       |       |       |       |       |       |       |       |       |
+| E8-5D |     |       |       |       |       |       |       |       |       |       |       |
+| 105BD |     |       |       |       |       |       |       |       |       |       |       |
+| 4AEB4 |     |       |       |       |       |       |       |       |       |       |       |
+| }&amp;pag |     |       |       |       |       |       |       |       |       |       |       |
+| e-id= |     |       |       |       |       |       |       |       |       |       |       |
+| {C524 |     |       |       |       |       |       |       |       |       |       |       |
+| 477E- |     |       |       |       |       |       |       |       |       |       |       |
+| 5C24- |     |       |       |       |       |       |       |       |       |       |       |
+| 44D2- |     |       |       |       |       |       |       |       |       |       |       |
+| 8FF6- |     |       |       |       |       |       |       |       |       |       |       |
+| 7B6FF |     |       |       |       |       |       |       |       |       |       |       |
+| 79C66 |     |       |       |       |       |       |       |       |       |       |       |
+| 18}&amp;e |     |       |       |       |       |       |       |       |       |       |       |
+| nd&amp;ba |     |       |       |       |       |       |       |       |       |       |       |
+| se-pa |     |       |       |       |       |       |       |       |       |       |       |
+| th=ht |     |       |       |       |       |       |       |       |       |       |       |
+| tps:/ |     |       |       |       |       |       |       |       |       |       |       |
+| /goet |     |       |       |       |       |       |       |       |       |       |       |
+| heuni |     |       |       |       |       |       |       |       |       |       |       |
+| versi |     |       |       |       |       |       |       |       |       |       |       |
+| taet. |     |       |       |       |       |       |       |       |       |       |       |
+| share |     |       |       |       |       |       |       |       |       |       |       |
+| point |     |       |       |       |       |       |       |       |       |       |       |
+| .com/ |     |       |       |       |       |       |       |       |       |       |       |
+| sites |     |       |       |       |       |       |       |       |       |       |       |
+| /Proj |     |       |       |       |       |       |       |       |       |       |       |
+| ect4/ |     |       |       |       |       |       |       |       |       |       |       |
+| SiteA |     |       |       |       |       |       |       |       |       |       |       |
+| ssets |     |       |       |       |       |       |       |       |       |       |       |
+| /Proj |     |       |       |       |       |       |       |       |       |       |       |
+| ect%2 |     |       |       |       |       |       |       |       |       |       |       |
+| 04%20 |     |       |       |       |       |       |       |       |       |       |       |
+| Noteb |     |       |       |       |       |       |       |       |       |       |       |
+| ook/M |     |       |       |       |       |       |       |       |       |       |       |
+| agnet |     |       |       |       |       |       |       |       |       |       |       |
+| ic%20 |     |       |       |       |       |       |       |       |       |       |       |
+| Flux% |     |       |       |       |       |       |       |       |       |       |       |
+| 20Noi |     |       |       |       |       |       |       |       |       |       |       |
+| se.on |     |       |       |       |       |       |       |       |       |       |       |
+| e&gt;`__</span></a> |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| <a class="reference external" href="o||usses||125mT||||/5/20|||7.201||nenot|||||||||||9_Fri||e:#m3|||||||||||day_||86%20|||||||||||||MFN_s|||||||||||||weep(|||||||||||||sat)_|||||||||||||-75mT|||||||||||||-%20t|||||||||||||o%20-|||||||||||||125mT|||||||||||||_Plus|||||||||||||ses%2|||||||||||||0with|||||||||||||%20+1|||||||||||||Tsatu|||||||||||||ratio|||||||||||||n&amp;sec|||||||||||||tion-|||||||||||||id={5|||||||||||||FAD05|||||||||||||18-E3|||||||||||||49-4A|||||||||||||07-93|||||||||||||E8-5D|||||||||||||105BD|||||||||||||4AEB4|||||||||||||}&amp;pag|||||||||||||e-id=|||||||||||||{27C7|||||||||||||97A5-|||||||||||||3480-|||||||||||||4491-|||||||||||||A81D-|||||||||||||4D46C|||||||||||||047FA|||||||||||||56}&amp;e|||||||||||||nd&amp;ba|||||||||||||se-pa|||||||||||||th=ht|||||||||||||tps:/|||||||||||||/goet|||||||||||||heuni|||||||||||||versi|||||||||||||taet.|||||||||||||share|||||||||||||point|||||||||||||.com/|||||||||||||sites|||||||||||||/Proj|||||||||||||ect4/|||||||||||||SiteA|||||||||||||ssets|||||||||||||/Proj|||||||||||||ect%2|||||||||||||04%20|||||||||||||Noteb|||||||||||||ook/M|||||||||||||agnet|||||||||||||ic%20|||||||||||||Flux%|||||||||||||20Noi|||||||||||||se.on|||||||||||||e">m38  | 3   | Pl    | -75mT | -     | +1T   | .5    | 1.5   | 5     | 24    | 100   | 19.0  |
+| 6:</a> |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| <a class="reference external" href="o|||||||||||||nenot|||||||||||||e:#m3|||||||||||||87%20|||||||||||||MFN_s|||||||||||||weep(|||||||||||||sat)_|||||||||||||-125m|||||||||||||T-%20|||||||||||||to%20|||||||||||||-175m|||||||||||||T&amp;sec|||||||||||||tion-|||||||||||||id={5|||||||||||||FAD05|||||||||||||18-E3|||||||||||||49-4A|||||||||||||07-93|||||||||||||E8-5D|||||||||||||105BD|||||||||||||4AEB4|||||||||||||}&amp;pag|||||||||||||e-id=|||||||||||||{4DFD|||||||||||||8061-|||||||||||||D18B-|||||||||||||4729-|||||||||||||A7F7-|||||||||||||A8B45|||||||||||||5257A|||||||||||||6E}&amp;e|||||||||||||nd&amp;ba|||||||||||||se-pa|||||||||||||th=ht|||||||||||||tps:/|||||||||||||/goet|||||||||||||heuni|||||||||||||versi|||||||||||||taet.|||||||||||||share|||||||||||||point|||||||||||||.com/|||||||||||||sites|||||||||||||/Proj|||||||||||||ect4/|||||||||||||SiteA|||||||||||||ssets|||||||||||||/Proj|||||||||||||ect%2|||||||||||||04%20|||||||||||||Noteb|||||||||||||ook/M|||||||||||||agnet|||||||||||||ic%20|||||||||||||Flux%|||||||||||||20Noi|||||||||||||se.on|||||||||||||e">m3   | 4   |       | -125  | -175  |       |       |       |       |       |       |       |
+| 87</a> |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| <a class="reference external" href="o|||||||||||||nenot|||||||||||||e:#m3|||||||||||||88%20|||||||||||||MFN_s|||||||||||||weep(|||||||||||||sat)_|||||||||||||-175m|||||||||||||T-%20|||||||||||||to%20|||||||||||||-225m|||||||||||||T&amp;sec|||||||||||||tion-|||||||||||||id={5|||||||||||||FAD05|||||||||||||18-E3|||||||||||||49-4A|||||||||||||07-93|||||||||||||E8-5D|||||||||||||105BD|||||||||||||4AEB4|||||||||||||}&amp;pag|||||||||||||e-id=|||||||||||||{C164|||||||||||||A19E-|||||||||||||41C9-|||||||||||||4464-|||||||||||||A49A-|||||||||||||74AB9|||||||||||||D61A2|||||||||||||C3}&amp;e|||||||||||||nd&amp;ba|||||||||||||se-pa|||||||||||||th=ht|||||||||||||tps:/|||||||||||||/goet|||||||||||||heuni|||||||||||||versi|||||||||||||taet.|||||||||||||share|||||||||||||point|||||||||||||.com/|||||||||||||sites|||||||||||||/Proj|||||||||||||ect4/|||||||||||||SiteA|||||||||||||ssets|||||||||||||/Proj|||||||||||||ect%2|||||||||||||04%20|||||||||||||Noteb|||||||||||||ook/M|||||||||||||agnet|||||||||||||ic%20|||||||||||||Flux%|||||||||||||20Noi|||||||||||||se.on|||||||||||||e">m3   | 5   |       | -175  | -225  |       |       |       |       |       |       |       |
+| 88</a> |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| <a class="reference external" href="o|||||||||||||nenot|||||||||||||e:#m3|||||||||||||89%20|||||||||||||MFN_s|||||||||||||weep(|||||||||||||sat)_|||||||||||||-225m|||||||||||||T-%20|||||||||||||to%20|||||||||||||-275m|||||||||||||T&amp;sec|||||||||||||tion-|||||||||||||id={5|||||||||||||FAD05|||||||||||||18-E3|||||||||||||49-4A|||||||||||||07-93|||||||||||||E8-5D|||||||||||||105BD|||||||||||||4AEB4|||||||||||||}&amp;pag|||||||||||||e-id=|||||||||||||{D315|||||||||||||3175-|||||||||||||CA44-|||||||||||||41CE-|||||||||||||8A7D-|||||||||||||3CC30|||||||||||||CB26F|||||||||||||87}&amp;e|||||||||||||nd&amp;ba|||||||||||||se-pa|||||||||||||th=ht|||||||||||||tps:/|||||||||||||/goet|||||||||||||heuni|||||||||||||versi|||||||||||||taet.|||||||||||||share|||||||||||||point|||||||||||||.com/|||||||||||||sites|||||||||||||/Proj|||||||||||||ect4/|||||||||||||SiteA|||||||||||||ssets|||||||||||||/Proj|||||||||||||ect%2|||||||||||||04%20|||||||||||||Noteb|||||||||||||ook/M|||||||||||||agnet|||||||||||||ic%20|||||||||||||Flux%|||||||||||||20Noi|||||||||||||se.on|||||||||||||e">m3   | 6   |       | -225  | -275  |       |       |       |       |       |       |       |
+| 89</a> |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| <a class="reference external" href="o|||||||||||||nenot|||||||||||||e:#m3|||||||||||||90%20|||||||||||||MFN_s|||||||||||||weep(|||||||||||||sat)_|||||||||||||-275m|||||||||||||T-%20|||||||||||||to%20|||||||||||||-325m|||||||||||||T&amp;sec|||||||||||||tion-|||||||||||||id={5|||||||||||||FAD05|||||||||||||18-E3|||||||||||||49-4A|||||||||||||07-93|||||||||||||E8-5D|||||||||||||105BD|||||||||||||4AEB4|||||||||||||}&amp;pag|||||||||||||e-id=|||||||||||||{1048|||||||||||||2932-|||||||||||||55CA-|||||||||||||4215-|||||||||||||8230-|||||||||||||D3030|||||||||||||8382C|||||||||||||24}&amp;e|||||||||||||nd&amp;ba|||||||||||||se-pa|||||||||||||th=ht|||||||||||||tps:/|||||||||||||/goet|||||||||||||heuni|||||||||||||versi|||||||||||||taet.|||||||||||||share|||||||||||||point|||||||||||||.com/|||||||||||||sites|||||||||||||/Proj|||||||||||||ect4/|||||||||||||SiteA|||||||||||||ssets|||||||||||||/Proj|||||||||||||ect%2|||||||||||||04%20|||||||||||||Noteb|||||||||||||ook/M|||||||||||||agnet|||||||||||||ic%20|||||||||||||Flux%|||||||||||||20Noi|||||||||||||se.on|||||||||||||e">m3   | 7   |       | -275  | -325  |       |       |       |       |       |       |       |
+| 90</a> |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| <a class="reference external" href="o|||||||||||||nenot|||||||||||||e:#m3|||||||||||||91%20|||||||||||||MFN_s|||||||||||||weep(|||||||||||||sat)_|||||||||||||-300m|||||||||||||T-%20|||||||||||||to%20|||||||||||||-350m|||||||||||||T&amp;sec|||||||||||||tion-|||||||||||||id={5|||||||||||||FAD05|||||||||||||18-E3|||||||||||||49-4A|||||||||||||07-93|||||||||||||E8-5D|||||||||||||105BD|||||||||||||4AEB4|||||||||||||}&amp;pag|||||||||||||e-id=|||||||||||||{BA17|||||||||||||CCDB-|||||||||||||BA58-|||||||||||||4983-|||||||||||||B070-|||||||||||||87B2F|||||||||||||C172A|||||||||||||DB}&amp;e|||||||||||||nd&amp;ba|||||||||||||se-pa|||||||||||||th=ht|||||||||||||tps:/|||||||||||||/goet|||||||||||||heuni|||||||||||||versi|||||||||||||taet.|||||||||||||share|||||||||||||point|||||||||||||.com/|||||||||||||sites|||||||||||||/Proj|||||||||||||ect4/|||||||||||||SiteA|||||||||||||ssets|||||||||||||/Proj|||||||||||||ect%2|||||||||||||04%20|||||||||||||Noteb|||||||||||||ook/M|||||||||||||agnet|||||||||||||ic%20|||||||||||||Flux%|||||||||||||20Noi|||||||||||||se.on|||||||||||||e">m3   | 8   |       | -300  | -350  |       |       |       |       |       |       |       |
+| 91</a> |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| <a class="reference external" href="o|||||||||||||nenot|||||||||||||e:#m3|||||||||||||92%20|||||||||||||MFN_s|||||||||||||weep(|||||||||||||sat)_|||||||||||||-350m|||||||||||||T-%20|||||||||||||to%20|||||||||||||-400m|||||||||||||T&amp;sec|||||||||||||tion-|||||||||||||id={5|||||||||||||FAD05|||||||||||||18-E3|||||||||||||49-4A|||||||||||||07-93|||||||||||||E8-5D|||||||||||||105BD|||||||||||||4AEB4|||||||||||||}&amp;pag|||||||||||||e-id=|||||||||||||{AA18|||||||||||||A14D-|||||||||||||1165-|||||||||||||4E24-|||||||||||||AC91-|||||||||||||F643C|||||||||||||39E90|||||||||||||EC}&amp;e|||||||||||||nd&amp;ba|||||||||||||se-pa|||||||||||||th=ht|||||||||||||tps:/|||||||||||||/goet|||||||||||||heuni|||||||||||||versi|||||||||||||taet.|||||||||||||share|||||||||||||point|||||||||||||.com/|||||||||||||sites|||||||||||||/Proj|||||||||||||ect4/|||||||||||||SiteA|||||||||||||ssets|||||||||||||/Proj|||||||||||||ect%2|||||||||||||04%20|||||||||||||Noteb|||||||||||||ook/M|||||||||||||agnet|||||||||||||ic%20|||||||||||||Flux%|||||||||||||20Noi|||||||||||||se.on|||||||||||||e">m3   | 9   |       | -350  | -400  |       |       |       |       |       |       |       |
+| 92</a> |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| <a class="reference external" href="o|||||||||||||nenot|||||||||||||e:#m3|||||||||||||93%20|||||||||||||MFN_s|||||||||||||weep(|||||||||||||sat)_|||||||||||||-400m|||||||||||||T-%20|||||||||||||to%20|||||||||||||-450m|||||||||||||T&amp;sec|||||||||||||tion-|||||||||||||id={5|||||||||||||FAD05|||||||||||||18-E3|||||||||||||49-4A|||||||||||||07-93|||||||||||||E8-5D|||||||||||||105BD|||||||||||||4AEB4|||||||||||||}&amp;pag|||||||||||||e-id=|||||||||||||{DF5D|||||||||||||7711-|||||||||||||C4DF-|||||||||||||4054-|||||||||||||9ACB-|||||||||||||21DF4|||||||||||||C14B4|||||||||||||13}&amp;e|||||||||||||nd&amp;ba|||||||||||||se-pa|||||||||||||th=ht|||||||||||||tps:/|||||||||||||/goet|||||||||||||heuni|||||||||||||versi|||||||||||||taet.|||||||||||||share|||||||||||||point|||||||||||||.com/|||||||||||||sites|||||||||||||/Proj|||||||||||||ect4/|||||||||||||SiteA|||||||||||||ssets|||||||||||||/Proj|||||||||||||ect%2|||||||||||||04%20|||||||||||||Noteb|||||||||||||ook/M|||||||||||||agnet|||||||||||||ic%20|||||||||||||Flux%|||||||||||||20Noi|||||||||||||se.on|||||||||||||e">m3   | 10  |       | -400  | -450  |       |       |       |       |       |       |       |
+| 93</a> |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| <a class="reference external" href="o|||||||||||||nenot|||||||||||||e:#m3|||||||||||||94%20|||||||||||||MFN_s|||||||||||||weep(|||||||||||||sat)_|||||||||||||-450m|||||||||||||T-%20|||||||||||||to%20|||||||||||||-500m|||||||||||||T&amp;sec|||||||||||||tion-|||||||||||||id={5|||||||||||||FAD05|||||||||||||18-E3|||||||||||||49-4A|||||||||||||07-93|||||||||||||E8-5D|||||||||||||105BD|||||||||||||4AEB4|||||||||||||}&amp;pag|||||||||||||e-id=|||||||||||||{9A64|||||||||||||B0CD-|||||||||||||5FC5-|||||||||||||47CF-|||||||||||||A858-|||||||||||||95482|||||||||||||1BFE7|||||||||||||48}&amp;e|||||||||||||nd&amp;ba|||||||||||||se-pa|||||||||||||th=ht|||||||||||||tps:/|||||||||||||/goet|||||||||||||heuni|||||||||||||versi|||||||||||||taet.|||||||||||||share|||||||||||||point|||||||||||||.com/|||||||||||||sites|||||||||||||/Proj|||||||||||||ect4/|||||||||||||SiteA|||||||||||||ssets|||||||||||||/Proj|||||||||||||ect%2|||||||||||||04%20|||||||||||||Noteb|||||||||||||ook/M|||||||||||||agnet|||||||||||||ic%20|||||||||||||Flux%|||||||||||||20Noi|||||||||||||se.on|||||||||||||e">m3   | 11  |       | -450  | -500  |       |       |       |       |       |       |       |
+| 94</a> |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| <a class="reference external" href="o|||||||||||||nenot|||||||||||||e:#m3|||||||||||||95%20|||||||||||||MFN_s|||||||||||||weep(|||||||||||||sat)_|||||||||||||-500m|||||||||||||T-%20|||||||||||||to%20|||||||||||||-550m|||||||||||||T&amp;sec|||||||||||||tion-|||||||||||||id={5|||||||||||||FAD05|||||||||||||18-E3|||||||||||||49-4A|||||||||||||07-93|||||||||||||E8-5D|||||||||||||105BD|||||||||||||4AEB4|||||||||||||}&amp;pag|||||||||||||e-id=|||||||||||||{2E37|||||||||||||C791-|||||||||||||D6F8-|||||||||||||4751-|||||||||||||A13B-|||||||||||||2DE62|||||||||||||AFFD9|||||||||||||7C}&amp;e|||||||||||||nd&amp;ba|||||||||||||se-pa|||||||||||||th=ht|||||||||||||tps:/|||||||||||||/goet|||||||||||||heuni|||||||||||||versi|||||||||||||taet.|||||||||||||share|||||||||||||point|||||||||||||.com/|||||||||||||sites|||||||||||||/Proj|||||||||||||ect4/|||||||||||||SiteA|||||||||||||ssets|||||||||||||/Proj|||||||||||||ect%2|||||||||||||04%20|||||||||||||Noteb|||||||||||||ook/M|||||||||||||agnet|||||||||||||ic%20|||||||||||||Flux%|||||||||||||20Noi|||||||||||||se.on|||||||||||||e">m3   | 12  |       | -500  | -550  |       |       |       |       |       |       |       |
+| 95</a> |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| <a class="reference external" href="o|||||||||||lling||nenot|||||||||||He||e:#m3|||||||||||(Vx)||96%20|||||||||||||MFN_s|||||||||||||weep(|||||||||||||sat)_|||||||||||||50mT-|||||||||||||%20to|||||||||||||%200m|||||||||||||T_Plu|||||||||||||sses%|||||||||||||20wit|||||||||||||h&amp;sec|||||||||||||tion-|||||||||||||id={5|||||||||||||FAD05|||||||||||||18-E3|||||||||||||49-4A|||||||||||||07-93|||||||||||||E8-5D|||||||||||||105BD|||||||||||||4AEB4|||||||||||||}&amp;pag|||||||||||||e-id=|||||||||||||{B713|||||||||||||5BB2-|||||||||||||2AC5-|||||||||||||47ED-|||||||||||||A085-|||||||||||||27D4C|||||||||||||59F5F|||||||||||||8E}&amp;e|||||||||||||nd&amp;ba|||||||||||||se-pa|||||||||||||th=ht|||||||||||||tps:/|||||||||||||/goet|||||||||||||heuni|||||||||||||versi|||||||||||||taet.|||||||||||||share|||||||||||||point|||||||||||||.com/|||||||||||||sites|||||||||||||/Proj|||||||||||||ect4/|||||||||||||SiteA|||||||||||||ssets|||||||||||||/Proj|||||||||||||ect%2|||||||||||||04%20|||||||||||||Noteb|||||||||||||ook/M|||||||||||||agnet|||||||||||||ic%20|||||||||||||Flux%|||||||||||||20Noi|||||||||||||se.on|||||||||||||e">m3   | 13  |       | -575  | -625  |       |       |       |       |       |       | Fi    |
+| 96</a> |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| <a class="reference external" href="on|||||||||||||enote|||||||||||||:#m39|||||||||||||7%20M|||||||||||||FN_sw|||||||||||||eep(s|||||||||||||at)_-|||||||||||||625mT|||||||||||||-%20t|||||||||||||o%20-|||||||||||||575mT|||||||||||||_Plus|||||||||||||ses%2|||||||||||||0with|||||||||||||%20-1|||||||||||||Tsatu|||||||||||||ratio|||||||||||||n&amp;sec|||||||||||||tion-|||||||||||||id={5|||||||||||||FAD05|||||||||||||18-E3|||||||||||||49-4A|||||||||||||07-93|||||||||||||E8-5D|||||||||||||105BD|||||||||||||4AEB4|||||||||||||}&amp;pag|||||||||||||e-id=|||||||||||||{5F48|||||||||||||DCBC-|||||||||||||39A3-|||||||||||||4AF6-|||||||||||||805F-|||||||||||||45CC3|||||||||||||1F935|||||||||||||C0}&amp;e|||||||||||||nd&amp;ba|||||||||||||se-pa|||||||||||||th=ht|||||||||||||tps:/|||||||||||||/goet|||||||||||||heuni|||||||||||||versi|||||||||||||taet.|||||||||||||share|||||||||||||point|||||||||||||.com/|||||||||||||sites|||||||||||||/Proj|||||||||||||ect4/|||||||||||||SiteA|||||||||||||ssets|||||||||||||/Proj|||||||||||||ect%2|||||||||||||04%20|||||||||||||Noteb|||||||||||||ook/M|||||||||||||agnet|||||||||||||ic%20|||||||||||||Flux%|||||||||||||20Noi|||||||||||||se.on|||||||||||||e">m397 | 14  |       | -625  | -575  | -1T   |       |       |       |       |       |       |
+| :</a> |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| `     | 15  |       | -50   | 0     |       |       |       |       |       |       |       |
+| m398: |     |       |       |       |       |       |       |       |       |       |       |
+|  &lt;one |     |       |       |       |       |       |       |       |       |       |       |
+| note: |     |       |       |       |       |       |       |       |       |       |       |
+| #m398 |     |       |       |       |       |       |       |       |       |       |       |
+| %20MF |     |       |       |       |       |       |       |       |       |       |       |
+| N_swe |     |       |       |       |       |       |       |       |       |       |       |
+| ep(sa |     |       |       |       |       |       |       |       |       |       |       |
+| t)_-5 |     |       |       |       |       |       |       |       |       |       |       |
+| 0mT-% |     |       |       |       |       |       |       |       |       |       |       |
+| 20to% |     |       |       |       |       |       |       |       |       |       |       |
+| 200mT |     |       |       |       |       |       |       |       |       |       |       |
+| _Plus |     |       |       |       |       |       |       |       |       |       |       |
+| ses%2 |     |       |       |       |       |       |       |       |       |       |       |
+| 0with |     |       |       |       |       |       |       |       |       |       |       |
+| %20-1 |     |       |       |       |       |       |       |       |       |       |       |
+| Tsatu |     |       |       |       |       |       |       |       |       |       |       |
+| ratio |     |       |       |       |       |       |       |       |       |       |       |
+| n&amp;sec |     |       |       |       |       |       |       |       |       |       |       |
+| tion- |     |       |       |       |       |       |       |       |       |       |       |
+| id={5 |     |       |       |       |       |       |       |       |       |       |       |
+| FAD05 |     |       |       |       |       |       |       |       |       |       |       |
+| 18-E3 |     |       |       |       |       |       |       |       |       |       |       |
+| 49-4A |     |       |       |       |       |       |       |       |       |       |       |
+| 07-93 |     |       |       |       |       |       |       |       |       |       |       |
+| E8-5D |     |       |       |       |       |       |       |       |       |       |       |
+| 105BD |     |       |       |       |       |       |       |       |       |       |       |
+| 4AEB4 |     |       |       |       |       |       |       |       |       |       |       |
+| }&amp;pag |     |       |       |       |       |       |       |       |       |       |       |
+| e-id= |     |       |       |       |       |       |       |       |       |       |       |
+| {F393 |     |       |       |       |       |       |       |       |       |       |       |
+| F24F- |     |       |       |       |       |       |       |       |       |       |       |
+| 8D6B- |     |       |       |       |       |       |       |       |       |       |       |
+| 4F2B- |     |       |       |       |       |       |       |       |       |       |       |
+| 9953- |     |       |       |       |       |       |       |       |       |       |       |
+| DE7F7 |     |       |       |       |       |       |       |       |       |       |       |
+| AE124 |     |       |       |       |       |       |       |       |       |       |       |
+| 44}&amp;e |     |       |       |       |       |       |       |       |       |       |       |
+| nd&amp;ba |     |       |       |       |       |       |       |       |       |       |       |
+| se-pa |     |       |       |       |       |       |       |       |       |       |       |
+| th=ht |     |       |       |       |       |       |       |       |       |       |       |
+| tps:/ |     |       |       |       |       |       |       |       |       |       |       |
+| /goet |     |       |       |       |       |       |       |       |       |       |       |
+| heuni |     |       |       |       |       |       |       |       |       |       |       |
+| versi |     |       |       |       |       |       |       |       |       |       |       |
+| taet. |     |       |       |       |       |       |       |       |       |       |       |
+| share |     |       |       |       |       |       |       |       |       |       |       |
+| point |     |       |       |       |       |       |       |       |       |       |       |
+| .com/ |     |       |       |       |       |       |       |       |       |       |       |
+| sites |     |       |       |       |       |       |       |       |       |       |       |
+| /Proj |     |       |       |       |       |       |       |       |       |       |       |
+| ect4/ |     |       |       |       |       |       |       |       |       |       |       |
+| SiteA |     |       |       |       |       |       |       |       |       |       |       |
+| ssets |     |       |       |       |       |       |       |       |       |       |       |
+| /Proj |     |       |       |       |       |       |       |       |       |       |       |
+| ect%2 |     |       |       |       |       |       |       |       |       |       |       |
+| 04%20 |     |       |       |       |       |       |       |       |       |       |       |
+| Noteb |     |       |       |       |       |       |       |       |       |       |       |
+| ook/M |     |       |       |       |       |       |       |       |       |       |       |
+| agnet |     |       |       |       |       |       |       |       |       |       |       |
+| ic%20 |     |       |       |       |       |       |       |       |       |       |       |
+| Flux% |     |       |       |       |       |       |       |       |       |       |       |
+| 20Noi |     |       |       |       |       |       |       |       |       |       |       |
+| se.on |     |       |       |       |       |       |       |       |       |       |       |
+| e&gt;`__ |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| <a class="reference external" href="on|||||||||||epeat||enote|||||||||||||:#m39|||||||||||||9%20M|||||||||||||FN_sw|||||||||||||eep(s|||||||||||||at)_-|||||||||||||575mT|||||||||||||-%20t|||||||||||||o%20-|||||||||||||625mT|||||||||||||_Plus|||||||||||||ses%2|||||||||||||0with|||||||||||||%20+1|||||||||||||Tsatu|||||||||||||ratio|||||||||||||n&amp;sec|||||||||||||tion-|||||||||||||id={5|||||||||||||FAD05|||||||||||||18-E3|||||||||||||49-4A|||||||||||||07-93|||||||||||||E8-5D|||||||||||||105BD|||||||||||||4AEB4|||||||||||||}&amp;pag|||||||||||||e-id=|||||||||||||{2DE6|||||||||||||D288-|||||||||||||769B-|||||||||||||41FB-|||||||||||||8474-|||||||||||||86D97|||||||||||||AB017|||||||||||||95}&amp;e|||||||||||||nd&amp;ba|||||||||||||se-pa|||||||||||||th=ht|||||||||||||tps:/|||||||||||||/goet|||||||||||||heuni|||||||||||||versi|||||||||||||taet.|||||||||||||share|||||||||||||point|||||||||||||.com/|||||||||||||sites|||||||||||||/Proj|||||||||||||ect4/|||||||||||||SiteA|||||||||||||ssets|||||||||||||/Proj|||||||||||||ect%2|||||||||||||04%20|||||||||||||Noteb|||||||||||||ook/M|||||||||||||agnet|||||||||||||ic%20|||||||||||||Flux%|||||||||||||20Noi|||||||||||||se.on|||||||||||||e">m399 | 16  |       | -575  | -625  | +1T   |       |       |       |       |       | R     |
+| :</a> |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| <a class="reference external" href="on|||||||||||||enote|||||||||||||:#m40|||||||||||||0%20M|||||||||||||FN_sw|||||||||||||eep(s|||||||||||||at)_0|||||||||||||mT-%2|||||||||||||0to%2|||||||||||||050mT|||||||||||||_Plus|||||||||||||ses%2|||||||||||||0with|||||||||||||%20-1|||||||||||||Tsatu|||||||||||||ratio|||||||||||||n&amp;sec|||||||||||||tion-|||||||||||||id={5|||||||||||||FAD05|||||||||||||18-E3|||||||||||||49-4A|||||||||||||07-93|||||||||||||E8-5D|||||||||||||105BD|||||||||||||4AEB4|||||||||||||}&amp;pag|||||||||||||e-id=|||||||||||||{2370|||||||||||||519D-|||||||||||||9349-|||||||||||||49DF-|||||||||||||9377-|||||||||||||2E10E|||||||||||||7B28A|||||||||||||8D}&amp;e|||||||||||||nd&amp;ba|||||||||||||se-pa|||||||||||||th=ht|||||||||||||tps:/|||||||||||||/goet|||||||||||||heuni|||||||||||||versi|||||||||||||taet.|||||||||||||share|||||||||||||point|||||||||||||.com/|||||||||||||sites|||||||||||||/Proj|||||||||||||ect4/|||||||||||||SiteA|||||||||||||ssets|||||||||||||/Proj|||||||||||||ect%2|||||||||||||04%20|||||||||||||Noteb|||||||||||||ook/M|||||||||||||agnet|||||||||||||ic%20|||||||||||||Flux%|||||||||||||20Noi|||||||||||||se.on|||||||||||||e">m400 | 17  |       | 0     | 50    | -1T   |       |       |       |       |       |       |
+| :</a> |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| <a class="reference external" href="on|||||||||||||enote|||||||||||||:#m40|||||||||||||1%20M|||||||||||||FN_sw|||||||||||||eep(s|||||||||||||at)_5|||||||||||||0mT-%|||||||||||||20to%|||||||||||||200mT|||||||||||||_Plus|||||||||||||ses%2|||||||||||||0with|||||||||||||%20+1|||||||||||||Tsatu|||||||||||||ratio|||||||||||||n&amp;sec|||||||||||||tion-|||||||||||||id={5|||||||||||||FAD05|||||||||||||18-E3|||||||||||||49-4A|||||||||||||07-93|||||||||||||E8-5D|||||||||||||105BD|||||||||||||4AEB4|||||||||||||}&amp;pag|||||||||||||e-id=|||||||||||||{7661|||||||||||||A5B1-|||||||||||||B648-|||||||||||||4A07-|||||||||||||8575-|||||||||||||EDCE1|||||||||||||0A127|||||||||||||24}&amp;e|||||||||||||nd&amp;ba|||||||||||||se-pa|||||||||||||th=ht|||||||||||||tps:/|||||||||||||/goet|||||||||||||heuni|||||||||||||versi|||||||||||||taet.|||||||||||||share|||||||||||||point|||||||||||||.com/|||||||||||||sites|||||||||||||/Proj|||||||||||||ect4/|||||||||||||SiteA|||||||||||||ssets|||||||||||||/Proj|||||||||||||ect%2|||||||||||||04%20|||||||||||||Noteb|||||||||||||ook/M|||||||||||||agnet|||||||||||||ic%20|||||||||||||Flux%|||||||||||||20Noi|||||||||||||se.on|||||||||||||e">m401 | 18  |       | 50    | 0     | +1T   |       |       |       |       |       |       |
+| :</a> |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| `     | 19  |       | 0     | -50   |       |       |       |       |       |       |       |
+| m402: |     |       |       |       |       |       |       |       |       |       |       |
+|  &lt;one |     |       |       |       |       |       |       |       |       |       |       |
+| note: |     |       |       |       |       |       |       |       |       |       |       |
+| #m402 |     |       |       |       |       |       |       |       |       |       |       |
+| %20MF |     |       |       |       |       |       |       |       |       |       |       |
+| N_swe |     |       |       |       |       |       |       |       |       |       |       |
+| ep(sa |     |       |       |       |       |       |       |       |       |       |       |
+| t)_0m |     |       |       |       |       |       |       |       |       |       |       |
+| T-%20 |     |       |       |       |       |       |       |       |       |       |       |
+| to%20 |     |       |       |       |       |       |       |       |       |       |       |
+| -50mT |     |       |       |       |       |       |       |       |       |       |       |
+| _Plus |     |       |       |       |       |       |       |       |       |       |       |
+| ses%2 |     |       |       |       |       |       |       |       |       |       |       |
+| 0with |     |       |       |       |       |       |       |       |       |       |       |
+| %20+1 |     |       |       |       |       |       |       |       |       |       |       |
+| Tsatu |     |       |       |       |       |       |       |       |       |       |       |
+| ratio |     |       |       |       |       |       |       |       |       |       |       |
+| n&amp;sec |     |       |       |       |       |       |       |       |       |       |       |
+| tion- |     |       |       |       |       |       |       |       |       |       |       |
+| id={5 |     |       |       |       |       |       |       |       |       |       |       |
+| FAD05 |     |       |       |       |       |       |       |       |       |       |       |
+| 18-E3 |     |       |       |       |       |       |       |       |       |       |       |
+| 49-4A |     |       |       |       |       |       |       |       |       |       |       |
+| 07-93 |     |       |       |       |       |       |       |       |       |       |       |
+| E8-5D |     |       |       |       |       |       |       |       |       |       |       |
+| 105BD |     |       |       |       |       |       |       |       |       |       |       |
+| 4AEB4 |     |       |       |       |       |       |       |       |       |       |       |
+| }&amp;pag |     |       |       |       |       |       |       |       |       |       |       |
+| e-id= |     |       |       |       |       |       |       |       |       |       |       |
+| {660E |     |       |       |       |       |       |       |       |       |       |       |
+| 811D- |     |       |       |       |       |       |       |       |       |       |       |
+| C6B0- |     |       |       |       |       |       |       |       |       |       |       |
+| 457D- |     |       |       |       |       |       |       |       |       |       |       |
+| 8DE9- |     |       |       |       |       |       |       |       |       |       |       |
+| 5809A |     |       |       |       |       |       |       |       |       |       |       |
+| 90B19 |     |       |       |       |       |       |       |       |       |       |       |
+| D4}&amp;e |     |       |       |       |       |       |       |       |       |       |       |
+| nd&amp;ba |     |       |       |       |       |       |       |       |       |       |       |
+| se-pa |     |       |       |       |       |       |       |       |       |       |       |
+| th=ht |     |       |       |       |       |       |       |       |       |       |       |
+| tps:/ |     |       |       |       |       |       |       |       |       |       |       |
+| /goet |     |       |       |       |       |       |       |       |       |       |       |
+| heuni |     |       |       |       |       |       |       |       |       |       |       |
+| versi |     |       |       |       |       |       |       |       |       |       |       |
+| taet. |     |       |       |       |       |       |       |       |       |       |       |
+| share |     |       |       |       |       |       |       |       |       |       |       |
+| point |     |       |       |       |       |       |       |       |       |       |       |
+| .com/ |     |       |       |       |       |       |       |       |       |       |       |
+| sites |     |       |       |       |       |       |       |       |       |       |       |
+| /Proj |     |       |       |       |       |       |       |       |       |       |       |
+| ect4/ |     |       |       |       |       |       |       |       |       |       |       |
+| SiteA |     |       |       |       |       |       |       |       |       |       |       |
+| ssets |     |       |       |       |       |       |       |       |       |       |       |
+| /Proj |     |       |       |       |       |       |       |       |       |       |       |
+| ect%2 |     |       |       |       |       |       |       |       |       |       |       |
+| 04%20 |     |       |       |       |       |       |       |       |       |       |       |
+| Noteb |     |       |       |       |       |       |       |       |       |       |       |
+| ook/M |     |       |       |       |       |       |       |       |       |       |       |
+| agnet |     |       |       |       |       |       |       |       |       |       |       |
+| ic%20 |     |       |       |       |       |       |       |       |       |       |       |
+| Flux% |     |       |       |       |       |       |       |       |       |       |       |
+| 20Noi |     |       |       |       |       |       |       |       |       |       |       |
+| se.on |     |       |       |       |       |       |       |       |       |       |       |
+| e&gt;`__ |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| <a class="reference external" href="on|||||||||||||enote|||||||||||||:#M40|||||||||||||3%20M|||||||||||||FN_sw|||||||||||||eep(s|||||||||||||at)_0|||||||||||||mT-%2|||||||||||||0to%2|||||||||||||050mT|||||||||||||_Plus|||||||||||||ses%2|||||||||||||0with|||||||||||||%20-1|||||||||||||Tsatu|||||||||||||ratio|||||||||||||n&amp;sec|||||||||||||tion-|||||||||||||id={5|||||||||||||FAD05|||||||||||||18-E3|||||||||||||49-4A|||||||||||||07-93|||||||||||||E8-5D|||||||||||||105BD|||||||||||||4AEB4|||||||||||||}&amp;pag|||||||||||||e-id=|||||||||||||{EBFB|||||||||||||597F-|||||||||||||BEE0-|||||||||||||476F-|||||||||||||9AE1-|||||||||||||E042F|||||||||||||5F3B1|||||||||||||51}&amp;e|||||||||||||nd&amp;ba|||||||||||||se-pa|||||||||||||th=ht|||||||||||||tps:/|||||||||||||/goet|||||||||||||heuni|||||||||||||versi|||||||||||||taet.|||||||||||||share|||||||||||||point|||||||||||||.com/|||||||||||||sites|||||||||||||/Proj|||||||||||||ect4/|||||||||||||SiteA|||||||||||||ssets|||||||||||||/Proj|||||||||||||ect%2|||||||||||||04%20|||||||||||||Noteb|||||||||||||ook/M|||||||||||||agnet|||||||||||||ic%20|||||||||||||Flux%|||||||||||||20Noi|||||||||||||se.on|||||||||||||e">M403 | 20  |       | 25    | -25   |       |       |       |       |       |       |       |
+| :</a> |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| <a class="reference external" href="on|||||||||||||enote|||||||||||||:#M40|||||||||||||4%20M|||||||||||||FN_sw|||||||||||||eep(s|||||||||||||at)_0|||||||||||||mT-%2|||||||||||||0to%2|||||||||||||050mT|||||||||||||_Plus|||||||||||||ses%2|||||||||||||0with|||||||||||||%20-1|||||||||||||Tsatu|||||||||||||ratio|||||||||||||n&amp;sec|||||||||||||tion-|||||||||||||id={5|||||||||||||FAD05|||||||||||||18-E3|||||||||||||49-4A|||||||||||||07-93|||||||||||||E8-5D|||||||||||||105BD|||||||||||||4AEB4|||||||||||||}&amp;pag|||||||||||||e-id=|||||||||||||{AD45|||||||||||||2DCE-|||||||||||||72DF-|||||||||||||4C7F-|||||||||||||9189-|||||||||||||9AD6D|||||||||||||0CDB1|||||||||||||FC}&amp;e|||||||||||||nd&amp;ba|||||||||||||se-pa|||||||||||||th=ht|||||||||||||tps:/|||||||||||||/goet|||||||||||||heuni|||||||||||||versi|||||||||||||taet.|||||||||||||share|||||||||||||point|||||||||||||.com/|||||||||||||sites|||||||||||||/Proj|||||||||||||ect4/|||||||||||||SiteA|||||||||||||ssets|||||||||||||/Proj|||||||||||||ect%2|||||||||||||04%20|||||||||||||Noteb|||||||||||||ook/M|||||||||||||agnet|||||||||||||ic%20|||||||||||||Flux%|||||||||||||20Noi|||||||||||||se.on|||||||||||||e">M404 | 21  |       | -25   | -75   |       |       |       |       |       |       |       |
+| :</a> |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| <a class="reference external" href="on|||||satur||||||||enote|||||ation||||||||:#M40|||||||||||||5%20M|||||||||||||FN_sw|||||||||||||eep(s|||||||||||||at)_0|||||||||||||mT-%2|||||||||||||0to%2|||||||||||||050mT|||||||||||||_Plus|||||||||||||ses%2|||||||||||||0with|||||||||||||%20-1|||||||||||||Tsatu|||||||||||||ratio|||||||||||||n&amp;sec|||||||||||||tion-|||||||||||||id={5|||||||||||||FAD05|||||||||||||18-E3|||||||||||||49-4A|||||||||||||07-93|||||||||||||E8-5D|||||||||||||105BD|||||||||||||4AEB4|||||||||||||}&amp;pag|||||||||||||e-id=|||||||||||||{629C|||||||||||||0DF3-|||||||||||||3923-|||||||||||||45BC-|||||||||||||9E5D-|||||||||||||42401|||||||||||||61990|||||||||||||36}&amp;e|||||||||||||nd&amp;ba|||||||||||||se-pa|||||||||||||th=ht|||||||||||||tps:/|||||||||||||/goet|||||||||||||heuni|||||||||||||versi|||||||||||||taet.|||||||||||||share|||||||||||||point|||||||||||||.com/|||||||||||||sites|||||||||||||/Proj|||||||||||||ect4/|||||||||||||SiteA|||||||||||||ssets|||||||||||||/Proj|||||||||||||ect%2|||||||||||||04%20|||||||||||||Noteb|||||||||||||ook/M|||||||||||||agnet|||||||||||||ic%20|||||||||||||Flux%|||||||||||||20Noi|||||||||||||se.on|||||||||||||e">M405 | 22  |       | -25   | -75   | No    |       |       |       |       |       |       |
+| :</a> |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| <a class="reference external" href="on|||||||||||||enote|||||||||||||:#M40|||||||||||||6%20M|||||||||||||FN_sw|||||||||||||eep(s|||||||||||||at)_0|||||||||||||mT-%2|||||||||||||0to%2|||||||||||||050mT|||||||||||||_Plus|||||||||||||ses%2|||||||||||||0with|||||||||||||%20-1|||||||||||||Tsatu|||||||||||||ratio|||||||||||||n&amp;sec|||||||||||||tion-|||||||||||||id={5|||||||||||||FAD05|||||||||||||18-E3|||||||||||||49-4A|||||||||||||07-93|||||||||||||E8-5D|||||||||||||105BD|||||||||||||4AEB4|||||||||||||}&amp;pag|||||||||||||e-id=|||||||||||||{57BD|||||||||||||47EB-|||||||||||||210E-|||||||||||||47B2-|||||||||||||BF28-|||||||||||||24AEF|||||||||||||6F82B|||||||||||||2B}&amp;e|||||||||||||nd&amp;ba|||||||||||||se-pa|||||||||||||th=ht|||||||||||||tps:/|||||||||||||/goet|||||||||||||heuni|||||||||||||versi|||||||||||||taet.|||||||||||||share|||||||||||||point|||||||||||||.com/|||||||||||||sites|||||||||||||/Proj|||||||||||||ect4/|||||||||||||SiteA|||||||||||||ssets|||||||||||||/Proj|||||||||||||ect%2|||||||||||||04%20|||||||||||||Noteb|||||||||||||ook/M|||||||||||||agnet|||||||||||||ic%20|||||||||||||Flux%|||||||||||||20Noi|||||||||||||se.on|||||||||||||e">M406 | 23  |       | 619   | 569   |       |       |       |       |       |       |       |
+| :</a> |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+
+| <a class="reference external" href="on|||||||||||||enote|||||||||||||:#M40|||||||||||||7%20M|||||||||||||FN_sw|||||||||||||eep(s|||||||||||||at)_0|||||||||||||mT-%2|||||||||||||0to%2|||||||||||||050mT|||||||||||||_Plus|||||||||||||ses%2|||||||||||||0with|||||||||||||%20-1|||||||||||||Tsatu|||||||||||||ratio|||||||||||||n&amp;sec|||||||||||||tion-|||||||||||||id={5|||||||||||||FAD05|||||||||||||18-E3|||||||||||||49-4A|||||||||||||07-93|||||||||||||E8-5D|||||||||||||105BD|||||||||||||4AEB4|||||||||||||}&amp;pag|||||||||||||e-id=|||||||||||||{A63C|||||||||||||6532-|||||||||||||E5EE-|||||||||||||4B2C-|||||||||||||A301-|||||||||||||55224|||||||||||||0C08D|||||||||||||16}&amp;e|||||||||||||nd&amp;ba|||||||||||||se-pa|||||||||||||th=ht|||||||||||||tps:/|||||||||||||/goet|||||||||||||heuni|||||||||||||versi|||||||||||||taet.|||||||||||||share|||||||||||||point|||||||||||||.com/|||||||||||||sites|||||||||||||/Proj|||||||||||||ect4/|||||||||||||SiteA|||||||||||||ssets|||||||||||||/Proj|||||||||||||ect%2|||||||||||||04%20|||||||||||||Noteb|||||||||||||ook/M|||||||||||||agnet|||||||||||||ic%20|||||||||||||Flux%|||||||||||||20Noi|||||||||||||se.on|||||||||||||e">M407 | 24  |       | 0     | -50   |       |       |       |       |       |       |       |
+| :</a> |     |       |       |       |       |       |       |       |       |       |       |
++——-+—–+——-+——-+——-+——-+——-+——-+——-+——-+——-+——-+</p>
+<p><a class="reference internal" href="../../_images/image2461.png"><img alt="Machine generated alternative text:" src="../../_images/image2461.png" style="width: 5.71875in; height: 4.29167in;" /></a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="04_sr830daq.html" class="btn btn-neutral float-left" title="04: Data Aquisition Measurements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral float-right" title="About the Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020/2021, Jonathan Pieper.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

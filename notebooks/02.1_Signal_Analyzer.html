@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signal Analyzer Measurements (1) &mdash; Lab Book 0.4 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Signal Analyzer Measurements (2)" href="02.2_Signal_Analyzer.html" />
+    <link rel="prev" title="Hloop" href="01_Hloop.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Lab Book
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Lab Book</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/gitlab.html">GitLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/onenote/index.html">Original Lab Book</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data/index.html">About the Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/hloop/index.html">Magnetic Characterization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/mfn/index.html">Magnetic Flux Noise (MFN)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../modules/notebooks.html">Jupyter Notebooks</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00_MasterPlots.html">Master Thesis (All Plots)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_Hloop.html">Hloop</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Signal Analyzer Measurements (1)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Initialization-(loading-Modules-and-Data)">Initialization (loading Modules and Data)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Helping-Tools">Helping Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Field-dependence-of-persistend-/-static-field">Field dependence of persistend / static field</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Crosses">Crosses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Empty-Cross">Empty Cross</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Measurement-Plan-#5">Measurement Plan #5</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Field-Sweeps">Field Sweeps</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#First-field-Sweeping-Experiments">First field Sweeping Experiments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Field-Sweeps-in-Measurement-Plan-#2">Field Sweeps in Measurement Plan #2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Δ1-T-Sweeps">Δ1 T Sweeps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Compare-2T-→-1T">Compare 2T → 1T</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Compare-.5-→--.5-T">Compare .5 → -.5 T</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Group-by-Sweep-Rates-(Compare-Crosses/Empty)">Group by Sweep Rates (Compare Crosses/Empty)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Low-Fields">Low Fields</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Measurement-Plan-#2-/-#3">Measurement Plan #2 / #3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Measurement-Plan-#2">Measurement Plan #2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="02.2_Signal_Analyzer.html">Signal Analyzer Measurements (2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.0_RAW.html">RAW Time-Signal Measurements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04.2_MFN_sweeprates.html">MFN: Compare Different Sweeprates (SR830 vs. SR785)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04.3_MFN_voltages.html">MFN: Compare Different Voltages (SR830 vs. SR785)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/ana/index.html">Data Analysis Framework (Ana)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/sa/index.html">SpectrumAnalyzer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/eve/index.html">EVE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/scripts.html">Python Scripts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../info/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/idx.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Lab Book</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../modules/notebooks.html">Jupyter Notebooks</a> &raquo;</li>
+      <li>Signal Analyzer Measurements (1)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/notebooks/02.1_Signal_Analyzer.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="Signal-Analyzer-Measurements-(1)">
+<h1>Signal Analyzer Measurements (1)<a class="headerlink" href="#Signal-Analyzer-Measurements-(1)" title="Permalink to this headline"></a></h1>
+<h2><p>Table of Contents</p>
+</h2><div class="toc"><ul class="toc-item"><li><p>1  Initialization (loading Modules and Data)</p>
+<ul class="toc-item"><li><p>1.1  Helping Tools</p>
+</li><li><p>1.2  Testing</p>
+</li></ul></li><li><p>2  Plotting Field dependence of persistend / static field</p>
+<ul class="toc-item"><li><p>2.1  Crosses</p>
+</li><li><p>2.2  Empty Cross</p>
+</li><li><p>2.3  Measurement Plan #5</p>
+</li></ul></li><li><p>3  Field Sweeps</p>
+<ul class="toc-item"><li><p>3.1  First field Sweeping Experiments</p>
+</li><li><p>3.2  Field Sweeps in Measurement Plan #2</p>
+<ul class="toc-item"><li><p>3.2.1  All new measurements together</p>
+</li><li><p>3.2.2  Δ1 T Sweeps</p>
+</li><li><p>3.2.3  Compare 2T → 1T</p>
+</li><li><p>3.2.4  Compare .5 → -.5 T</p>
+</li><li><p>3.2.5  Group by Sweep Rates (Compare Crosses/Empty)</p>
+</li><li><p>3.2.6  Low Fields</p>
+</li></ul></li><li><p>3.3  Measurement Plan #2 / #3</p>
+<ul class="toc-item"><li><p>3.3.1  25 mT Sweeps</p>
+<ul class="toc-item"><li><p>3.3.1.1  Diff Sweeprates (<span class="math notranslate nohighlight">\(- M_S \rightarrow -25 \rightarrow 25\)</span> mT)</p>
+</li><li><p>3.3.1.2  SR + Plusses + Empty</p>
+</li><li><p>3.3.1.3  Temp Effect</p>
+</li></ul></li><li><p>3.3.2  Measurement Plan #2</p>
+</li></ul></li></ul></li><li><p>4  Testing</p>
+</li><li><p>5  Presentation Plots (01 - 2020)</p>
+</li></ul></div><section id="Initialization-(loading-Modules-and-Data)">
+<h2>Initialization (loading Modules and Data)<a class="headerlink" href="#Initialization-(loading-Modules-and-Data)" title="Permalink to this headline"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span># Basic Plotting libraries
+import matplotlib.pyplot as plt
+import matplotlib
+import seaborn as sns
+from mpl_toolkits.axes_grid1.inset_locator import inset_axes
+
+# Math / Science Libraries
+import pandas as pd
+import numpy as np
+from scipy import constants, stats
+
+import os, sys, time, re, logging # System Modules
+from glob import glob # Readout Files in Directories
+
+# Interactive widgets
+import ipywidgets
+import IPython
+from IPython.display import display
+
+logging.basicConfig(level=logging.WARNING)
+
+%load_ext autoreload
+</pre></div>
+</div>
+</div>
+<p>Matplotlib settings for nice plots.</p>
+<p>Exports plots without padding margins</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>params = {
+    &#39;figure.dpi&#39;: 300,
+    &#39;figure.figsize&#39;: (16,9),
+    &#39;figure.subplot.hspace&#39;: 0.3,
+    &#39;figure.subplot.wspace&#39;: 0.3,
+    &#39;savefig.transparent&#39;: False,
+    &#39;savefig.bbox&#39;: &#39;tight&#39;,
+    &#39;savefig.pad_inches&#39;: 0.1,
+}
+matplotlib.rcParams.update(params)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>import os
+os.getcwd()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;/Users/jp/Projects/Code/lab-book/docs/notebooks&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>os.chdir(&#39;../../ana&#39;)
+os.getcwd()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;/Users/jp/Projects/Code/lab-book/ana&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>import ana
+#logging.basicConfig(level=logging.DEBUG)
+eva = ana.HandleM(directory=&#39;data/SR785/&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+WARNING:Handle:Start loading folder: data/SR785/m382_MFN Plusses_T5K_sweep_100 mT to -100 mT_at -1T saturation_Rate 5mTmin_SR785_1.5Hz__aver10_Vin 5V_sens 5mV .dat
+WARNING:Handle:Regex doesn&#39;t match: data/SR785/MFN_go to zero2.dat
+WARNING:Handle:Regex doesn&#39;t match: data/SR785/Routine MFN No3.dat
+/Users/jp/Projects/Code/lab-book/ana/ana/handle.py:103: DtypeWarning: Columns (0,1,2,3,4,5,6,7,8,9,10,11) have mixed types.Specify dtype option on import or set low_memory=False.
+  self.load_folder(file_list, **kwargs)
+WARNING:Handle:Regex doesn&#39;t match: data/SR785/Test parallel down.dat
+WARNING:Handle:Regex doesn&#39;t match: data/SR785/Routine MFN.dat
+WARNING:Handle:Regex doesn&#39;t match: data/SR785/Routine MFN No2.dat
+WARNING:Handle:Regex doesn&#39;t match: data/SR785/MFN_go to zero.dat
+WARNING:Handle:Regex doesn&#39;t match: data/SR785/Test2 parallel down.dat
+WARNING:Handle:Regex doesn&#39;t match: data/SR785/test_n1.dat
+WARNING:Handle:Regex doesn&#39;t match: data/SR785/test_SR785_length5.dat
+WARNING:Handle:Regex doesn&#39;t match: data/SR785/test_SR785_length.dat
+WARNING:Handle:Regex doesn&#39;t match: data/SR785/test_SR785_length4.dat
+WARNING:Handle:Regex doesn&#39;t match: data/SR785/test_SR785_length6.dat
+WARNING:Handle:Regex doesn&#39;t match: data/SR785/test.dat
+WARNING:Handle:Regex doesn&#39;t match: data/SR785/test_SR785_length3.dat
+WARNING:Handle:Regex doesn&#39;t match: data/SR785/test_SR785_length2.dat
+WARNING:Handle:Regex doesn&#39;t match: data/SR785/Routine Parallel measurements.dat
+WARNING:Handle:Regex doesn&#39;t match: data/SR785/f.dat
+</pre></div></div>
+</div>
+<section id="Helping-Tools">
+<h3>Helping Tools<a class="headerlink" href="#Helping-Tools" title="Permalink to this headline"></a></h3>
+<p>Not needed anymore (copied to <code class="docutils literal notranslate"><span class="pre">ana</span></code>)</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>def get_info(eva):
+    info = eva.info
+    sa = info[info[&#39;type&#39;] == &#39;SA&#39;]
+    raw = info[info[&#39;type&#39;] == &#39;RAW&#39;]
+
+    vh_idx = []
+    mfn_idx = []
+    for nr, t in info[&#39;technique&#39;].items():
+        if &#39;VH&#39; in t: vh_idx += [nr]
+        elif &#39;MFN&#39; in t: mfn_idx += [nr]
+    vh = info.loc[vh_idx]
+    mfn = info.loc[mfn_idx]
+
+    groups = dict(vh=vh, mfn=mfn, sa=sa, raw=raw)
+
+    return info, groups
+
+# Set Plotting Style
+def set_sns(**style):
+    plt.rcParams[&#39;savefig.dpi&#39;] = style.get(&#39;dpi&#39;, 300)
+    plt.rcParams[&#39;figure.autolayout&#39;] = False
+    figsize = style.get(&#39;figsize&#39;, (8, 6))
+    plt.rcParams[&#39;figure.figsize&#39;] = figsize
+    plt.rcParams[&#39;axes.labelsize&#39;] = 18
+    plt.rcParams[&#39;axes.titlesize&#39;] = 20
+    plt.rcParams[&#39;font.size&#39;] = 16
+    plt.rcParams[&#39;lines.linewidth&#39;] = 2.0
+    plt.rcParams[&#39;lines.markersize&#39;] = 8
+    plt.rcParams[&#39;legend.fontsize&#39;] = 14
+    if style.get(&#39;default&#39;):
+        %matplotlib inline
+        def_size = &#39;talk&#39;
+        def_style = &#39;darkgrid&#39;
+    elif style.get(&#39;notebook&#39;):
+        %matplotlib notebook
+        def_size = &#39;notebook&#39;
+        def_style = &#39;ticks&#39;
+
+
+    sns.set(style.get(&#39;size&#39;, def_size),
+            style.get(&#39;style&#39;, def_style),
+            style.get(&#39;palette&#39;, &#39;deep&#39;),
+            style.get(&#39;font&#39;, &#39;sans-serif&#39;),
+            style.get(&#39;font-scale&#39;, 1))
+
+    if style.get(&#39;grid&#39;):
+        plt.rcParams[&#39;axes.grid&#39;] = True
+        plt.rcParams[&#39;grid.linestyle&#39;] = &#39;--&#39;
+
+    if style.get(&#39;latex&#39;):
+        plt.rcParams[&#39;text.usetex&#39;] = True  # True activates latex output in fonts!
+        plt.rcParams[
+            &#39;text.latex.preamble&#39;] = &#39;&#39;
+    else:
+        plt.rcParams[&#39;text.usetex&#39;] = False
+
+def set_plot_settings(**kwargs):
+    plt.xscale(&#39;log&#39;)
+    plt.yscale(&#39;log&#39;)
+
+    xmin, xmax = kwargs.get(&#39;xlim&#39;, (None, None))
+    ymin, ymax = kwargs.get(&#39;ylim&#39;, (None, None))
+    if xmin:
+        plt.xlim(xmin, xmax)
+    if ymin:
+        plt.ylim(ymin, ymax)
+    plt.legend(loc=kwargs.get(&#39;legend_location&#39;, &#39;best&#39;))
+
+set_sns(default=True, grid=True, palette=&#39;Set3&#39;)
+
+# Set Info
+info, groups = get_info(eva)
+sa = groups[&#39;sa&#39;]
+raw = groups[&#39;raw&#39;]
+vh = groups[&#39;vh&#39;]
+mfn = groups[&#39;mfn&#39;]
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Testing">
+<h3>Testing<a class="headerlink" href="#Testing" title="Permalink to this headline"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>s, i = eva[361].fit()
+fig, ax = eva.plot({361: [&#39;Test&#39;, {}]})
+x = np.logspace(-2, 0, 100)
+ax.plot(x, (10**s * np.power(x,i)), &#39;r-&#39;)
+#ax.set_xlim()
+#ax.set_ylim(1e-7,10)
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&lt;matplotlib.lines.Line2D at 0x17d6d9c40&gt;]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_02.1_Signal_Analyzer_12_1.png" src="../_images/notebooks_02.1_Signal_Analyzer_12_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>fig, ax = plt.subplots(figsize=[12,9])
+for nr, m in eva.data.items():
+    if isinstance(m, ana.SA): # SA Measurement
+        m.plot(ax=ax, label=nr)
+    elif isinstance(m, ana.RAW): # RAW Measurement
+        pass
+    #sa[i].plot(label=str(i), ax=ax, dont_set_plot_settings=True)
+
+    # Optionally show Background signal
+    #sa[i].plot(plot_y=&#39;Vy&#39;, label=&#39;%s (Vy)&#39; % i[:4], ax=ax)
+set_plot_settings(xlim=(1e-3, 1e1), ylim=(1e-9, 1e-1))
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_02.1_Signal_Analyzer_13_0.png" src="../_images/notebooks_02.1_Signal_Analyzer_13_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="Field-dependence-of-persistend-/-static-field">
+<h2>Field dependence of persistend / static field<a class="headerlink" href="#Field-dependence-of-persistend-/-static-field" title="Permalink to this headline"></a></h2>
+<section id="Crosses">
+<h3>Crosses<a class="headerlink" href="#Crosses" title="Permalink to this headline"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>tmp = {4: 277,
+       2: 318,
+       1.5: 317,
+       1: 274,
+       .5: 316,
+       .25: 315,
+       0: 280,
+       -.5725: 299,
+       -4: 294, }
+lofm = {}
+for i, j in tmp.items():
+    lofm.update({j: [&#39;%s T&#39; % i, {}]})
+
+set_sns(default=True, grid=True,
+        style=&#39;ticks&#39;,
+        #palette=&#39;Paired&#39;,
+        latex=True,)
+
+fig, ax = eva.plot(lofm, plot_settings=dict(title=&#39;Crosses ($90^\\circ$) Static Field dependence&#39;,
+                                            xlim=(1e-2, 5e0),
+                                            ylim=(1e-9, 1e-3),
+                                           ))
+
+#plt.savefig(&#39;img/static_crosses.png&#39;, dpi=300)
+#plt.savefig(&#39;img/static_crosses.pdf&#39;, dpi=300)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_02.1_Signal_Analyzer_16_0.png" src="../_images/notebooks_02.1_Signal_Analyzer_16_0.png" />
+</div>
+</div>
+</section>
+<section id="Empty-Cross">
+<h3>Empty Cross<a class="headerlink" href="#Empty-Cross" title="Permalink to this headline"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>tmp = {4: 278,
+        2: 319,
+      1.5: 314,
+        1: 275,
+       .5: 313,
+      .25: 312,
+        0: 310,
+    -.572: 311,
+        -4: 295,}
+lofm = {}
+
+for i, j in tmp.items():
+    lofm.update({j: [&#39;%s T&#39; % i, {}]})
+
+set_sns(default=True, grid=True,
+        style=&#39;ticks&#39;,
+        #palette=&#39;Paired&#39;,
+        latex=True,)
+
+fig, ax = eva.plot(lofm, plot_settings=dict(title=&#39;Empty ($90^\\circ$) Static Field dependence&#39;,
+                                            xlim=(1e-2, 5e0),
+                                            ylim=(1e-9, 1e-3),
+                                           ))
+
+#plt.savefig(&#39;img/static_empty.png&#39;, dpi=300)
+#plt.savefig(&#39;img/static_empty.pdf&#39;, dpi=300)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_02.1_Signal_Analyzer_18_0.png" src="../_images/notebooks_02.1_Signal_Analyzer_18_0.png" />
+</div>
+</div>
+</section>
+<section id="Measurement-Plan-#5">
+<h3>Measurement Plan #5<a class="headerlink" href="#Measurement-Plan-#5" title="Permalink to this headline"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>sweep_label = &#39;$%s \\rightarrow %s$ T %s ($%s \\frac{mT}{min}$)&#39;
+save_figures = False
+m = ana.Hloop(57)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>tmp = {25: 360,
+       -25: 361
+      }
+lofm = {}
+
+for i, j in tmp.items():
+    lofm.update({j: [&#39;%s mT&#39; % i, {}]})
+
+set_sns(default=True, grid=True,
+        style=&#39;ticks&#39;,
+        #palette=&#39;Paired&#39;,
+        latex=True,)
+
+fig, ax = eva.plot(lofm,
+                   fit_range=(2e-2, 1e0),
+                   show_fit=False,
+                   plot_settings=dict(title=&#39;Plusses ($90^\\circ$) Static Field after Saturation&#39;,
+                                            xlim=(1e-2, 1.6e0),
+                                            ylim=(3e-7, 1e-3),
+                                           ),
+                  f_settings=dict(
+                      ymin=5e-5),
+                  f2_settings=dict(disable=True))
+
+ax = plt.gca()
+with sns.color_palette(&#39;deep&#39;):
+    inset = inset_axes(ax, width=&#39;100%&#39;, height=&#39;90%&#39;,
+                       bbox_to_anchor=(.58, .38, .4, .35),
+                       bbox_transform=ax.transAxes)
+    m.plot_strayfield(inset, &#39;Strayfield&#39;, nolegend=True)
+    inset.legend([&#39;Up ($-M_S \\rightarrow +M_S$)&#39;, &#39;Down ($+M_S \\rightarrow -M_S$)&#39;])
+    inset.grid(b=True, alpha=.4)
+    inset.set_xlim(-30, 30)
+    inset.set_ylim(-.45, .65)
+
+    y1, y2 = -1, 2
+    a = m.down.Bx8.iloc[(m.down.B + 25).abs().idxmin()]
+    b = m.up.Bx8.iloc[(m.up.B - 25).abs().idxmin()]
+    inset.plot((-25, -25), (a, a), &#39;ro&#39;, alpha=.4)
+    inset.plot([+25, 25], [b,b], &#39;bo&#39;, alpha=.4)
+
+#plt.savefig(&#39;img/static_25mT.png&#39;)
+#plt.savefig(&#39;img/static_25mT.pdf&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_02.1_Signal_Analyzer_21_0.png" src="../_images/notebooks_02.1_Signal_Analyzer_21_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="Field-Sweeps">
+<h2>Field Sweeps<a class="headerlink" href="#Field-Sweeps" title="Permalink to this headline"></a></h2>
+<section id="First-field-Sweeping-Experiments">
+<h3>First field Sweeping Experiments<a class="headerlink" href="#First-field-Sweeping-Experiments" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>With multiple separate Spectra measured during the sweep.</p></li>
+</ul>
+<p>Measurements <code class="docutils literal notranslate"><span class="pre">302</span></code> - <code class="docutils literal notranslate"><span class="pre">309</span></code></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>lofm = {302: &#39;2 T down C ($48 \\frac{mT}{min}$)&#39;,
+       303: &#39;2 T up C ($48 \\frac{mT}{min}$)&#39;,
+       304: &#39;2 T down P ($48 \\frac{mT}{min}$)&#39;,
+       305: &#39;2 T down \#1 ($48 \\frac{mT}{min}$)&#39;,
+       306: &#39;2 T down P ($7.86 \\frac{mT}{min}$)&#39;,
+       307: &#39;.25 T down/up P ($11.86 \\frac{mT}{min}$)&#39;,
+       308: &#39;.5 T down/up P ($23.7 \\frac{mT}{min}$)&#39;,
+       309: &#39;.1 T down/up P ($4.7 \\frac{mT}{min}$)&#39;,
+       }
+set_sns(default=True, grid=True, size=&#39;notebook&#39;, style=&#39;ticks&#39;, latex=True)
+
+fig, ax = plt.subplots(figsize=(16,12))
+for i,j in lofm.items():
+    label = &#39;m%s: %s&#39; % (i, j)
+    eva[i].plot(label=label, ax=ax, dont_set_plot_settings=True)
+
+
+eva[i]._draw_oneoverf(ax, xmin=1e-2, ymin=1e-5, mean_y=3e-7, factor=100)
+eva[i]._draw_oneoverf(ax, ymin=1e-3, alpha=2, plot_style=&#39;b--&#39;, an_color=&#39;blue&#39;)
+
+eva[i]._set_plot_settings(xlim=(1e-2, 1e1), ylim=(1e-8, 5e-2), title=&#39;($90^\circ$) Field sweeps&#39;,
+                         grid=dict(which=&#39;minor&#39;, color=&#39;#ffff99&#39;, linestyle=&#39;--&#39;, alpha=.3))
+#plt.grid(b=True, which=&#39;major&#39;, color=&#39;#cccccc&#39;, linestyle=&#39;-.&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_02.1_Signal_Analyzer_24_0.png" src="../_images/notebooks_02.1_Signal_Analyzer_24_0.png" />
+</div>
+</div>
+</section>
+<section id="Field-Sweeps-in-Measurement-Plan-#2">
+<h3>Field Sweeps in Measurement Plan #2<a class="headerlink" href="#Field-Sweeps-in-Measurement-Plan-#2" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>One Single Spectrum measured (&#64;1.5 or 0.8 Hz).</p></li>
+<li><p>25 Averages for single spectrum.</p></li>
+</ul>
+<p>Measurements <code class="docutils literal notranslate"><span class="pre">320</span></code> – <code class="docutils literal notranslate"><span class="pre">329</span></code></p>
+<section id="All-new-measurements-together">
+<h4>All new measurements together<a class="headerlink" href="#All-new-measurements-together" title="Permalink to this headline"></a></h4>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>#t2 = pd.DataFrame(to_show).T
+#t2.columns = [&#39;Fields&#39;, &#39;Struct&#39;, &#39;SR&#39;]
+#g = t2.groupby(&#39;Struct&#39;)
+#set_sns(default=True, grid=True, size=&#39;notebook&#39;, style=&#39;ticks&#39;, latex=True,
+#        palette=&#39;Dark2&#39;)
+
+#for key, group in g:
+#    lofm = eva.get_lofm(group, &#39;$%s \\rightarrow %s$ T %s ($%s \\frac{mT}{min}$)&#39;)
+#    eva.plot(lofm)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>to_show = {
+    320: [(2,1), &#39;Empty&#39;, 9.4],
+    321: [(2,1), &#39;Empty&#39;, 4.7],
+    323: [(1,-1), &#39;Empty&#39;, 9.4],
+    324: [(1,-1), &#39;Empty&#39;, 4.7],
+    325: [(2,1), &#39;Crosses&#39;, 9.4],
+    326: [(2,1), &#39;Crosses&#39;, 4.7],
+    329: [(1,-1), &#39;Crosses&#39;, 9.4],
+    330: [(1,-1), &#39;Crosses&#39;, 4.7],
+    327: [(.5,-.5), &#39;Crosses&#39;, 9.4],
+    328: [(.5,-.5), &#39;Crosses&#39;, 4.7],
+    331: [(.5,-.5), &#39;Crosses&#39;, 9.4],
+    333: [(.75,-.75), &#39;Crosses&#39;, 7],
+    332: [(.3,-.3), &#39;Crosses&#39;, 2.8],
+    334: [(.1,-.1), &#39;Crosses&#39;, .093],
+    322: [(.5,-.5), &#39;Empty&#39;, 9.4],
+    335: [(.5,-.5), &#39;Empty&#39;, 9.4],
+    336: [(.5,-.5), &#39;Plusses&#39;, 9.4],
+    337: [(.05,-.05), &#39;Plusses&#39;, 0.93],
+    338: [(.025,-.025), &#39;Plusses&#39;, 0.46],
+    339: [(0,.5), &#39;Plusses&#39;, 0.46],
+    #302: [(2,-2), &#39;Crosses&#39;, 48],
+    #303: [(-2,2), &#39;Crosses&#39;, 48],
+    #305: [(2,-2), &#39;Empty&#39;, 48],
+}
+
+lofm = eva.get_lofm_sweeps(to_show, &#39;$%s \\rightarrow %s$ T %s ($%s \\frac{mT}{min}$)&#39;)
+
+set_sns(default=True, grid=True, size=&#39;notebook&#39;, style=&#39;ticks&#39;, latex=True,
+        palette=&#39;Dark2&#39;)
+
+with sns.color_palette(&quot;RdBu&quot;, n_colors=20):
+    eva.plot(lofm)
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_02.1_Signal_Analyzer_28_0.png" src="../_images/notebooks_02.1_Signal_Analyzer_28_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="Δ1-T-Sweeps">
+<h3>Δ1 T Sweeps<a class="headerlink" href="#Δ1-T-Sweeps" title="Permalink to this headline"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>lofm = {}
+to_show = {
+    320: [(2,1), &#39;Empty&#39;, 9.4],
+    321: [(2,1), &#39;Empty&#39;, 4.7],
+    325: [(2,1), &#39;Crosses&#39;, 9.4],
+    326: [(2,1), &#39;Crosses&#39;, 4.7],
+    327: [(.5,-.5), &#39;Crosses&#39;, 9.4],
+    328: [(.5,-.5), &#39;Crosses&#39;, 4.7],
+    322: [(.5,-.5), &#39;Empty&#39;, 9.4],
+    335: [(.5,-.5), &#39;Empty&#39;, 9.4],
+    331: [(.5,-.5), &#39;Crosses&#39;, 9.4],
+    336: [(.5,-.5), &#39;Plusses&#39;, 9.4],
+}
+
+for nr, content in to_show.items():
+    lofm[nr] = [sweep_label % (
+                content[0][0],
+                content[0][1],
+                content[1],
+                content[2],
+                ),{}]
+
+#lofm = eva.get_lofm_sweeps(to_show, &#39;$%s \\rightarrow %s$ T %s ($%s \\frac{mT}{min}$)&#39;)
+
+set_sns(default=True, grid=True, size=&#39;notebook&#39;, style=&#39;ticks&#39;, latex=True,
+        palette=&#39;Dark2&#39;)
+
+eva.plot(lofm, plot_settings=dict(title=&#39;($90^\\circ$) Field Sweeps ($\\Delta 1 T$)&#39;))
+#plt.savefig(&#39;img/sweep_delta1T.png&#39;, dpi=300)
+#plt.savefig(&#39;img/sweep_delta1T.pdf&#39;, dpi=300)
+
+
+#eva[i]._set_plot_settings(xlim=(1e-2, 1e0), ylim=(1e-7, 5e-2), title=&#39;($90^\circ$) Field sweeps&#39;,
+#                         grid=dict(which=&#39;minor&#39;, color=&#39;#ffff99&#39;, linestyle=&#39;--&#39;, alpha=.5))
+#plt.grid(b=True, which=&#39;minor&#39;, color=&#39;#cccccc&#39;, linestyle=&#39;-.&#39;, alpha=.3)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(&lt;Figure size 1152x864 with 1 Axes&gt;,
+ &lt;AxesSubplot:title={&#39;center&#39;:&#39;($90^\\circ$) Field Sweeps ($\\Delta 1 T$)&#39;}, xlabel=&#39;$f$ [Hz]&#39;, ylabel=&#39;$S_{V_H}$ [${V^2}$/{Hz}]&#39;&gt;)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_02.1_Signal_Analyzer_30_1.png" src="../_images/notebooks_02.1_Signal_Analyzer_30_1.png" />
+</div>
+</div>
+</section>
+<section id="Compare-2T-→-1T">
+<h3>Compare 2T → 1T<a class="headerlink" href="#Compare-2T-→-1T" title="Permalink to this headline"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>lofm = {}
+to_show = {
+    320: [(2,1), &#39;Empty&#39;, 9.4],
+    321: [(2,1), &#39;Empty&#39;, 4.7],
+#    323: [(1,-1), &#39;Empty&#39;, 9.4],
+#    324: [(1,-1), &#39;Empty&#39;, 4.7],
+    325: [(2,1), &#39;Crosses&#39;, 9.4],
+    326: [(2,1), &#39;Crosses&#39;, 4.7],
+#    327: [(.5,-.5), &#39;Crosses&#39;, 9.4],
+#    328: [(.5,-.5), &#39;Crosses&#39;, 4.7],
+#    329: [(1,-1), &#39;Crosses&#39;, 9.4],
+#    322: [(.5,-.5), &#39;Empty&#39;, 9.4],
+}
+
+for nr, content in to_show.items():
+    lofm[nr] = &#39;$%s \\rightarrow %s$ T %s ($%s \\frac{mT}{min}$)&#39; % (
+                content[0][0],
+                content[0][1],
+                content[1],
+                content[2],
+                )
+
+set_sns(default=True, grid=True, size=&#39;notebook&#39;, style=&#39;ticks&#39;, latex=True, palette=&#39;Paired&#39;)
+#sns.set(pal)
+fig, ax = plt.subplots(figsize=(16,12))
+for i,j in lofm.items():
+    label = &#39;m%s: %s&#39; % (i, j)
+    eva[i].plot(label=label, ax=ax, dont_set_plot_settings=True)
+
+
+eva[i]._draw_oneoverf(ax, xmin=1e-2, ymin=1e-6)
+eva[i]._draw_oneoverf(ax, ymin=1e-3, alpha=2, plot_style=&#39;b--&#39;, an_color=&#39;blue&#39;)
+
+eva[i]._set_plot_settings(xlim=(1e-2, 1e0), ylim=(1e-7, 5e-2), title=&#39;($90^\circ$) Field sweeps&#39;,
+                         grid=dict(which=&#39;minor&#39;, color=&#39;#ffff99&#39;, linestyle=&#39;--&#39;, alpha=.5))
+plt.grid(b=True, which=&#39;minor&#39;, color=&#39;#cccccc&#39;, linestyle=&#39;-.&#39;, alpha=.3)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_02.1_Signal_Analyzer_32_0.png" src="../_images/notebooks_02.1_Signal_Analyzer_32_0.png" />
+</div>
+</div>
+</section>
+<section id="Compare-.5-→--.5-T">
+<h3>Compare .5 → -.5 T<a class="headerlink" href="#Compare-.5-→--.5-T" title="Permalink to this headline"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>lofm = {}
+to_show = {
+    327: [(.5,-.5), &#39;Crosses&#39;, 9.4],
+    328: [(.5,-.5), &#39;Crosses&#39;, 4.7],
+    331: [(.5,-.5), &#39;Crosses&#39;, 9.4],
+    336: [(.5,-.5), &#39;Plusses&#39;, 9.4],
+    322: [(.5,-.5), &#39;Empty&#39;, 9.4],
+    335: [(.5,-.5), &#39;Empty&#39;, 9.4],
+}
+
+for nr, content in to_show.items():
+    lofm[nr] = &#39;$%s \\rightarrow %s$ T %s ($%s \\frac{mT}{min}$)&#39; % (
+                content[0][0],
+                content[0][1],
+                content[1],
+                content[2],
+                )
+
+set_sns(default=True, grid=True, size=&#39;notebook&#39;, style=&#39;ticks&#39;, latex=True,
+        palette=&#39;Paired&#39;)
+#sns.set(pal)
+fig, ax = plt.subplots(figsize=(16,12))
+for i,j in lofm.items():
+    label = &#39;m%s: %s&#39; % (i, j)
+    eva[i].plot(label=label, ax=ax, dont_set_plot_settings=True)
+
+
+eva[i]._draw_oneoverf(ax, xmin=1e-2, ymin=1e-6)
+eva[i]._draw_oneoverf(ax, ymin=1e-3, alpha=2, plot_style=&#39;b--&#39;, an_color=&#39;blue&#39;)
+
+eva[i]._set_plot_settings(xlim=(1e-2, 1e0), ylim=(1e-7, 5e-2), title=&#39;($90^\circ$) Field sweeps&#39;,
+                         grid=dict(which=&#39;minor&#39;, color=&#39;#ffff99&#39;, linestyle=&#39;--&#39;, alpha=.5))
+plt.grid(b=True, which=&#39;minor&#39;, color=&#39;#cccccc&#39;, linestyle=&#39;-.&#39;, alpha=.3)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_02.1_Signal_Analyzer_34_0.png" src="../_images/notebooks_02.1_Signal_Analyzer_34_0.png" />
+</div>
+</div>
+</section>
+<section id="Group-by-Sweep-Rates-(Compare-Crosses/Empty)">
+<h3>Group by Sweep Rates (Compare Crosses/Empty)<a class="headerlink" href="#Group-by-Sweep-Rates-(Compare-Crosses/Empty)" title="Permalink to this headline"></a></h3>
+<section id="Slow-Sweeprate">
+<h4>Slow Sweeprate<a class="headerlink" href="#Slow-Sweeprate" title="Permalink to this headline"></a></h4>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>lofm = {}
+to_show = {
+    320: [(2,1), &#39;Empty&#39;, 9.4],
+    321: [(2,1), &#39;Empty&#39;, 4.7],
+    325: [(2,1), &#39;Crosses&#39;, 9.4],
+    326: [(2,1), &#39;Crosses&#39;, 4.7],
+    323: [(1,-1), &#39;Empty&#39;, 9.4],
+    324: [(1,-1), &#39;Empty&#39;, 4.7],
+    329: [(1,-1), &#39;Crosses&#39;, 9.4],
+    322: [(.5,-.5), &#39;Empty&#39;, 9.4],
+    327: [(.5,-.5), &#39;Crosses&#39;, 9.4],
+    328: [(.5,-.5), &#39;Crosses&#39;, 4.7],
+    336: [(.5,-.5), &#39;Plusses&#39;, 9.4],
+}
+
+for nr, content in to_show.items():
+    if content[2] == 9.4:
+        continue
+    lofm[nr] = &#39;$%s \\rightarrow %s$ T %s ($%s \\frac{mT}{min}$)&#39; % (
+                content[0][0],
+                content[0][1],
+                content[1],
+                content[2],
+                )
+
+set_sns(default=True, grid=True, size=&#39;talk&#39;, style=&#39;ticks&#39;, latex=True, palette=&#39;Paired&#39;)
+#sns.set(pal)
+fig, ax = plt.subplots(figsize=(16,12))
+for i,j in lofm.items():
+    label = &#39;m%s: %s&#39; % (i, j)
+    if i == 336:
+        eva[i].plot(label=label, ax=ax, color=&#39;yellow&#39;, dont_set_plot_settings=True)
+
+    eva[i].plot(label=label, ax=ax, dont_set_plot_settings=True)
+
+
+eva[i]._draw_oneoverf(ax, xmin=1e-2, ymin=1e-6)
+eva[i]._draw_oneoverf(ax, ymin=1e-3, alpha=2, plot_style=&#39;b--&#39;, an_color=&#39;blue&#39;)
+
+eva[i]._set_plot_settings(xlim=(3e-3, 1e0), ylim=(1e-7, 5e-2),
+                          title=&#39;($90^\circ$) Field sweeps (slow Sweep Rate)&#39;,
+                          grid=dict(which=&#39;minor&#39;, color=&#39;#ffff99&#39;, linestyle=&#39;--&#39;, alpha=.5))
+plt.grid(b=True, which=&#39;minor&#39;, color=&#39;#cccccc&#39;, linestyle=&#39;-.&#39;, alpha=.3)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_02.1_Signal_Analyzer_37_0.png" src="../_images/notebooks_02.1_Signal_Analyzer_37_0.png" />
+</div>
+</div>
+</section>
+<section id="Fast-Sweeprate">
+<h4>Fast Sweeprate<a class="headerlink" href="#Fast-Sweeprate" title="Permalink to this headline"></a></h4>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>lofm = {}
+for nr, content in to_show.items():
+    if content[2] == 4.7:
+        continue
+    lofm[nr] = &#39;$%s \\rightarrow %s$ T %s ($%s \\frac{mT}{min}$)&#39; % (
+                content[0][0],
+                content[0][1],
+                content[1],
+                content[2],
+                )
+
+set_sns(default=True, grid=True, size=&#39;talk&#39;, style=&#39;ticks&#39;, latex=True, palette=&#39;Paired&#39;)
+#sns.set(pal)
+fig, ax = plt.subplots(figsize=(16,12))
+for i,j in lofm.items():
+    label = &#39;m%s: %s&#39; % (i, j)
+    if i == 336:
+        eva[i].plot(label=label, ax=ax, color=&#39;orange&#39;, dont_set_plot_settings=True)
+    else:
+        eva[i].plot(label=label, ax=ax, dont_set_plot_settings=True)
+
+
+#eva[i]._draw_oneoverf(ax, xmin=1e-2, ymin=1e-6)
+eva[i]._draw_oneoverf(ax, ymin=1e-3, alpha=2, plot_style=&#39;b--&#39;, an_color=&#39;blue&#39;)
+
+eva[i]._set_plot_settings(xlim=(1e-2, 2e0), ylim=(1e-7, 5e-2), title=&#39;($90^\circ$) Field sweeps (fast Sweep Rate)&#39;,
+                         grid=dict(which=&#39;minor&#39;, color=&#39;#ffff99&#39;, linestyle=&#39;--&#39;, alpha=.5))
+plt.grid(b=True, which=&#39;minor&#39;, color=&#39;#cccccc&#39;, linestyle=&#39;-.&#39;, alpha=.3)
+
+plt.savefig(&#39;FastSR.pdf&#39;, bbox_inches=&#39;tight&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_02.1_Signal_Analyzer_39_0.png" src="../_images/notebooks_02.1_Signal_Analyzer_39_0.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="Low-Fields">
+<h2>Low Fields<a class="headerlink" href="#Low-Fields" title="Permalink to this headline"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>lofm = {}
+to_show = {
+    333: [(.75,-.75), &#39;Crosses&#39;, 7],
+    332: [(.3,-.3), &#39;Crosses&#39;, 2.8],
+    334: [(.1,-.1), &#39;Crosses&#39;, .093],
+    337: [(.05,-.05), &#39;Plusses&#39;, 0.93],
+    338: [(.025,-.025), &#39;Plusses&#39;, 0.46],
+    340: [(.025,-.025), &#39;Empty&#39;, 0.46],
+    339: [(0,.5), &#39;Plusses&#39;, 0.46],
+    341: [(.005, -.005), &#39;Plusses&#39;, 0.1]
+}
+
+for nr, content in to_show.items():
+    if content[2] == 9.4:
+        continue
+    lofm[nr] = [&#39;$%d \\rightarrow %d$ mT %s ($%s \\frac{mT}{min}$)&#39; % (
+                content[0][0]*1e3,
+                content[0][1]*1e3,
+                content[1],
+                content[2],
+                ),{}]
+
+set_sns(default=True, grid=True, size=&#39;notebook&#39;, style=&#39;ticks&#39;, latex=True,
+        palette=&#39;Dark2&#39;)
+
+eva.plot(lofm, plot_settings=dict(title=&#39;($90^\\circ$) Field Sweeps ($B \\leq \\pm 0.75 T$)&#39;),
+        f_settings=dict(xmin=5e-2, ymin=1e-5))
+#plt.savefig(&#39;img/sweep_lowfield.png&#39;, dpi=300)
+#plt.savefig(&#39;img/sweep_lowfield.pdf&#39;, dpi=300)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(&lt;Figure size 1152x864 with 1 Axes&gt;,
+ &lt;AxesSubplot:title={&#39;center&#39;:&#39;($90^\\circ$) Field Sweeps ($B \\leq \\pm 0.75 T$)&#39;}, xlabel=&#39;$f$ [Hz]&#39;, ylabel=&#39;$S_{V_H}$ [${V^2}$/{Hz}]&#39;&gt;)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_02.1_Signal_Analyzer_41_1.png" src="../_images/notebooks_02.1_Signal_Analyzer_41_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>set_sns(default=True, grid=True, size=&#39;talk&#39;, style=&#39;ticks&#39;, latex=True,
+        palette=&#39;Dark2&#39;)
+
+eva.plot(lofm,
+         plot_settings=dict(
+             title=&#39;($90^\\circ$) Field Sweeps ($B \\leq \\pm 0.75 T$)&#39;,
+             xlim=(1e-2, 2e0)),
+         f_settings=dict(
+             xmin=5e-2,
+             ymin=1e-5))
+#plt.savefig(&#39;img/sweep_lowfield2.png&#39;, dpi=300)
+#plt.savefig(&#39;img/sweep_lowfield2.pdf&#39;, dpi=300)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(&lt;Figure size 1152x864 with 1 Axes&gt;,
+ &lt;AxesSubplot:title={&#39;center&#39;:&#39;($90^\\circ$) Field Sweeps ($B \\leq \\pm 0.75 T$)&#39;}, xlabel=&#39;$f$ [Hz]&#39;, ylabel=&#39;$S_{V_H}$ [${V^2}$/{Hz}]&#39;&gt;)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_02.1_Signal_Analyzer_42_1.png" src="../_images/notebooks_02.1_Signal_Analyzer_42_1.png" />
+</div>
+</div>
+<section id="Measurement-Plan-#2-/-#3">
+<h3>Measurement Plan #2 / #3<a class="headerlink" href="#Measurement-Plan-#2-/-#3" title="Permalink to this headline"></a></h3>
+<p>25 mT Sweeps</p>
+<section id="Diff-Sweeprates-(--M_S-\rightarrow--25-\rightarrow-25-mT)">
+<h4>Diff Sweeprates (<span class="math notranslate nohighlight">\(- M_S \rightarrow -25 \rightarrow 25\)</span> mT)<a class="headerlink" href="#Diff-Sweeprates-(--M_S-\rightarrow--25-\rightarrow-25-mT)" title="Permalink to this headline"></a></h4>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>set_sns(default=True, grid=True, size=&#39;talk&#39;, style=&#39;ticks&#39;, latex=True,
+        palette=&#39;muted&#39;)
+#sns.color_palette(&#39;muted&#39;, 4)
+
+lofm = {}
+to_show = {
+    354: [(&quot;-M_s \\rightarrow -25&quot;,25), &#39;Plusses&#39;, 2],
+    351: [(&quot;-M_s \\rightarrow -25&quot;,25), &#39;Plusses&#39;, 1],
+    353: [(&quot;-M_s \\rightarrow -25&quot;,25), &#39;Plusses&#39;, .25],
+    352: [(&quot;-M_s \\rightarrow -25&quot;,25), &#39;Plusses&#39;, .1],
+}
+
+for nr, content in to_show.items():
+    lofm[nr] = [&quot;$%s \\frac{mT}{min}$&quot; % (
+                content[2],
+                ),{}]
+
+
+eva.plot(lofm,
+       #fit_range=(2e-2, 5e-1),
+       #show_fit=False,
+         plot_settings=dict(
+             title=&#39;($90^\\circ$) Field Sweeps ($B = \\pm 25 mT$, Compare different Sweep Rates)&#39;,
+             xlim=(1e-2, 2e0),
+             ylim=(4e-7, 5e-2)),
+         f_settings=dict(
+             xmin=5e-2,
+             ymin=1e-5))
+
+ax = plt.gca()
+with sns.color_palette(&#39;Dark2&#39;):
+    inset = inset_axes(ax, width=&#39;100%&#39;, height=&#39;90%&#39;,
+                       bbox_to_anchor=(.1, .05, .3, .35),
+                       bbox_transform=ax.transAxes)
+    m.plot_strayfield(inset, &#39;Strayfield&#39;, nolegend=True)
+    inset.legend([&#39;Up&#39;,# ($-M_S \\rightarrow +M_S$)&#39;,
+                  &#39;Down&#39;])# ($+M_S \\rightarrow -M_S$)&#39;])
+    inset.grid(b=True, alpha=.4)
+    inset.set_xlim(-50, 50)
+    inset.set_ylim(-.45, .65)
+
+    y1, y2 = -1, 2
+    inset.fill([-25, -25, 25, 25], [y1, y2, y2, y1], &#39;blue&#39;, alpha=.1)
+    #inset.plot([8.3, 8.3], [y1, y2], &#39;b-.&#39;, alpha=.4)
+    inset.annotate(&quot;&quot;, xy=(25, .35), xytext=(-25, .2),
+                 arrowprops=dict(arrowstyle=&quot;-&gt;&quot;, color=&#39;blue&#39;))
+with sns.color_palette(&#39;muted&#39;):
+    inset2 = inset_axes(ax, width=&#39;100%&#39;, height=&#39;100%&#39;,
+                       bbox_to_anchor=(.7, .49, .3, .25),
+                       bbox_transform=ax.transAxes)
+
+    for nr, content in to_show.items():
+        intercept, slope = eva[nr].fit(fit_range=(2e-2, 5e-1))
+        sweep_rate = content[2]
+
+        inset2.plot(sweep_rate, 10**intercept, &#39;o&#39;)
+
+    inset2.set_xlabel(&#39;Sweep Rate&#39;)
+    inset2.set_ylabel(&#39;$S_{V_H} (f=0)$&#39;)
+    inset2.set_yscale(&#39;log&#39;)
+
+# Only save if necessary
+plt.savefig(&#39;sweeprate-effect.pdf&#39;, bbox_inches=&#39;tight&#39;, dpi=300)
+if save_figures:
+    plt.savefig(&#39;img/sweep_25mT_SR.png&#39;, dpi=300)
+    plt.savefig(&#39;img/sweep_25mT_SR.pdf&#39;, dpi=300)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_02.1_Signal_Analyzer_46_0.png" src="../_images/notebooks_02.1_Signal_Analyzer_46_0.png" />
+</div>
+</div>
+</section>
+<section id="SR-+-Plusses-+-Empty">
+<h4>SR + Plusses + Empty<a class="headerlink" href="#SR-+-Plusses-+-Empty" title="Permalink to this headline"></a></h4>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>set_sns(default=True, grid=True, size=&#39;notebook&#39;, style=&#39;ticks&#39;, latex=True,
+        palette=&#39;Paired&#39;)
+
+lofm = {}
+to_show = {
+    349: [(&quot;-M_s \\rightarrow 25&quot;,-25), &#39;Empty&#39;, 0.5, {}],
+    340: [(25,-25), &#39;Empty&#39;, 0.46, {}],
+    338: [(25,-25), &#39;Plusses&#39;, 0.46, {}],
+    342: [(&quot;+M_s \\rightarrow 25 \\rightarrow 8.3&quot;,-25), &#39;Plusses&#39;, +0.11, {}],
+    343: [(&quot;-M_s \\rightarrow -25 \\rightarrow -8.3&quot;,25), &#39;Plusses&#39;, 0.11, {&#39;color&#39;: &#39;red&#39;}],
+}
+
+for nr, content in to_show.items():
+    if content[2] == 9.4:
+        continue
+    lofm[nr] = [&#39;$%s \\rightarrow %s$ mT %s ($%s \\frac{mT}{min}$)&#39; % (
+                content[0][0],
+                content[0][1],
+                content[1],
+                content[2],
+                ),content[3]]
+
+eva.plot(lofm,
+         plot_settings=dict(
+             title=&#39;($90^\\circ$) Field Sweeps ($B = \\pm 25 mT$)&#39;,
+             xlim=(6e-3, 1.6e0),
+             #ylim=()
+         ),
+         f_settings=dict(
+             xmin=5e-2,
+             ymin=1e-5))
+
+ax = plt.gca()
+with sns.color_palette(&#39;Dark2&#39;):
+    inset = inset_axes(ax, width=&#39;100%&#39;, height=&#39;90%&#39;,
+                       bbox_to_anchor=(.45, .75, .23, .23),
+                       bbox_transform=ax.transAxes)
+    m.plot_strayfield(inset, &#39;Strayfield&#39;, nolegend=True)
+    inset.legend([&#39;Up&#39;, &#39;Down&#39;])
+    inset.grid(b=True, alpha=.4)
+    inset.set_xlim(-30, 30)
+    inset.set_ylim(-.45, .65)
+
+    y1, y2 = -1, 2
+    inset.fill([-25, -25, -8.3, -8.3], [y1, y2, y2, y1], &#39;red&#39;, alpha=.2)
+    inset.fill([25, 25, 8.3, 8.3], [y1, y2, y2, y1], &#39;green&#39;, alpha=.2)
+    inset.fill([25, 25, -25, -25], [y1, y2, y2, y1], &#39;blue&#39;, alpha=.05)
+    #inset.plot([8.3, 8.3], [y1, y2], &#39;b-.&#39;, alpha=.8)
+
+# Only save if necessary
+if save_figures:
+    plt.savefig(&#39;img/sweep_25mT.png&#39;, dpi=300)
+    plt.savefig(&#39;img/sweep_25mT.pdf&#39;, dpi=300)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_02.1_Signal_Analyzer_48_0.png" src="../_images/notebooks_02.1_Signal_Analyzer_48_0.png" />
+</div>
+</div>
+</section>
+<section id="Temp-Effect">
+<h4>Temp Effect<a class="headerlink" href="#Temp-Effect" title="Permalink to this headline"></a></h4>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>set_sns(default=True, grid=True, size=&#39;notebook&#39;, style=&#39;ticks&#39;, latex=True,
+        palette=&#39;muted&#39;)
+
+lofm = {}
+to_show = {
+    355: [(&quot;-M_s \\rightarrow -25&quot;,25), &#39;Plusses&#39;, 0.5, 25],
+    356: [(&quot;-M_s \\rightarrow -25&quot;,25), &#39;Plusses&#39;, 0.5, 20],
+    #357: [(&quot;-M_s \\rightarrow -25&quot;,25), &#39;Plusses&#39;, 0.5, 15],
+    358: [(&quot;-M_s \\rightarrow -25&quot;,25), &#39;Plusses&#39;, 0.5, 10],
+    359: [(&quot;-M_s \\rightarrow -25&quot;,25), &#39;Plusses&#39;, 0.5, 5],
+}
+
+for nr, content in to_show.items():
+    lofm[nr] = [&#39;$%s\\, K$&#39; % (
+                content[3],
+                ),{}]
+
+t = &#39;($90^\\circ$) Field Sweeps ($B = \\pm 25 mT$) &#39; + \
+    &#39;$%s \\rightarrow %s$ mT %s ($%s \\frac{mT}{min}$)&#39; % (
+                content[0][0],
+                content[0][1],
+                content[1],
+                content[2])
+eva.plot(lofm,
+         plot_settings=dict(
+             title=t,
+             xlim=(1e-2, 1.6e0),
+             ylim=(6e-7, 5e-2)
+         ),
+         f_settings=dict(
+             xmin=5e-2,
+             ymin=1e-5, disable=True))
+
+# Only save if necessary
+if save_figures:
+    plt.savefig(&#39;img/sweep_25mT_T.png&#39;, dpi=300)
+    plt.savefig(&#39;img/sweep_25mT_T.pdf&#39;, dpi=300)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_02.1_Signal_Analyzer_50_0.png" src="../_images/notebooks_02.1_Signal_Analyzer_50_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="Measurement-Plan-#2">
+<h3>Measurement Plan #2<a class="headerlink" href="#Measurement-Plan-#2" title="Permalink to this headline"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>plt.style.use(&#39;ggplot&#39;)
+set_sns(default=True, grid=True, size=&#39;notebook&#39;, style=&#39;ticks&#39;, latex=True,
+        palette=&#39;Paired&#39;)
+lofm = {}
+to_show = {
+    342: [(&quot;+M_s \\rightarrow 25 \\rightarrow 8.3&quot;,-25), &#39;Plusses&#39;, +0.11, {}],
+    343: [(&quot;-M_s \\rightarrow -25 \\rightarrow -8.3&quot;,25), &#39;Plusses&#39;, 0.11, {}],
+    346: [(&quot;+M_s \\rightarrow 36.56 \\rightarrow -72.6&quot;,-291.13), &#39;Plusses&#39;, 0.5,{}],
+    347: [(&quot;-M_s \\rightarrow 36.56&quot;,-291), &#39;Plusses&#39;, 0.5,{}],
+    348: [(&quot;-M_s \\rightarrow 36.56&quot;,-291), &#39;Empty&#39;, 0.5, {&#39;color&#39;: &#39;darkgreen&#39;}],
+    345: [(&quot;+M_s \\rightarrow -291 \\rightarrow -341.6&quot;,-443), &#39;Plusses&#39;, 0.5, {&#39;color&#39;: &#39;red&#39;}],
+    344: [(&quot;+M_s \\rightarrow -443 \\rightarrow -499&quot;,-611), &#39;Plusses&#39;, +2.35, {&#39;color&#39;: &#39;orange&#39;}],
+}
+
+for nr, content in to_show.items():
+    if content[2] == 9.4:
+        continue
+    options = content[3]
+    lofm[nr] = [&#39;$%s \\rightarrow %s$ mT %s ($%s \\frac{mT}{min}$)&#39; % (
+                content[0][0],
+                content[0][1],
+                content[1],
+                content[2],
+                ),options]
+
+eva.plot(lofm,
+         plot_settings=dict(
+             title=&#39;($90^\\circ$) Field Sweeps (Measurement Plan \#2)&#39;,
+             xlim=(6e-3, 1.6e0),
+             #ylim=()
+         ),
+         f_settings=dict(
+             xmin=6e-3,
+             ymin=1e-5))
+
+ax = plt.gca()
+with sns.color_palette(&#39;muted&#39;):
+    inset = inset_axes(ax, width=&#39;100%&#39;, height=&#39;90%&#39;,
+                       bbox_to_anchor=(.28, .73, .29, .24),
+                       bbox_transform=ax.transAxes)
+    m.plot_strayfield(inset, &#39;Strayfield&#39;, nolegend=True)
+    inset.legend([&#39;Up ($-M_S \\rightarrow +M_S$)&#39;, &#39;Down ($+M_S \\rightarrow -M_S$)&#39;])
+    inset.grid(b=True, alpha=.4)
+    inset.set_xlim(-650, 50)
+    inset.set_ylim(-.4, .6)
+
+    y1, y2 = -1, 2
+    inset.fill([-25, -25, 25, 25], [y1, y2, y2, y1], &#39;blue&#39;, alpha=.1)
+    inset.fill([-291.13, -291.13, 36.56, 36.56], [y1, y2, y2, y1], &#39;green&#39;, alpha=.1)
+    inset.fill([-611, -611, -443, -443], [y1, y2, y2, y1], &#39;orange&#39;, alpha=.1)
+    inset.fill([-291, -291, -443, -443], [y1, y2, y2, y1], &#39;darkred&#39;, alpha=.1)
+
+
+# Only save if necessary
+#plt.savefig(&#39;sweep_measplan2.png&#39;, dpi=300)
+#if save_figures:
+#    plt.savefig(&#39;img/sweep_measplan2.png&#39;, dpi=300)
+#    plt.savefig(&#39;img/sweep_measplan2.pdf&#39;, dpi=300)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_02.1_Signal_Analyzer_52_0.png" src="../_images/notebooks_02.1_Signal_Analyzer_52_0.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="01_Hloop.html" class="btn btn-neutral float-left" title="Hloop" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02.2_Signal_Analyzer.html" class="btn btn-neutral float-right" title="Signal Analyzer Measurements (2)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020/2021, Jonathan Pieper.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ana.measurement &mdash; Lab Book 0.4 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Lab Book
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Lab Book</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info/gitlab.html">GitLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/onenote/index.html">Original Lab Book</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../data/index.html">About the Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/hloop/index.html">Magnetic Characterization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/mfn/index.html">Magnetic Flux Noise (MFN)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/notebooks.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/ana/index.html">Data Analysis Framework (Ana)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/sa/index.html">SpectrumAnalyzer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/eve/index.html">EVE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/scripts.html">Python Scripts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../info/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info/idx.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Lab Book</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>ana.measurement</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for ana.measurement</h1><div class="highlight"><pre>
+<span></span><span class="c1"># SPDX-FileCopyrightText: 2020/2021 Jonathan Pieper &lt;ody55eus@mailbox.org&gt;</span>
+<span class="c1">#</span>
+<span class="c1"># SPDX-License-Identifier: GPL-3.0-or-later</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">MeasurementClass</span>
+<span class="sd">=================</span>
+
+<span class="sd">Main parent class for all measurements.</span>
+<span class="sd">These Measurements are represent by one data variable.</span>
+
+
+<span class="sd">All measurements can be represented by</span>
+<span class="sd">&gt; m = ana.SingleMeasurement()</span>
+<span class="sd">&gt; m</span>
+<span class="sd">{name} (Nr. {Nr))</span>
+<span class="sd">&gt; print(m)</span>
+<span class="sd">{name} (Nr. {Nr))</span>
+<span class="sd">{info.key} {info.value}</span>
+<span class="sd">{info.key} {info.value}</span>
+<span class="sd">{info.key} {info.value}</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">.plotting</span> <span class="kn">import</span> <span class="n">PlottingClass</span>
+
+<div class="viewcode-block" id="MeasurementClass"><a class="viewcode-back" href="../../modules/ana/programming.html#ana.measurement.MeasurementClass">[docs]</a><span class="k">class</span> <span class="nc">MeasurementClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The main measurement class for all measurements.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        .. note:: **MeasurementClass:**</span>
+<span class="sd">            This Class is the parent of all other measurement classes.</span>
+
+
+<span class="sd">        All measurements have the following variables:</span>
+<span class="sd">            </span>
+<span class="sd">        name: str/None</span>
+<span class="sd">            The name of the Measurement Class (e.g. SA, RAW, etc.)</span>
+
+<span class="sd">        info: dict</span>
+<span class="sd">            Contains informations about the measurement. Typical keys are:                </span>
+<span class="sd">                Nr: float, the number of the measurement,</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Nr&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info_file</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">style</span> <span class="o">=</span> <span class="n">PlottingClass</span><span class="p">()</span>
+
+<div class="viewcode-block" id="MeasurementClass.i"><a class="viewcode-back" href="../../modules/ana/programming.html#ana.measurement.MeasurementClass.i">[docs]</a>    <span class="k">def</span> <span class="nf">i</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">key</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get  a specific measurement number information.</span>
+
+<span class="sd">        </span>
+<span class="sd">        :param *key: Will be passed to info.get</span>
+<span class="sd">        </span>
+<span class="sd">        :return: info.get(*key)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="o">*</span><span class="n">key</span><span class="p">)</span></div>
+
+
+    <span class="fm">__repr__</span> <span class="o">=</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> (Nr. </span><span class="si">%s</span><span class="s1">)</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">i</span><span class="p">(</span><span class="s1">&#39;Nr&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+    <span class="fm">__str__</span> <span class="o">=</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> (Nr. </span><span class="si">%s</span><span class="s1">)</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">i</span><span class="p">(</span><span class="s1">&#39;Nr&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="o">+</span> \
+        <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">:</span><span class="se">\t</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
+    
+    
+<div class="viewcode-block" id="MeasurementClass.get_info_from_name"><a class="viewcode-back" href="../../modules/ana/programming.html#ana.measurement.MeasurementClass.get_info_from_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_info_from_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extracting information from filenames.</span>
+<span class="sd">        Using a default regex first or trying to extract &#39;key-value&#39; pairs</span>
+<span class="sd">        separated by &#39;_&#39;.</span>
+<span class="sd">    </span>
+<span class="sd">        :param name: filename that contains informations.</span>
+<span class="sd">        :param kwargs:</span>
+<span class="sd">            :str regex: Regular expression for the filename</span>
+<span class="sd">        :return: dict(key=value)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+    
+        <span class="c1"># Default Regex Structure</span>
+        <span class="c1"># Nr,     Struct,         deg,        Type1</span>
+        <span class="c1"># Type2, Field, Date, Time</span>
+        <span class="c1"># I1, I2, Lock-In (Connections)</span>
+        <span class="c1"># Voltage In, Resistors (R11, R12)</span>
+        <span class="c1"># R13, R21</span>
+        <span class="c1"># Capacitors (C11, C21)</span>
+        <span class="c1"># Temp</span>
+        <span class="n">def_regex</span> <span class="o">=</span> <span class="s2">&quot;.*[Mm]([0-9.]*)_([A-Za-z]*)_([0-9.-]*)deg_([A-Za-z]*)_&quot;</span> \
+                    <span class="s2">&quot;([A-Za-z]*)_*B_([0-9.-]*)T_([0-9]*)_([0-9]*)_I1-([&quot;</span> \
+                    <span class="s2">&quot;0-9</span><span class="se">\\</span><span class="s2">-]*)_I2-([0-9</span><span class="se">\\</span><span class="s2">-]*)_G[PB]I[BP].-([0-9</span><span class="se">\\</span><span class="s2">-]*)_Vin-([&quot;</span> \
+                    <span class="s2">&quot;0-9.]*)V_R11-([0-9]*.)O_R12-([0-9.]*.)O_R13-([&quot;</span> \
+                    <span class="s2">&quot;0-9.]*.)_R21-([0-9.]*.)O_C11-([0-9]*)_C21-([0-9]*)_T-([&quot;</span> \
+                    <span class="s2">&quot;0-9]*)K.*&quot;</span>
+        <span class="n">regex</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;regex&#39;</span><span class="p">,</span> <span class="n">def_regex</span><span class="p">)</span>
+        <span class="n">reg</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    
+        <span class="n">info_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">reg</span><span class="p">:</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+            <span class="n">raw_info</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">raw_info</span><span class="p">:</span>
+                <span class="n">regex_dict</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s1">&#39;nr&#39;</span><span class="p">:</span> <span class="s1">&#39;m([0-9.]*)&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;deg&#39;</span><span class="p">:</span> <span class="s1">&#39;((neg)?[0-9.-]*)deg&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;dir&#39;</span><span class="p">:</span> <span class="s1">&#39;([Uu]p|[Dd]own)&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;(20[12][90][0-9]*)&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;([012][0-9][0-6]*)&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;type1&#39;</span><span class="p">:</span> <span class="s1">&#39;(RAW|Hloop)&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;type2&#39;</span><span class="p">:</span> <span class="s1">&#39;(Parallel|Gradio)&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;struct&#39;</span><span class="p">:</span> <span class="s1">&#39;([Pp]lusses|[Cc]rosses|[Ee]mpty)&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;field&#39;</span><span class="p">:</span> <span class="s1">&#39;p?m?([0-9.-]+)m?T&#39;</span><span class="p">,</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">regex_dict</span><span class="p">[</span><span class="s1">&#39;field&#39;</span><span class="p">],</span> <span class="n">element</span><span class="p">):</span>
+                    <span class="n">info_dict</span><span class="p">[</span><span class="s1">&#39;field&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">regex_dict</span><span class="p">[</span><span class="s1">&#39;field&#39;</span><span class="p">],</span> <span class="n">element</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="k">continue</span>
+    
+                <span class="n">items</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">single_regex</span> <span class="ow">in</span> <span class="n">regex_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                        <span class="n">reg</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">single_regex</span><span class="p">,</span> <span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                        <span class="k">if</span> <span class="n">reg</span><span class="p">:</span>
+                            <span class="n">info_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">groups</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">items</span>
+                    <span class="n">info_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+                    <span class="n">info_dict</span><span class="p">[</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">nr</span><span class="p">,</span> <span class="n">struct</span><span class="p">,</span> <span class="n">deg</span><span class="p">,</span> <span class="n">type1</span><span class="p">,</span> \
+                <span class="n">type2</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> \
+                <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="n">lock_in</span><span class="p">,</span> \
+                <span class="n">vin</span><span class="p">,</span> <span class="n">r11</span><span class="p">,</span> <span class="n">r12</span><span class="p">,</span> <span class="n">r13</span><span class="p">,</span> <span class="n">r21</span><span class="p">,</span> \
+                <span class="n">c11</span><span class="p">,</span> <span class="n">c21</span><span class="p">,</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">info_dict</span><span class="p">[</span><span class="s1">&#39;nr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">nr</span><span class="p">)</span>
+                <span class="n">info_dict</span><span class="p">[</span><span class="s1">&#39;field&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Expected float field and nr, got:&#39;</span>
+                                  <span class="s1">&#39; </span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">nr</span><span class="p">))</span>
+            <span class="n">info_dict</span><span class="p">[</span><span class="s1">&#39;srtuct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">struct</span>
+            <span class="n">info_dict</span><span class="p">[</span><span class="s1">&#39;deg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">deg</span>
+            <span class="n">info_dict</span><span class="p">[</span><span class="s1">&#39;type1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">type1</span>
+            <span class="n">info_dict</span><span class="p">[</span><span class="s1">&#39;type2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">type2</span>
+            <span class="n">info_dict</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">date</span>
+            <span class="n">info_dict</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span>
+            <span class="n">info_dict</span><span class="p">[</span><span class="s1">&#39;i1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i1</span>
+            <span class="n">info_dict</span><span class="p">[</span><span class="s1">&#39;i2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i2</span>
+            <span class="n">info_dict</span><span class="p">[</span><span class="s1">&#39;lock_in&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lock_in</span>
+            <span class="n">info_dict</span><span class="p">[</span><span class="s1">&#39;r11&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">r11</span>
+            <span class="n">info_dict</span><span class="p">[</span><span class="s1">&#39;r12&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">r12</span>
+            <span class="n">info_dict</span><span class="p">[</span><span class="s1">&#39;r13&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">r13</span>
+            <span class="n">info_dict</span><span class="p">[</span><span class="s1">&#39;r21&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">r21</span>
+            <span class="n">info_dict</span><span class="p">[</span><span class="s1">&#39;vin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vin</span>
+            <span class="n">info_dict</span><span class="p">[</span><span class="s1">&#39;c11&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">c11</span>
+            <span class="n">info_dict</span><span class="p">[</span><span class="s1">&#39;c21&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">c21</span>
+            <span class="n">info_dict</span><span class="p">[</span><span class="s1">&#39;temp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span>
+   
+        <span class="bp">self</span><span class="o">.</span><span class="n">info_file</span> <span class="o">=</span> <span class="n">info_dict</span>
+        
+        <span class="k">return</span> <span class="n">info_dict</span></div>
+
+<div class="viewcode-block" id="MeasurementClass.calc_log"><a class="viewcode-back" href="../../modules/ana/programming.html#ana.measurement.MeasurementClass.calc_log">[docs]</a>    <span class="k">def</span> <span class="nf">calc_log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;Vx&#39;</span><span class="p">,</span> <span class="s1">&#39;Vy&#39;</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+            <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ln</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">key</span><span class="p">])</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020/2021, Jonathan Pieper.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

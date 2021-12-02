@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Software &mdash; Lab Book 0.4 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Lab Book
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Lab Book</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/gitlab.html">GitLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/onenote/index.html">Original Lab Book</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data/index.html">About the Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/hloop/index.html">Magnetic Characterization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/mfn/index.html">Magnetic Flux Noise (MFN)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ana/index.html">Data Analysis Framework (Ana)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sa/index.html">SpectrumAnalyzer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eve/index.html">EVE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scripts.html">Python Scripts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../info/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/idx.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Lab Book</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Software</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/modules/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="software">
+<h1>Software<a class="headerlink" href="#software" title="Permalink to this headline"></a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Jupyter Notebooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/00_MasterPlots.html">Master Thesis (All Plots)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/00_MasterPlots.html#Ch.-4.1-Hloops">Ch. 4.1 Hloops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/00_MasterPlots.html#Ch.-4.2.1-Signal-Analyzer-(SR785)">Ch. 4.2.1 Signal-Analyzer (SR785)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/00_MasterPlots.html#Ch.-4.2.2.-Data-Acquisition-(SR830DAQ)">Ch. 4.2.2. Data Acquisition (SR830DAQ)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/00_MasterPlots.html#Ch.-4.2.3-Method-Comparison">Ch. 4.2.3 Method Comparison</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/01_Hloop.html">Hloop</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/01_Hloop.html#Calculate-carrier-concentration">Calculate carrier concentration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/01_Hloop.html#Load-Measurement-Info-(Angles)">Load Measurement Info (Angles)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/01_Hloop.html#Plot-Strayfield">Plot Strayfield</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/01_Hloop.html#Show-Measurement-Infos">Show Measurement Infos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.1_Signal_Analyzer.html">Signal Analyzer Measurements (1)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/02.1_Signal_Analyzer.html#Initialization-(loading-Modules-and-Data)">Initialization (loading Modules and Data)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/02.1_Signal_Analyzer.html#Field-dependence-of-persistend-/-static-field">Field dependence of persistend / static field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/02.1_Signal_Analyzer.html#Field-Sweeps">Field Sweeps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/02.1_Signal_Analyzer.html#Low-Fields">Low Fields</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.2_Signal_Analyzer.html">Signal Analyzer Measurements (2)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/02.2_Signal_Analyzer.html#Initialization-(loading-Modules-and-Data)">Initialization (loading Modules and Data)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/02.2_Signal_Analyzer.html#Testing">Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/02.2_Signal_Analyzer.html#Plotting-Field-dependence-of-persistend-/-static-field">Plotting Field dependence of persistend / static field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/02.2_Signal_Analyzer.html#Field-Sweeps">Field Sweeps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/02.2_Signal_Analyzer.html#Measurement-Plan-#2-/-#3-(25-mT-Sweeps)">Measurement Plan #2 / #3 (25 mT Sweeps)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/02.2_Signal_Analyzer.html#Measurement-Plan-#2">Measurement Plan #2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/02.2_Signal_Analyzer.html#Constant-Field-Range-(\Delta-B-=-50-mT)-#12">Constant Field Range (<span class="math notranslate nohighlight">\(\Delta B = 50\)</span> mT) #12</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.0_RAW.html">RAW Time-Signal Measurements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/03.0_RAW.html#Loading">Loading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/03.0_RAW.html#Search-data-manually">Search data manually</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/03.0_RAW.html#Plot-Data">Plot Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/03.0_RAW.html#Plot-Noise-Spectrum-Hysteresis">Plot Noise Spectrum Hysteresis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/03.0_RAW.html#Cut-and-Paste-Timesignal-(multiple-Measurements)">Cut and Paste Timesignal (multiple Measurements)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04.2_MFN_sweeprates.html">MFN: Compare Different Sweeprates (SR830 vs. SR785)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/04.2_MFN_sweeprates.html#Define-Functions">Define Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/04.2_MFN_sweeprates.html#Load-Data">Load Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/04.2_MFN_sweeprates.html#Plot-PSD">Plot PSD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/04.2_MFN_sweeprates.html#Load-m500">Load m500</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/04.2_MFN_sweeprates.html#m501">m501</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/04.2_MFN_sweeprates.html#m502">m502</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/04.2_MFN_sweeprates.html#m507">m507</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/04.2_MFN_sweeprates.html#Sweeprates-SR785">Sweeprates SR785</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04.3_MFN_voltages.html">MFN: Compare Different Voltages (SR830 vs. SR785)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/04.3_MFN_voltages.html#Define-functions">Define functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/04.3_MFN_voltages.html#Load-Data">Load Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/04.3_MFN_voltages.html#Plot-PSD">Plot PSD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/04.3_MFN_voltages.html#Load-m499">Load m499</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/04.3_MFN_voltages.html#m498">m498</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/04.3_MFN_voltages.html#Compare-with-SR785">Compare with SR785</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ana/index.html">Data Analysis Framework (Ana)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ana/README.html">Readme</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ana/README.html#purpose">Purpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ana/README.html#running-the-code">Running the code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ana/README.html#uml-diagram">UML Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ana/README.html#style-guide">Style Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ana/README.html#license">License</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ana/install.html">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ana/install.html#stable-release">Stable release</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ana/install.html#from-sources">From sources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ana/usage.html">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ana/programming.html">Programming Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ana/programming.html#uml-diagram">UML Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ana/programming.html#high-level-interface">High Level Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ana/programming.html#low-level-python-backend">Low Level Python Backend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ana/programming.html#source-code">Source Code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ana/contributing.html">Contributing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ana/contributing.html#types-of-contributions">Types of Contributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ana/contributing.html#get-started">Get Started!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ana/contributing.html#merge-request-guidelines">Merge Request Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ana/contributing.html#tips">Tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ana/contributing.html#deploying">Deploying</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ana/authors.html">Credits</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ana/authors.html#creator-and-maintainer">Creator and Maintainer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ana/authors.html#supervisor">Supervisor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ana/authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ana/license.html">License</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ana/license.html#gnu-general-public-license">GNU General Public License</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sa/index.html">SpectrumAnalyzer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sa/readme.html">Readme</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sa/readme.html#setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sa/readme.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sa/readme.html#calculation-steps-for-the-first-spectrum">Calculation steps for the first spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sa/readme.html#licensing">Licensing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eve/index.html">EVE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eve/index.html#licensing">Licensing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scripts.html">Python Scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scripts.html#forc-data-script">FORC Data Script</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="forc/FORC_Data.html">Analysing FORC Data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020/2021, Jonathan Pieper.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

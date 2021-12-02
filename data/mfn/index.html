@@ -1,0 +1,2879 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magnetic Flux Noise (MFN) &mdash; Lab Book 0.4 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Jupyter Notebooks" href="../../modules/notebooks.html" />
+    <link rel="prev" title="Magnetic Characterization" href="../hloop/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Lab Book
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Lab Book</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info/gitlab.html">GitLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../onenote/index.html">Original Lab Book</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">About the Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hloop/index.html">Magnetic Characterization</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Magnetic Flux Noise (MFN)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#about-mfn">About MFN</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#signal-analyzer">Signal Analyzer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sr785-signal-analyzer">SR785 Signal Analyzer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#influence-of-various-parameters-on-the-psd">Influence of various parameters on the PSD</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sr830-data-acquisition-sr830daq">SR830 Data Acquisition (SR830DAQ)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#time-signals">Time-Signals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#analysis-overview">Analysis Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#calculated-psd">Calculated PSD</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mfn-signal-analyzer">MFN: Signal Analyzer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#static-field">Static Field</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#important-measurements">Important Measurements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#first-measurements-at-90deg">First measurements at 90deg</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#measurement-plan-2">Measurement Plan #2</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#moving-field">Moving Field</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Measurement Plan #2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#large-sweep-ranges">Large Sweep Ranges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#different-sweep-rates">Different Sweep Rates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mfn-lock-in">MFN: Lock-In</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sr830-daq">SR830 DAQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deg-measurements">45deg Measurements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#useful-measurements">Useful Measurements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">80deg Measurements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#initial-80deg-measurements">Initial 80deg measurements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deg-missing-measurements">80deg missing measurements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#deg-remeasure-missing-measurements">45deg remeasure missing measurements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#plusses-repeat-430-431">Plusses (Repeat 430/431)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#empty-cross-17-hz">Empty Cross (17 Hz)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#histogram-of-empty-cross-m491">Histogram of empty cross (m491)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#deg-repeating-selected-measurements">90deg Repeating selected measurements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#changing-angle-to-90deg">Changing Angle to 90deg</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#repeat-selected-signal-analyzer-measurements-with-sr830">Repeat selected signal analyzer measurements with SR830</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#changing-angle-again-to-90deg">Changing Angle again to 90deg</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#repeating-m351-354">Repeating m351-354</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#repeating-m378-382-different-voltages">Repeating m378-382 (<strong>different voltages</strong>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#repeating-m362-366">Repeating m362-366</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/notebooks.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/ana/index.html">Data Analysis Framework (Ana)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/sa/index.html">SpectrumAnalyzer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/eve/index.html">EVE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/scripts.html">Python Scripts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../info/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info/idx.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Lab Book</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Magnetic Flux Noise (MFN)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/data/mfn/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="magnetic-flux-noise-mfn">
+<h1>Magnetic Flux Noise (MFN)<a class="headerlink" href="#magnetic-flux-noise-mfn" title="Permalink to this headline"></a></h1>
+<nav class="contents local" id="content">
+<p class="topic-title">Content</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#about-mfn" id="id44">About MFN</a></p>
+<ul>
+<li><p><a class="reference internal" href="#signal-analyzer" id="id45">Signal Analyzer</a></p>
+<ul>
+<li><p><a class="reference internal" href="#sr785-signal-analyzer" id="id46">SR785 Signal Analyzer</a></p></li>
+<li><p><a class="reference internal" href="#influence-of-various-parameters-on-the-psd" id="id47">Influence of various parameters on the PSD</a></p>
+<ul>
+<li><p><a class="reference internal" href="#temperature" id="id48">Temperature</a></p></li>
+<li><p><a class="reference internal" href="#sweeprate" id="id49">Sweeprate</a></p></li>
+<li><p><a class="reference internal" href="#applied-current-amplitude" id="id50">Applied Current Amplitude</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#sr830-data-acquisition-sr830daq" id="id51">SR830 Data Acquisition (SR830DAQ)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#time-signals" id="id52">Time-Signals</a></p></li>
+<li><p><a class="reference internal" href="#analysis-overview" id="id53">Analysis Overview</a></p></li>
+<li><p><a class="reference internal" href="#calculated-psd" id="id54">Calculated PSD</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#mfn-signal-analyzer" id="id55">MFN: Signal Analyzer</a></p>
+<ul>
+<li><p><a class="reference internal" href="#static-field" id="id56">Static Field</a></p>
+<ul>
+<li><p><a class="reference internal" href="#important-measurements" id="id57">Important Measurements</a></p>
+<ul>
+<li><p><a class="reference internal" href="#measurement-plan-11-different-applied-current-for-plusses" id="id58">Measurement Plan #11: different applied current for plusses</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#first-measurements-at-90deg" id="id59">First measurements at 90deg</a></p></li>
+<li><p><a class="reference internal" href="#measurement-plan-2" id="id60">Measurement Plan #2</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#moving-field" id="id61">Moving Field</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id62">Measurement Plan #2</a></p></li>
+<li><p><a class="reference internal" href="#large-sweep-ranges" id="id63">Large Sweep Ranges</a></p>
+<ul>
+<li><p><a class="reference internal" href="#plots" id="id64">Plots</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#different-sweep-rates" id="id65">Different Sweep Rates</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#mfn-lock-in" id="id66">MFN: Lock-In</a></p>
+<ul>
+<li><p><a class="reference internal" href="#sr830-daq" id="id67">SR830 DAQ</a></p></li>
+<li><p><a class="reference internal" href="#deg-measurements" id="id68">45deg Measurements</a></p>
+<ul>
+<li><p><a class="reference internal" href="#useful-measurements" id="id69">Useful Measurements</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id4" id="id70">80deg Measurements</a></p>
+<ul>
+<li><p><a class="reference internal" href="#initial-80deg-measurements" id="id71">Initial 80deg measurements</a></p></li>
+<li><p><a class="reference internal" href="#deg-missing-measurements" id="id72">80deg missing measurements</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#deg-remeasure-missing-measurements" id="id73">45deg remeasure missing measurements</a></p>
+<ul>
+<li><p><a class="reference internal" href="#plusses-repeat-430-431" id="id74">Plusses (Repeat 430/431)</a></p></li>
+<li><p><a class="reference internal" href="#empty-cross-17-hz" id="id75">Empty Cross (17 Hz)</a></p></li>
+<li><p><a class="reference internal" href="#histogram-of-empty-cross-m491" id="id76">Histogram of empty cross (m491)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#deg-repeating-selected-measurements" id="id77">90deg Repeating selected measurements</a></p>
+<ul>
+<li><p><a class="reference internal" href="#changing-angle-to-90deg" id="id78">Changing Angle to 90deg</a></p></li>
+<li><p><a class="reference internal" href="#repeat-selected-signal-analyzer-measurements-with-sr830" id="id79">Repeat selected signal analyzer measurements with SR830</a></p></li>
+<li><p><a class="reference internal" href="#changing-angle-again-to-90deg" id="id80">Changing Angle again to 90deg</a></p>
+<ul>
+<li><p><a class="reference internal" href="#before-changing-angle" id="id81">Before Changing Angle</a></p></li>
+<li><p><a class="reference internal" href="#after-changing-angle" id="id82">After Changing Angle</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id22" id="id83">5-10</a></p></li>
+<li><p><a class="reference internal" href="#id23" id="id84">6-8</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#repeating-m351-354" id="id85">Repeating m351-354</a></p></li>
+<li><p><a class="reference internal" href="#repeating-m378-382-different-voltages" id="id86">Repeating m378-382 (<strong>different voltages</strong>)</a></p></li>
+<li><p><a class="reference internal" href="#repeating-m362-366" id="id87">Repeating m362-366</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<figure class="align-default" id="id24">
+<a class="reference external image-reference" href="../../_static/mfn_mindmap.html"><img alt="../../_images/mfn_mindmap.png" src="../../_images/mfn_mindmap.png" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Structure of the Magnetic Flux Noise Measurements.</span><a class="headerlink" href="#id24" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="about-mfn">
+<h2><a class="toc-backref" href="#id44" role="doc-backlink">About MFN</a><a class="headerlink" href="#about-mfn" title="Permalink to this headline"></a></h2>
+<nav class="contents local" id="id1">
+<p class="topic-title">Content</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#signal-analyzer" id="id88">Signal Analyzer</a></p>
+<ul>
+<li><p><a class="reference internal" href="#sr785-signal-analyzer" id="id89">SR785 Signal Analyzer</a></p></li>
+<li><p><a class="reference internal" href="#influence-of-various-parameters-on-the-psd" id="id90">Influence of various parameters on the PSD</a></p>
+<ul>
+<li><p><a class="reference internal" href="#temperature" id="id91">Temperature</a></p></li>
+<li><p><a class="reference internal" href="#sweeprate" id="id92">Sweeprate</a></p></li>
+<li><p><a class="reference internal" href="#applied-current-amplitude" id="id93">Applied Current Amplitude</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#sr830-data-acquisition-sr830daq" id="id94">SR830 Data Acquisition (SR830DAQ)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#time-signals" id="id95">Time-Signals</a></p></li>
+<li><p><a class="reference internal" href="#analysis-overview" id="id96">Analysis Overview</a></p></li>
+<li><p><a class="reference internal" href="#calculated-psd" id="id97">Calculated PSD</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>The following section is about the fluctuations of the magnetic system.</p>
+<figure class="align-default" id="id25">
+<a class="reference external image-reference" href="../../_static/hloops_crosses.pdf"><img alt="../../_images/hloops_crosses.png" src="../../_images/hloops_crosses.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Repeated hysteresis loops (Crosses).</span><a class="headerlink" href="#id25" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id26">
+<a class="reference external image-reference" href="../../_static/hloops_plusses.pdf"><img alt="../../_images/hloops_plusses.png" src="../../_images/hloops_plusses.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Repeated hysteresis loops (Plusses).</span><a class="headerlink" href="#id26" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="signal-analyzer">
+<h3><a class="toc-backref" href="#id88" role="doc-backlink">Signal Analyzer</a><a class="headerlink" href="#signal-analyzer" title="Permalink to this headline"></a></h3>
+<p>These measurements have been performed with the SR785.</p>
+<section id="sr785-signal-analyzer">
+<h4><a class="toc-backref" href="#id89" role="doc-backlink">SR785 Signal Analyzer</a><a class="headerlink" href="#sr785-signal-analyzer" title="Permalink to this headline"></a></h4>
+<p>The signal analyzer SR785 is in-situ calculating the Fourier transformation of a signal.
+This yields faster results and improved memory usage because the raw signal does not need to be saved.
+This also implies that the raw signal is not available for further analysis.</p>
+<figure class="align-default" id="id27">
+<a class="reference external image-reference" href="../../_static/sr785-first.pdf"><img alt="../../_images/sr785-fast.png" src="../../_images/sr785-fast.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text">SR785: Large field sweeps outside and covering the hysteresis.</span><a class="headerlink" href="#id27" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id28">
+<a class="reference external image-reference" href="../../_static/sr785-first.pdf"><img alt="../../_images/sr785-first.png" src="../../_images/sr785-first.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text">SR785: Field sweeps inside the hysteresis.</span><a class="headerlink" href="#id28" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="influence-of-various-parameters-on-the-psd">
+<h4><a class="toc-backref" href="#id90" role="doc-backlink">Influence of various parameters on the PSD</a><a class="headerlink" href="#influence-of-various-parameters-on-the-psd" title="Permalink to this headline"></a></h4>
+<section id="temperature">
+<h5><a class="toc-backref" href="#id91" role="doc-backlink">Temperature</a><a class="headerlink" href="#temperature" title="Permalink to this headline"></a></h5>
+<figure class="align-default" id="id29">
+<a class="reference external image-reference" href="../../_static/sr785-temp.pdf"><img alt="../../_images/sr785-temp.png" src="../../_images/sr785-temp.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text">SR785: Field sweeps at different temperatures.</span><a class="headerlink" href="#id29" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="sweeprate">
+<h5><a class="toc-backref" href="#id92" role="doc-backlink">Sweeprate</a><a class="headerlink" href="#sweeprate" title="Permalink to this headline"></a></h5>
+<figure class="align-default" id="id30">
+<a class="reference external image-reference" href="../../_static/sr785-sweeprates.pdf"><img alt="../../_images/sr785-sweeprates.png" src="../../_images/sr785-sweeprates.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">SR785: Field sweeps for different sweeprates.</span><a class="headerlink" href="#id30" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="applied-current-amplitude">
+<h5><a class="toc-backref" href="#id93" role="doc-backlink">Applied Current Amplitude</a><a class="headerlink" href="#applied-current-amplitude" title="Permalink to this headline"></a></h5>
+<figure class="align-default" id="id31">
+<a class="reference external image-reference" href="../../_static/sr785-voltages.pdf"><img alt="../../_images/sr785-voltages.png" src="../../_images/sr785-voltages.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">SR785: Field sweeps with different applied currents.</span><a class="headerlink" href="#id31" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+<section id="sr830-data-acquisition-sr830daq">
+<h3><a class="toc-backref" href="#id94" role="doc-backlink">SR830 Data Acquisition (SR830DAQ)</a><a class="headerlink" href="#sr830-data-acquisition-sr830daq" title="Permalink to this headline"></a></h3>
+<p>These measurements have been performed solely with the SR830 lock-in amplifier.</p>
+<section id="time-signals">
+<h4><a class="toc-backref" href="#id95" role="doc-backlink">Time-Signals</a><a class="headerlink" href="#time-signals" title="Permalink to this headline"></a></h4>
+<p>The SR830 can be programmed to send automatically data to the computer.
+Using this feature it is possible to acquire the raw (unfiltered) data.</p>
+<figure class="align-default" id="id32">
+<a class="reference external image-reference" href="../../_static/hist447_2.pdf"><img alt="../../_images/hist446_1.png" src="../../_images/hist446_1.png" style="width: 49%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 26 </span><span class="caption-text">SR830DAQ: Time-Signal’s KDEs at static positions (m446).</span><a class="headerlink" href="#id32" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id33">
+<a class="reference external image-reference" href="../../_static/hist447_2.pdf"><img alt="../../_images/hist447_2.png" src="../../_images/hist447_2.png" style="width: 49%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 27 </span><span class="caption-text">SR830DAQ: Time-Signal’s KDEs at static positions (m447).</span><a class="headerlink" href="#id33" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id34">
+<a class="reference external image-reference" href="../../_static/daq-time-446.pdf"><img alt="../../_images/daq-time-446.png" src="../../_images/daq-time-446.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 28 </span><span class="caption-text">SR830DAQ: Time-Signal at selected positions (m446).</span><a class="headerlink" href="#id34" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id35">
+<a class="reference external image-reference" href="../../_static/daq-time-447.pdf"><img alt="../../_images/daq-time-447.png" src="../../_images/daq-time-447.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 29 </span><span class="caption-text">SR830DAQ: Time-Signal at selected positions (m447).</span><a class="headerlink" href="#id35" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id36">
+<a class="reference external image-reference" href="../../_static/daq-time-446-2.pdf"><img alt="../../_images/daq-time-446-2.png" src="../../_images/daq-time-446-2.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 30 </span><span class="caption-text">SR830DAQ: Time-Signal at selected positions (m446).</span><a class="headerlink" href="#id36" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="analysis-overview">
+<h4><a class="toc-backref" href="#id96" role="doc-backlink">Analysis Overview</a><a class="headerlink" href="#analysis-overview" title="Permalink to this headline"></a></h4>
+<figure class="align-default" id="id37">
+<a class="reference external image-reference" href="../../_static/daq-info-446.pdf"><img alt="../../_images/daq-info-446.png" src="../../_images/daq-info-446.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 31 </span><span class="caption-text">SR830DAQ: Analysis Overview (m446).</span><a class="headerlink" href="#id37" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id38">
+<a class="reference external image-reference" href="../../_static/daq-info-447.pdf"><img alt="../../_images/daq-info-447.png" src="../../_images/daq-info-447.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 32 </span><span class="caption-text">SR830DAQ: Analysis Overview (m447).</span><a class="headerlink" href="#id38" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="calculated-psd">
+<h4><a class="toc-backref" href="#id97" role="doc-backlink">Calculated PSD</a><a class="headerlink" href="#calculated-psd" title="Permalink to this headline"></a></h4>
+<figure class="align-default" id="id39">
+<a class="reference external image-reference" href="../../_static/daq-sweeprate.pdf"><img alt="../../_images/daq-sweeprate.png" src="../../_images/daq-sweeprate.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 33 </span><span class="caption-text">SR830DAQ: Field sweeps for different sweeprates.</span><a class="headerlink" href="#id39" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id40">
+<a class="reference external image-reference" href="../../_static/daq-volt.pdf"><img alt="../../_images/daq-volt.png" src="../../_images/daq-volt.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text">SR830DAQ: Field sweeps with different applied currents.</span><a class="headerlink" href="#id40" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+<section id="mfn-signal-analyzer">
+<h2><a class="toc-backref" href="#id55" role="doc-backlink">MFN: Signal Analyzer</a><a class="headerlink" href="#mfn-signal-analyzer" title="Permalink to this headline"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">Date<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2019</p>
+</dd>
+<dt class="field-even">Angle<span class="colon">:</span></dt>
+<dd class="field-even"><p>90deg</p>
+</dd>
+</dl>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Every parameter can be researched in detail it the OneNote notebook 03: <a class="reference internal" href="../onenote/03_mfn.html"><span class="doc">MFN</span></a></p>
+</aside>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>We found out: Filling helium into the cryostat interferes with the electric wiring of the cryostat and
+makes measurements impossible for the near time.</p>
+</aside>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">Date<span class="colon">:</span></dt>
+<dd class="field-odd"><ol class="arabic simple" start="12">
+<li><p>Juli 2019</p></li>
+</ol>
+</dd>
+</dl>
+<p><strong>Measurement Plan 9</strong>: after filling He, the <strong>temperature was not stable</strong>. I took 5 hours to be stable.
+choosing the sensitivity extremly depend on the temperature. It was on overload  when choosing 5mV.</p>
+<p>After stabalizing the temp, 5mV was OK.</p>
+</div></blockquote>
+<section id="static-field">
+<h3><a class="toc-backref" href="#id56" role="doc-backlink">Static Field</a><a class="headerlink" href="#static-field" title="Permalink to this headline"></a></h3>
+<section id="important-measurements">
+<h4><a class="toc-backref" href="#id57" role="doc-backlink">Important Measurements</a><a class="headerlink" href="#important-measurements" title="Permalink to this headline"></a></h4>
+<section id="measurement-plan-11-different-applied-current-for-plusses">
+<h5><a class="toc-backref" href="#id58" role="doc-backlink">Measurement Plan #11: different applied current for plusses</a><a class="headerlink" href="#measurement-plan-11-different-applied-current-for-plusses" title="Permalink to this headline"></a></h5>
+<p>Together with Measurement Plan #5: Static field effect</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nr.</p></th>
+<th class="head"><p>Struct</p></th>
+<th class="head"><p>Temp</p></th>
+<th class="head"><p>Dir</p></th>
+<th class="head"><p>Position [mT]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>360</p></td>
+<td><p>Plusses</p></td>
+<td><p>5</p></td>
+<td><p>Down</p></td>
+<td><p>25</p></td>
+</tr>
+<tr class="row-odd"><td><p>361</p></td>
+<td><p>Plusses</p></td>
+<td><p>5</p></td>
+<td><p>Up</p></td>
+<td><p>-25</p></td>
+</tr>
+<tr class="row-even"><td><p>280</p></td>
+<td><p>Crosses</p></td>
+<td><p>30</p></td>
+<td><p>Down</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>281</p></td>
+<td><p>Plusses</p></td>
+<td><p>30</p></td>
+<td><p>Down</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>310</p></td>
+<td><p>Empty</p></td>
+<td><p>30</p></td>
+<td><p>Down</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>282</p></td>
+<td><p>Plusses</p></td>
+<td><p>30</p></td>
+<td><p>Down</p></td>
+<td><p>-9.4</p></td>
+</tr>
+<tr class="row-even"><td><p>283</p></td>
+<td><p>Crosses</p></td>
+<td><p>30</p></td>
+<td><p>Down</p></td>
+<td><p>-9.4</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="first-measurements-at-90deg">
+<h4><a class="toc-backref" href="#id59" role="doc-backlink">First measurements at 90deg</a><a class="headerlink" href="#first-measurements-at-90deg" title="Permalink to this headline"></a></h4>
+<dl class="field-list simple">
+<dt class="field-odd">Date<span class="colon">:</span></dt>
+<dd class="field-odd"><ol class="arabic simple" start="6">
+<li><p>Juni 2019</p></li>
+</ol>
+</dd>
+</dl>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Nr</p></td>
+<td><p>Structure</p></td>
+<td><p>Field (PM) [T]</p></td>
+<td><p>freq-span [Hz]</p></td>
+<td><p>avg</p></td>
+<td><p>Gain</p></td>
+</tr>
+<tr class="row-even"><td><p>m274</p></td>
+<td><p>C</p></td>
+<td><p>1</p></td>
+<td><p>50/ 12.5/ 3.125</p></td>
+<td><p>30</p></td>
+<td><p>20</p></td>
+</tr>
+<tr class="row-odd"><td><p>m275</p></td>
+<td><p>#1</p></td>
+<td><p>1</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>m276</p></td>
+<td><p>#2</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>m277</p></td>
+<td><p>C</p></td>
+<td><p>4</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>m278</p></td>
+<td><p>#1</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>m279</p></td>
+<td><p>C</p></td>
+<td></td>
+<td><ul class="simple">
+<li><p>1.5 (Long)</p></li>
+</ul>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>m280</p></td>
+<td><p>C</p></td>
+<td><p>0</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>m281</p></td>
+<td><p>P</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>m282</p></td>
+<td><p>P</p></td>
+<td><p>-9.4 mT (down)</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>m283</p></td>
+<td><p>C</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>m286</p></td>
+<td><p>P</p></td>
+<td><p>-2.824 mT (down)</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>m287</p></td>
+<td><p>P</p></td>
+<td><p>-0.0063 T</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>m288</p></td>
+<td><p>P</p></td>
+<td><p>0.01247</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>m289</p></td>
+<td><p>P</p></td>
+<td><p>0.015</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>m290</p></td>
+<td><p>P</p></td>
+<td><p>0.03</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>m291</p></td>
+<td><p>P</p></td>
+<td><p>-0.57246</p></td>
+<td><ul class="simple">
+<li><p>1.5 / 0.8 (Long)</p></li>
+</ul>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>m292</p></td>
+<td><p>P</p></td>
+<td><p>-0.10422</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>m293</p></td>
+<td><p>P</p></td>
+<td><p>-4</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>m294</p></td>
+<td><p>C</p></td>
+<td><p>-4</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>m295</p></td>
+<td><p>#1</p></td>
+<td><p>-4</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>m296</p></td>
+<td><p>#2</p></td>
+<td><p>-4</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>m297</p></td>
+<td><p>C</p></td>
+<td><p>-2.824 mT</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>m298</p></td>
+<td><p>C</p></td>
+<td><p>-0.0063 T</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>m299</p></td>
+<td><p>C</p></td>
+<td><p>-0.5725</p></td>
+<td><ul class="simple">
+<li><p>1.5 (Long)</p></li>
+</ul>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>m300</p></td>
+<td><p>C</p></td>
+<td><p>0.01247</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>m301</p></td>
+<td><p>C</p></td>
+<td><p>0.015</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="measurement-plan-2">
+<h4><a class="toc-backref" href="#id60" role="doc-backlink">Measurement Plan #2</a><a class="headerlink" href="#measurement-plan-2" title="Permalink to this headline"></a></h4>
+<dl class="field-list simple">
+<dt class="field-odd">Date<span class="colon">:</span></dt>
+<dd class="field-odd"><ol class="arabic simple" start="13">
+<li><p>Juni 2019</p></li>
+</ol>
+</dd>
+</dl>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nr</p></th>
+<th class="head"><p>Struct</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>Permanent?</p></th>
+<th class="head"><p>F-Span</p></th>
+<th class="head"><p>Avg</p></th>
+<th class="head"><p>Time</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>m310</p></td>
+<td><p>#1 Empty</p></td>
+<td><p>0</p></td>
+<td><p>PM</p></td>
+<td><ol class="arabic simple" start="6">
+<li><p>Mrz</p></li>
+</ol>
+</td>
+<td><p>30</p></td>
+<td><p>90 min</p></td>
+</tr>
+<tr class="row-odd"><td><p>m311</p></td>
+<td></td>
+<td><p>-572.5 mT</p></td>
+<td><p>PM</p></td>
+<td><p>12 / 6 / 3 / 1 / 0.78</p></td>
+<td><p>30</p></td>
+<td><p>500 min</p></td>
+</tr>
+<tr class="row-even"><td><p>m312</p></td>
+<td></td>
+<td><p>250 mT</p></td>
+<td><p>PM</p></td>
+<td><p>3.125, 1.5625Hz</p></td>
+<td><p>30</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>m313</p></td>
+<td></td>
+<td><p>500 mT</p></td>
+<td><p>PM</p></td>
+<td><p>3.125, 1.5625Hz</p></td>
+<td><p>30</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>m314</p></td>
+<td></td>
+<td><p>1.5 T</p></td>
+<td><p>PM</p></td>
+<td><p>3.125, 1.5625Hz</p></td>
+<td><p>30</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>m319:</p></td>
+<td></td>
+<td><p>2 T</p></td>
+<td><p>PM</p></td>
+<td><p>1.56 / 0.78 Hz</p></td>
+<td><p>30</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>m315</p></td>
+<td><p>Crosses</p></td>
+<td><p>250 mT</p></td>
+<td><p>PM</p></td>
+<td><p>1.56 / 0.78 Hz</p></td>
+<td><p>30</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>m316</p></td>
+<td></td>
+<td><p>500 mT</p></td>
+<td><p>PM</p></td>
+<td><p>1.56 / 0.78 Hz</p></td>
+<td><p>30</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>m317:</p></td>
+<td></td>
+<td><p>1.5 T</p></td>
+<td><p>PM</p></td>
+<td><p>1.56 / 0.78 Hz</p></td>
+<td><p>30</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>m318:</p></td>
+<td></td>
+<td><p>2 T</p></td>
+<td><p>PM</p></td>
+<td><p>1.56 / 0.78 Hz</p></td>
+<td><p>30</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="moving-field">
+<h3><a class="toc-backref" href="#id61" role="doc-backlink">Moving Field</a><a class="headerlink" href="#moving-field" title="Permalink to this headline"></a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Date<span class="colon">:</span></dt>
+<dd class="field-odd"><ol class="arabic simple" start="13">
+<li><p>Juni 2019</p></li>
+</ol>
+</dd>
+</dl>
+<p>Sweeping the field from positive to negative <span class="math notranslate nohighlight">\(B_{max}\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p><strong>C</strong>: Crosses</p></li>
+<li><p><strong>P</strong>: Plusses</p></li>
+<li><p><strong>#1</strong>: Empty Cross</p></li>
+</ul>
+</aside>
+<figure class="align-default" id="id41">
+<img alt="../../_images/03_mfn_first_field_sweeps.png" src="../../_images/03_mfn_first_field_sweeps.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 35 </span><span class="caption-text">First field sweeps</span><a class="headerlink" href="#id41" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="id2">
+<h4><a class="toc-backref" href="#id62" role="doc-backlink">Measurement Plan #2</a><a class="headerlink" href="#id2" title="Permalink to this headline"></a></h4>
+<dl class="field-list simple">
+<dt class="field-odd">Date<span class="colon">:</span></dt>
+<dd class="field-odd"><ol class="arabic simple" start="13">
+<li><p>Juni 2019</p></li>
+</ol>
+</dd>
+</dl>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nr</p></th>
+<th class="head"><p>Struct</p></th>
+<th class="head"><p>Field From</p></th>
+<th class="head"><p>Field To</p></th>
+<th class="head"><p>SR [mT/min]</p></th>
+<th class="head"><p>F-Span</p></th>
+<th class="head"><p>Avg</p></th>
+<th class="head"><p>Time [min]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>m320</p></td>
+<td><p>#1 Empty</p></td>
+<td><p>2T</p></td>
+<td><p>1 T</p></td>
+<td><p>9,43</p></td>
+<td><p>1,56</p></td>
+<td><p>25</p></td>
+<td><p>107</p></td>
+</tr>
+<tr class="row-odd"><td><p>m321</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>4,7</p></td>
+<td><p>0,78</p></td>
+<td></td>
+<td><p>214</p></td>
+</tr>
+<tr class="row-even"><td><p>m322</p></td>
+<td></td>
+<td><p>500 mT</p></td>
+<td><p>-500 mT</p></td>
+<td><p>9,4</p></td>
+<td><p>1,56</p></td>
+<td></td>
+<td><p>107</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>4,7</p></td>
+<td><p>0,78</p></td>
+<td></td>
+<td><p>214</p></td>
+</tr>
+<tr class="row-even"><td><p>m323</p></td>
+<td></td>
+<td><p>1 T</p></td>
+<td><p>-1 T</p></td>
+<td><p>9,4</p></td>
+<td><p>0,78</p></td>
+<td></td>
+<td><p>214</p></td>
+</tr>
+<tr class="row-odd"><td><p>m324</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>4,7</p></td>
+<td><p>0,39</p></td>
+<td></td>
+<td><p>407</p></td>
+</tr>
+<tr class="row-even"><td><p>m325</p></td>
+<td><p>Crosses</p></td>
+<td><p>2 T</p></td>
+<td><p>1 T</p></td>
+<td><p>9,4</p></td>
+<td><p>1,56</p></td>
+<td></td>
+<td><p>107</p></td>
+</tr>
+<tr class="row-odd"><td><p>m326:</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>4,7</p></td>
+<td><p>0,78</p></td>
+<td></td>
+<td><p>214</p></td>
+</tr>
+<tr class="row-even"><td><p>m327:</p></td>
+<td></td>
+<td><p>500 mT</p></td>
+<td><p>-500 mT</p></td>
+<td><p>9,4</p></td>
+<td><p>1,56</p></td>
+<td></td>
+<td><p>107</p></td>
+</tr>
+<tr class="row-odd"><td><p>m328:</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>4,7</p></td>
+<td><p>0,78</p></td>
+<td></td>
+<td><p>214</p></td>
+</tr>
+<tr class="row-even"><td><p>m329:</p></td>
+<td></td>
+<td><p>1 T</p></td>
+<td><p>-1 T</p></td>
+<td><p>9,4</p></td>
+<td><p>0,78</p></td>
+<td></td>
+<td><p>214</p></td>
+</tr>
+<tr class="row-odd"><td><p>m330:</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>4,7</p></td>
+<td><p>0,39</p></td>
+<td></td>
+<td><p>407</p></td>
+</tr>
+<tr class="row-even"><td><p>m331:</p></td>
+<td></td>
+<td><p>500 mT</p></td>
+<td><p>-500 mT</p></td>
+<td><p>9,4</p></td>
+<td><p>1,56</p></td>
+<td><p>25</p></td>
+<td><p>107</p></td>
+</tr>
+<tr class="row-odd"><td><p>m332:</p></td>
+<td></td>
+<td><p>300</p></td>
+<td><p>-300</p></td>
+<td><p>2,8</p></td>
+<td><p>0,78</p></td>
+<td><p>25</p></td>
+<td><p>214</p></td>
+</tr>
+<tr class="row-even"><td><p>m333:</p></td>
+<td></td>
+<td><p>750</p></td>
+<td><p>-750</p></td>
+<td><p>7</p></td>
+<td><p>0,78</p></td>
+<td><p>25</p></td>
+<td><p>214</p></td>
+</tr>
+<tr class="row-odd"><td><p>m334:</p></td>
+<td></td>
+<td><p>0.1</p></td>
+<td><p>0.1</p></td>
+<td><p>0.093</p></td>
+<td><p>0,78</p></td>
+<td><p>25</p></td>
+<td><p>214</p></td>
+</tr>
+<tr class="row-even"><td><p>m335:</p></td>
+<td><p>#1 Empty</p></td>
+<td><p>500 mT</p></td>
+<td><p>-500 mT</p></td>
+<td><p>9,4</p></td>
+<td><p>1,56</p></td>
+<td><p>25</p></td>
+<td><p>107</p></td>
+</tr>
+<tr class="row-odd"><td><p>m336:</p></td>
+<td><p>Plusses</p></td>
+<td><p>500 mT</p></td>
+<td><p>-500 mT</p></td>
+<td><p>9,4</p></td>
+<td><p>1,56</p></td>
+<td><p>25</p></td>
+<td><p>107</p></td>
+</tr>
+<tr class="row-even"><td><p>m337:</p></td>
+<td></td>
+<td><p>50 mT</p></td>
+<td><p>-50 mT</p></td>
+<td><p>0.934</p></td>
+<td><p>1,56</p></td>
+<td><p>25</p></td>
+<td><p>107</p></td>
+</tr>
+<tr class="row-odd"><td><p>m338:</p></td>
+<td></td>
+<td><p>25 mT</p></td>
+<td><p>-25mT</p></td>
+<td><p>0,46</p></td>
+<td><p>1,56</p></td>
+<td><p>25</p></td>
+<td><p>107</p></td>
+</tr>
+<tr class="row-even"><td><p>m339:</p></td>
+<td></td>
+<td><p>0</p></td>
+<td><p>0.5</p></td>
+<td><p>4,6</p></td>
+<td><p>1,56</p></td>
+<td><p>25</p></td>
+<td><p>107</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>#1 Empty</p></td>
+<td><p>25 mT</p></td>
+<td><p>-25mT</p></td>
+<td><p>0,46</p></td>
+<td><p>1,56</p></td>
+<td><p>25</p></td>
+<td><p>107</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Plusses</p></td>
+<td><p>5mT</p></td>
+<td><p>-5mT</p></td>
+<td><p>9.3e-5</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="field-list simple">
+<dt class="field-odd">index<span class="colon">:</span></dt>
+<dd class="field-odd"><p>m322; m327; m328</p>
+</dd>
+</dl>
+<figure class="align-default" id="id42">
+<img alt="../../_images/m32278.png" src="../../_images/m32278.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 36 </span><span class="caption-text"><strong>Plan #2</strong>: Field sweeps inside hysteresis (m322/327/328).</span><a class="headerlink" href="#id42" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="large-sweep-ranges">
+<h4><a class="toc-backref" href="#id63" role="doc-backlink">Large Sweep Ranges</a><a class="headerlink" href="#large-sweep-ranges" title="Permalink to this headline"></a></h4>
+<dl class="field-list simple">
+<dt class="field-odd">Temperature<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="math notranslate nohighlight">\(T = 30~K\)</span></p>
+</dd>
+</dl>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nr.</p></th>
+<th class="head"><p>Struct</p></th>
+<th class="head"><p>From</p></th>
+<th class="head"><p>To</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>320</p></td>
+<td><p>Empty</p></td>
+<td><p>2 T</p></td>
+<td><p>1 T</p></td>
+</tr>
+<tr class="row-odd"><td><p>325</p></td>
+<td><p>Crosses</p></td>
+<td><p>2 T</p></td>
+<td><p>1 T</p></td>
+</tr>
+<tr class="row-even"><td><p>323</p></td>
+<td><p>Empty</p></td>
+<td><p>1 T</p></td>
+<td><p>-1 T</p></td>
+</tr>
+<tr class="row-odd"><td><p>329</p></td>
+<td><p>Crosses</p></td>
+<td><p>1 T</p></td>
+<td><p>-1 T</p></td>
+</tr>
+<tr class="row-even"><td><p>322</p></td>
+<td><p>Empty</p></td>
+<td><p>.5 T</p></td>
+<td><p>-.5 T</p></td>
+</tr>
+<tr class="row-odd"><td><p>327</p></td>
+<td><p>Crosses</p></td>
+<td><p>.5 T</p></td>
+<td><p>-.5 T</p></td>
+</tr>
+<tr class="row-even"><td><p>336</p></td>
+<td><p>Plusses</p></td>
+<td><p>.5 T</p></td>
+<td><p>-.5 T</p></td>
+</tr>
+<tr class="row-odd"><td><p>333</p></td>
+<td><p>Crosses</p></td>
+<td><p>.75 T</p></td>
+<td><p>-.75 T</p></td>
+</tr>
+<tr class="row-even"><td><p>332</p></td>
+<td><p>Crosses</p></td>
+<td><p>.3 T</p></td>
+<td><p>-.3 T</p></td>
+</tr>
+<tr class="row-odd"><td><p>331</p></td>
+<td><p>Crosses</p></td>
+<td><p>.1 T</p></td>
+<td><p>-.1 T</p></td>
+</tr>
+</tbody>
+</table>
+<section id="plots">
+<h5><a class="toc-backref" href="#id64" role="doc-backlink">Plots</a><a class="headerlink" href="#plots" title="Permalink to this headline"></a></h5>
+</section>
+</section>
+<section id="different-sweep-rates">
+<h4><a class="toc-backref" href="#id65" role="doc-backlink">Different Sweep Rates</a><a class="headerlink" href="#different-sweep-rates" title="Permalink to this headline"></a></h4>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul class="simple">
+<li><p>T = 30K</p></li>
+<li><p>Plusses</p></li>
+<li><p>Sweeps from <span class="math notranslate nohighlight">\(-M_S \rightarrow -25 \rightarrow 25\)</span> mT</p></li>
+</ul>
+</aside>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nr.</p></th>
+<th class="head"><p>Rate (mT/min)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>354</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>351</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>353</p></td>
+<td><p>.25</p></td>
+</tr>
+<tr class="row-odd"><td><p>352</p></td>
+<td><p>.1</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="mfn-lock-in">
+<h2><a class="toc-backref" href="#id66" role="doc-backlink">MFN: Lock-In</a><a class="headerlink" href="#mfn-lock-in" title="Permalink to this headline"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">Date<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Feb - Aug. 2020</p>
+</dd>
+</dl>
+<nav class="contents local" id="id3">
+<p class="topic-title">Content</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#sr830-daq" id="id98">SR830 DAQ</a></p></li>
+<li><p><a class="reference internal" href="#deg-measurements" id="id99">45deg Measurements</a></p>
+<ul>
+<li><p><a class="reference internal" href="#useful-measurements" id="id100">Useful Measurements</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id4" id="id101">80deg Measurements</a></p>
+<ul>
+<li><p><a class="reference internal" href="#initial-80deg-measurements" id="id102">Initial 80deg measurements</a></p></li>
+<li><p><a class="reference internal" href="#deg-missing-measurements" id="id103">80deg missing measurements</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#deg-remeasure-missing-measurements" id="id104">45deg remeasure missing measurements</a></p>
+<ul>
+<li><p><a class="reference internal" href="#plusses-repeat-430-431" id="id105">Plusses (Repeat 430/431)</a></p></li>
+<li><p><a class="reference internal" href="#empty-cross-17-hz" id="id106">Empty Cross (17 Hz)</a></p></li>
+<li><p><a class="reference internal" href="#histogram-of-empty-cross-m491" id="id107">Histogram of empty cross (m491)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#deg-repeating-selected-measurements" id="id108">90deg Repeating selected measurements</a></p>
+<ul>
+<li><p><a class="reference internal" href="#changing-angle-to-90deg" id="id109">Changing Angle to 90deg</a></p></li>
+<li><p><a class="reference internal" href="#repeat-selected-signal-analyzer-measurements-with-sr830" id="id110">Repeat selected signal analyzer measurements with SR830</a></p></li>
+<li><p><a class="reference internal" href="#changing-angle-again-to-90deg" id="id111">Changing Angle again to 90deg</a></p>
+<ul>
+<li><p><a class="reference internal" href="#before-changing-angle" id="id112">Before Changing Angle</a></p></li>
+<li><p><a class="reference internal" href="#after-changing-angle" id="id113">After Changing Angle</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id22" id="id114">5-10</a></p></li>
+<li><p><a class="reference internal" href="#id23" id="id115">6-8</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#repeating-m351-354" id="id116">Repeating m351-354</a></p></li>
+<li><p><a class="reference internal" href="#repeating-m378-382-different-voltages" id="id117">Repeating m378-382 (<strong>different voltages</strong>)</a></p></li>
+<li><p><a class="reference internal" href="#repeating-m362-366" id="id118">Repeating m362-366</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ange set to 45deg and fixed there.
+Measurements</p>
+</aside>
+<section id="sr830-daq">
+<h3><a class="toc-backref" href="#id98" role="doc-backlink">SR830 DAQ</a><a class="headerlink" href="#sr830-daq" title="Permalink to this headline"></a></h3>
+</section>
+<section id="deg-measurements">
+<h3><a class="toc-backref" href="#id99" role="doc-backlink">45deg Measurements</a><a class="headerlink" href="#deg-measurements" title="Permalink to this headline"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nr.</p></th>
+<th class="head"><p>Struct</p></th>
+<th class="head"><p>Angle</p></th>
+<th class="head"><p>Voltage</p></th>
+<th class="head"><p>Frequency</p></th>
+<th class="head"><p>Temp</p></th>
+<th class="head"><p>Preamp</p></th>
+<th class="head"><p>Rate</p></th>
+<th class="head"><p>Time</p></th>
+<th class="head"><p>Dir</p></th>
+<th class="head"><p>Limit</p></th>
+<th class="head"><p>dB</p></th>
+<th class="head"><p>timeconstant</p></th>
+<th class="head"><p>Error</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>430</p></td>
+<td><p>Plusses</p></td>
+<td><p>45</p></td>
+<td><p>2.5</p></td>
+<td><p>17</p></td>
+<td><p>30</p></td>
+<td><p>False</p></td>
+<td><p>8</p></td>
+<td><p>600</p></td>
+<td><p>Down</p></td>
+<td><p>0.2</p></td>
+<td><p>0.01</p></td>
+<td><p>0.1</p></td>
+<td><p>nan</p></td>
+</tr>
+<tr class="row-odd"><td><p>431</p></td>
+<td><p>Plusses</p></td>
+<td><p>45</p></td>
+<td><p>2.5</p></td>
+<td><p>17</p></td>
+<td><p>30</p></td>
+<td><p>False</p></td>
+<td><p>8</p></td>
+<td><p>600</p></td>
+<td><p>Up</p></td>
+<td><p>0.2</p></td>
+<td><p>0.01</p></td>
+<td><p>0.1</p></td>
+<td><p>nan</p></td>
+</tr>
+<tr class="row-even"><td><p>432</p></td>
+<td><p>Plusses</p></td>
+<td><p>45</p></td>
+<td><p>2.5</p></td>
+<td><p>17</p></td>
+<td><p>30</p></td>
+<td><p>True</p></td>
+<td><p>16</p></td>
+<td><p>1024</p></td>
+<td><p>Down</p></td>
+<td><p>0.1</p></td>
+<td><p>0.0025</p></td>
+<td><p>0.1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>433</p></td>
+<td><p>Plusses</p></td>
+<td><p>45</p></td>
+<td><p>2.5</p></td>
+<td><p>113</p></td>
+<td><p>30</p></td>
+<td><p>True</p></td>
+<td><p>16</p></td>
+<td><p>1024</p></td>
+<td><p>Up</p></td>
+<td><p>0.1</p></td>
+<td><p>0.002</p></td>
+<td><p>0.1</p></td>
+<td><p>nan</p></td>
+</tr>
+<tr class="row-even"><td><p>434</p></td>
+<td><p>Plusses</p></td>
+<td><p>45</p></td>
+<td><p>2.5</p></td>
+<td><p>113</p></td>
+<td><p>30</p></td>
+<td><p>True</p></td>
+<td><p>32</p></td>
+<td><p>512</p></td>
+<td><p>Up</p></td>
+<td><p>0.2</p></td>
+<td><p>0.02</p></td>
+<td><p>0.1</p></td>
+<td><p>nan</p></td>
+</tr>
+<tr class="row-odd"><td><p>435</p></td>
+<td><p>Plusses</p></td>
+<td><p>45</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>30</p></td>
+<td><p>True</p></td>
+<td><p>16</p></td>
+<td><p>1024</p></td>
+<td><p>Down</p></td>
+<td><p>0.1</p></td>
+<td><p>0.005</p></td>
+<td><p>0.1</p></td>
+<td><p>nan</p></td>
+</tr>
+<tr class="row-even"><td><p>436</p></td>
+<td><p>Plusses</p></td>
+<td><p>45</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>30</p></td>
+<td><p>True</p></td>
+<td><p>8</p></td>
+<td><p>1024</p></td>
+<td><p>Down</p></td>
+<td><p>0.2</p></td>
+<td><p>0.005</p></td>
+<td><p>0.1</p></td>
+<td><p>nan</p></td>
+</tr>
+<tr class="row-odd"><td><p>437</p></td>
+<td><p>Plusses</p></td>
+<td><p>45</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>30</p></td>
+<td><p>False</p></td>
+<td><p>8</p></td>
+<td><p>768</p></td>
+<td><p>Up</p></td>
+<td><p>0.15</p></td>
+<td><p>0.005</p></td>
+<td><p>0.1</p></td>
+<td><p>nan</p></td>
+</tr>
+<tr class="row-even"><td><p>438</p></td>
+<td><p>Plusses</p></td>
+<td><p>45</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>30</p></td>
+<td><p>False</p></td>
+<td><p>4</p></td>
+<td><p>2048</p></td>
+<td><p>Down</p></td>
+<td><p>0.1</p></td>
+<td><p>0.01</p></td>
+<td><p>0.1</p></td>
+<td><p>nan</p></td>
+</tr>
+<tr class="row-odd"><td><p>439</p></td>
+<td><p>Plusses</p></td>
+<td><p>45</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>30</p></td>
+<td><p>False</p></td>
+<td><p>16</p></td>
+<td><p>1024</p></td>
+<td><p>Down</p></td>
+<td><p>0.1</p></td>
+<td><p>0.005</p></td>
+<td><p>0.1</p></td>
+<td><p>nan</p></td>
+</tr>
+<tr class="row-even"><td><p>440</p></td>
+<td><p>Plusses</p></td>
+<td><p>45</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>30</p></td>
+<td><p>False</p></td>
+<td><p>32</p></td>
+<td><p>512</p></td>
+<td><p>Up</p></td>
+<td><p>0.1</p></td>
+<td><p>0.005</p></td>
+<td><p>0.1</p></td>
+<td><p>nan</p></td>
+</tr>
+<tr class="row-odd"><td><p>441</p></td>
+<td><p>Plusses</p></td>
+<td><p>45</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>30</p></td>
+<td><p>False</p></td>
+<td><p>32</p></td>
+<td><p>512</p></td>
+<td><p>Down</p></td>
+<td><p>0.1</p></td>
+<td><p>0.005</p></td>
+<td><p>0.1</p></td>
+<td><p>nan</p></td>
+</tr>
+<tr class="row-even"><td><p>442</p></td>
+<td><p>Plusses</p></td>
+<td><p>45</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>30</p></td>
+<td><p>False</p></td>
+<td><p>4</p></td>
+<td><p>2048</p></td>
+<td><p>Up</p></td>
+<td><p>0.1</p></td>
+<td><p>0.005</p></td>
+<td><p>0.1</p></td>
+<td><p>nan</p></td>
+</tr>
+<tr class="row-odd"><td><p>443</p></td>
+<td><p>Plusses</p></td>
+<td><p>45</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>20</p></td>
+<td><p>False</p></td>
+<td><p>8</p></td>
+<td><p>2048</p></td>
+<td><p>Down</p></td>
+<td><p>0.1</p></td>
+<td><p>0.005</p></td>
+<td><p>0.1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>444</p></td>
+<td><p>Plusses</p></td>
+<td><p>45</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>20</p></td>
+<td><p>False</p></td>
+<td><p>8</p></td>
+<td><p>2048</p></td>
+<td><p>Up</p></td>
+<td><p>0.1</p></td>
+<td><p>0.005</p></td>
+<td><p>0.1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>445</p></td>
+<td><p>Plusses</p></td>
+<td><p>45</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>10</p></td>
+<td><p>False</p></td>
+<td><p>2</p></td>
+<td><p>2048</p></td>
+<td><p>Down</p></td>
+<td><p>0.1</p></td>
+<td><p>0.005</p></td>
+<td><p>0.1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>446</p></td>
+<td><p>Plusses</p></td>
+<td><p>45</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>15</p></td>
+<td><p>False</p></td>
+<td><p>8</p></td>
+<td><p>2048</p></td>
+<td><p>Down</p></td>
+<td><p>0.1</p></td>
+<td><p>0.005</p></td>
+<td><p>0.1</p></td>
+<td><p>nan</p></td>
+</tr>
+<tr class="row-odd"><td><p>447</p></td>
+<td><p>Plusses</p></td>
+<td><p>45</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>15</p></td>
+<td><p>False</p></td>
+<td><p>8</p></td>
+<td><p>2048</p></td>
+<td><p>Up</p></td>
+<td><p>0.1</p></td>
+<td><p>0.005</p></td>
+<td><p>0.1</p></td>
+<td><p>nan</p></td>
+</tr>
+<tr class="row-even"><td><p>448</p></td>
+<td><p>Plusses</p></td>
+<td><p>45</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>15</p></td>
+<td><p>False</p></td>
+<td><p>4</p></td>
+<td><p>2048</p></td>
+<td><p>Down</p></td>
+<td><p>0.1</p></td>
+<td><p>0.005</p></td>
+<td><p>0.3</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>449</p></td>
+<td><p>Plusses</p></td>
+<td><p>45</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>15</p></td>
+<td><p>False</p></td>
+<td><p>4</p></td>
+<td><p>2048</p></td>
+<td><p>Up</p></td>
+<td><p>0.1</p></td>
+<td><p>0.005</p></td>
+<td><p>0.3</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>450</p></td>
+<td><p>Empty</p></td>
+<td><p>45</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>15</p></td>
+<td><p>False</p></td>
+<td><p>8</p></td>
+<td><p>1024</p></td>
+<td><p>Down</p></td>
+<td><p>0.1</p></td>
+<td><p>0.005</p></td>
+<td><p>0.3</p></td>
+<td><p>nan</p></td>
+</tr>
+<tr class="row-odd"><td><p>451</p></td>
+<td><p>Empty</p></td>
+<td><p>45</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>15</p></td>
+<td><p>False</p></td>
+<td><p>8</p></td>
+<td><p>1024</p></td>
+<td><p>Up</p></td>
+<td><p>0.1</p></td>
+<td><p>0.005</p></td>
+<td><p>0.3</p></td>
+<td><p>nan</p></td>
+</tr>
+</tbody>
+</table>
+<section id="useful-measurements">
+<h4><a class="toc-backref" href="#id100" role="doc-backlink">Useful Measurements</a><a class="headerlink" href="#useful-measurements" title="Permalink to this headline"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nr.</p></th>
+<th class="head"><p>Struct</p></th>
+<th class="head"><p>Angle</p></th>
+<th class="head"><p>Voltage</p></th>
+<th class="head"><p>Frequency</p></th>
+<th class="head"><p>Temp</p></th>
+<th class="head"><p>Preamp</p></th>
+<th class="head"><p>Rate</p></th>
+<th class="head"><p>Time</p></th>
+<th class="head"><p>Dir</p></th>
+<th class="head"><p>Limit</p></th>
+<th class="head"><p>dB</p></th>
+<th class="head"><p>timeconstant</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>430</p></td>
+<td><p>Plusses</p></td>
+<td><p>45</p></td>
+<td><p>2.5</p></td>
+<td><p>17</p></td>
+<td><p>30</p></td>
+<td><p>False</p></td>
+<td><p>8</p></td>
+<td><p>600</p></td>
+<td><p>Down</p></td>
+<td><p>0.2</p></td>
+<td><p>0.01</p></td>
+<td><p>0.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>431</p></td>
+<td><p>Plusses</p></td>
+<td><p>45</p></td>
+<td><p>2.5</p></td>
+<td><p>17</p></td>
+<td><p>30</p></td>
+<td><p>False</p></td>
+<td><p>8</p></td>
+<td><p>600</p></td>
+<td><p>Up</p></td>
+<td><p>0.2</p></td>
+<td><p>0.01</p></td>
+<td><p>0.1</p></td>
+</tr>
+<tr class="row-even"><td><p>446</p></td>
+<td><p>Plusses</p></td>
+<td><p>45</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>15</p></td>
+<td><p>False</p></td>
+<td><p>8</p></td>
+<td><p>2048</p></td>
+<td><p>Down</p></td>
+<td><p>0.1</p></td>
+<td><p>0.005</p></td>
+<td><p>0.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>447</p></td>
+<td><p>Plusses</p></td>
+<td><p>45</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>15</p></td>
+<td><p>False</p></td>
+<td><p>8</p></td>
+<td><p>2048</p></td>
+<td><p>Up</p></td>
+<td><p>0.1</p></td>
+<td><p>0.005</p></td>
+<td><p>0.1</p></td>
+</tr>
+<tr class="row-even"><td><p>450</p></td>
+<td><p>Empty</p></td>
+<td><p>45</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>15</p></td>
+<td><p>False</p></td>
+<td><p>8</p></td>
+<td><p>1024</p></td>
+<td><p>Down</p></td>
+<td><p>0.1</p></td>
+<td><p>0.005</p></td>
+<td><p>0.3</p></td>
+</tr>
+<tr class="row-odd"><td><p>451</p></td>
+<td><p>Empty</p></td>
+<td><p>45</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>15</p></td>
+<td><p>False</p></td>
+<td><p>8</p></td>
+<td><p>1024</p></td>
+<td><p>Up</p></td>
+<td><p>0.1</p></td>
+<td><p>0.005</p></td>
+<td><p>0.3</p></td>
+</tr>
+<tr class="row-even"><td><p>452</p></td>
+<td><p>Plusses</p></td>
+<td><p>80</p></td>
+<td><p>5</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>False</p></td>
+<td><p>8</p></td>
+<td><p>1024</p></td>
+<td><p>Down</p></td>
+<td><p>0.3</p></td>
+<td><p>0.015</p></td>
+<td><p>0.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>453</p></td>
+<td><p>Plusses</p></td>
+<td><p>80</p></td>
+<td><p>5</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>False</p></td>
+<td><p>8</p></td>
+<td><p>1024</p></td>
+<td><p>Up</p></td>
+<td><p>0.3</p></td>
+<td><p>0.015</p></td>
+<td><p>0.1</p></td>
+</tr>
+<tr class="row-even"><td><p>456</p></td>
+<td><p>Plusses</p></td>
+<td><p>80</p></td>
+<td><p>5</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>False</p></td>
+<td><p>8</p></td>
+<td><p>2048</p></td>
+<td><p>STATIC</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.1</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>45deg</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>Plusses</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>17 Hz / 2.5 V / 30 K (Best results)</p></li>
+<li><p>113 Hz / 5 V / 15 K</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>Empty</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>113 Hz / 5 V / 15 K</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<ul class="simple">
+<li><p>80deg</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>Plusses</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>17 Hz / 5 V / 15 K</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</section>
+</section>
+<section id="id4">
+<h3><a class="toc-backref" href="#id101" role="doc-backlink">80deg Measurements</a><a class="headerlink" href="#id4" title="Permalink to this headline"></a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Date<span class="colon">:</span></dt>
+<dd class="field-odd"><p>July 2020</p>
+</dd>
+</dl>
+<section id="initial-80deg-measurements">
+<h4><a class="toc-backref" href="#id102" role="doc-backlink">Initial 80deg measurements</a><a class="headerlink" href="#initial-80deg-measurements" title="Permalink to this headline"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nr.</p></th>
+<th class="head"><p>Struct</p></th>
+<th class="head"><p>Angle</p></th>
+<th class="head"><p>Voltage</p></th>
+<th class="head"><p>Frequency</p></th>
+<th class="head"><p>Temp</p></th>
+<th class="head"><p>Preamp</p></th>
+<th class="head"><p>Rate</p></th>
+<th class="head"><p>Time</p></th>
+<th class="head"><p>Dir</p></th>
+<th class="head"><p>Limit</p></th>
+<th class="head"><p>dB</p></th>
+<th class="head"><p>timeconstant</p></th>
+<th class="head"><p>Error</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>452</p></td>
+<td><p>Plusses</p></td>
+<td><p>80</p></td>
+<td><p>5</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>False</p></td>
+<td><p>8</p></td>
+<td><p>1024</p></td>
+<td><p>Down</p></td>
+<td><p>0.3</p></td>
+<td><p>0.015</p></td>
+<td><p>0.1</p></td>
+<td><p>nan</p></td>
+</tr>
+<tr class="row-odd"><td><p>453</p></td>
+<td><p>Plusses</p></td>
+<td><p>80</p></td>
+<td><p>5</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>False</p></td>
+<td><p>8</p></td>
+<td><p>1024</p></td>
+<td><p>Up</p></td>
+<td><p>0.3</p></td>
+<td><p>0.015</p></td>
+<td><p>0.1</p></td>
+<td><p>nan</p></td>
+</tr>
+<tr class="row-even"><td><p>454</p></td>
+<td><p>Plusses</p></td>
+<td><p>80</p></td>
+<td><p>5</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>False</p></td>
+<td><p>8</p></td>
+<td><p>2048</p></td>
+<td><p>Down</p></td>
+<td><p>0.15</p></td>
+<td><p>0.005</p></td>
+<td><p>0.1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>455</p></td>
+<td><p>Plusses</p></td>
+<td><p>80</p></td>
+<td><p>5</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>False</p></td>
+<td><p>8</p></td>
+<td><p>2048</p></td>
+<td><p>Up</p></td>
+<td><p>0.15</p></td>
+<td><p>0.005</p></td>
+<td><p>0.1</p></td>
+<td><p>nan</p></td>
+</tr>
+<tr class="row-even"><td><p>456</p></td>
+<td><p>Plusses</p></td>
+<td><p>80</p></td>
+<td><p>5</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>False</p></td>
+<td><p>8</p></td>
+<td><p>2048</p></td>
+<td><p>STATIC</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.1</p></td>
+<td><p>nan</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Most useful are m452 and m453.</p>
+</aside>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>m456 measured at vacant external field for a very long time.
+This allows access to very low frequencies.</p>
+</aside>
+<div class="admonition error">
+<p class="admonition-title">Error</p>
+<p>m454/m455 have experienced some problems during the measurement.
+The results are not useful.</p>
+</aside>
+<p>Check for</p>
+<ul class="simple">
+<li><p>difference between τ = 100ms/30ms</p></li>
+<li><p>Empty Cross background reference &#64; 80deg
+* Empty Cross with/without gradiometry?</p></li>
+<li><p>Voltage difference (2.5 V / 5 V)</p></li>
+<li><p>Reproducability of 90deg signal analyzer measurements.</p></li>
+</ul>
+</section>
+<section id="deg-missing-measurements">
+<h4><a class="toc-backref" href="#id103" role="doc-backlink">80deg missing measurements</a><a class="headerlink" href="#deg-missing-measurements" title="Permalink to this headline"></a></h4>
+<dl class="field-list simple">
+<dt class="field-odd">Date<span class="colon">:</span></dt>
+<dd class="field-odd"><p>30.06.2020 - 09.07.2020</p>
+</dd>
+</dl>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nr</p></th>
+<th class="head"><p>Struct</p></th>
+<th class="head"><p>Frequency</p></th>
+<th class="head"><p>Temp</p></th>
+<th class="head"><p>Rate</p></th>
+<th class="head"><p>Time</p></th>
+<th class="head"><p>Dir</p></th>
+<th class="head"><p>Limit</p></th>
+<th class="head"><p>dB</p></th>
+<th class="head"><p>timeconstant</p></th>
+<th class="head"><p>Error</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>458</p></td>
+<td><p>Plusses</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>2048</p></td>
+<td><p>Down</p></td>
+<td><p><strong>.1</strong></p></td>
+<td><p>.005</p></td>
+<td><p>.1</p></td>
+<td><p>Unregular number of values</p></td>
+</tr>
+<tr class="row-odd"><td><p>459</p></td>
+<td><p>Plusses</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>2048</p></td>
+<td><p>Up</p></td>
+<td><p>.1</p></td>
+<td><p>.005</p></td>
+<td><p>.1</p></td>
+<td><p>Unregular number of values</p></td>
+</tr>
+<tr class="row-even"><td><p>460</p></td>
+<td><p>Plusses</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>2048</p></td>
+<td><p>Down</p></td>
+<td><p>.1</p></td>
+<td><p>.005</p></td>
+<td><p>.1</p></td>
+<td><p>No values</p></td>
+</tr>
+<tr class="row-odd"><td><p>461</p></td>
+<td><p>Plusses</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>2048</p></td>
+<td><p>Up</p></td>
+<td><p>.1</p></td>
+<td><p>.005</p></td>
+<td><p>.1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>462</p></td>
+<td><p>Plusses</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>2048</p></td>
+<td><p>Down</p></td>
+<td><p>.1</p></td>
+<td><p>.005</p></td>
+<td><p>.1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>466</p></td>
+<td><p>Plusses</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p><strong>1024</strong></p></td>
+<td><p>Down</p></td>
+<td><p>.1</p></td>
+<td><p>.005</p></td>
+<td><p><strong>.03</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>467</p></td>
+<td><p>Plusses</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>1024</p></td>
+<td><p>Up</p></td>
+<td><p>.1</p></td>
+<td><p>.005</p></td>
+<td><p>.03</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>468</p></td>
+<td><p>Plusses</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>1024</p></td>
+<td><p>Down</p></td>
+<td><p>.1</p></td>
+<td><p>.005</p></td>
+<td><p><strong>.1</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>469</p></td>
+<td><p>Plusses</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>1024</p></td>
+<td><p>Up</p></td>
+<td><p>.1</p></td>
+<td><p>.005</p></td>
+<td><p>.1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>470</p></td>
+<td><p>Plusses</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>1024</p></td>
+<td><p>Down</p></td>
+<td><p>.1</p></td>
+<td><p>.005</p></td>
+<td><p>.01</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>471</p></td>
+<td><p>Plusses</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>1024</p></td>
+<td><p>Up</p></td>
+<td><p>.1</p></td>
+<td><p>.005</p></td>
+<td><p>.01</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>472</p></td>
+<td><p>Plusses</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>1800</p></td>
+<td><p>Down</p></td>
+<td><p>.1</p></td>
+<td><p>.005</p></td>
+<td><p>.1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>473</p></td>
+<td><p>Plusses</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>1800</p></td>
+<td><p>Up</p></td>
+<td><p>.1</p></td>
+<td><p>.005</p></td>
+<td><p>.1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>463</p></td>
+<td><p><strong>Empty</strong></p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>2048</p></td>
+<td><p>Down</p></td>
+<td><p>.1</p></td>
+<td><p>.005</p></td>
+<td><p>.1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>464</p></td>
+<td><p>Empty</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>2048</p></td>
+<td><p>Up</p></td>
+<td><p>.1</p></td>
+<td><p>.005</p></td>
+<td><p>.1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>474</p></td>
+<td><p>Empty</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>1024</p></td>
+<td><p>Down</p></td>
+<td><p>.1</p></td>
+<td><p>.005</p></td>
+<td><p>.1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>475</p></td>
+<td><p>Empty</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>1024</p></td>
+<td><p>Up</p></td>
+<td><p>.1</p></td>
+<td><p>.005</p></td>
+<td><p>.1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>476</p></td>
+<td><p>Empty</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>1024</p></td>
+<td><p>Down</p></td>
+<td><p>.1</p></td>
+<td><p>.005</p></td>
+<td><p>.03</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>477</p></td>
+<td><p>Empty</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>1024</p></td>
+<td><p>Up</p></td>
+<td><p>.1</p></td>
+<td><p>.005</p></td>
+<td><p>.03</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt>Measurement Routines for EVE</dt><dd><p>[458 Routine]
+[461 Routine]
+[463 Routine]
+[465 Routine]
+[466 Routine]
+[470 Routine] Finishes 470 (after cut at 40mT for filling He) and starts 471/472
+[475 Routine] Finishes 475 (after power shortage cut at 55mT) and starts 476/477</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="deg-remeasure-missing-measurements">
+<h3><a class="toc-backref" href="#id104" role="doc-backlink">45deg remeasure missing measurements</a><a class="headerlink" href="#deg-remeasure-missing-measurements" title="Permalink to this headline"></a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Date<span class="colon">:</span></dt>
+<dd class="field-odd"><p>July 2020</p>
+</dd>
+</dl>
+<p>The first time at 45deg not all needed information could be gathered.
+Going back to 45deg to remeasure some missing parameters.</p>
+<section id="plusses-repeat-430-431">
+<h4><a class="toc-backref" href="#id105" role="doc-backlink">Plusses (Repeat 430/431)</a><a class="headerlink" href="#plusses-repeat-430-431" title="Permalink to this headline"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nr</p></th>
+<th class="head"><p>Struct</p></th>
+<th class="head"><p>Voltage</p></th>
+<th class="head" colspan="2"><p>Frequency</p></th>
+<th class="head" colspan="2"><p>Temp</p></th>
+<th class="head" colspan="2"><p>Rate</p></th>
+<th class="head" colspan="2"><p>Time</p></th>
+<th class="head" colspan="2"><p>Dir</p></th>
+<th class="head" colspan="4"><p>Limit</p></th>
+<th class="head"><p>dB</p></th>
+<th class="head" colspan="4"><p>timeconstant</p></th>
+<th class="head" colspan="2"><p>Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>482</p></td>
+<td><p>Plusses</p></td>
+<td><p>5</p></td>
+<td colspan="2"><p>17</p></td>
+<td colspan="2"><p>15</p></td>
+<td colspan="2"><p>8</p></td>
+<td colspan="2"><p>1024</p></td>
+<td colspan="2"><p>Down</p></td>
+<td colspan="4"><p>.1</p></td>
+<td><p>.005</p></td>
+<td colspan="4"><p>.1</p></td>
+<td colspan="2"><p>$` R_{22} = 13.5 kOmega <a href="#id5"><span class="problematic" id="id6">`</span></a>$</p></td>
+</tr>
+<tr class="row-odd"><td><p>483</p></td>
+<td><p>Plusses</p></td>
+<td><p>5</p></td>
+<td colspan="2"><p>17</p></td>
+<td colspan="2"><p>15</p></td>
+<td colspan="2"><p>8</p></td>
+<td colspan="2"><p>1024</p></td>
+<td colspan="2"><p>Up</p></td>
+<td colspan="4"><p>.1</p></td>
+<td><p>.005</p></td>
+<td colspan="4"><p>.1</p></td>
+<td colspan="2"><p>$` R_{22} = 13.5 kOmega <a href="#id7"><span class="problematic" id="id8">`</span></a>$</p></td>
+</tr>
+<tr class="row-even"><td><p>484</p></td>
+<td><p>Plusses</p></td>
+<td><p><strong>2.5</strong></p></td>
+<td colspan="2"><p>17</p></td>
+<td colspan="2"><p>15</p></td>
+<td colspan="2"><p>8</p></td>
+<td colspan="2"><p>1024</p></td>
+<td colspan="13"><p>Down |   .1  | .005|      .1       | $` R_{22} = 13.5 kOmega <a href="#id9"><span class="problematic" id="id10">`</span></a>$</p></td>
+</tr>
+<tr class="row-odd"><td><p>485</p></td>
+<td><p>Plusses</p></td>
+<td><p>2.5</p></td>
+<td colspan="2"><p>17</p></td>
+<td colspan="2"><p>15</p></td>
+<td colspan="2"><p>8</p></td>
+<td colspan="2"><p>1024</p></td>
+<td colspan="13"><p>Up   |   .1  | .005|      .1       | $` R_{22} = 13.5 kOmega <a href="#id11"><span class="problematic" id="id12">`</span></a>$</p></td>
+</tr>
+<tr class="row-even"><td><p>486</p></td>
+<td><p>Plusses</p></td>
+<td><p>5</p></td>
+<td colspan="21"><p>17      |  15    |  8    | 1024 | Down |   .2  | .01 |      .1       | $` R_{22} = 5 kOmega <a href="#id13"><span class="problematic" id="id14">`</span></a>$</p></td>
+</tr>
+<tr class="row-odd"><td><p>487</p></td>
+<td><p>Plusses</p></td>
+<td><p>5</p></td>
+<td colspan="21"><p>17      |  15    |  8    | 1024 | Up   |   .2  | .01 |      .1       | $` R_{22} = 5 kOmega <a href="#id15"><span class="problematic" id="id16">`</span></a>$</p></td>
+</tr>
+<tr class="row-even"><td><p>488</p></td>
+<td><p>Plusses</p></td>
+<td><p>5</p></td>
+<td colspan="21"><p>17      |  15    |  8    | 1024 | Down |   .2  | .01 |      .03      | $` R_{22} = 5 kOmega <a href="#id17"><span class="problematic" id="id18">`</span></a>$</p></td>
+</tr>
+<tr class="row-odd"><td><p>489</p></td>
+<td><p>Plusses</p></td>
+<td><p>5</p></td>
+<td colspan="21"><p>17      |  15    |  8    | 1024 | Up   |   .2  | .01 |      .03      | $` R_{22} = 5 kOmega <a href="#id19"><span class="problematic" id="id20">`</span></a>$</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="empty-cross-17-hz">
+<h4><a class="toc-backref" href="#id106" role="doc-backlink">Empty Cross (17 Hz)</a><a class="headerlink" href="#empty-cross-17-hz" title="Permalink to this headline"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nr</p></th>
+<th class="head"><p>Struct</p></th>
+<th class="head"><p>Voltage</p></th>
+<th class="head"><p>Frequency</p></th>
+<th class="head"><p>Temp</p></th>
+<th class="head"><p>Rate</p></th>
+<th class="head"><p>Time</p></th>
+<th class="head"><p>Dir</p></th>
+<th class="head"><p>Limit</p></th>
+<th class="head"><p>dB</p></th>
+<th class="head"><p>timeconstant</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>480</p></td>
+<td><p>Empty</p></td>
+<td><p>5</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>2048</p></td>
+<td><p>Down</p></td>
+<td><p>.1</p></td>
+<td><p>.005</p></td>
+<td><p>.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>481</p></td>
+<td><p>Empty</p></td>
+<td><p>5</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>2048</p></td>
+<td><p>Up</p></td>
+<td><p>.1</p></td>
+<td><p>.005</p></td>
+<td><p>.1</p></td>
+</tr>
+<tr class="row-even"><td><p>490</p></td>
+<td><p>Empty</p></td>
+<td><p>5</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>1024</p></td>
+<td><p>Down</p></td>
+<td><p>.2</p></td>
+<td><p>.01</p></td>
+<td><p>.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>491</p></td>
+<td><p>Empty</p></td>
+<td><p>5</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>1024</p></td>
+<td><p>Up</p></td>
+<td><p>.2</p></td>
+<td><p>.01</p></td>
+<td><p>.1</p></td>
+</tr>
+<tr class="row-even"><td><p>492</p></td>
+<td><p>Empty</p></td>
+<td><p>5</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>1024</p></td>
+<td><p>Down</p></td>
+<td><p>.2</p></td>
+<td><p>.01</p></td>
+<td><p>.03</p></td>
+</tr>
+<tr class="row-odd"><td><p>493</p></td>
+<td><p>Empty</p></td>
+<td><p>5</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>1024</p></td>
+<td><p>Up</p></td>
+<td><p>.2</p></td>
+<td><p>.01</p></td>
+<td><p>.03</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>After finished measurements (untill m493), we discovered that the gate grounding (4-9) device (Yokogawa 7651 Programmable DC Source) was turned off.
+Probably no gate grounding since power shortage.</p>
+</aside>
+<div class="admonition-todo admonition" id="id21">
+<p class="admonition-title">Todo</p>
+<p>write about power shortage.</p>
+</aside>
+</section>
+<section id="histogram-of-empty-cross-m491">
+<h4><a class="toc-backref" href="#id107" role="doc-backlink">Histogram of empty cross (m491)</a><a class="headerlink" href="#histogram-of-empty-cross-m491" title="Permalink to this headline"></a></h4>
+<figure class="align-default" id="id43">
+<img alt="../../_images/m491-hist_0-100.png" src="../../_images/m491-hist_0-100.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 37 </span><span class="caption-text">m491: Histogram of empty cross (gradiometry) at different external fields (subtracted mean).</span><a class="headerlink" href="#id43" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="deg-repeating-selected-measurements">
+<h3><a class="toc-backref" href="#id108" role="doc-backlink">90deg Repeating selected measurements</a><a class="headerlink" href="#deg-repeating-selected-measurements" title="Permalink to this headline"></a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Date<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Aug. 2020</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Changing back to 90deg again to try and repeat some selected signal analyzer measurements (from SR785) with SR830</p>
+</aside>
+<section id="changing-angle-to-90deg">
+<h4><a class="toc-backref" href="#id109" role="doc-backlink">Changing Angle to 90deg</a><a class="headerlink" href="#changing-angle-to-90deg" title="Permalink to this headline"></a></h4>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul class="simple">
+<li><p>Temp: 15K</p></li>
+<li><p><span class="math notranslate nohighlight">\(V_{in}\)</span> = 2.5 V (6-8)</p></li>
+<li><p><span class="math notranslate nohighlight">\(V_H\)</span> = 0.75 μ V (Target: 0 V) (7-14)</p></li>
+<li><p><span class="math notranslate nohighlight">\(V_y\)</span> = 9.7  μ V (Target: 0 V) <strong>high phase</strong></p></li>
+</ul>
+</aside>
+</section>
+<section id="repeat-selected-signal-analyzer-measurements-with-sr830">
+<h4><a class="toc-backref" href="#id110" role="doc-backlink">Repeat selected signal analyzer measurements with SR830</a><a class="headerlink" href="#repeat-selected-signal-analyzer-measurements-with-sr830" title="Permalink to this headline"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Repeating</p></th>
+<th class="head"><p>m351-354</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Focus</p></td>
+<td><p>sweeprates</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-sweeping-field-different-sweeprates admonition">
+<p class="admonition-title">Sweeping Field (different sweeprates)</p>
+<p>from -25 mT to 25 mT with negative saturation (at -.9 T)</p>
+</aside>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nr</p></th>
+<th class="head"><p>Struct</p></th>
+<th class="head"><p>Voltage</p></th>
+<th class="head"><p>Frequency</p></th>
+<th class="head"><p>Temp</p></th>
+<th class="head"><p>Rate</p></th>
+<th class="head"><p>Sweep rate</p></th>
+<th class="head"><p>Limit</p></th>
+<th class="head"><p>timeconstant</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>494</p></td>
+<td><p>Empty</p></td>
+<td><p>5</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>200/150/100/50</p></td>
+<td><p>.025</p></td>
+<td><p>.003</p></td>
+</tr>
+<tr class="row-odd"><td><p>495</p></td>
+<td><p>Empty</p></td>
+<td><p>5</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>20/15/10/5</p></td>
+<td><p>.025</p></td>
+<td><p>.003</p></td>
+</tr>
+<tr class="row-even"><td><p>496</p></td>
+<td><p>Empty</p></td>
+<td><p>5</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>2/1.5/1</p></td>
+<td><p>.025</p></td>
+<td><p>.003</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition error">
+<p class="admonition-title">Error</p>
+<p><strong>m496</strong>: Error when measuring Sweeprate SR=0.5 mT/min. (sweep did not start, measurement contains static field voltages).</p>
+</aside>
+</section>
+<section id="changing-angle-again-to-90deg">
+<h4><a class="toc-backref" href="#id111" role="doc-backlink">Changing Angle again to 90deg</a><a class="headerlink" href="#changing-angle-again-to-90deg" title="Permalink to this headline"></a></h4>
+<section id="before-changing-angle">
+<h5><a class="toc-backref" href="#id112" role="doc-backlink">Before Changing Angle</a><a class="headerlink" href="#before-changing-angle" title="Permalink to this headline"></a></h5>
+<p>Measuring at +1 T external field and adjusting angle.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Field parallel empty Cross (<span class="math notranslate nohighlight">\(V_{in}\)</span> = 2.5 V) before changing</p>
+</aside>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(I_1\)</span> = (6-8)</p></td>
+<td><p><span class="math notranslate nohighlight">\(V_H\)</span> = (7-14)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><span class="math notranslate nohighlight">\(V_H\)</span> = 88.9 μ V
+(<span class="math notranslate nohighlight">\(V_y\)</span> = 7.55 μ V,</p>
+<blockquote>
+<div><p>θ = -4.8deg)</p>
+</div></blockquote>
+</aside>
+<p><span class="math notranslate nohighlight">\(I_1\)</span> = (5-10): <span class="math notranslate nohighlight">\(V_H\)</span> = (7-14)</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><span class="math notranslate nohighlight">\(V_H\)</span> = 83.9 μ V
+( <span class="math notranslate nohighlight">\(V_y\)</span> = 3.1 μ V,</p>
+<blockquote>
+<div><p>θ = -2.15deg)</p>
+</div></blockquote>
+</aside>
+</section>
+<section id="after-changing-angle">
+<h5><a class="toc-backref" href="#id113" role="doc-backlink">After Changing Angle</a><a class="headerlink" href="#after-changing-angle" title="Permalink to this headline"></a></h5>
+<section id="id22">
+<h6><a class="toc-backref" href="#id114" role="doc-backlink">5-10</a><a class="headerlink" href="#id22" title="Permalink to this headline"></a></h6>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>setting 5-10 to 0</p>
+</aside>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(I_1\)</span> = (5-10)</p></td>
+<td><p><span class="math notranslate nohighlight">\(V_H\)</span> = (7-14)</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(V_H\)</span> = 0.19 μ V</p></li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(V_y\)</span> = -5.37 μ V</p></td>
+<td><p>θ = -88deg</p></td>
+</tr>
+</tbody>
+</table>
+</aside>
+</section>
+<section id="id23">
+<h6><a class="toc-backref" href="#id115" role="doc-backlink">6-8</a><a class="headerlink" href="#id23" title="Permalink to this headline"></a></h6>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>checking 6-8 if contacts are fine.</p>
+<p>Expected:
+voltage is still to 0</p>
+</aside>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(I_1\)</span> = (6-8)</p></td>
+<td><p><span class="math notranslate nohighlight">\(V_H\)</span> = (7-14)</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(V_H\)</span> = 4.75  μ V</p></li>
+</ul>
+<div class="admonition-phase admonition">
+<p class="admonition-title">Phase</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(V_y\)</span> = -9.75 μ V</p></td>
+<td><p>θ = -64deg</p></td>
+</tr>
+</tbody>
+</table>
+</aside>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Measuring HLoop at 90deg for Plusses (1-13) parallel.</p>
+</aside>
+</section>
+</section>
+</section>
+<section id="repeating-m351-354">
+<h4><a class="toc-backref" href="#id116" role="doc-backlink">Repeating m351-354</a><a class="headerlink" href="#repeating-m351-354" title="Permalink to this headline"></a></h4>
+<div class="admonition-sweeping-field-different-sweeprates admonition">
+<p class="admonition-title">Sweeping Field (different sweeprates)</p>
+<p>from -25 mT to 25 mT  (negative saturation at -.9 T)</p>
+</aside>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nr</p></th>
+<th class="head"><p>Struct</p></th>
+<th class="head"><p>Voltage</p></th>
+<th class="head"><p>Frequency</p></th>
+<th class="head"><p>Temp</p></th>
+<th class="head"><p>Rate</p></th>
+<th class="head"><p>Sweep rate [mT/min]</p></th>
+<th class="head"><p>Limit</p></th>
+<th class="head"><p>timeconstant</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>497</p></td>
+<td><p>Plusses</p></td>
+<td><p>5</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>20/15/10/5/2.5/1</p></td>
+<td><p>.025</p></td>
+<td><p>.003</p></td>
+</tr>
+<tr class="row-odd"><td><p>500</p></td>
+<td><p>Plusses</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>20/15/10/5/2.5/1</p></td>
+<td><p>.025</p></td>
+<td><p>.003</p></td>
+</tr>
+<tr class="row-even"><td><p>501</p></td>
+<td><p>Plusses</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>2/1.5/1/0</p></td>
+<td><p>.025</p></td>
+<td><p>.003</p></td>
+</tr>
+<tr class="row-odd"><td><p>502</p></td>
+<td><p>Plusses</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>2/1.5/1/</p></td>
+<td><p>.025</p></td>
+<td><p><strong>.03</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>507</p></td>
+<td><p>Plusses</p></td>
+<td><p>5</p></td>
+<td><p><strong>17</strong></p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>2/1.5/1/0</p></td>
+<td><p>.025</p></td>
+<td><p><strong>.1</strong></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>The sweeping of the field results in temperature instability: the temperature varies around ± 3 mK (at a sweeprate of 100 mT/min).</p></li>
+<li><p>m500/501 need up to 500min during sweep … resetting buffer after 16000 datapoints (see <a class="reference external" href="http://192.168.6.7/AGM/EVE/-/issues/32">AGM/EVE#32</a>).</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>measurements &gt; 501 Sweeprates below 1 mT/min did not work (magnet did not sweep -&gt; static field).</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>Starting with m500 the capacitor C21 was reset to setting 10 to reproduce the signal analyzer measurements where this setting was used.</p></li>
+</ul>
+</aside>
+</section>
+<section id="repeating-m378-382-different-voltages">
+<h4><a class="toc-backref" href="#id117" role="doc-backlink">Repeating m378-382 (<strong>different voltages</strong>)</a><a class="headerlink" href="#repeating-m378-382-different-voltages" title="Permalink to this headline"></a></h4>
+<p>from -100 mT to 100 mT with negative saturation (using 5.9 mT/min to measure for 35 min.)</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nr</p></th>
+<th class="head"><p>Struct</p></th>
+<th class="head"><p>Voltage</p></th>
+<th class="head"><p>Frequency</p></th>
+<th class="head"><p>Temp</p></th>
+<th class="head"><p>Rate</p></th>
+<th class="head"><p>Sweep rate [mT/min]</p></th>
+<th class="head"><p>Limit</p></th>
+<th class="head"><p>timeconstant</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>498</p></td>
+<td><p>Plusses</p></td>
+<td><p>5/4.5/../0.5</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>5.9</p></td>
+<td><p>.1</p></td>
+<td><p>.003</p></td>
+</tr>
+<tr class="row-odd"><td><p>499</p></td>
+<td><p>Plusses</p></td>
+<td><p>5/4.5/../0.5</p></td>
+<td><p>113</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>5.9</p></td>
+<td><p>.1</p></td>
+<td><p>.003</p></td>
+</tr>
+<tr class="row-even"><td><p>506</p></td>
+<td><p>Plusses</p></td>
+<td><p>5/4.5/../0.5</p></td>
+<td><p><strong>17</strong></p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>5</p></td>
+<td><p>.1</p></td>
+<td><p><strong>.1</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>508</p></td>
+<td><p>Plusses</p></td>
+<td><p>5/4.5/../0.5</p></td>
+<td><p>17</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>5</p></td>
+<td><p>.1</p></td>
+<td><p>.1</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>m506 did not always saturate at -900mT (but sensitivity is always 100|mu|V (5V -&gt; .5V))</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>instead swept -900mT -&gt; -100mT -&gt; +100mT -&gt; -100mT -&gt; +100mt (see Test_measurements/m506.90_Temp_during_meas.dat)</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>m508 repeats m506 but adjusts the sensitivity from 100|mu|V (5V -&gt; 2.5V) -&gt; 20|mu|V (2V -&gt; 0.5V).</p></li>
+</ul>
+</aside>
+</section>
+<section id="repeating-m362-366">
+<h4><a class="toc-backref" href="#id118" role="doc-backlink">Repeating m362-366</a><a class="headerlink" href="#repeating-m362-366" title="Permalink to this headline"></a></h4>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>changing different field ranges</p>
+</aside>
+<p>with negative saturation (at -.9 T)</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nr</p></th>
+<th class="head"><p>Struct</p></th>
+<th class="head"><p>Voltage</p></th>
+<th class="head"><p>Frequency</p></th>
+<th class="head"><p>Temp</p></th>
+<th class="head"><p>Rate</p></th>
+<th class="head"><p>Sweep rate [mT/min]</p></th>
+<th class="head"><p>Limit</p></th>
+<th class="head"><p>timeconstant</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>503</p></td>
+<td><p>Plusses</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>2</p></td>
+<td><p>.15/.125/.1/.075/.05</p></td>
+<td><p>.03</p></td>
+</tr>
+<tr class="row-odd"><td><p>504</p></td>
+<td><p>Plusses</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>2</p></td>
+<td><p>.15/.125/.1/.075/.05</p></td>
+<td><p>.003</p></td>
+</tr>
+<tr class="row-even"><td><p>505</p></td>
+<td><p>Plusses</p></td>
+<td><p>5</p></td>
+<td><p>113</p></td>
+<td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>2</p></td>
+<td><p>.15/.125/.1/.075/.05</p></td>
+<td><p>.1</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>m504/505 has been interupted during the measurement and continued using m504.2_routine.dat.</p>
+</aside>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../hloop/index.html" class="btn btn-neutral float-left" title="Magnetic Characterization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../modules/notebooks.html" class="btn btn-neutral float-right" title="Jupyter Notebooks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020/2021, Jonathan Pieper.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

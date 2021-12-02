@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ana.raw &mdash; Lab Book 0.4 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Lab Book
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Lab Book</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info/gitlab.html">GitLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/onenote/index.html">Original Lab Book</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../data/index.html">About the Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/hloop/index.html">Magnetic Characterization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/mfn/index.html">Magnetic Flux Noise (MFN)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/notebooks.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/ana/index.html">Data Analysis Framework (Ana)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/sa/index.html">SpectrumAnalyzer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/eve/index.html">EVE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/scripts.html">Python Scripts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../info/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info/idx.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Lab Book</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>ana.raw</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for ana.raw</h1><div class="highlight"><pre>
+<span></span><span class="c1"># SPDX-FileCopyrightText: 2020/2021 Jonathan Pieper &lt;ody55eus@mailbox.org&gt;</span>
+<span class="c1">#</span>
+<span class="c1"># SPDX-License-Identifier: GPL-3.0-or-later</span>
+
+<span class="sd">&quot;&quot;&quot;Measurements with time signal only.&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">.single</span> <span class="kn">import</span> <span class="n">SingleM</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">spectrumanalyzer</span> <span class="kn">import</span> <span class="n">SpectrumAnalyzer</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+
+<div class="viewcode-block" id="RAW"><a class="viewcode-back" href="../../modules/ana/programming.html#ana.RAW">[docs]</a><span class="k">class</span> <span class="nc">RAW</span><span class="p">(</span><span class="n">SingleM</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        RAW Measurement:</span>
+<span class="sd">            Measurements with time signal only.</span>
+
+<span class="sd">        .. code-block:: python</span>
+<span class="sd">           :linenos:</span>
+<span class="sd">           :caption: Example</span>
+
+<span class="sd">           data = np.array(timesignal, shape=(n,))</span>
+<span class="sd">           data = {</span>
+<span class="sd">                &#39;data&#39;: np.array(timesignal, shape=(n,))</span>
+<span class="sd">                &#39;info&#39;: {&#39;Nr&#39;: 123, &#39;Add Info&#39;: &#39;Important Informations&#39;}</span>
+<span class="sd">                }</span>
+<span class="sd">           raw = ana.RAW(data)</span>
+
+<span class="sd">        :param data: Different possibilities.</span>
+
+<span class="sd">        :param rate: At which rate was the timesignal measured (samplingrate) [Hz]</span>
+<span class="sd">        :type rate: float, default: 2e-4</span>
+
+<span class="sd">        :info: First Spectrum parameters</span>
+<span class="sd">        :param nof_first_spectra: Cut timesignal into # pieces and average.</span>
+<span class="sd">        :type nof_first_spectra: int, default: 64</span>
+
+<span class="sd">        :param first_spectra_highest_frequency: Cut higher frequencies in final spectrum than this.</span>
+<span class="sd">        :type first_spectra_highest_frequency: float, default: rate/8</span>
+
+<span class="sd">        :param downsample: Downsample the timesignal before calculation.</span>
+<span class="sd">        :type downsamle: bool, default: True</span>
+
+<span class="sd">        :param calc_first: Triggers calculation of first spectrum.</span>
+<span class="sd">        :type calc_first: bool, default: False</span>
+
+<span class="sd">        :info: Second Spectrum parameters</span>
+<span class="sd">        :param highest_octave: The highest octave starting point [Hz] of the second spectrum.</span>
+<span class="sd">        :type highest_octave: int, default: 64</span>
+
+<span class="sd">        :param minimum_points_in_octave: If octave would contain less points, stop.</span>
+<span class="sd">        :type minimum_points_in_octave: int, default: 10</span>
+
+<span class="sd">        :param calc_second: Triggers calculation of second spectrum.</span>
+<span class="sd">        :type calc_second: bool, default: False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;RAW&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;RAW&#39;</span>
+        <span class="c1"># Default Parameter for the first and second spectrum</span>
+        <span class="n">timesignal</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> 
+                              <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;timesignal&#39;</span><span class="p">,</span> 
+                                         <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+                                         <span class="p">)</span>
+                              <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;info&#39;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rate&#39;</span><span class="p">,</span> <span class="mf">2e-4</span><span class="p">)</span>
+
+        <span class="c1"># Define dummies</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">avg</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spec</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">avg_spec</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">freq2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time_signal_second_spectrum_transposed_normalized</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">second_spectrum_time_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">timesignal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_timesignal</span><span class="p">(</span><span class="n">timesignal</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">1024</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">avg</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">highest_octave</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;highest_octave&#39;</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">minimum_points_in_octave</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;minimum_points_in_octave&#39;</span><span class="p">,</span>
+                                                   <span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shifting_method</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">short_mode</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filter_type</span> <span class="o">=</span> <span class="s1">&#39;lowpass&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">passband_factor</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filter_order</span> <span class="o">=</span> <span class="mi">6</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filter_analog</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">downsample</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;downsample&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f_max</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="s1">&#39;first_spectra_highest_frequency&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">/</span> <span class="mi">8</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;nof_first_spectra&#39;</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+            <span class="s2">&quot;Time&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">,</span>
+            <span class="s2">&quot;Num&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span>
+            <span class="s2">&quot;Rate&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">,</span>
+            <span class="s2">&quot;Avg&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">avg</span><span class="p">,</span>
+            <span class="s2">&quot;downsample&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">downsample</span><span class="p">,</span>
+            <span class="s2">&quot;f_max&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">f_max</span><span class="p">,</span>
+            <span class="s2">&quot;NofSpectra&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">,</span>
+        <span class="p">})</span>
+
+        <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;calc_first&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">calc_first_spectrum</span><span class="p">()</span>
+            
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">avg_spec</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+                <span class="k">return</span> 
+            
+            <span class="n">max_freq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">avg_spec</span><span class="p">[</span><span class="s1">&#39;freq&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+                <span class="c1"># &quot;f_min&quot;: freq[0],</span>
+                <span class="c1"># &#39;f_max&#39;: freq.max(),</span>
+                <span class="s2">&quot;f_min&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">avg_spec</span><span class="p">[</span><span class="s1">&#39;freq&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
+                <span class="s1">&#39;f_max&#39;</span><span class="p">:</span> <span class="n">max_freq</span><span class="p">,</span>
+            <span class="p">})</span>
+
+            <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;calc_second&#39;</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">calc_second_spectrum</span><span class="p">(</span><span class="n">highest_octave</span><span class="o">=</span><span class="n">max_freq</span><span class="p">)</span>
+
+<div class="viewcode-block" id="RAW.check_timesignal"><a class="viewcode-back" href="../../modules/ana/programming.html#ana.RAW.check_timesignal">[docs]</a>    <span class="k">def</span> <span class="nf">check_timesignal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timesignal</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; converts pd.DataFrame[&#39;Vx&#39;] and Series into numpy array.</span>
+
+<span class="sd">        :param timesignal: input timesignal</span>
+<span class="sd">        :return: converted timesignal.</span>
+<span class="sd">        :rtype: numpy.ndarray</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">timesignal</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="n">ts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">timesignal</span><span class="p">[</span><span class="s1">&#39;Vx&#39;</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">timesignal</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">):</span>
+            <span class="n">ts</span> <span class="o">=</span> <span class="n">timesignal</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ts</span> <span class="o">=</span> <span class="n">timesignal</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">avg</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1024.</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">avg</span> <span class="o">!=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">avg</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">avg</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span> <span class="o">//</span> <span class="mi">1024</span><span class="p">)</span>
+            <span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="p">[:</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">avg</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">)]</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">ts</span></div>
+
+<div class="viewcode-block" id="RAW.calc_first_spectrum"><a class="viewcode-back" href="../../modules/ana/programming.html#ana.RAW.calc_first_spectrum">[docs]</a>    <span class="k">def</span> <span class="nf">calc_first_spectrum</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sets the variable ``spectrum`` to a</span>
+<span class="sd">        :class:`spectrumanalyzer.SpectrumAnalyzer` object.</span>
+
+<span class="sd">        .. important::</span>
+<span class="sd">            Calculates the first spectrum.</span>
+
+<span class="sd">        </span>
+<span class="sd">        :raises NameError: spectrumanalyzer is not installed</span>
+<span class="sd">        :return: None</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span> <span class="o">=</span> <span class="n">SpectrumAnalyzer</span><span class="p">(</span>
+                <span class="c1"># filepath=filename,</span>
+                <span class="n">timesignal</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timesignal</span><span class="p">,</span>
+                <span class="n">samplingrate</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">,</span>
+                <span class="n">averages</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">avg</span><span class="p">,</span>
+                <span class="n">shifting_method</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">shifting_method</span><span class="p">,</span>
+                <span class="n">short_mode</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">short_mode</span><span class="p">,</span>
+                <span class="n">filter_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_type</span><span class="p">,</span>
+                <span class="n">passband_factor</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">passband_factor</span><span class="p">,</span>
+                <span class="n">filter_order</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_order</span><span class="p">,</span>
+                <span class="n">filter_analog</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_analog</span><span class="p">,</span>
+                <span class="n">first_spectra_highest_frequency</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">f_max</span><span class="p">,</span>
+                <span class="n">downsample</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">downsample</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">NameError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NameError</span><span class="p">(</span><span class="s2">&quot;SpectrumAnalyzer module not installed.&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">spectrum_arr</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">cut_timesignal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">spectrum_arr</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">avg_spec</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+            <span class="s1">&#39;freq&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">frequency_span_array</span><span class="p">,</span>
+            <span class="s1">&#39;S&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">first_spectrum</span><span class="p">})</span></div>
+
+<div class="viewcode-block" id="RAW.calc_second_spectrum"><a class="viewcode-back" href="../../modules/ana/programming.html#ana.RAW.calc_second_spectrum">[docs]</a>    <span class="k">def</span> <span class="nf">calc_second_spectrum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculating the second spectrum.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">calculate_second_spectrum</span><span class="p">(</span>
+            <span class="n">highest_octave</span><span class="o">=</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;highest_octave&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">highest_octave</span><span class="p">),</span>
+            <span class="n">minimum_points_in_octave</span><span class="o">=</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;minimum_points_in_octave&#39;</span><span class="p">,</span>
+                                                <span class="bp">self</span><span class="o">.</span><span class="n">minimum_points_in_octave</span><span class="p">),</span>
+            <span class="n">peak_filter</span><span class="o">=</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;peak_filter&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">freq2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">frequency_span_array</span><span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">frequency_span_array</span> <span class="o">&gt;</span> <span class="mi">0</span>
+            <span class="p">]</span>
+
+        <span class="n">octaves</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">highest_octave</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">):</span>
+            <span class="n">freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span>
+                <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">number_of_first_spectra</span><span class="p">),</span>
+                <span class="mf">1.</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">)[</span><span class="mi">3</span><span class="p">:]</span>
+            <span class="n">freq</span> <span class="o">=</span> <span class="n">freq</span><span class="p">[</span><span class="n">freq</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="n">freq</span> <span class="o">=</span> <span class="n">freq</span><span class="p">[</span><span class="n">freq</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">f_max</span><span class="p">]</span>
+            <span class="n">points_in_octave</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span>
+                <span class="n">freq</span><span class="p">[</span><span class="n">freq</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">highest_octave</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.</span> <span class="o">**</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))])</span>
+            <span class="n">number_of_octaves</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="k">if</span> <span class="n">points_in_octave</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">minimum_points_in_octave</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">octaves</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">min</span><span class="p">(</span><span class="n">octaves</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">],</span> <span class="n">octaves</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+            <span class="s1">&#39;NofOct&#39;</span><span class="p">:</span> <span class="n">number_of_octaves</span><span class="p">,</span>
+        <span class="p">})</span>
+
+        <span class="c1"># Calculate Timesignal if needed</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;skip_timesignal&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">calc_time_signal_second_spectrum</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="RAW.calc_time_signal_second_spectrum"><a class="viewcode-back" href="../../modules/ana/programming.html#ana.RAW.calc_time_signal_second_spectrum">[docs]</a>    <span class="k">def</span> <span class="nf">calc_time_signal_second_spectrum</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">time_signal_second_spectrum_transposed</span> <span class="o">=</span> \
+            <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">time_signal_second_spectrum</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+        <span class="n">second_spectrum_time_array</span> <span class="o">=</span> \
+            <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">time_signal_second_spectrum_transposed</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">*</span> \
+            <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">timestep_second_spectrum</span>
+        <span class="n">time_signal_second_spectrum_transposed_normalized</span> <span class="o">=</span> \
+            <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">time_signal_second_spectrum_transposed</span><span class="p">),</span>
+                      <span class="nb">len</span><span class="p">(</span><span class="n">time_signal_second_spectrum_transposed</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
+        <span class="n">time_signal_second_spectrum_transposed_normalized</span> <span class="o">=</span> \
+            <span class="n">np</span><span class="o">.</span><span class="n">fliplr</span><span class="p">(</span><span class="n">time_signal_second_spectrum_transposed_normalized</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">number_of_octaves</span><span class="p">):</span>
+            <span class="n">time_signal_second_spectrum_transposed_normalized</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> \
+                <span class="n">time_signal_second_spectrum_transposed</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span>
+                    <span class="n">time_signal_second_spectrum_transposed</span><span class="p">[</span><span class="n">p</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">time_signal_second_spectrum_transposed_normalized</span> <span class="o">=</span> \
+            <span class="n">time_signal_second_spectrum_transposed_normalized</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">second_spectrum_time_array</span> <span class="o">=</span> <span class="n">second_spectrum_time_array</span></div>
+
+
+<div class="viewcode-block" id="RAW.plot_spectrum"><a class="viewcode-back" href="../../modules/ana/programming.html#ana.RAW.plot_spectrum">[docs]</a>    <span class="k">def</span> <span class="nf">plot_spectrum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">avg_spec</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;freq&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="n">loglog</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RAW.plot_time"><a class="viewcode-back" href="../../modules/ana/programming.html#ana.RAW.plot_time">[docs]</a>    <span class="k">def</span> <span class="nf">plot_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">timesignal</span><span class="p">)),</span> <span class="bp">self</span><span class="o">.</span><span class="n">timesignal</span><span class="p">,</span>
+                  <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">.2</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RAW.subtract_mean"><a class="viewcode-back" href="../../modules/ana/programming.html#ana.RAW.subtract_mean">[docs]</a>    <span class="k">def</span> <span class="nf">subtract_mean</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Subtracts mean value from timesignal.</span>
+
+<span class="sd">        :param inplace: Change variable inside this object?</span>
+<span class="sd">        :type inplace: bool</span>
+
+<span class="sd">        :return: normalized timesignal</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">norm_ts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">timesignal</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">timesignal</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">timesignal</span> <span class="o">=</span> <span class="n">norm_ts</span>
+
+        <span class="k">return</span> <span class="n">norm_ts</span></div>
+
+<div class="viewcode-block" id="RAW.write"><a class="viewcode-back" href="../../modules/ana/programming.html#ana.RAW.write">[docs]</a>    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Writing data to a file.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        file: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">avg_spec</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+        <span class="n">all_first_spectra</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">first_spectra_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:]</span>
+        <span class="n">all_first_spectra</span><span class="p">[</span><span class="s1">&#39;Avg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">avg_spec</span><span class="p">[</span><span class="s1">&#39;S&#39;</span><span class="p">]</span>
+
+        <span class="n">all_first_spectra</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">_first.dat&quot;</span> <span class="o">%</span> <span class="n">file</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="c1"># all_first_spectra.to_feather(&quot;%s_first.feather&quot; % file)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">second_spectra</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+            <span class="k">return</span>
+
+        <span class="n">all_second_spectra</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">second_spectra</span><span class="p">,</span>
+                                          <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">all_second_spectra</span><span class="p">[</span><span class="s1">&#39;Frequency&#39;</span><span class="p">]</span> <span class="o">=</span> \
+            <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">frequency_span_array_second_spectra</span>
+        <span class="n">all_second_spectra</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">_second.dat&#39;</span> <span class="o">%</span> <span class="n">file</span><span class="p">,</span>
+                                  <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="c1"># all_second_spectra.to_feather(&#39;%s_second.feather&#39; % file)</span>
+
+        <span class="n">all_second_spectra_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">time_signal_second_spectrum</span><span class="p">)</span>
+        <span class="n">all_second_spectra_time</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">_second_time.dat&#39;</span> <span class="o">%</span> <span class="n">file</span><span class="p">,</span>
+                                       <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+        <span class="c1"># all_second_spectra_time.to_feather(&#39;%s_second_time.feather&#39; % file)</span>
+
+<div class="viewcode-block" id="RAW.read"><a class="viewcode-back" href="../../modules/ana/programming.html#ana.RAW.read">[docs]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reading data from file.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        file: str</span>
+<span class="sd">        Filename base to read data from.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">first_spectra</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">_first.dat&quot;</span> <span class="o">%</span> <span class="n">file</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;First Spectrum at </span><span class="si">%s</span><span class="s1">_first.dat not found!&#39;</span><span class="p">,</span>
+                              <span class="n">file</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span> <span class="o">=</span> <span class="n">SpectrumAnalyzer</span><span class="p">(</span>
+                <span class="n">timesignal</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timesignal</span><span class="p">,</span>
+                <span class="n">samplingrate</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">,</span>
+                <span class="n">averages</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">avg</span><span class="p">,</span>
+                <span class="n">shifting_method</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">shifting_method</span><span class="p">,</span>
+                <span class="n">short_mode</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">short_mode</span><span class="p">,</span>
+                <span class="n">filter_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_type</span><span class="p">,</span>
+                <span class="n">passband_factor</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">passband_factor</span><span class="p">,</span>
+                <span class="n">filter_order</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_order</span><span class="p">,</span>
+                <span class="n">filter_analog</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_analog</span><span class="p">,</span>
+                <span class="n">first_spectra_highest_frequency</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">f_max</span><span class="p">,</span>
+                <span class="n">downsample</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">downsample</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Can not create SpectrumAnalyzer Object: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">avg_spec</span> <span class="o">=</span> <span class="n">first_spectra</span><span class="p">[[</span><span class="s1">&#39;Frequency&#39;</span><span class="p">,</span> <span class="s1">&#39;Avg&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">loc</span><span class="p">[:]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">avg_spec</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;Avg&#39;</span><span class="p">:</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span>
+                                  <span class="s1">&#39;Frequency&#39;</span><span class="p">:</span> <span class="s1">&#39;freq&#39;</span><span class="p">},</span>
+                                 <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="n">first_spectra</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">number_of_first_spectra</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">frequency_span_array</span> <span class="o">=</span> <span class="n">first_spectra</span><span class="p">[</span><span class="s1">&#39;Frequency&#39;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">finalize_first_spectrum</span><span class="p">(</span>
+                <span class="n">first_spectra</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Avg&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Can not load variables: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">second_spectrum</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">_second.dat&quot;</span> <span class="o">%</span> <span class="n">file</span><span class="p">)</span>
+            <span class="n">second_spectrum_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">_second_time.dat&quot;</span> <span class="o">%</span> <span class="n">file</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Second Spectrum (</span><span class="si">%s</span><span class="s1">_second.dat) not found!&#39;</span><span class="p">,</span>
+                             <span class="n">file</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">frequency_span_array_second_spectra</span> <span class="o">=</span> \
+                <span class="n">second_spectrum</span><span class="p">[</span><span class="s1">&#39;Frequency&#39;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">second_spectra</span> <span class="o">=</span> <span class="n">second_spectrum</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">,</span>
+                                                                <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">time_signal_second_spectrum</span> <span class="o">=</span> <span class="n">second_spectrum_time</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Can not load second spectrum variables: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Second Spectrum loaded but not all variables&quot;</span>
+                            <span class="s2">&quot;are implemented yet. Only access to </span><span class="se">\n</span><span class="s2">&quot;</span>
+                            <span class="s2">&quot;- second_spectra</span><span class="se">\n</span><span class="s2">&quot;</span>
+                            <span class="s2">&quot;- time_signal_second_spectrum</span><span class="se">\n</span><span class="s2">&quot;</span>
+                            <span class="s2">&quot;- frequency_span_array_second_spectra&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020/2021, Jonathan Pieper.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

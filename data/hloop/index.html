@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magnetic Characterization &mdash; Lab Book 0.4 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Magnetic Flux Noise (MFN)" href="../mfn/index.html" />
+    <link rel="prev" title="About the Data" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Lab Book
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Lab Book</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info/gitlab.html">GitLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../onenote/index.html">Original Lab Book</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">About the Data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Magnetic Characterization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#about">About</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#project-start">Project Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hysteresis-loops">Hysteresis Loops</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#hysteresis-loop-at-90deg">Hysteresis Loop at 90deg</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reproduced-hysteresis-loops">Reproduced Hysteresis Loops</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#angle">Angle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#from-filenames">From Filenames</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#different-angles">Different Angles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mfn/index.html">Magnetic Flux Noise (MFN)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/notebooks.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/ana/index.html">Data Analysis Framework (Ana)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/sa/index.html">SpectrumAnalyzer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/eve/index.html">EVE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/scripts.html">Python Scripts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../info/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info/idx.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Lab Book</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Magnetic Characterization</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/data/hloop/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="magnetic-characterization">
+<h1>Magnetic Characterization<a class="headerlink" href="#magnetic-characterization" title="Permalink to this headline"></a></h1>
+<nav class="contents local" id="content">
+<p class="topic-title">Content</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#about" id="id8">About</a></p>
+<ul>
+<li><p><a class="reference internal" href="#project-start" id="id9">Project Start</a></p></li>
+<li><p><a class="reference internal" href="#hysteresis-loops" id="id10">Hysteresis Loops</a></p>
+<ul>
+<li><p><a class="reference internal" href="#hysteresis-loop-at-90deg" id="id11">Hysteresis Loop at 90deg</a></p></li>
+<li><p><a class="reference internal" href="#reproduced-hysteresis-loops" id="id12">Reproduced Hysteresis Loops</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#parameters" id="id13">Parameters</a></p>
+<ul>
+<li><p><a class="reference internal" href="#angle" id="id14">Angle</a></p></li>
+<li><p><a class="reference internal" href="#from-filenames" id="id15">From Filenames</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#different-angles" id="id16">Different Angles</a></p></li>
+</ul>
+</nav>
+<figure class="align-default" id="id2">
+<a class="reference external image-reference" href="../../_static/hloop_mindmap.html"><img alt="../../_images/hloop_mindmap.png" src="../../_images/hloop_mindmap.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Structure of the Magnetic Characterization Measurements (SEM Image from Fabrizio Porrati)</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="about">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">About</a><a class="headerlink" href="#about" title="Permalink to this headline"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">Author<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Jonathan</p>
+</dd>
+<dt class="field-even">Date<span class="colon">:</span></dt>
+<dd class="field-even"><p>22 August 2020</p>
+</dd>
+</dl>
+<nav class="contents local" id="id1">
+<p class="topic-title">Content</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#project-start" id="id17">Project Start</a></p></li>
+<li><p><a class="reference internal" href="#hysteresis-loops" id="id18">Hysteresis Loops</a></p>
+<ul>
+<li><p><a class="reference internal" href="#hysteresis-loop-at-90deg" id="id19">Hysteresis Loop at 90deg</a></p></li>
+<li><p><a class="reference internal" href="#reproduced-hysteresis-loops" id="id20">Reproduced Hysteresis Loops</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#parameters" id="id21">Parameters</a></p>
+<ul>
+<li><p><a class="reference internal" href="#angle" id="id22">Angle</a></p></li>
+<li><p><a class="reference internal" href="#from-filenames" id="id23">From Filenames</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>All measurements in this Lab Book are taken while an external magnetic field influences the sample.</p>
+<p>The following section contains information about the normal magnetic measurements.
+They are measuring the hysteresis loop of a hard magnet.</p>
+<p>Because the nanostructures are coupled systems, a small change in the parameters can lead to a
+large respnonse of the system.</p>
+<section id="project-start">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Project Start</a><a class="headerlink" href="#project-start" title="Permalink to this headline"></a></h3>
+<figure class="align-default" id="id3">
+<img alt="../../_images/note-start-project.png" src="../../_images/note-start-project.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Start of the Project</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="hysteresis-loops">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Hysteresis Loops</a><a class="headerlink" href="#hysteresis-loops" title="Permalink to this headline"></a></h3>
+<section id="hysteresis-loop-at-90deg">
+<h4><a class="toc-backref" href="#id19" role="doc-backlink">Hysteresis Loop at 90deg</a><a class="headerlink" href="#hysteresis-loop-at-90deg" title="Permalink to this headline"></a></h4>
+<p>All measuements have been measured at &#64;90deg (Parallel setting for best sensitivity).</p>
+<figure class="align-default" id="id4">
+<a class="reference external image-reference" href="../../_static/m57_hloop.pdf"><img alt="../../_images/m57_hloop.png" src="../../_images/m57_hloop.png" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text"><strong>m57</strong>: 90deg (Parallel) Hysteresis Loop</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="reproduced-hysteresis-loops">
+<h4><a class="toc-backref" href="#id20" role="doc-backlink">Reproduced Hysteresis Loops</a><a class="headerlink" href="#reproduced-hysteresis-loops" title="Permalink to this headline"></a></h4>
+<figure class="align-default">
+<a class="reference external image-reference" href="hloop-repeat.pdf"><img alt="../../_images/hloop-repeat.png" src="../../_images/hloop-repeat.png" style="width: 100%;" /></a>
+</figure>
+<figure class="align-default">
+<a class="reference external image-reference" href="hloop-repeat-2.pdf"><img alt="../../_images/hloop-repeat-2.png" src="../../_images/hloop-repeat-2.png" style="width: 100%;" /></a>
+</figure>
+<figure class="align-default">
+<a class="reference external image-reference" href="hloop-repeat-3.pdf"><img alt="../../_images/hloop-repeat-3.png" src="../../_images/hloop-repeat-3.png" style="width: 100%;" /></a>
+</figure>
+<figure class="align-default" id="id5">
+<a class="reference external image-reference" href="hloop-repeat-4.pdf"><img alt="../../_images/hloop-repeat-4.png" src="../../_images/hloop-repeat-4.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Reproduced Hysteresis Loops.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="parameters">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline"></a></h3>
+<p>There are a lot of parameters connected to the researched system.
+In order to find corellations the following parameters have been studied in detail:</p>
+<section id="angle">
+<h4><a class="toc-backref" href="#id22" role="doc-backlink">Angle</a><a class="headerlink" href="#angle" title="Permalink to this headline"></a></h4>
+<p>The goal of this section is to study the influence of an external field at different angles.</p>
+<p>The following table shows the different angles and the corresponding measurement numbers for the different structures.
+At Angle ±90deg there is only one measurement as plusses and crosses could be measured simultaneously.</p>
+</section>
+<section id="from-filenames">
+<h4><a class="toc-backref" href="#id23" role="doc-backlink">From Filenames</a><a class="headerlink" href="#from-filenames" title="Permalink to this headline"></a></h4>
+</section>
+</section>
+</section>
+<section id="different-angles">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Different Angles</a><a class="headerlink" href="#different-angles" title="Permalink to this headline"></a></h2>
+<p>This is a special angle as it is the only one that can be measured with parallel setting.</p>
+<figure class="align-default" id="id6">
+<img alt="../../_images/m57-plan.png" src="../../_images/m57-plan.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text"><strong>m57</strong>: Parallel measured 90deg hysteresis loop.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id7">
+<img alt="../../_images/m56.png" src="../../_images/m56.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text"><strong>m56</strong>: Hall voltage of external 1 T field sweep.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="About the Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../mfn/index.html" class="btn btn-neutral float-right" title="Magnetic Flux Noise (MFN)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020/2021, Jonathan Pieper.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

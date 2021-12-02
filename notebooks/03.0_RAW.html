@@ -1,0 +1,2094 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAW Time-Signal Measurements &mdash; Lab Book 0.4 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MFN: Compare Different Sweeprates (SR830 vs. SR785)" href="04.2_MFN_sweeprates.html" />
+    <link rel="prev" title="Signal Analyzer Measurements (2)" href="02.2_Signal_Analyzer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Lab Book
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Lab Book</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/gitlab.html">GitLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/onenote/index.html">Original Lab Book</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data/index.html">About the Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/hloop/index.html">Magnetic Characterization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/mfn/index.html">Magnetic Flux Noise (MFN)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../modules/notebooks.html">Jupyter Notebooks</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00_MasterPlots.html">Master Thesis (All Plots)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_Hloop.html">Hloop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.1_Signal_Analyzer.html">Signal Analyzer Measurements (1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.2_Signal_Analyzer.html">Signal Analyzer Measurements (2)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RAW Time-Signal Measurements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Loading">Loading</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Reload-Modules">Reload Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Define-Functions">Define Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Define-Variables">Define Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Load-Data">Load Data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Search-data-manually">Search data manually</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Fit-Data">Fit Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Split-Data-into-Groups-(e.g. 5x8)">Split Data into Groups (e.g. 5x8)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Function-to-save-plots">Function to save plots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Plot-kde-of-multiple-fields">Plot kde of multiple fields</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Plot-Data">Plot Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Default-Info-about-Measurements">Default Info about Measurements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Plot-First-and-Second-Spectrum">Plot First and Second Spectrum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Plot-Time-Signal">Plot Time Signal</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Plot-Noise-Spectrum-Hysteresis">Plot Noise Spectrum Hysteresis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Cut-and-Paste-Timesignal-(multiple-Measurements)">Cut and Paste Timesignal (multiple Measurements)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Test-to-put-multiple-measurements-together">Test to put multiple measurements together</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Evaluating-m456-(multiple-measurements-at-0-field)">Evaluating m456 (multiple measurements at 0 field)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="04.2_MFN_sweeprates.html">MFN: Compare Different Sweeprates (SR830 vs. SR785)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04.3_MFN_voltages.html">MFN: Compare Different Voltages (SR830 vs. SR785)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/ana/index.html">Data Analysis Framework (Ana)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/sa/index.html">SpectrumAnalyzer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/eve/index.html">EVE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/scripts.html">Python Scripts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../info/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/idx.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Lab Book</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../modules/notebooks.html">Jupyter Notebooks</a> &raquo;</li>
+      <li>RAW Time-Signal Measurements</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/notebooks/03.0_RAW.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="RAW-Time-Signal-Measurements">
+<h1>RAW Time-Signal Measurements<a class="headerlink" href="#RAW-Time-Signal-Measurements" title="Permalink to this headline"></a></h1>
+<section id="Loading">
+<h2>Loading<a class="headerlink" href="#Loading" title="Permalink to this headline"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span># Basic Plotting libraries
+import matplotlib.pyplot as plt
+import matplotlib
+import seaborn as sns
+from mpl_toolkits.axes_grid1.inset_locator import inset_axes
+
+# Math / Science Libraries
+import pandas as pd
+import numpy as np
+import scipy
+
+import logging # System Modules
+import re # Regular Expressions
+from glob import glob
+
+logging.basicConfig(level=logging.WARNING)
+
+# Plotting parameters
+params = {
+    &#39;figure.dpi&#39;: 300,
+    &#39;figure.figsize&#39;: (20,15),
+    &#39;figure.subplot.hspace&#39;: 0.3,
+    &#39;figure.subplot.wspace&#39;: 0.3,
+    &#39;savefig.transparent&#39;: False,
+    &#39;savefig.bbox&#39;: &#39;tight&#39;,
+    &#39;savefig.pad_inches&#39;: 0.1,
+}
+matplotlib.rcParams.update(params)
+
+
+logger = logging.getLogger(&#39;EVA-SR830DAQ&#39;)
+
+%load_ext autoreload
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>import os
+os.chdir(&#39;../../ana&#39;)
+os.getcwd()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;/Users/jp/Projects/Code/lab-book/ana&#39;
+</pre></div></div>
+</div>
+<section id="Reload-Modules">
+<h3>Reload Modules<a class="headerlink" href="#Reload-Modules" title="Permalink to this headline"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>%reload_ext autoreload
+%autoreload 1
+logging.basicConfig(level=logging.DEBUG)
+import ana
+from spectrumanalyzer import SpectrumAnalyzer
+
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Define-Functions">
+<h3>Define Functions<a class="headerlink" href="#Define-Functions" title="Permalink to this headline"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>default_styling = [[&#39;science&#39;], {&#39;context&#39;: &#39;paper&#39;,
+                                 &#39;style&#39;: &#39;dark&#39;,
+                                 &#39;palette&#39;: &#39;bright&#39;,
+                                }]
+def set_style(styling=default_styling):
+    plt_style, sns_style = styling
+    plt.style.use(*plt_style)
+    sns.set(**sns_style)
+set_style()
+</pre></div>
+</div>
+</div>
+<section id="Plot-Spectrum-Hysteresis">
+<h4>Plot Spectrum Hysteresis<a class="headerlink" href="#Plot-Spectrum-Hysteresis" title="Permalink to this headline"></a></h4>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>def plot_spectrum_hyst(nr1, nr2, **kwargs):
+    meas = {}
+    meas[0] = mfn_measurements[nr1].measurements
+    meas[1] = mfn_measurements[nr2].measurements
+    n1, n2 = len(meas[0]), len(meas[1])
+    sns.set_palette(sns.color_palette(&quot;RdBu&quot;, n1+n2))
+    fig, (ax1) = plt.subplots(nrows=1, figsize=(16,10))
+    colors = &#39;rb&#39;
+    for i,nr in enumerate([nr1, nr2]):
+        c = colors[i]
+        for field in mfn_measurements[nr].data.sort_values(&#39;Field&#39;)[&#39;Field&#39;].unique():
+            s = meas[i][field].avg_spec
+            ax1.plot(field, s.S.sum(), c+&#39;o&#39;)
+    ax1.set_title(&#39;$\\sum_f$ Noise Power (m%s Red / m%s Blue)&#39; % (nr1, nr2))
+    if kwargs.get(&#39;log&#39;, True):
+        ax1.set_yscale(&#39;log&#39;)
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="Define-Variables">
+<h3>Define Variables<a class="headerlink" href="#Define-Variables" title="Permalink to this headline"></a></h3>
+<p>Do this only Once! After initialization, these Variables will contain all measurement data and can be used for different evaluations!</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>#df, spec = {}, {}
+mfn_measurements = {}
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>def load_meas_info(file=&#39;data/mfn_info.csv&#39;):
+    meas_info = pd.read_csv(file, index_col=0)
+    meas_info.index.name = &#39;Nr&#39;
+
+    # Drop Measurements where an error occured.
+    meas_info = meas_info[meas_info[&#39;Error&#39;] != True]
+    meas_info.drop(&#39;Error&#39;, axis=1, inplace=True)
+    return meas_info
+
+meas_info = load_meas_info()
+meas_info
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Struct</th>
+      <th>Angle</th>
+      <th>Voltage</th>
+      <th>Frequency</th>
+      <th>Temp</th>
+      <th>Preamp</th>
+      <th>Rate</th>
+      <th>Time</th>
+      <th>Dir</th>
+      <th>Limit</th>
+      <th>dB</th>
+      <th>timeconstant</th>
+      <th>SR</th>
+    </tr>
+    <tr>
+      <th>Nr</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>430</th>
+      <td>Plusses</td>
+      <td>45</td>
+      <td>2.5</td>
+      <td>17</td>
+      <td>30</td>
+      <td>False</td>
+      <td>8</td>
+      <td>600.0</td>
+      <td>Down</td>
+      <td>0.2</td>
+      <td>0.010</td>
+      <td>0.100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>431</th>
+      <td>Plusses</td>
+      <td>45</td>
+      <td>2.5</td>
+      <td>17</td>
+      <td>30</td>
+      <td>False</td>
+      <td>8</td>
+      <td>600.0</td>
+      <td>Up</td>
+      <td>0.2</td>
+      <td>0.010</td>
+      <td>0.100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>433</th>
+      <td>Plusses</td>
+      <td>45</td>
+      <td>2.5</td>
+      <td>113</td>
+      <td>30</td>
+      <td>True</td>
+      <td>16</td>
+      <td>1024.0</td>
+      <td>Up</td>
+      <td>0.1</td>
+      <td>0.002</td>
+      <td>0.100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>434</th>
+      <td>Plusses</td>
+      <td>45</td>
+      <td>2.5</td>
+      <td>113</td>
+      <td>30</td>
+      <td>True</td>
+      <td>32</td>
+      <td>512.0</td>
+      <td>Up</td>
+      <td>0.2</td>
+      <td>0.020</td>
+      <td>0.100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>435</th>
+      <td>Plusses</td>
+      <td>45</td>
+      <td>5</td>
+      <td>113</td>
+      <td>30</td>
+      <td>True</td>
+      <td>16</td>
+      <td>1024.0</td>
+      <td>Down</td>
+      <td>0.1</td>
+      <td>0.005</td>
+      <td>0.100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>504</th>
+      <td>Plusses</td>
+      <td>90</td>
+      <td>5</td>
+      <td>113</td>
+      <td>15</td>
+      <td>False</td>
+      <td>8</td>
+      <td>NaN</td>
+      <td>Up</td>
+      <td>0.5/0.75/1.0/1.25/1.5</td>
+      <td>NaN</td>
+      <td>0.003</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>505</th>
+      <td>Plusses</td>
+      <td>90</td>
+      <td>5</td>
+      <td>113</td>
+      <td>15</td>
+      <td>False</td>
+      <td>8</td>
+      <td>NaN</td>
+      <td>Up</td>
+      <td>0.5/0.75/1.0/1.25/1.5</td>
+      <td>NaN</td>
+      <td>0.100</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>506</th>
+      <td>Plusses</td>
+      <td>90</td>
+      <td>0.5/1.0/1.5/2.0/2.5/3.0/3.5/4.0/4.5/5.0</td>
+      <td>17</td>
+      <td>15</td>
+      <td>False</td>
+      <td>8</td>
+      <td>NaN</td>
+      <td>Up</td>
+      <td>0.1</td>
+      <td>NaN</td>
+      <td>0.100</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>507</th>
+      <td>Plusses</td>
+      <td>90</td>
+      <td>5</td>
+      <td>17</td>
+      <td>15</td>
+      <td>False</td>
+      <td>8</td>
+      <td>NaN</td>
+      <td>Up</td>
+      <td>0.025</td>
+      <td>NaN</td>
+      <td>0.100</td>
+      <td>2/1.5/1/0</td>
+    </tr>
+    <tr>
+      <th>508</th>
+      <td>Plusses</td>
+      <td>90</td>
+      <td>2.5/3.0/3.5/4.0/4.5/5.0</td>
+      <td>17</td>
+      <td>15</td>
+      <td>False</td>
+      <td>8</td>
+      <td>NaN</td>
+      <td>Up</td>
+      <td>0.1</td>
+      <td>NaN</td>
+      <td>0.100</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+<p>66 rows × 13 columns</p>
+</div></div>
+</div>
+</section>
+<section id="Load-Data">
+<h3>Load Data<a class="headerlink" href="#Load-Data" title="Permalink to this headline"></a></h3>
+<p>This takes a long time, if calculated for each Measurement <code class="docutils literal notranslate"><span class="pre">meas_info.index</span></code>! Instead use single numbers!</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>%%time
+num = 64
+for nr in [446 + _ for _ in range(2)]: #meas_info.index: #
+    tc = meas_info[&#39;timeconstant&#39;].loc[nr]
+    mfn_measurements[nr] = ana.MFN(nr, timeconstant=tc, equalize_length=False)
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+CPU times: user 4.64 s, sys: 136 ms, total: 4.77 s
+Wall time: 4.98 s
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="Search-data-manually">
+<h2>Search data manually<a class="headerlink" href="#Search-data-manually" title="Permalink to this headline"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>mfn_measurements.keys()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+dict_keys([446, 447])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>for nr in mfn_measurements.keys():
+    stat = mfn_measurements[nr].data.groupby(&#39;Field&#39;).describe()[&#39;Vx&#39;]
+    idxmax = (stat[&#39;max&#39;] - stat[&#39;min&#39;]).idxmax()
+
+    try:
+        mfn = mfn_measurements[nr]
+        mfn.plot_info(show_field=idxmax, numlevels=20)
+    except Exception as e:
+        print(&#39;Error processing Nr. %s: %s&#39; % (nr, e))
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_03.0_RAW_19_0.png" src="../_images/notebooks_03.0_RAW_19_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_03.0_RAW_19_1.png" src="../_images/notebooks_03.0_RAW_19_1.png" />
+</div>
+</div>
+<section id="Fit-Data">
+<h3>Fit Data<a class="headerlink" href="#Fit-Data" title="Permalink to this headline"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>df_fit = pd.DataFrame()
+for field in np.sort(mfn.data.Field.unique()):
+    signal = mfn.data.query(&#39;Field == @field&#39;)
+    mean = signal.Vx.mean()
+    signal.loc[:,&#39;fittedVx&#39;] = signal.Vx - mean
+
+    df_fit = pd.concat([df_fit, signal])
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/indexing.py:1667: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  self.obj[key] = value
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>sns.violinplot(x=&quot;Field&quot;, y=&#39;fittedVx&#39;, data=df_fit)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;AxesSubplot:xlabel=&#39;Field&#39;, ylabel=&#39;fittedVx&#39;&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_03.0_RAW_22_1.png" src="../_images/notebooks_03.0_RAW_22_1.png" />
+</div>
+</div>
+</section>
+<section id="Split-Data-into-Groups-(e.g. 5x8)">
+<h3>Split Data into Groups (e.g. 5x8)<a class="headerlink" href="#Split-Data-into-Groups-(e.g. 5x8)" title="Permalink to this headline"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>field_groups = df_fit.groupby(&#39;Field&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>neg_saturation = -.2
+field_range = .4
+steps = 4
+df = pd.DataFrame()
+for i in range(steps):
+    stepsize = (field_range/steps)
+    start = neg_saturation + i*stepsize
+    end = start + stepsize
+    df_tmp = df_fit.query(&#39;Field &gt;= @start and Field &lt; @end&#39;)
+    df_tmp.reset_index(inplace=True)
+    df_tmp.loc[:,&#39;Group&#39;] = i
+    for j, f in enumerate(np.sort(df_tmp.Field.unique())):
+        df_tmp.loc[df_tmp.query(&#39;Field == @f&#39;).index,&#39;SubGroup&#39;] = j
+        df_tmp.loc[df_tmp.query(&#39;Field == @f&#39;).index,&#39;x&#39;] = df_tmp.loc[
+            df_tmp.query(&#39;Field == @f&#39;).index,&#39;fittedVx&#39;] + i*.2
+    df = pd.concat([df, df_tmp])
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+<span class="ansi-green-fg">/var/folders/nm/0s3x_nnn1ss1n7rd1px5gqsr0000gn/T/ipykernel_33246/2999452645.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      9</span>     df_tmp <span class="ansi-blue-fg">=</span> df_fit<span class="ansi-blue-fg">.</span>query<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;Field &gt;= @start and Field &lt; @end&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     10</span>     df_tmp<span class="ansi-blue-fg">.</span>reset_index<span class="ansi-blue-fg">(</span>inplace<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">---&gt; 11</span><span class="ansi-red-fg">     </span>df_tmp<span class="ansi-blue-fg">.</span>loc<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">&#39;Group&#39;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> i
+<span class="ansi-green-intense-fg ansi-bold">     12</span>     <span class="ansi-green-fg">for</span> j<span class="ansi-blue-fg">,</span> f <span class="ansi-green-fg">in</span> enumerate<span class="ansi-blue-fg">(</span>np<span class="ansi-blue-fg">.</span>sort<span class="ansi-blue-fg">(</span>df_tmp<span class="ansi-blue-fg">.</span>Field<span class="ansi-blue-fg">.</span>unique<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     13</span>         df_tmp<span class="ansi-blue-fg">.</span>loc<span class="ansi-blue-fg">[</span>df_tmp<span class="ansi-blue-fg">.</span>query<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;Field == @f&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>index<span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">&#39;SubGroup&#39;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> j
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/indexing.py</span> in <span class="ansi-cyan-fg">__setitem__</span><span class="ansi-blue-fg">(self, key, value)</span>
+<span class="ansi-green-intense-fg ansi-bold">    721</span>
+<span class="ansi-green-intense-fg ansi-bold">    722</span>         iloc <span class="ansi-blue-fg">=</span> self <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>name <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#34;iloc&#34;</span> <span class="ansi-green-fg">else</span> self<span class="ansi-blue-fg">.</span>obj<span class="ansi-blue-fg">.</span>iloc
+<span class="ansi-green-fg">--&gt; 723</span><span class="ansi-red-fg">         </span>iloc<span class="ansi-blue-fg">.</span>_setitem_with_indexer<span class="ansi-blue-fg">(</span>indexer<span class="ansi-blue-fg">,</span> value<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>name<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    724</span>
+<span class="ansi-green-intense-fg ansi-bold">    725</span>     <span class="ansi-green-fg">def</span> _validate_key<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> key<span class="ansi-blue-fg">,</span> axis<span class="ansi-blue-fg">:</span> int<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/indexing.py</span> in <span class="ansi-cyan-fg">_setitem_with_indexer</span><span class="ansi-blue-fg">(self, indexer, value, name)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1655</span>                         <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> len<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>obj<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   1656</span>                             <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> is_list_like_indexer<span class="ansi-blue-fg">(</span>value<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">-&gt; 1657</span><span class="ansi-red-fg">                                 raise ValueError(
+</span><span class="ansi-green-intense-fg ansi-bold">   1658</span>                                     <span class="ansi-blue-fg">&#34;cannot set a frame with no &#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1659</span>                                     <span class="ansi-blue-fg">&#34;defined index and a scalar&#34;</span>
+
+<span class="ansi-red-fg">ValueError</span>: cannot set a frame with no defined index and a scalar
+</pre></div></div>
+</div>
+</section>
+<section id="Function-to-save-plots">
+<h3>Function to save plots<a class="headerlink" href="#Function-to-save-plots" title="Permalink to this headline"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>def save_plot(name, kind=&#39;pgf&#39;, dpi=None):
+    if not os.path.exists(&#39;img&#39;):
+        os.makedirs(&#39;img&#39;)
+    if kind == &#39;pgf&#39;:
+        matplotlib.use(&quot;pgf&quot;)
+        matplotlib.rcParams.update({
+            &quot;pgf.texsystem&quot;: &quot;pdflatex&quot;,
+            &#39;font.family&#39;: &#39;serif&#39;,
+            &#39;text.usetex&#39;: True,
+            &#39;pgf.rcfonts&#39;: False,
+        })
+
+    plt.show()
+    if dpi == None:
+        plt.savefig(&#39;img/%s.%s&#39; % (name, kind))
+    else:
+        plt.savefig(&#39;img/%s.%s&#39; % (name, kind), dpi=dpi)
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Plot-kde-of-multiple-fields">
+<h3>Plot kde of multiple fields<a class="headerlink" href="#Plot-kde-of-multiple-fields" title="Permalink to this headline"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>factor = 1e3
+plt.style.use([&#39;science&#39;])
+sns.set(&#39;paper&#39;, &#39;white&#39;, rc={&quot;axes.facecolor&quot;: (0, 0, 0, 0)})
+steps = 4
+for i in range(steps):
+    stepsize = (field_range/steps)
+    start = neg_saturation + i*stepsize
+    end = start + stepsize
+    df_tmp = df.query(&#39;Field &gt;= @start and Field &lt; @end&#39;)
+    df_tmp.loc[:,&#39;fittedVx&#39;] *= factor
+
+    # Initialize the FacetGrid object
+    pal = sns.dark_palette(color=&quot;blue&quot;, n_colors=10, input=&#39;huls&#39;)
+    g = sns.FacetGrid(df_tmp, row=&quot;Field&quot;, hue=&quot;Field&quot;, aspect=5, height=.8, palette=pal)
+    g.map(sns.kdeplot, &quot;fittedVx&quot;, clip_on=True, shade=True, alpha=1, lw=1.5, bw=.2)
+    g.map(sns.kdeplot, &quot;fittedVx&quot;, clip_on=True, color=&quot;w&quot;, lw=2, bw=.2)
+    # g.map(sns.distplot, &quot;fittedVx&quot;, hist=True, norm_hist=True, hist_kws={&#39;alpha&#39;: .5})
+    g.map(plt.axhline, y=0, lw=2, clip_on=True).set(xlim=(-1.3,1.3))
+
+    def label(x, color, label):
+        ax = plt.gca()
+        ax.text(0, .3, label, fontweight=&quot;bold&quot;, color=color,
+                ha=&quot;left&quot;, va=&quot;center&quot;, fontsize=16,
+                transform=ax.transAxes)
+
+
+    g.map(label, &quot;fittedVx&quot;)
+
+    # Set the subplots to overlap
+    g.fig.subplots_adjust(hspace=-.3)
+
+    # Remove axes details that don&#39;t play well with overlap
+    g.set_titles(&quot;&quot;)
+    g.set(yticks=[])#, xticks=[-100 + 50*_ for _ in range(5)])
+    g.despine(bottom=True, left=True)
+    unit = &#39;mT&#39; if factor == 1e3 else &#39;\\muT&#39; if factor == 1e6 else &#39;T&#39;
+    plt.gca().set_xlabel(&#39;$V_H$ [$\\mathrm{%s}$]&#39; % unit)
+    save_plot(&#39;m487: histogram_%s&#39; % i, &#39;png&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/scope.py</span> in <span class="ansi-cyan-fg">resolve</span><span class="ansi-blue-fg">(self, key, is_local)</span>
+<span class="ansi-green-intense-fg ansi-bold">    199</span>             <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>has_resolvers<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 200</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>resolvers<span class="ansi-blue-fg">[</span>key<span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">    201</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/collections/__init__.py</span> in <span class="ansi-cyan-fg">__getitem__</span><span class="ansi-blue-fg">(self, key)</span>
+<span class="ansi-green-intense-fg ansi-bold">    897</span>                 <span class="ansi-green-fg">pass</span>
+<span class="ansi-green-fg">--&gt; 898</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>__missing__<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span>            <span class="ansi-red-fg"># support subclasses that define __missing__</span>
+<span class="ansi-green-intense-fg ansi-bold">    899</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/collections/__init__.py</span> in <span class="ansi-cyan-fg">__missing__</span><span class="ansi-blue-fg">(self, key)</span>
+<span class="ansi-green-intense-fg ansi-bold">    889</span>     <span class="ansi-green-fg">def</span> __missing__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> key<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 890</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">raise</span> KeyError<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    891</span>
+
+<span class="ansi-red-fg">KeyError</span>: &#39;Field&#39;
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/scope.py</span> in <span class="ansi-cyan-fg">resolve</span><span class="ansi-blue-fg">(self, key, is_local)</span>
+<span class="ansi-green-intense-fg ansi-bold">    210</span>                 <span class="ansi-red-fg"># e.g., df[df &gt; 0]</span>
+<span class="ansi-green-fg">--&gt; 211</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>temps<span class="ansi-blue-fg">[</span>key<span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">    212</span>             <span class="ansi-green-fg">except</span> KeyError <span class="ansi-green-fg">as</span> err<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">KeyError</span>: &#39;Field&#39;
+
+The above exception was the direct cause of the following exception:
+
+<span class="ansi-red-fg">UndefinedVariableError</span>                    Traceback (most recent call last)
+<span class="ansi-green-fg">/var/folders/nm/0s3x_nnn1ss1n7rd1px5gqsr0000gn/T/ipykernel_33246/4232075178.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      7</span>     start <span class="ansi-blue-fg">=</span> neg_saturation <span class="ansi-blue-fg">+</span> i<span class="ansi-blue-fg">*</span>stepsize
+<span class="ansi-green-intense-fg ansi-bold">      8</span>     end <span class="ansi-blue-fg">=</span> start <span class="ansi-blue-fg">+</span> stepsize
+<span class="ansi-green-fg">----&gt; 9</span><span class="ansi-red-fg">     </span>df_tmp <span class="ansi-blue-fg">=</span> df<span class="ansi-blue-fg">.</span>query<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;Field &gt;= @start and Field &lt; @end&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     10</span>     df_tmp<span class="ansi-blue-fg">.</span>loc<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">&#39;fittedVx&#39;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">*=</span> factor
+<span class="ansi-green-intense-fg ansi-bold">     11</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/frame.py</span> in <span class="ansi-cyan-fg">query</span><span class="ansi-blue-fg">(self, expr, inplace, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">   4058</span>         kwargs<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;level&#34;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> kwargs<span class="ansi-blue-fg">.</span>pop<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;level&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">+</span> <span class="ansi-cyan-fg">1</span>
+<span class="ansi-green-intense-fg ansi-bold">   4059</span>         kwargs<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;target&#34;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">None</span>
+<span class="ansi-green-fg">-&gt; 4060</span><span class="ansi-red-fg">         </span>res <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>eval<span class="ansi-blue-fg">(</span>expr<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   4061</span>
+<span class="ansi-green-intense-fg ansi-bold">   4062</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/frame.py</span> in <span class="ansi-cyan-fg">eval</span><span class="ansi-blue-fg">(self, expr, inplace, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">   4189</span>         kwargs<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;resolvers&#34;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> kwargs<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;resolvers&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">+</span> tuple<span class="ansi-blue-fg">(</span>resolvers<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   4190</span>
+<span class="ansi-green-fg">-&gt; 4191</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> _eval<span class="ansi-blue-fg">(</span>expr<span class="ansi-blue-fg">,</span> inplace<span class="ansi-blue-fg">=</span>inplace<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   4192</span>
+<span class="ansi-green-intense-fg ansi-bold">   4193</span>     <span class="ansi-green-fg">def</span> select_dtypes<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> include<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> exclude<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">-&gt;</span> DataFrame<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/eval.py</span> in <span class="ansi-cyan-fg">eval</span><span class="ansi-blue-fg">(expr, parser, engine, truediv, local_dict, global_dict, resolvers, level, target, inplace)</span>
+<span class="ansi-green-intense-fg ansi-bold">    346</span>         )
+<span class="ansi-green-intense-fg ansi-bold">    347</span>
+<span class="ansi-green-fg">--&gt; 348</span><span class="ansi-red-fg">         </span>parsed_expr <span class="ansi-blue-fg">=</span> Expr<span class="ansi-blue-fg">(</span>expr<span class="ansi-blue-fg">,</span> engine<span class="ansi-blue-fg">=</span>engine<span class="ansi-blue-fg">,</span> parser<span class="ansi-blue-fg">=</span>parser<span class="ansi-blue-fg">,</span> env<span class="ansi-blue-fg">=</span>env<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    349</span>
+<span class="ansi-green-intense-fg ansi-bold">    350</span>         <span class="ansi-red-fg"># construct the engine and evaluate the parsed expression</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, expr, engine, parser, env, level)</span>
+<span class="ansi-green-intense-fg ansi-bold">    804</span>         self<span class="ansi-blue-fg">.</span>parser <span class="ansi-blue-fg">=</span> parser
+<span class="ansi-green-intense-fg ansi-bold">    805</span>         self<span class="ansi-blue-fg">.</span>_visitor <span class="ansi-blue-fg">=</span> PARSERS<span class="ansi-blue-fg">[</span>parser<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>env<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>engine<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>parser<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 806</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>terms <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>parse<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    807</span>
+<span class="ansi-green-intense-fg ansi-bold">    808</span>     <span class="ansi-blue-fg">@</span>property
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">parse</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    823</span>         Parse an expression<span class="ansi-blue-fg">.</span>
+<span class="ansi-green-intense-fg ansi-bold">    824</span>         &#34;&#34;&#34;
+<span class="ansi-green-fg">--&gt; 825</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_visitor<span class="ansi-blue-fg">.</span>visit<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>expr<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    826</span>
+<span class="ansi-green-intense-fg ansi-bold">    827</span>     <span class="ansi-blue-fg">@</span>property
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visit</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    409</span>         method <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#34;visit_&#34;</span> <span class="ansi-blue-fg">+</span> type<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__name__
+<span class="ansi-green-intense-fg ansi-bold">    410</span>         visitor <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> method<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 411</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> visitor<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    412</span>
+<span class="ansi-green-intense-fg ansi-bold">    413</span>     <span class="ansi-green-fg">def</span> visit_Module<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visit_Module</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    415</span>             <span class="ansi-green-fg">raise</span> SyntaxError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;only a single expression is allowed&#34;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    416</span>         expr <span class="ansi-blue-fg">=</span> node<span class="ansi-blue-fg">.</span>body<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-fg">--&gt; 417</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>visit<span class="ansi-blue-fg">(</span>expr<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    418</span>
+<span class="ansi-green-intense-fg ansi-bold">    419</span>     <span class="ansi-green-fg">def</span> visit_Expr<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visit</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    409</span>         method <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#34;visit_&#34;</span> <span class="ansi-blue-fg">+</span> type<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__name__
+<span class="ansi-green-intense-fg ansi-bold">    410</span>         visitor <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> method<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 411</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> visitor<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    412</span>
+<span class="ansi-green-intense-fg ansi-bold">    413</span>     <span class="ansi-green-fg">def</span> visit_Module<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visit_Expr</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    418</span>
+<span class="ansi-green-intense-fg ansi-bold">    419</span>     <span class="ansi-green-fg">def</span> visit_Expr<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 420</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>visit<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">.</span>value<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    421</span>
+<span class="ansi-green-intense-fg ansi-bold">    422</span>     <span class="ansi-green-fg">def</span> _rewrite_membership_op<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> left<span class="ansi-blue-fg">,</span> right<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visit</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    409</span>         method <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#34;visit_&#34;</span> <span class="ansi-blue-fg">+</span> type<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__name__
+<span class="ansi-green-intense-fg ansi-bold">    410</span>         visitor <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> method<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 411</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> visitor<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    412</span>
+<span class="ansi-green-intense-fg ansi-bold">    413</span>     <span class="ansi-green-fg">def</span> visit_Module<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visit_BoolOp</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    743</span>
+<span class="ansi-green-intense-fg ansi-bold">    744</span>         operands <span class="ansi-blue-fg">=</span> node<span class="ansi-blue-fg">.</span>values
+<span class="ansi-green-fg">--&gt; 745</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> reduce<span class="ansi-blue-fg">(</span>visitor<span class="ansi-blue-fg">,</span> operands<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    746</span>
+<span class="ansi-green-intense-fg ansi-bold">    747</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visitor</span><span class="ansi-blue-fg">(x, y)</span>
+<span class="ansi-green-intense-fg ansi-bold">    736</span>     <span class="ansi-green-fg">def</span> visit_BoolOp<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    737</span>         <span class="ansi-green-fg">def</span> visitor<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">,</span> y<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 738</span><span class="ansi-red-fg">             </span>lhs <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_try_visit_binop<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    739</span>             rhs <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_try_visit_binop<span class="ansi-blue-fg">(</span>y<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    740</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">_try_visit_binop</span><span class="ansi-blue-fg">(self, bop)</span>
+<span class="ansi-green-intense-fg ansi-bold">    732</span>         <span class="ansi-green-fg">if</span> isinstance<span class="ansi-blue-fg">(</span>bop<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">(</span>Op<span class="ansi-blue-fg">,</span> Term<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    733</span>             <span class="ansi-green-fg">return</span> bop
+<span class="ansi-green-fg">--&gt; 734</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>visit<span class="ansi-blue-fg">(</span>bop<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    735</span>
+<span class="ansi-green-intense-fg ansi-bold">    736</span>     <span class="ansi-green-fg">def</span> visit_BoolOp<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visit</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    409</span>         method <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#34;visit_&#34;</span> <span class="ansi-blue-fg">+</span> type<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__name__
+<span class="ansi-green-intense-fg ansi-bold">    410</span>         visitor <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> method<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 411</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> visitor<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    412</span>
+<span class="ansi-green-intense-fg ansi-bold">    413</span>     <span class="ansi-green-fg">def</span> visit_Module<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visit_Compare</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    716</span>             op <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>translate_In<span class="ansi-blue-fg">(</span>ops<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    717</span>             binop <span class="ansi-blue-fg">=</span> ast<span class="ansi-blue-fg">.</span>BinOp<span class="ansi-blue-fg">(</span>op<span class="ansi-blue-fg">=</span>op<span class="ansi-blue-fg">,</span> left<span class="ansi-blue-fg">=</span>node<span class="ansi-blue-fg">.</span>left<span class="ansi-blue-fg">,</span> right<span class="ansi-blue-fg">=</span>comps<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 718</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>visit<span class="ansi-blue-fg">(</span>binop<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    719</span>
+<span class="ansi-green-intense-fg ansi-bold">    720</span>         <span class="ansi-red-fg"># recursive case: we have a chained comparison, a CMP b CMP c, etc.</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visit</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    409</span>         method <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#34;visit_&#34;</span> <span class="ansi-blue-fg">+</span> type<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__name__
+<span class="ansi-green-intense-fg ansi-bold">    410</span>         visitor <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> method<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 411</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> visitor<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    412</span>
+<span class="ansi-green-intense-fg ansi-bold">    413</span>     <span class="ansi-green-fg">def</span> visit_Module<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visit_BinOp</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    530</span>
+<span class="ansi-green-intense-fg ansi-bold">    531</span>     <span class="ansi-green-fg">def</span> visit_BinOp<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 532</span><span class="ansi-red-fg">         </span>op<span class="ansi-blue-fg">,</span> op_class<span class="ansi-blue-fg">,</span> left<span class="ansi-blue-fg">,</span> right <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_maybe_transform_eq_ne<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    533</span>         left<span class="ansi-blue-fg">,</span> right <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_maybe_downcast_constants<span class="ansi-blue-fg">(</span>left<span class="ansi-blue-fg">,</span> right<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    534</span>         <span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_maybe_evaluate_binop<span class="ansi-blue-fg">(</span>op<span class="ansi-blue-fg">,</span> op_class<span class="ansi-blue-fg">,</span> left<span class="ansi-blue-fg">,</span> right<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">_maybe_transform_eq_ne</span><span class="ansi-blue-fg">(self, node, left, right)</span>
+<span class="ansi-green-intense-fg ansi-bold">    450</span>     <span class="ansi-green-fg">def</span> _maybe_transform_eq_ne<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> left<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> right<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    451</span>         <span class="ansi-green-fg">if</span> left <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 452</span><span class="ansi-red-fg">             </span>left <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>visit<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">.</span>left<span class="ansi-blue-fg">,</span> side<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;left&#34;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    453</span>         <span class="ansi-green-fg">if</span> right <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    454</span>             right <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>visit<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">.</span>right<span class="ansi-blue-fg">,</span> side<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;right&#34;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visit</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    409</span>         method <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#34;visit_&#34;</span> <span class="ansi-blue-fg">+</span> type<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__name__
+<span class="ansi-green-intense-fg ansi-bold">    410</span>         visitor <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> method<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 411</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> visitor<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    412</span>
+<span class="ansi-green-intense-fg ansi-bold">    413</span>     <span class="ansi-green-fg">def</span> visit_Module<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visit_Name</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    543</span>
+<span class="ansi-green-intense-fg ansi-bold">    544</span>     <span class="ansi-green-fg">def</span> visit_Name<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 545</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>term_type<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">.</span>id<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>env<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    546</span>
+<span class="ansi-green-intense-fg ansi-bold">    547</span>     <span class="ansi-green-fg">def</span> visit_NameConstant<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/ops.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, name, env, side, encoding)</span>
+<span class="ansi-green-intense-fg ansi-bold">     96</span>         tname <span class="ansi-blue-fg">=</span> str<span class="ansi-blue-fg">(</span>name<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     97</span>         self<span class="ansi-blue-fg">.</span>is_local <span class="ansi-blue-fg">=</span> tname<span class="ansi-blue-fg">.</span>startswith<span class="ansi-blue-fg">(</span>LOCAL_TAG<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">or</span> tname <span class="ansi-green-fg">in</span> DEFAULT_GLOBALS
+<span class="ansi-green-fg">---&gt; 98</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>_value <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_resolve_name<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     99</span>         self<span class="ansi-blue-fg">.</span>encoding <span class="ansi-blue-fg">=</span> encoding
+<span class="ansi-green-intense-fg ansi-bold">    100</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/ops.py</span> in <span class="ansi-cyan-fg">_resolve_name</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    113</span>
+<span class="ansi-green-intense-fg ansi-bold">    114</span>     <span class="ansi-green-fg">def</span> _resolve_name<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 115</span><span class="ansi-red-fg">         </span>res <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>env<span class="ansi-blue-fg">.</span>resolve<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>local_name<span class="ansi-blue-fg">,</span> is_local<span class="ansi-blue-fg">=</span>self<span class="ansi-blue-fg">.</span>is_local<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    116</span>         self<span class="ansi-blue-fg">.</span>update<span class="ansi-blue-fg">(</span>res<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    117</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/scope.py</span> in <span class="ansi-cyan-fg">resolve</span><span class="ansi-blue-fg">(self, key, is_local)</span>
+<span class="ansi-green-intense-fg ansi-bold">    214</span>                 <span class="ansi-green-fg">from</span> pandas<span class="ansi-blue-fg">.</span>core<span class="ansi-blue-fg">.</span>computation<span class="ansi-blue-fg">.</span>ops <span class="ansi-green-fg">import</span> UndefinedVariableError
+<span class="ansi-green-intense-fg ansi-bold">    215</span>
+<span class="ansi-green-fg">--&gt; 216</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">raise</span> UndefinedVariableError<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">,</span> is_local<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">from</span> err
+<span class="ansi-green-intense-fg ansi-bold">    217</span>
+<span class="ansi-green-intense-fg ansi-bold">    218</span>     <span class="ansi-green-fg">def</span> swapkey<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> old_key<span class="ansi-blue-fg">:</span> str<span class="ansi-blue-fg">,</span> new_key<span class="ansi-blue-fg">:</span> str<span class="ansi-blue-fg">,</span> new_value<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">-&gt;</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">UndefinedVariableError</span>: name &#39;Field&#39; is not defined
+</pre></div></div>
+</div>
+<section id="Plot-histogram-of-multiple-fields">
+<h4>Plot histogram of multiple fields<a class="headerlink" href="#Plot-histogram-of-multiple-fields" title="Permalink to this headline"></a></h4>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>plt.style.use([&#39;science&#39;])
+sns.set(&#39;paper&#39;, &#39;white&#39;, rc={&quot;axes.facecolor&quot;: (0, 0, 0, 0)})
+
+steps = 8
+for i in range(steps):
+    stepsize = (.2/steps)
+    start = -.105 + i*stepsize
+    end = start + stepsize
+    df_tmp = df.query(&#39;Field &gt; @start and Field &lt; @end&#39;)
+    df_tmp.fittedVx *= factor
+
+    # Initialize the FacetGrid object
+    pal = sns.dark_palette(color=&quot;blue&quot;, input=&#39;huls&#39;)
+    # sns.cubehelix_palette(10, rot=-.25, light=.7)
+    g = sns.FacetGrid(df_tmp, row=&quot;Field&quot;, hue=&quot;Field&quot;, aspect=5, height=.8, palette=pal)
+    g.map(sns.distplot, &quot;fittedVx&quot;, hist=True)
+    g.map(sns.distplot, &quot;fittedVx&quot;, kde=True)
+    g.map(plt.axhline, y=0, lw=2, clip_on=True)#.set(xlim=(-.11,.1))
+
+    def label(x, color, label):
+        ax = plt.gca()
+        ax.text(0, .3, label, fontweight=&quot;bold&quot;, color=color,
+                ha=&quot;left&quot;, va=&quot;center&quot;, transform=ax.transAxes)
+
+    g.map(label, &quot;Vx&quot;)
+
+    # Set the subplots to overlap
+    g.fig.subplots_adjust(hspace=-.3)
+
+    # Remove axes details that don&#39;t play well with overlap
+    g.set_titles(&quot;&quot;)
+    g.set(yticks=[])#, xticks=[-100 + 50*_ for _ in range(5)])
+    g.despine(bottom=True, left=True)
+    plt.gca().set_xlabel(&#39;$V_x$ [$\\mathrm{mT}$]&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/scope.py</span> in <span class="ansi-cyan-fg">resolve</span><span class="ansi-blue-fg">(self, key, is_local)</span>
+<span class="ansi-green-intense-fg ansi-bold">    199</span>             <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>has_resolvers<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 200</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>resolvers<span class="ansi-blue-fg">[</span>key<span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">    201</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/collections/__init__.py</span> in <span class="ansi-cyan-fg">__getitem__</span><span class="ansi-blue-fg">(self, key)</span>
+<span class="ansi-green-intense-fg ansi-bold">    897</span>                 <span class="ansi-green-fg">pass</span>
+<span class="ansi-green-fg">--&gt; 898</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>__missing__<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span>            <span class="ansi-red-fg"># support subclasses that define __missing__</span>
+<span class="ansi-green-intense-fg ansi-bold">    899</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/collections/__init__.py</span> in <span class="ansi-cyan-fg">__missing__</span><span class="ansi-blue-fg">(self, key)</span>
+<span class="ansi-green-intense-fg ansi-bold">    889</span>     <span class="ansi-green-fg">def</span> __missing__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> key<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 890</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">raise</span> KeyError<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    891</span>
+
+<span class="ansi-red-fg">KeyError</span>: &#39;Field&#39;
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/scope.py</span> in <span class="ansi-cyan-fg">resolve</span><span class="ansi-blue-fg">(self, key, is_local)</span>
+<span class="ansi-green-intense-fg ansi-bold">    210</span>                 <span class="ansi-red-fg"># e.g., df[df &gt; 0]</span>
+<span class="ansi-green-fg">--&gt; 211</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>temps<span class="ansi-blue-fg">[</span>key<span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">    212</span>             <span class="ansi-green-fg">except</span> KeyError <span class="ansi-green-fg">as</span> err<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">KeyError</span>: &#39;Field&#39;
+
+The above exception was the direct cause of the following exception:
+
+<span class="ansi-red-fg">UndefinedVariableError</span>                    Traceback (most recent call last)
+<span class="ansi-green-fg">/var/folders/nm/0s3x_nnn1ss1n7rd1px5gqsr0000gn/T/ipykernel_33246/1116157597.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      7</span>     start <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">.105</span> <span class="ansi-blue-fg">+</span> i<span class="ansi-blue-fg">*</span>stepsize
+<span class="ansi-green-intense-fg ansi-bold">      8</span>     end <span class="ansi-blue-fg">=</span> start <span class="ansi-blue-fg">+</span> stepsize
+<span class="ansi-green-fg">----&gt; 9</span><span class="ansi-red-fg">     </span>df_tmp <span class="ansi-blue-fg">=</span> df<span class="ansi-blue-fg">.</span>query<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;Field &gt; @start and Field &lt; @end&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     10</span>     df_tmp<span class="ansi-blue-fg">.</span>fittedVx <span class="ansi-blue-fg">*=</span> factor
+<span class="ansi-green-intense-fg ansi-bold">     11</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/frame.py</span> in <span class="ansi-cyan-fg">query</span><span class="ansi-blue-fg">(self, expr, inplace, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">   4058</span>         kwargs<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;level&#34;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> kwargs<span class="ansi-blue-fg">.</span>pop<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;level&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">+</span> <span class="ansi-cyan-fg">1</span>
+<span class="ansi-green-intense-fg ansi-bold">   4059</span>         kwargs<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;target&#34;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">None</span>
+<span class="ansi-green-fg">-&gt; 4060</span><span class="ansi-red-fg">         </span>res <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>eval<span class="ansi-blue-fg">(</span>expr<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   4061</span>
+<span class="ansi-green-intense-fg ansi-bold">   4062</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/frame.py</span> in <span class="ansi-cyan-fg">eval</span><span class="ansi-blue-fg">(self, expr, inplace, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">   4189</span>         kwargs<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;resolvers&#34;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> kwargs<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;resolvers&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">+</span> tuple<span class="ansi-blue-fg">(</span>resolvers<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   4190</span>
+<span class="ansi-green-fg">-&gt; 4191</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> _eval<span class="ansi-blue-fg">(</span>expr<span class="ansi-blue-fg">,</span> inplace<span class="ansi-blue-fg">=</span>inplace<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   4192</span>
+<span class="ansi-green-intense-fg ansi-bold">   4193</span>     <span class="ansi-green-fg">def</span> select_dtypes<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> include<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> exclude<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">-&gt;</span> DataFrame<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/eval.py</span> in <span class="ansi-cyan-fg">eval</span><span class="ansi-blue-fg">(expr, parser, engine, truediv, local_dict, global_dict, resolvers, level, target, inplace)</span>
+<span class="ansi-green-intense-fg ansi-bold">    346</span>         )
+<span class="ansi-green-intense-fg ansi-bold">    347</span>
+<span class="ansi-green-fg">--&gt; 348</span><span class="ansi-red-fg">         </span>parsed_expr <span class="ansi-blue-fg">=</span> Expr<span class="ansi-blue-fg">(</span>expr<span class="ansi-blue-fg">,</span> engine<span class="ansi-blue-fg">=</span>engine<span class="ansi-blue-fg">,</span> parser<span class="ansi-blue-fg">=</span>parser<span class="ansi-blue-fg">,</span> env<span class="ansi-blue-fg">=</span>env<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    349</span>
+<span class="ansi-green-intense-fg ansi-bold">    350</span>         <span class="ansi-red-fg"># construct the engine and evaluate the parsed expression</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, expr, engine, parser, env, level)</span>
+<span class="ansi-green-intense-fg ansi-bold">    804</span>         self<span class="ansi-blue-fg">.</span>parser <span class="ansi-blue-fg">=</span> parser
+<span class="ansi-green-intense-fg ansi-bold">    805</span>         self<span class="ansi-blue-fg">.</span>_visitor <span class="ansi-blue-fg">=</span> PARSERS<span class="ansi-blue-fg">[</span>parser<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>env<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>engine<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>parser<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 806</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>terms <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>parse<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    807</span>
+<span class="ansi-green-intense-fg ansi-bold">    808</span>     <span class="ansi-blue-fg">@</span>property
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">parse</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    823</span>         Parse an expression<span class="ansi-blue-fg">.</span>
+<span class="ansi-green-intense-fg ansi-bold">    824</span>         &#34;&#34;&#34;
+<span class="ansi-green-fg">--&gt; 825</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_visitor<span class="ansi-blue-fg">.</span>visit<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>expr<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    826</span>
+<span class="ansi-green-intense-fg ansi-bold">    827</span>     <span class="ansi-blue-fg">@</span>property
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visit</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    409</span>         method <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#34;visit_&#34;</span> <span class="ansi-blue-fg">+</span> type<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__name__
+<span class="ansi-green-intense-fg ansi-bold">    410</span>         visitor <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> method<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 411</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> visitor<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    412</span>
+<span class="ansi-green-intense-fg ansi-bold">    413</span>     <span class="ansi-green-fg">def</span> visit_Module<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visit_Module</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    415</span>             <span class="ansi-green-fg">raise</span> SyntaxError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;only a single expression is allowed&#34;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    416</span>         expr <span class="ansi-blue-fg">=</span> node<span class="ansi-blue-fg">.</span>body<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-fg">--&gt; 417</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>visit<span class="ansi-blue-fg">(</span>expr<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    418</span>
+<span class="ansi-green-intense-fg ansi-bold">    419</span>     <span class="ansi-green-fg">def</span> visit_Expr<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visit</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    409</span>         method <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#34;visit_&#34;</span> <span class="ansi-blue-fg">+</span> type<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__name__
+<span class="ansi-green-intense-fg ansi-bold">    410</span>         visitor <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> method<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 411</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> visitor<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    412</span>
+<span class="ansi-green-intense-fg ansi-bold">    413</span>     <span class="ansi-green-fg">def</span> visit_Module<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visit_Expr</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    418</span>
+<span class="ansi-green-intense-fg ansi-bold">    419</span>     <span class="ansi-green-fg">def</span> visit_Expr<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 420</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>visit<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">.</span>value<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    421</span>
+<span class="ansi-green-intense-fg ansi-bold">    422</span>     <span class="ansi-green-fg">def</span> _rewrite_membership_op<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> left<span class="ansi-blue-fg">,</span> right<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visit</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    409</span>         method <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#34;visit_&#34;</span> <span class="ansi-blue-fg">+</span> type<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__name__
+<span class="ansi-green-intense-fg ansi-bold">    410</span>         visitor <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> method<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 411</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> visitor<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    412</span>
+<span class="ansi-green-intense-fg ansi-bold">    413</span>     <span class="ansi-green-fg">def</span> visit_Module<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visit_BoolOp</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    743</span>
+<span class="ansi-green-intense-fg ansi-bold">    744</span>         operands <span class="ansi-blue-fg">=</span> node<span class="ansi-blue-fg">.</span>values
+<span class="ansi-green-fg">--&gt; 745</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> reduce<span class="ansi-blue-fg">(</span>visitor<span class="ansi-blue-fg">,</span> operands<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    746</span>
+<span class="ansi-green-intense-fg ansi-bold">    747</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visitor</span><span class="ansi-blue-fg">(x, y)</span>
+<span class="ansi-green-intense-fg ansi-bold">    736</span>     <span class="ansi-green-fg">def</span> visit_BoolOp<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    737</span>         <span class="ansi-green-fg">def</span> visitor<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">,</span> y<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 738</span><span class="ansi-red-fg">             </span>lhs <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_try_visit_binop<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    739</span>             rhs <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_try_visit_binop<span class="ansi-blue-fg">(</span>y<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    740</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">_try_visit_binop</span><span class="ansi-blue-fg">(self, bop)</span>
+<span class="ansi-green-intense-fg ansi-bold">    732</span>         <span class="ansi-green-fg">if</span> isinstance<span class="ansi-blue-fg">(</span>bop<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">(</span>Op<span class="ansi-blue-fg">,</span> Term<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    733</span>             <span class="ansi-green-fg">return</span> bop
+<span class="ansi-green-fg">--&gt; 734</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>visit<span class="ansi-blue-fg">(</span>bop<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    735</span>
+<span class="ansi-green-intense-fg ansi-bold">    736</span>     <span class="ansi-green-fg">def</span> visit_BoolOp<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visit</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    409</span>         method <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#34;visit_&#34;</span> <span class="ansi-blue-fg">+</span> type<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__name__
+<span class="ansi-green-intense-fg ansi-bold">    410</span>         visitor <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> method<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 411</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> visitor<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    412</span>
+<span class="ansi-green-intense-fg ansi-bold">    413</span>     <span class="ansi-green-fg">def</span> visit_Module<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visit_Compare</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    716</span>             op <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>translate_In<span class="ansi-blue-fg">(</span>ops<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    717</span>             binop <span class="ansi-blue-fg">=</span> ast<span class="ansi-blue-fg">.</span>BinOp<span class="ansi-blue-fg">(</span>op<span class="ansi-blue-fg">=</span>op<span class="ansi-blue-fg">,</span> left<span class="ansi-blue-fg">=</span>node<span class="ansi-blue-fg">.</span>left<span class="ansi-blue-fg">,</span> right<span class="ansi-blue-fg">=</span>comps<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 718</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>visit<span class="ansi-blue-fg">(</span>binop<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    719</span>
+<span class="ansi-green-intense-fg ansi-bold">    720</span>         <span class="ansi-red-fg"># recursive case: we have a chained comparison, a CMP b CMP c, etc.</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visit</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    409</span>         method <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#34;visit_&#34;</span> <span class="ansi-blue-fg">+</span> type<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__name__
+<span class="ansi-green-intense-fg ansi-bold">    410</span>         visitor <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> method<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 411</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> visitor<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    412</span>
+<span class="ansi-green-intense-fg ansi-bold">    413</span>     <span class="ansi-green-fg">def</span> visit_Module<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visit_BinOp</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    530</span>
+<span class="ansi-green-intense-fg ansi-bold">    531</span>     <span class="ansi-green-fg">def</span> visit_BinOp<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 532</span><span class="ansi-red-fg">         </span>op<span class="ansi-blue-fg">,</span> op_class<span class="ansi-blue-fg">,</span> left<span class="ansi-blue-fg">,</span> right <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_maybe_transform_eq_ne<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    533</span>         left<span class="ansi-blue-fg">,</span> right <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_maybe_downcast_constants<span class="ansi-blue-fg">(</span>left<span class="ansi-blue-fg">,</span> right<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    534</span>         <span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_maybe_evaluate_binop<span class="ansi-blue-fg">(</span>op<span class="ansi-blue-fg">,</span> op_class<span class="ansi-blue-fg">,</span> left<span class="ansi-blue-fg">,</span> right<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">_maybe_transform_eq_ne</span><span class="ansi-blue-fg">(self, node, left, right)</span>
+<span class="ansi-green-intense-fg ansi-bold">    450</span>     <span class="ansi-green-fg">def</span> _maybe_transform_eq_ne<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> left<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> right<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    451</span>         <span class="ansi-green-fg">if</span> left <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 452</span><span class="ansi-red-fg">             </span>left <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>visit<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">.</span>left<span class="ansi-blue-fg">,</span> side<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;left&#34;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    453</span>         <span class="ansi-green-fg">if</span> right <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    454</span>             right <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>visit<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">.</span>right<span class="ansi-blue-fg">,</span> side<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;right&#34;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visit</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    409</span>         method <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#34;visit_&#34;</span> <span class="ansi-blue-fg">+</span> type<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__name__
+<span class="ansi-green-intense-fg ansi-bold">    410</span>         visitor <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> method<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 411</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> visitor<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    412</span>
+<span class="ansi-green-intense-fg ansi-bold">    413</span>     <span class="ansi-green-fg">def</span> visit_Module<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/expr.py</span> in <span class="ansi-cyan-fg">visit_Name</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    543</span>
+<span class="ansi-green-intense-fg ansi-bold">    544</span>     <span class="ansi-green-fg">def</span> visit_Name<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 545</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>term_type<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">.</span>id<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>env<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    546</span>
+<span class="ansi-green-intense-fg ansi-bold">    547</span>     <span class="ansi-green-fg">def</span> visit_NameConstant<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> node<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/ops.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, name, env, side, encoding)</span>
+<span class="ansi-green-intense-fg ansi-bold">     96</span>         tname <span class="ansi-blue-fg">=</span> str<span class="ansi-blue-fg">(</span>name<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     97</span>         self<span class="ansi-blue-fg">.</span>is_local <span class="ansi-blue-fg">=</span> tname<span class="ansi-blue-fg">.</span>startswith<span class="ansi-blue-fg">(</span>LOCAL_TAG<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">or</span> tname <span class="ansi-green-fg">in</span> DEFAULT_GLOBALS
+<span class="ansi-green-fg">---&gt; 98</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>_value <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_resolve_name<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     99</span>         self<span class="ansi-blue-fg">.</span>encoding <span class="ansi-blue-fg">=</span> encoding
+<span class="ansi-green-intense-fg ansi-bold">    100</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/ops.py</span> in <span class="ansi-cyan-fg">_resolve_name</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    113</span>
+<span class="ansi-green-intense-fg ansi-bold">    114</span>     <span class="ansi-green-fg">def</span> _resolve_name<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 115</span><span class="ansi-red-fg">         </span>res <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>env<span class="ansi-blue-fg">.</span>resolve<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>local_name<span class="ansi-blue-fg">,</span> is_local<span class="ansi-blue-fg">=</span>self<span class="ansi-blue-fg">.</span>is_local<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    116</span>         self<span class="ansi-blue-fg">.</span>update<span class="ansi-blue-fg">(</span>res<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    117</span>
+
+<span class="ansi-green-fg">/opt/homebrew/Caskroom/miniforge/base/envs/metal-tf-3.8/lib/python3.8/site-packages/pandas/core/computation/scope.py</span> in <span class="ansi-cyan-fg">resolve</span><span class="ansi-blue-fg">(self, key, is_local)</span>
+<span class="ansi-green-intense-fg ansi-bold">    214</span>                 <span class="ansi-green-fg">from</span> pandas<span class="ansi-blue-fg">.</span>core<span class="ansi-blue-fg">.</span>computation<span class="ansi-blue-fg">.</span>ops <span class="ansi-green-fg">import</span> UndefinedVariableError
+<span class="ansi-green-intense-fg ansi-bold">    215</span>
+<span class="ansi-green-fg">--&gt; 216</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">raise</span> UndefinedVariableError<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">,</span> is_local<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">from</span> err
+<span class="ansi-green-intense-fg ansi-bold">    217</span>
+<span class="ansi-green-intense-fg ansi-bold">    218</span>     <span class="ansi-green-fg">def</span> swapkey<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> old_key<span class="ansi-blue-fg">:</span> str<span class="ansi-blue-fg">,</span> new_key<span class="ansi-blue-fg">:</span> str<span class="ansi-blue-fg">,</span> new_value<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">-&gt;</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">UndefinedVariableError</span>: name &#39;Field&#39; is not defined
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[177]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>nr
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[177]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+450
+</pre></div></div>
+</div>
+</section>
+</section>
+</section>
+<section id="Plot-Data">
+<h2>Plot Data<a class="headerlink" href="#Plot-Data" title="Permalink to this headline"></a></h2>
+<section id="Default-Info-about-Measurements">
+<h3>Default Info about Measurements<a class="headerlink" href="#Default-Info-about-Measurements" title="Permalink to this headline"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[276]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>%%time
+eva.set_sns(default=True, grid=True,
+            size=&#39;paper&#39;, style=&#39;ticks&#39;, latex=True)
+for nr, sf in [
+     (450, .05)
+    #(446,-0.015),
+        ]:
+    fit = 10
+    xymin = (1e-1, 6e-15) if (meas_info.loc[nr][&#39;Time&#39;] &gt; 1024) else (3e-1, 6e-15)
+    rate = meas_info.loc[nr][&#39;Rate&#39;]
+    length = int(df[nr].groupby(&#39;Field&#39;).max().Time.max())
+    if length != meas_info.loc[nr][&#39;Time&#39;]:
+        logging.warning(&#39;Meas-Length: %ss \t Meas-Time: %ss&#39; % (length, meas_info.loc[nr][&#39;Time&#39;]))
+
+    plot_info(df[nr], spec[nr], fit_range=fit, xymin=xymin, nr=nr,
+              rate=rate, length=length, show_field=sf,
+              add_info=&#39;nofSpectra: %s&#39; % num,
+              fields=np.round(np.arange(-.1, .1, .005), 3),
+              num_first_spectra=num)
+    plt.savefig(&#39;m%s_info_nofSpectra-%s.png&#39; % (nr, num))
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+WARNING:root:Meas-Length: 1024s          Meas-Time: 2048s
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_03.0_RAW_35_1.png" src="../_images/notebooks_03.0_RAW_35_1.png" />
+</div>
+</div>
+</section>
+<section id="Plot-First-and-Second-Spectrum">
+<h3>Plot First and Second Spectrum<a class="headerlink" href="#Plot-First-and-Second-Spectrum" title="Permalink to this headline"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>eva.set_sns(notebook=True, size=&#39;notebook&#39;, grid=True)
+for nr in [437]:
+    plot_first_and_second(df[nr], spec[nr], nr=nr)
+    plt.savefig(&#39;m%s_first_and_second_nofSpectra-%s.png&#39; % (nr, num))
+
+</pre></div>
+</div>
+</div>
+<section id="Plot-Second-Spectrum-of-specific-fields">
+<h4>Plot Second Spectrum of specific fields<a class="headerlink" href="#Plot-Second-Spectrum-of-specific-fields" title="Permalink to this headline"></a></h4>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[692]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>eva.set_sns(notebook=True, palette=&#39;Paired&#39;, grid=True)
+nr = 452
+fields = [.0, .015, .03, .165]
+
+fig, (ax, ax2) = plt.subplots(2)
+for f in fields:
+    for octave in range(spec[nr][f].spectrum.number_of_octaves):
+        ax.plot(spec[nr][f].spectrum.frequency_span_array_second_spectra,
+                 spec[nr][f].spectrum.second_spectra[octave],
+                label=&#39;$H_{ext} =$ %.3f; Oct: %d&#39; % (f, octave))
+        ax2.plot(spec[nr][f].second_spectrum_time_array,
+                 spec[nr][f].time_signal_second_spectrum_transposed_normalized[octave],
+                label=&#39;$H_{ext} =$ %.3f; Oct: %d&#39; % (f, octave))
+ax.set_yscale(&#39;log&#39;)
+ax.set_xscale(&#39;log&#39;)
+ax.set_title(&#39;m%s: Second Spectrum Frequency domain&#39; % nr)
+ax2.set_title(&#39;Second Spectrum Time domain&#39;)
+
+eva.set_sns(size=&#39;paper&#39;)
+ax2.legend(loc=&#39;upper right&#39;, ncol=2)
+plt.savefig(&#39;m%s_second_spectrum_fields.png&#39; % nr)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_03.0_RAW_39_0.png" src="../_images/notebooks_03.0_RAW_39_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="Plot-Time-Signal">
+<h3>Plot Time Signal<a class="headerlink" href="#Plot-Time-Signal" title="Permalink to this headline"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[694]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>#fields = [.01, .015, .02, .025, .03, .04, .045]
+
+
+eva.set_sns(notebook=True, palette=&#39;Paired&#39;, grid=True)
+fig, ax = plt.subplots()#len(fields))
+eva.set_sns(notebook=True, size=&#39;paper&#39;)
+for i, f in enumerate(fields):
+    signal = df[nr].query(&#39;Field == %.4f&#39; % f)
+    ax.plot(signal.Time, signal.Vx, label=&#39;$H_{ext} = %s\\,\\mathrm{mT}$&#39; % (f*1e3))
+ax.legend(loc=&#39;upper right&#39;, framealpha=.7)
+ax.set_title(&quot;m%s: Time Signal&quot; % (nr))
+plt.savefig(&quot;m%s_Timesignal.png&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_03.0_RAW_41_0.png" src="../_images/notebooks_03.0_RAW_41_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[693]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>eva.set_sns(notebook=True, grid=True)
+signal = df[nr].sort_values(&#39;Field&#39;).query(&#39;Field &gt;= .0 and Field &lt;= .06&#39;)
+for f in signal.Field.unique():
+    tmp_plot = df[446].query(&#39;Field == %s&#39; % f)
+    plt.plot(tmp_plot.Time, tmp_plot.Vx)
+
+fig, ax = plt.subplots()
+sns.violinplot(x=&#39;Field&#39;, y=&#39;Vx&#39;, data=signal, ax=ax)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[693]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x1ec08dc9198&gt;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_03.0_RAW_42_1.png" src="../_images/notebooks_03.0_RAW_42_1.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_03.0_RAW_42_2.png" src="../_images/notebooks_03.0_RAW_42_2.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="Plot-Noise-Spectrum-Hysteresis">
+<h2>Plot Noise Spectrum Hysteresis<a class="headerlink" href="#Plot-Noise-Spectrum-Hysteresis" title="Permalink to this headline"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>ana.set_sns(notebook=True, size=&#39;poster&#39;, palette=&#39;Paired&#39;, grid=True)
+nr1, nr2 = 484, 485
+plot_spectrum_hyst(nr1, nr2)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_03.0_RAW_44_0.png" src="../_images/notebooks_03.0_RAW_44_0.png" />
+</div>
+</div>
+</section>
+<section id="Cut-and-Paste-Timesignal-(multiple-Measurements)">
+<h2>Cut and Paste Timesignal (multiple Measurements)<a class="headerlink" href="#Cut-and-Paste-Timesignal-(multiple-Measurements)" title="Permalink to this headline"></a></h2>
+<section id="Test-to-put-multiple-measurements-together">
+<h3>Test to put multiple measurements together<a class="headerlink" href="#Test-to-put-multiple-measurements-together" title="Permalink to this headline"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[195]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>query = meas_info.query(&#39;Rate == 8 and Preamp == False and Struct == &quot;Plusses&quot; and &#39; +\
+                &#39;Voltage == 5 and Angle == 45 and Dir == &quot;Up&quot;&#39;)
+
+raw_data = {}
+query_fields = []
+for nr in query.index:
+    files = glob(&#39;data/Data/m%s/*&#39; % nr)
+    regex = &quot;.*[Mm]([0-9.]*)_([A-Za-z]*)_([0-9.-]*)deg_([A-Za-z]*)_&quot; \
+                            +&quot;([A-Za-z]*)_*B_([0-9.-]*)T_([0-9]*)_([0-9]*)_&quot; \
+                            +&quot;I1-([0-9\-]*)_I2-([0-9\-]*)_GBIP.-([0-9\-]*)_&quot; \
+                            +&quot;Vin-([0-9.]*)V_R11-([0-9]*.)O_R12-([0-9.]*.)O_&quot; \
+                            +&quot;R13-([0-9.]*.)_R21-([0-9.]*.)O_&quot; \
+                            +&quot;C11-([0-9]*)_C21-([0-9]*)_&quot; \
+                            +&quot;T-([0-9]*)K.*&quot;
+    raw_data[nr] = {}
+    for f in files:
+        reg = re.match(regex, f)
+        if not reg:
+            logger.error(&quot;Regex doesn&#39;t match filename: %s&quot; % f)
+            continue
+
+        nr2, struct, deg, type1, \
+            type2, field, date, time, \
+            i1, i2, lock_in, \
+            vin, r11, r12, r13, r21, \
+            c11, c21, Temp = reg.groups()
+
+        field = float(field)
+        if field not in query_fields:
+            query_fields.append(field)
+
+        data_df = pd.read_csv(f, sep=&#39;\t&#39;)
+        raw_data[nr][field] = data_df
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[225]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>eval_data = {}
+for field in query_fields:
+    if abs(field) &gt; .08:
+        continue
+
+    eval_data[field] = pd.DataFrame({&#39;time&#39;:[], &#39;Vx&#39;:[], &#39;Vy&#39;:[]})
+
+    for nr in query.index:
+        if field in raw_data[nr].keys():
+            if not eval_data[field].empty:
+                raw_data[nr][field][&#39;time&#39;] += eval_data[field][&#39;time&#39;].max()
+
+            eval_data[field] = pd.merge(eval_data[field], raw_data[nr][field], how=&#39;outer&#39;)
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[238]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>eval_spectrum = {}
+for field in eval_data.keys():
+    d = eval_data[field][&#39;Vx&#39;]
+    if len(d)%1024:
+        d = d.iloc[:-(len(d)%1024)]
+
+    data = {&#39;data&#39;: d,
+            &#39;info&#39;: {
+                &#39;nr&#39;: nr,
+                &#39;field&#39;: field
+                }
+            }
+
+    eval_spectrum[field] = eva.RAW_Measurement(data,
+                                               rate=1/eval_data[field][&#39;time&#39;].diff().mean(),
+                                               nof_first_spectra=64,
+                                               calc_first=True,
+                                               calc_second=True
+                                              )
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+E:\Nextcloud\Uni\Evaluate\spectrumanalyzer.py:825: RuntimeWarning: invalid value encountered in true_divide
+  second_spectra = second_spectra.transpose()
+E:\Nextcloud\Uni\Evaluate\spectrumanalyzer.py:856: RuntimeWarning: divide by zero encountered in log10
+  frequency_span_array_second_spectra &gt; 0])
+E:\Nextcloud\Uni\Evaluate\evaluate.py:875: RuntimeWarning: invalid value encountered in true_divide
+  time_signal_second_spectrum_transposed[p])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[240]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>fit_range = 50
+fig, (ax1,ax2,ax3) = plt.subplots(3)
+for cur_field, cur_spectrum in eval_spectrum.items():
+    s = cur_spectrum.avg_spec
+
+    # Fitting alpha
+    s[&#39;lnf&#39;] = np.log10(s.freq)
+    s[&#39;lnS&#39;] = np.log10(s.S)
+
+    f = scipy.stats.linregress(s.lnf.iloc[:fit_range],
+                               s.lnS.iloc[:fit_range])
+
+    ax1.plot(cur_field, -f.slope, &#39;o&#39;)
+    ax2.plot(cur_field, 10**f.intercept, &#39;o&#39;)
+    ax3.plot(cur_field, s.S.sum(), &#39;o&#39;)
+ax2.set_yscale(&#39;log&#39;)
+ax3.set_yscale(&#39;log&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_03.0_RAW_50_0.png" src="../_images/notebooks_03.0_RAW_50_0.png" />
+</div>
+</div>
+</section>
+<section id="Evaluating-m456-(multiple-measurements-at-0-field)">
+<h3>Evaluating m456 (multiple measurements at 0 field)<a class="headerlink" href="#Evaluating-m456-(multiple-measurements-at-0-field)" title="Permalink to this headline"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[705]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>nr = 456
+files = glob(&#39;data/Data/m%s/*&#39; % nr)
+m456_df = pd.DataFrame({&#39;time&#39;:[], &#39;Vx&#39;:[], &#39;Vy&#39;:[]})
+for f in files:
+    tmp_df = pd.read_csv(f, sep=&#39;\t&#39;)
+    if not m456_df.empty:
+        tmp_df[&#39;time&#39;] += m456_df[&#39;time&#39;].max()
+
+    m456_df = pd.merge(m456_df, tmp_df, how=&#39;outer&#39;)
+
+d = m456_df[&#39;Vx&#39;]
+if len(d)%1024:
+    d = d.iloc[:-(len(d)%1024)]
+
+data = {&#39;data&#39;: d,
+        &#39;info&#39;: {
+            &#39;nr&#39;: nr,
+            &#39;field&#39;: field
+            }
+        }
+
+m456_spectrum = eva.RAW_Measurement(data,
+                                           rate=1/m456_df[&#39;time&#39;].diff().mean(),
+                                           nof_first_spectra=64,
+                                           calc_first=True,
+                                           calc_second=True
+                                          )
+
+</pre></div>
+</div>
+</div>
+<section id="First-Spectrum">
+<h4>First Spectrum<a class="headerlink" href="#First-Spectrum" title="Permalink to this headline"></a></h4>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[309]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>eva.set_sns(size=&#39;notebook&#39;, style=&#39;ticks&#39;, grid=True)
+s = m456_spectrum.avg_spec
+fit_start = 50
+fit_range = 1300
+fig, (ax1) = plt.subplots()
+# Fitting alpha
+s[&#39;lnf&#39;] = np.log10(s.freq)
+s[&#39;lnS&#39;] = np.log10(s.S)
+
+f = scipy.stats.linregress(s.lnf.iloc[fit_start:fit_range],
+                           s.lnS.iloc[fit_start:fit_range])
+
+ax1.loglog(s.freq, s.S)
+ax1.loglog(s.freq.iloc[fit_start:], 10**(f.intercept)*s.freq.iloc[fit_start:]**f.slope)
+print(&quot;Slope:\t%.3f\nInterc:\t%.4e\nSum:\t%.4e&quot; % (f.slope, 10**f.intercept, s.S.sum()))
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Slope:  -0.742
+Interc: 2.8610e-15
+Sum:    3.0521e-11
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_03.0_RAW_54_1.png" src="../_images/notebooks_03.0_RAW_54_1.png" />
+</div>
+</div>
+</section>
+<section id="Histogram">
+<h4>Histogram<a class="headerlink" href="#Histogram" title="Permalink to this headline"></a></h4>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[302]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>sns.distplot(m456_spectrum.timesignal)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[302]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x1ec92065390&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_03.0_RAW_56_1.png" src="../_images/notebooks_03.0_RAW_56_1.png" />
+</div>
+</div>
+</section>
+<section id="Second-Spectrum">
+<h4>Second Spectrum<a class="headerlink" href="#Second-Spectrum" title="Permalink to this headline"></a></h4>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[710]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>eva.set_sns(notebook=True, palette=&#39;Dark2&#39;, grid=True)
+sns.set_palette(&#39;hls&#39;, m456_spectrum.spectrum.number_of_octaves)
+nr = 456
+
+fig, (ax, ax2) = plt.subplots(2)
+for octave in range(m456_spectrum.spectrum.number_of_octaves):
+    ax.plot(m456_spectrum.spectrum.frequency_span_array_second_spectra,
+             m456_spectrum.spectrum.second_spectra[octave],
+            label=&#39;Oct: %d&#39; % (octave))
+    ax2.plot(m456_spectrum.second_spectrum_time_array/(60*60),
+             m456_spectrum.time_signal_second_spectrum_transposed_normalized[octave],
+            label=&#39;Oct: %d (%.3e Hz)&#39; % (octave, m456_spectrum.spectrum.octaves[octave]))
+ax.set_yscale(&#39;log&#39;)
+ax.set_xscale(&#39;log&#39;)
+ax.set_title(&#39;m%s: Second Spectrum Frequency domain&#39; % nr)
+ax2.set_title(&#39;Second Spectrum Time domain&#39;)
+ax2.set_xlabel(&quot;Time [hrs.]&quot;)
+
+eva.set_sns(size=&#39;paper&#39;)
+ax2.legend(loc=&#39;upper right&#39;, ncol=2)
+plt.savefig(&#39;m%s_second_spectrum.png&#39; % nr)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_03.0_RAW_58_0.png" src="../_images/notebooks_03.0_RAW_58_0.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="02.2_Signal_Analyzer.html" class="btn btn-neutral float-left" title="Signal Analyzer Measurements (2)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="04.2_MFN_sweeprates.html" class="btn btn-neutral float-right" title="MFN: Compare Different Sweeprates (SR830 vs. SR785)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020/2021, Jonathan Pieper.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
