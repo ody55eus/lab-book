@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Install software
-        run: sudo apt-get update -y && apt-get install -y pandoc dvipng man-db cm-super graphviz && python -m pip install recommonmark nbsphinx sphinx_rtd_theme
+        run: sudo apt-get update -y && sudo apt-get install -y pandoc dvipng man-db cm-super graphviz && python -m pip install recommonmark nbsphinx sphinx_rtd_theme
         
       - name: Clone ana
         run: git clone https://gitlab.com/ody55eus/ana.git
