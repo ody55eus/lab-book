@@ -7,11 +7,14 @@ on:
 
 jobs:
   publish:
-    runs-on: registry.gitlab.com/ody5-dev/docker/jupyterlab:ana
+    runs-on: ubuntu-latest
     steps:
       - name: Check out
         uses: actions/checkout@v1
 
+      - name: Install software
+        run: sudo apt install pandoc
+        
       - name: Clone ana
         run: git clone https://gitlab.com/ody55eus/ana.git
 
@@ -25,7 +28,10 @@ jobs:
         run: mv source/onenote/html docs/_static/html && mv source/onenote/word docs/_static/word
 
       - name: Build the site
-        run: make clean html
+        uses: ammaraskar/sphinx-action@master
+        with:
+          docs-folder: "docs/"
+          pre-build-command: "apt-get update -y && apt-get install -y latexmk texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended nodejs texlive-science texlive-xetex dvipng man-db cm-super graphviz"
 
       - name: Deploy site
         run: mv _build/html public
