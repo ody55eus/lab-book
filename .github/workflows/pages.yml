@@ -31,7 +31,8 @@ jobs:
         uses: ammaraskar/sphinx-action@master
         with:
           docs-folder: "docs/"
-          pre-build-command: "apt-get update -y && apt-get install -y latexmk texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended nodejs texlive-science texlive-xetex dvipng man-db cm-super graphviz"
+          pre-build-command: "apt-get update -y && apt-get install -y dvipng man-db cm-super graphviz && python -m pip install recommonmark nbsphinx sphinx_rtd_theme"
+          build-command: "sphinx-build -b html . _build"
 
       - name: Deploy site
         run: mv _build/html public
