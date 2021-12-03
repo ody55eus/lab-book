@@ -9,7 +9,7 @@ Laboratory Book
 Creator and Maintainer
 ~~~~~~~~~~~~~~~~~~~~~~
 
-* Jonathan Pieper <jpieper@stud.uni-frankfurt.de>
+* Jonathan Pieper <ody55eus@mailbox.org>
 
 Supervisor
 ~~~~~~~~~~
@@ -27,6 +27,7 @@ Contributors
  - Co-author of the lab measurements
  - Co-author of :ref:`EVE`
  - Author of :ref:`Ana`
+ - Author of :ref:`SpectrumAnalyzer`
  - Co-experimentor
 
 
@@ -48,7 +49,7 @@ Creator
 Maintainer
 ~~~~~~~~~~~
 
-* Jonathan Pieper <jpieper@stud.uni-frankfurt.de>
+* Jonathan Pieper <ody55eus@mailbox.org>
 
 Contributors
 ~~~~~~~~~~~~~
@@ -90,7 +91,7 @@ Creator
 Maintainer
 ~~~~~~~~~~~
 
-* Jonathan Pieper <jpieper@stud.uni-frankfurt.de>
+* Jonathan Pieper <ody55eus@mailbox.org>
 
 Contributors
 ~~~~~~~~~~~~~
@@ -117,7 +118,7 @@ Ana
 Creator and Maintainer
 ~~~~~~~~~~~~~~~~~~~~~~
 
-* Jonathan Pieper <jpieper@stud.uni-frankfurt.de>
+* Jonathan Pieper <ody55eus@mailbox.org>
 
 
 Supervisor
