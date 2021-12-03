@@ -2,6 +2,16 @@
 History
 =======
 
+0.4 (2021-12-11)
+----------------
+* Published publicly together with master thesis.
+* Fixed some spelling / grammar errors.
+* Changed Links to point to publicly available repositories.
+* Removed unlicensed content.
+
+ - Created new repository without licensed content
+ - Unfortunately needed to remove old history because of legal issues.
+
 0.3.0 rc1 (2021-02-09)
 ------------------------
 
