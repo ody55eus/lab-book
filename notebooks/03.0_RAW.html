@@ -1,41 +1,80 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
   <title>RAW Time-Signal Measurements &mdash; Lab Book 0.4 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script src="../_static/js/theme.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="MFN: Compare Different Sweeprates (SR830 vs. SR785)" href="04.2_MFN_sweeprates.html" />
     <link rel="prev" title="Signal Analyzer Measurements (2)" href="02.2_Signal_Analyzer.html" /> 
 </head>
 
-<body class="wy-body-for-nav"> 
+<body class="wy-body-for-nav">
+
+   
   <div class="wy-grid-for-nav">
+    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
+          
+
+          
             <a href="../index.html" class="icon icon-home"> Lab Book
+          
+
+          
           </a>
+
+          
+            
+            
               <div class="version">
                 0.4
               </div>
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -43,21 +82,32 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Lab Book</span></p>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p><span class="caption-text">Lab Book</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html">Readme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../info/usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../info/gitlab.html">GitLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data/onenote/index.html">Original Lab Book</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Data</span></p>
+<p><span class="caption-text">Data</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../data/index.html">About the Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data/hloop/index.html">Magnetic Characterization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data/mfn/index.html">Magnetic Flux Noise (MFN)</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<p><span class="caption-text">Software</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../modules/notebooks.html">Jupyter Notebooks</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="00_MasterPlots.html">Master Thesis (All Plots)</a></li>
@@ -102,7 +152,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../modules/eve/index.html">EVE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/scripts.html">Python Scripts</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<p><span class="caption-text">Additional Information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../info/license.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
@@ -111,31 +161,73 @@
 <li class="toctree-l1"><a class="reference internal" href="../info/idx.html">Index</a></li>
 </ul>
 
+            
+          
         </div>
+        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Lab Book</a>
+        
       </nav>
 
+
       <div class="wy-nav-content">
+        
         <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
+    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
           <li><a href="../modules/notebooks.html">Jupyter Notebooks</a> &raquo;</li>
+        
       <li>RAW Time-Signal Measurements</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
+        
+          
             <a href="../_sources/notebooks/03.0_RAW.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-             
+            
   
 <style>
 /* CSS for nbsphinx extension */
@@ -407,9 +499,9 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="RAW-Time-Signal-Measurements">
-<h1>RAW Time-Signal Measurements<a class="headerlink" href="#RAW-Time-Signal-Measurements" title="Permalink to this headline"></a></h1>
+<h1>RAW Time-Signal Measurements<a class="headerlink" href="#RAW-Time-Signal-Measurements" title="Permalink to this headline">¶</a></h1>
 <section id="Loading">
-<h2>Loading<a class="headerlink" href="#Loading" title="Permalink to this headline"></a></h2>
+<h2>Loading<a class="headerlink" href="#Loading" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -472,7 +564,7 @@ os.getcwd()
 </pre></div></div>
 </div>
 <section id="Reload-Modules">
-<h3>Reload Modules<a class="headerlink" href="#Reload-Modules" title="Permalink to this headline"></a></h3>
+<h3>Reload Modules<a class="headerlink" href="#Reload-Modules" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -489,7 +581,7 @@ from spectrumanalyzer import SpectrumAnalyzer
 </div>
 </section>
 <section id="Define-Functions">
-<h3>Define Functions<a class="headerlink" href="#Define-Functions" title="Permalink to this headline"></a></h3>
+<h3>Define Functions<a class="headerlink" href="#Define-Functions" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -508,7 +600,7 @@ set_style()
 </div>
 </div>
 <section id="Plot-Spectrum-Hysteresis">
-<h4>Plot Spectrum Hysteresis<a class="headerlink" href="#Plot-Spectrum-Hysteresis" title="Permalink to this headline"></a></h4>
+<h4>Plot Spectrum Hysteresis<a class="headerlink" href="#Plot-Spectrum-Hysteresis" title="Permalink to this headline">¶</a></h4>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -536,7 +628,7 @@ set_style()
 </section>
 </section>
 <section id="Define-Variables">
-<h3>Define Variables<a class="headerlink" href="#Define-Variables" title="Permalink to this headline"></a></h3>
+<h3>Define Variables<a class="headerlink" href="#Define-Variables" title="Permalink to this headline">¶</a></h3>
 <p>Do this only Once! After initialization, these Variables will contain all measurement data and can be used for different evaluations!</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
@@ -805,7 +897,7 @@ meas_info
 </div>
 </section>
 <section id="Load-Data">
-<h3>Load Data<a class="headerlink" href="#Load-Data" title="Permalink to this headline"></a></h3>
+<h3>Load Data<a class="headerlink" href="#Load-Data" title="Permalink to this headline">¶</a></h3>
 <p>This takes a long time, if calculated for each Measurement <code class="docutils literal notranslate"><span class="pre">meas_info.index</span></code>! Instead use single numbers!</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
@@ -833,7 +925,7 @@ Wall time: 4.98 s
 </section>
 </section>
 <section id="Search-data-manually">
-<h2>Search data manually<a class="headerlink" href="#Search-data-manually" title="Permalink to this headline"></a></h2>
+<h2>Search data manually<a class="headerlink" href="#Search-data-manually" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
@@ -884,7 +976,7 @@ dict_keys([446, 447])
 </div>
 </div>
 <section id="Fit-Data">
-<h3>Fit Data<a class="headerlink" href="#Fit-Data" title="Permalink to this headline"></a></h3>
+<h3>Fit Data<a class="headerlink" href="#Fit-Data" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
@@ -940,7 +1032,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </section>
 <section id="Split-Data-into-Groups-(e.g. 5x8)">
-<h3>Split Data into Groups (e.g. 5x8)<a class="headerlink" href="#Split-Data-into-Groups-(e.g. 5x8)" title="Permalink to this headline"></a></h3>
+<h3>Split Data into Groups (e.g. 5x8)<a class="headerlink" href="#Split-Data-into-Groups-(e.g. 5x8)" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
@@ -1007,7 +1099,7 @@ for i in range(steps):
 </div>
 </section>
 <section id="Function-to-save-plots">
-<h3>Function to save plots<a class="headerlink" href="#Function-to-save-plots" title="Permalink to this headline"></a></h3>
+<h3>Function to save plots<a class="headerlink" href="#Function-to-save-plots" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
@@ -1035,7 +1127,7 @@ for i in range(steps):
 </div>
 </section>
 <section id="Plot-kde-of-multiple-fields">
-<h3>Plot kde of multiple fields<a class="headerlink" href="#Plot-kde-of-multiple-fields" title="Permalink to this headline"></a></h3>
+<h3>Plot kde of multiple fields<a class="headerlink" href="#Plot-kde-of-multiple-fields" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
@@ -1291,7 +1383,7 @@ The above exception was the direct cause of the following exception:
 </pre></div></div>
 </div>
 <section id="Plot-histogram-of-multiple-fields">
-<h4>Plot histogram of multiple fields<a class="headerlink" href="#Plot-histogram-of-multiple-fields" title="Permalink to this headline"></a></h4>
+<h4>Plot histogram of multiple fields<a class="headerlink" href="#Plot-histogram-of-multiple-fields" title="Permalink to this headline">¶</a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
@@ -1564,9 +1656,9 @@ The above exception was the direct cause of the following exception:
 </section>
 </section>
 <section id="Plot-Data">
-<h2>Plot Data<a class="headerlink" href="#Plot-Data" title="Permalink to this headline"></a></h2>
+<h2>Plot Data<a class="headerlink" href="#Plot-Data" title="Permalink to this headline">¶</a></h2>
 <section id="Default-Info-about-Measurements">
-<h3>Default Info about Measurements<a class="headerlink" href="#Default-Info-about-Measurements" title="Permalink to this headline"></a></h3>
+<h3>Default Info about Measurements<a class="headerlink" href="#Default-Info-about-Measurements" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[276]:
 </pre></div>
@@ -1613,7 +1705,7 @@ WARNING:root:Meas-Length: 1024s          Meas-Time: 2048s
 </div>
 </section>
 <section id="Plot-First-and-Second-Spectrum">
-<h3>Plot First and Second Spectrum<a class="headerlink" href="#Plot-First-and-Second-Spectrum" title="Permalink to this headline"></a></h3>
+<h3>Plot First and Second Spectrum<a class="headerlink" href="#Plot-First-and-Second-Spectrum" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -1628,7 +1720,7 @@ for nr in [437]:
 </div>
 </div>
 <section id="Plot-Second-Spectrum-of-specific-fields">
-<h4>Plot Second Spectrum of specific fields<a class="headerlink" href="#Plot-Second-Spectrum-of-specific-fields" title="Permalink to this headline"></a></h4>
+<h4>Plot Second Spectrum of specific fields<a class="headerlink" href="#Plot-Second-Spectrum-of-specific-fields" title="Permalink to this headline">¶</a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[692]:
 </pre></div>
@@ -1668,7 +1760,7 @@ plt.savefig(&#39;m%s_second_spectrum_fields.png&#39; % nr)
 </section>
 </section>
 <section id="Plot-Time-Signal">
-<h3>Plot Time Signal<a class="headerlink" href="#Plot-Time-Signal" title="Permalink to this headline"></a></h3>
+<h3>Plot Time Signal<a class="headerlink" href="#Plot-Time-Signal" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[694]:
 </pre></div>
@@ -1738,7 +1830,7 @@ sns.violinplot(x=&#39;Field&#39;, y=&#39;Vx&#39;, data=signal, ax=ax)
 </section>
 </section>
 <section id="Plot-Noise-Spectrum-Hysteresis">
-<h2>Plot Noise Spectrum Hysteresis<a class="headerlink" href="#Plot-Noise-Spectrum-Hysteresis" title="Permalink to this headline"></a></h2>
+<h2>Plot Noise Spectrum Hysteresis<a class="headerlink" href="#Plot-Noise-Spectrum-Hysteresis" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
@@ -1759,9 +1851,9 @@ plot_spectrum_hyst(nr1, nr2)
 </div>
 </section>
 <section id="Cut-and-Paste-Timesignal-(multiple-Measurements)">
-<h2>Cut and Paste Timesignal (multiple Measurements)<a class="headerlink" href="#Cut-and-Paste-Timesignal-(multiple-Measurements)" title="Permalink to this headline"></a></h2>
+<h2>Cut and Paste Timesignal (multiple Measurements)<a class="headerlink" href="#Cut-and-Paste-Timesignal-(multiple-Measurements)" title="Permalink to this headline">¶</a></h2>
 <section id="Test-to-put-multiple-measurements-together">
-<h3>Test to put multiple measurements together<a class="headerlink" href="#Test-to-put-multiple-measurements-together" title="Permalink to this headline"></a></h3>
+<h3>Test to put multiple measurements together<a class="headerlink" href="#Test-to-put-multiple-measurements-together" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[195]:
 </pre></div>
@@ -1900,7 +1992,7 @@ ax3.set_yscale(&#39;log&#39;)
 </div>
 </section>
 <section id="Evaluating-m456-(multiple-measurements-at-0-field)">
-<h3>Evaluating m456 (multiple measurements at 0 field)<a class="headerlink" href="#Evaluating-m456-(multiple-measurements-at-0-field)" title="Permalink to this headline"></a></h3>
+<h3>Evaluating m456 (multiple measurements at 0 field)<a class="headerlink" href="#Evaluating-m456-(multiple-measurements-at-0-field)" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[705]:
 </pre></div>
@@ -1938,7 +2030,7 @@ m456_spectrum = eva.RAW_Measurement(data,
 </div>
 </div>
 <section id="First-Spectrum">
-<h4>First Spectrum<a class="headerlink" href="#First-Spectrum" title="Permalink to this headline"></a></h4>
+<h4>First Spectrum<a class="headerlink" href="#First-Spectrum" title="Permalink to this headline">¶</a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[309]:
 </pre></div>
@@ -1981,7 +2073,7 @@ Sum:    3.0521e-11
 </div>
 </section>
 <section id="Histogram">
-<h4>Histogram<a class="headerlink" href="#Histogram" title="Permalink to this headline"></a></h4>
+<h4>Histogram<a class="headerlink" href="#Histogram" title="Permalink to this headline">¶</a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[302]:
 </pre></div>
@@ -2009,7 +2101,7 @@ Sum:    3.0521e-11
 </div>
 </section>
 <section id="Second-Spectrum">
-<h4>Second Spectrum<a class="headerlink" href="#Second-Spectrum" title="Permalink to this headline"></a></h4>
+<h4>Second Spectrum<a class="headerlink" href="#Second-Spectrum" title="Permalink to this headline">¶</a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[710]:
 </pre></div>
@@ -2062,33 +2154,50 @@ plt.savefig(&#39;m%s_second_spectrum.png&#39; % nr)
 
 
            </div>
+           
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="02.2_Signal_Analyzer.html" class="btn btn-neutral float-left" title="Signal Analyzer Measurements (2)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="04.2_MFN_sweeprates.html" class="btn btn-neutral float-right" title="MFN: Compare Different Sweeprates (SR830 vs. SR785)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="02.2_Signal_Analyzer.html" class="btn btn-neutral float-left" title="Signal Analyzer Measurements (2)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020/2021, Jonathan Pieper.</p>
-  </div>
+    <p>
+        &#169; Copyright 2020/2021, Jonathan Pieper.
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
         </div>
       </div>
+
     </section>
+
   </div>
-  <script>
+  
+
+  <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

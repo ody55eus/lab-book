@@ -1,41 +1,80 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
   <title>Magnetic Flux Noise (MFN) &mdash; Lab Book 0.4 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script src="../../_static/js/theme.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Jupyter Notebooks" href="../../modules/notebooks.html" />
     <link rel="prev" title="Magnetic Characterization" href="../hloop/index.html" /> 
 </head>
 
-<body class="wy-body-for-nav"> 
+<body class="wy-body-for-nav">
+
+   
   <div class="wy-grid-for-nav">
+    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
+          
+
+          
             <a href="../../index.html" class="icon icon-home"> Lab Book
+          
+
+          
           </a>
+
+          
+            
+            
               <div class="version">
                 0.4
               </div>
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -43,15 +82,26 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Lab Book</span></p>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p><span class="caption-text">Lab Book</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../readme.html">Readme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../info/usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../info/gitlab.html">GitLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../onenote/index.html">Original Lab Book</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Data</span></p>
+<p><span class="caption-text">Data</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">About the Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hloop/index.html">Magnetic Characterization</a></li>
@@ -78,7 +128,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#moving-field">Moving Field</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id2">Measurement Plan #2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#measurement-plan-2-1">Measurement Plan #2</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#large-sweep-ranges">Large Sweep Ranges</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#different-sweep-rates">Different Sweep Rates</a></li>
 </ul>
@@ -91,7 +141,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#useful-measurements">Useful Measurements</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">80deg Measurements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#deg-measurements-1">80deg Measurements</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#initial-80deg-measurements">Initial 80deg measurements</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#deg-missing-measurements">80deg missing measurements</a></li>
 </ul>
@@ -116,7 +166,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<p><span class="caption-text">Software</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../modules/notebooks.html">Jupyter Notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../modules/ana/index.html">Data Analysis Framework (Ana)</a></li>
@@ -124,7 +174,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../modules/eve/index.html">EVE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../modules/scripts.html">Python Scripts</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<p><span class="caption-text">Additional Information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../info/license.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
@@ -133,30 +183,71 @@
 <li class="toctree-l1"><a class="reference internal" href="../../info/idx.html">Index</a></li>
 </ul>
 
+            
+          
         </div>
+        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Lab Book</a>
+        
       </nav>
 
+
       <div class="wy-nav-content">
+        
         <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
+    
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
       <li>Magnetic Flux Noise (MFN)</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
+        
+          
             <a href="../../_sources/data/mfn/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-             
+            
   
 <style>
 /* CSS overrides for sphinx_rtd_theme */
@@ -182,273 +273,273 @@
 }
 </style>
 <section id="magnetic-flux-noise-mfn">
-<h1>Magnetic Flux Noise (MFN)<a class="headerlink" href="#magnetic-flux-noise-mfn" title="Permalink to this headline"></a></h1>
+<h1>Magnetic Flux Noise (MFN)<a class="headerlink" href="#magnetic-flux-noise-mfn" title="Permalink to this headline">¶</a></h1>
 <nav class="contents local" id="content">
 <p class="topic-title">Content</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#about-mfn" id="id44">About MFN</a></p>
+<li><p><a class="reference internal" href="#about-mfn" id="toc-entry-1">About MFN</a></p>
 <ul>
-<li><p><a class="reference internal" href="#signal-analyzer" id="id45">Signal Analyzer</a></p>
+<li><p><a class="reference internal" href="#signal-analyzer" id="toc-entry-2">Signal Analyzer</a></p>
 <ul>
-<li><p><a class="reference internal" href="#sr785-signal-analyzer" id="id46">SR785 Signal Analyzer</a></p></li>
-<li><p><a class="reference internal" href="#influence-of-various-parameters-on-the-psd" id="id47">Influence of various parameters on the PSD</a></p>
+<li><p><a class="reference internal" href="#sr785-signal-analyzer" id="toc-entry-3">SR785 Signal Analyzer</a></p></li>
+<li><p><a class="reference internal" href="#influence-of-various-parameters-on-the-psd" id="toc-entry-4">Influence of various parameters on the PSD</a></p>
 <ul>
-<li><p><a class="reference internal" href="#temperature" id="id48">Temperature</a></p></li>
-<li><p><a class="reference internal" href="#sweeprate" id="id49">Sweeprate</a></p></li>
-<li><p><a class="reference internal" href="#applied-current-amplitude" id="id50">Applied Current Amplitude</a></p></li>
+<li><p><a class="reference internal" href="#temperature" id="toc-entry-5">Temperature</a></p></li>
+<li><p><a class="reference internal" href="#sweeprate" id="toc-entry-6">Sweeprate</a></p></li>
+<li><p><a class="reference internal" href="#applied-current-amplitude" id="toc-entry-7">Applied Current Amplitude</a></p></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#sr830-data-acquisition-sr830daq" id="id51">SR830 Data Acquisition (SR830DAQ)</a></p>
+<li><p><a class="reference internal" href="#sr830-data-acquisition-sr830daq" id="toc-entry-8">SR830 Data Acquisition (SR830DAQ)</a></p>
 <ul>
-<li><p><a class="reference internal" href="#time-signals" id="id52">Time-Signals</a></p></li>
-<li><p><a class="reference internal" href="#analysis-overview" id="id53">Analysis Overview</a></p></li>
-<li><p><a class="reference internal" href="#calculated-psd" id="id54">Calculated PSD</a></p></li>
+<li><p><a class="reference internal" href="#time-signals" id="toc-entry-9">Time-Signals</a></p></li>
+<li><p><a class="reference internal" href="#analysis-overview" id="toc-entry-10">Analysis Overview</a></p></li>
+<li><p><a class="reference internal" href="#calculated-psd" id="toc-entry-11">Calculated PSD</a></p></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#mfn-signal-analyzer" id="id55">MFN: Signal Analyzer</a></p>
+<li><p><a class="reference internal" href="#mfn-signal-analyzer" id="toc-entry-12">MFN: Signal Analyzer</a></p>
 <ul>
-<li><p><a class="reference internal" href="#static-field" id="id56">Static Field</a></p>
+<li><p><a class="reference internal" href="#static-field" id="toc-entry-13">Static Field</a></p>
 <ul>
-<li><p><a class="reference internal" href="#important-measurements" id="id57">Important Measurements</a></p>
+<li><p><a class="reference internal" href="#important-measurements" id="toc-entry-14">Important Measurements</a></p>
 <ul>
-<li><p><a class="reference internal" href="#measurement-plan-11-different-applied-current-for-plusses" id="id58">Measurement Plan #11: different applied current for plusses</a></p></li>
+<li><p><a class="reference internal" href="#measurement-plan-11-different-applied-current-for-plusses" id="toc-entry-15">Measurement Plan #11: different applied current for plusses</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#first-measurements-at-90deg" id="id59">First measurements at 90deg</a></p></li>
-<li><p><a class="reference internal" href="#measurement-plan-2" id="id60">Measurement Plan #2</a></p></li>
+<li><p><a class="reference internal" href="#first-measurements-at-90deg" id="toc-entry-16">First measurements at 90deg</a></p></li>
+<li><p><a class="reference internal" href="#measurement-plan-2" id="toc-entry-17">Measurement Plan #2</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#moving-field" id="id61">Moving Field</a></p>
+<li><p><a class="reference internal" href="#moving-field" id="toc-entry-18">Moving Field</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id2" id="id62">Measurement Plan #2</a></p></li>
-<li><p><a class="reference internal" href="#large-sweep-ranges" id="id63">Large Sweep Ranges</a></p>
+<li><p><a class="reference internal" href="#measurement-plan-2-1" id="toc-entry-19">Measurement Plan #2</a></p></li>
+<li><p><a class="reference internal" href="#large-sweep-ranges" id="toc-entry-20">Large Sweep Ranges</a></p>
 <ul>
-<li><p><a class="reference internal" href="#plots" id="id64">Plots</a></p></li>
+<li><p><a class="reference internal" href="#plots" id="toc-entry-21">Plots</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#different-sweep-rates" id="id65">Different Sweep Rates</a></p></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#mfn-lock-in" id="id66">MFN: Lock-In</a></p>
-<ul>
-<li><p><a class="reference internal" href="#sr830-daq" id="id67">SR830 DAQ</a></p></li>
-<li><p><a class="reference internal" href="#deg-measurements" id="id68">45deg Measurements</a></p>
-<ul>
-<li><p><a class="reference internal" href="#useful-measurements" id="id69">Useful Measurements</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#id4" id="id70">80deg Measurements</a></p>
-<ul>
-<li><p><a class="reference internal" href="#initial-80deg-measurements" id="id71">Initial 80deg measurements</a></p></li>
-<li><p><a class="reference internal" href="#deg-missing-measurements" id="id72">80deg missing measurements</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#deg-remeasure-missing-measurements" id="id73">45deg remeasure missing measurements</a></p>
-<ul>
-<li><p><a class="reference internal" href="#plusses-repeat-430-431" id="id74">Plusses (Repeat 430/431)</a></p></li>
-<li><p><a class="reference internal" href="#empty-cross-17-hz" id="id75">Empty Cross (17 Hz)</a></p></li>
-<li><p><a class="reference internal" href="#histogram-of-empty-cross-m491" id="id76">Histogram of empty cross (m491)</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#deg-repeating-selected-measurements" id="id77">90deg Repeating selected measurements</a></p>
-<ul>
-<li><p><a class="reference internal" href="#changing-angle-to-90deg" id="id78">Changing Angle to 90deg</a></p></li>
-<li><p><a class="reference internal" href="#repeat-selected-signal-analyzer-measurements-with-sr830" id="id79">Repeat selected signal analyzer measurements with SR830</a></p></li>
-<li><p><a class="reference internal" href="#changing-angle-again-to-90deg" id="id80">Changing Angle again to 90deg</a></p>
-<ul>
-<li><p><a class="reference internal" href="#before-changing-angle" id="id81">Before Changing Angle</a></p></li>
-<li><p><a class="reference internal" href="#after-changing-angle" id="id82">After Changing Angle</a></p>
-<ul>
-<li><p><a class="reference internal" href="#id22" id="id83">5-10</a></p></li>
-<li><p><a class="reference internal" href="#id23" id="id84">6-8</a></p></li>
+<li><p><a class="reference internal" href="#different-sweep-rates" id="toc-entry-22">Different Sweep Rates</a></p></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#repeating-m351-354" id="id85">Repeating m351-354</a></p></li>
-<li><p><a class="reference internal" href="#repeating-m378-382-different-voltages" id="id86">Repeating m378-382 (<strong>different voltages</strong>)</a></p></li>
-<li><p><a class="reference internal" href="#repeating-m362-366" id="id87">Repeating m362-366</a></p></li>
+<li><p><a class="reference internal" href="#mfn-lock-in" id="toc-entry-23">MFN: Lock-In</a></p>
+<ul>
+<li><p><a class="reference internal" href="#sr830-daq" id="toc-entry-24">SR830 DAQ</a></p></li>
+<li><p><a class="reference internal" href="#deg-measurements" id="toc-entry-25">45deg Measurements</a></p>
+<ul>
+<li><p><a class="reference internal" href="#useful-measurements" id="toc-entry-26">Useful Measurements</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#deg-measurements-1" id="toc-entry-27">80deg Measurements</a></p>
+<ul>
+<li><p><a class="reference internal" href="#initial-80deg-measurements" id="toc-entry-28">Initial 80deg measurements</a></p></li>
+<li><p><a class="reference internal" href="#deg-missing-measurements" id="toc-entry-29">80deg missing measurements</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#deg-remeasure-missing-measurements" id="toc-entry-30">45deg remeasure missing measurements</a></p>
+<ul>
+<li><p><a class="reference internal" href="#plusses-repeat-430-431" id="toc-entry-31">Plusses (Repeat 430/431)</a></p></li>
+<li><p><a class="reference internal" href="#empty-cross-17-hz" id="toc-entry-32">Empty Cross (17 Hz)</a></p></li>
+<li><p><a class="reference internal" href="#histogram-of-empty-cross-m491" id="toc-entry-33">Histogram of empty cross (m491)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#deg-repeating-selected-measurements" id="toc-entry-34">90deg Repeating selected measurements</a></p>
+<ul>
+<li><p><a class="reference internal" href="#changing-angle-to-90deg" id="toc-entry-35">Changing Angle to 90deg</a></p></li>
+<li><p><a class="reference internal" href="#repeat-selected-signal-analyzer-measurements-with-sr830" id="toc-entry-36">Repeat selected signal analyzer measurements with SR830</a></p></li>
+<li><p><a class="reference internal" href="#changing-angle-again-to-90deg" id="toc-entry-37">Changing Angle again to 90deg</a></p>
+<ul>
+<li><p><a class="reference internal" href="#before-changing-angle" id="toc-entry-38">Before Changing Angle</a></p></li>
+<li><p><a class="reference internal" href="#after-changing-angle" id="toc-entry-39">After Changing Angle</a></p>
+<ul>
+<li><p><a class="reference internal" href="#section-1" id="toc-entry-40">5-10</a></p></li>
+<li><p><a class="reference internal" href="#section-2" id="toc-entry-41">6-8</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#repeating-m351-354" id="toc-entry-42">Repeating m351-354</a></p></li>
+<li><p><a class="reference internal" href="#repeating-m378-382-different-voltages" id="toc-entry-43">Repeating m378-382 (<strong>different voltages</strong>)</a></p></li>
+<li><p><a class="reference internal" href="#repeating-m362-366" id="toc-entry-44">Repeating m362-366</a></p></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </nav>
-<figure class="align-default" id="id24">
+<figure class="align-default" id="figure-1">
 <a class="reference external image-reference" href="../../_static/mfn_mindmap.html"><img alt="../../_images/mfn_mindmap.png" src="../../_images/mfn_mindmap.png" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Structure of the Magnetic Flux Noise Measurements.</span><a class="headerlink" href="#id24" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Structure of the Magnetic Flux Noise Measurements.</span><a class="headerlink" href="#figure-1" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <section id="about-mfn">
-<h2><a class="toc-backref" href="#id44" role="doc-backlink">About MFN</a><a class="headerlink" href="#about-mfn" title="Permalink to this headline"></a></h2>
-<nav class="contents local" id="id1">
+<h2><a class="toc-backref" href="#toc-entry-1" role="doc-backlink">About MFN</a><a class="headerlink" href="#about-mfn" title="Permalink to this headline">¶</a></h2>
+<nav class="contents local" id="topic-1">
 <p class="topic-title">Content</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#signal-analyzer" id="id88">Signal Analyzer</a></p>
+<li><p><a class="reference internal" href="#signal-analyzer" id="toc-entry-45">Signal Analyzer</a></p>
 <ul>
-<li><p><a class="reference internal" href="#sr785-signal-analyzer" id="id89">SR785 Signal Analyzer</a></p></li>
-<li><p><a class="reference internal" href="#influence-of-various-parameters-on-the-psd" id="id90">Influence of various parameters on the PSD</a></p>
+<li><p><a class="reference internal" href="#sr785-signal-analyzer" id="toc-entry-46">SR785 Signal Analyzer</a></p></li>
+<li><p><a class="reference internal" href="#influence-of-various-parameters-on-the-psd" id="toc-entry-47">Influence of various parameters on the PSD</a></p>
 <ul>
-<li><p><a class="reference internal" href="#temperature" id="id91">Temperature</a></p></li>
-<li><p><a class="reference internal" href="#sweeprate" id="id92">Sweeprate</a></p></li>
-<li><p><a class="reference internal" href="#applied-current-amplitude" id="id93">Applied Current Amplitude</a></p></li>
+<li><p><a class="reference internal" href="#temperature" id="toc-entry-48">Temperature</a></p></li>
+<li><p><a class="reference internal" href="#sweeprate" id="toc-entry-49">Sweeprate</a></p></li>
+<li><p><a class="reference internal" href="#applied-current-amplitude" id="toc-entry-50">Applied Current Amplitude</a></p></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#sr830-data-acquisition-sr830daq" id="id94">SR830 Data Acquisition (SR830DAQ)</a></p>
+<li><p><a class="reference internal" href="#sr830-data-acquisition-sr830daq" id="toc-entry-51">SR830 Data Acquisition (SR830DAQ)</a></p>
 <ul>
-<li><p><a class="reference internal" href="#time-signals" id="id95">Time-Signals</a></p></li>
-<li><p><a class="reference internal" href="#analysis-overview" id="id96">Analysis Overview</a></p></li>
-<li><p><a class="reference internal" href="#calculated-psd" id="id97">Calculated PSD</a></p></li>
+<li><p><a class="reference internal" href="#time-signals" id="toc-entry-52">Time-Signals</a></p></li>
+<li><p><a class="reference internal" href="#analysis-overview" id="toc-entry-53">Analysis Overview</a></p></li>
+<li><p><a class="reference internal" href="#calculated-psd" id="toc-entry-54">Calculated PSD</a></p></li>
 </ul>
 </li>
 </ul>
 </nav>
 <p>The following section is about the fluctuations of the magnetic system.</p>
-<figure class="align-default" id="id25">
+<figure class="align-default" id="figure-2">
 <a class="reference external image-reference" href="../../_static/hloops_crosses.pdf"><img alt="../../_images/hloops_crosses.png" src="../../_images/hloops_crosses.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Repeated hysteresis loops (Crosses).</span><a class="headerlink" href="#id25" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Repeated hysteresis loops (Crosses).</span><a class="headerlink" href="#figure-2" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<figure class="align-default" id="id26">
+<figure class="align-default" id="figure-3">
 <a class="reference external image-reference" href="../../_static/hloops_plusses.pdf"><img alt="../../_images/hloops_plusses.png" src="../../_images/hloops_plusses.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Repeated hysteresis loops (Plusses).</span><a class="headerlink" href="#id26" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Repeated hysteresis loops (Plusses).</span><a class="headerlink" href="#figure-3" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <section id="signal-analyzer">
-<h3><a class="toc-backref" href="#id88" role="doc-backlink">Signal Analyzer</a><a class="headerlink" href="#signal-analyzer" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#toc-entry-45" role="doc-backlink">Signal Analyzer</a><a class="headerlink" href="#signal-analyzer" title="Permalink to this headline">¶</a></h3>
 <p>These measurements have been performed with the SR785.</p>
 <section id="sr785-signal-analyzer">
-<h4><a class="toc-backref" href="#id89" role="doc-backlink">SR785 Signal Analyzer</a><a class="headerlink" href="#sr785-signal-analyzer" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#toc-entry-46" role="doc-backlink">SR785 Signal Analyzer</a><a class="headerlink" href="#sr785-signal-analyzer" title="Permalink to this headline">¶</a></h4>
 <p>The signal analyzer SR785 is in-situ calculating the Fourier transformation of a signal.
 This yields faster results and improved memory usage because the raw signal does not need to be saved.
 This also implies that the raw signal is not available for further analysis.</p>
-<figure class="align-default" id="id27">
+<figure class="align-default" id="figure-4">
 <a class="reference external image-reference" href="../../_static/sr785-first.pdf"><img alt="../../_images/sr785-fast.png" src="../../_images/sr785-fast.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 21 </span><span class="caption-text">SR785: Large field sweeps outside and covering the hysteresis.</span><a class="headerlink" href="#id27" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text">SR785: Large field sweeps outside and covering the hysteresis.</span><a class="headerlink" href="#figure-4" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<figure class="align-default" id="id28">
+<figure class="align-default" id="figure-5">
 <a class="reference external image-reference" href="../../_static/sr785-first.pdf"><img alt="../../_images/sr785-first.png" src="../../_images/sr785-first.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 22 </span><span class="caption-text">SR785: Field sweeps inside the hysteresis.</span><a class="headerlink" href="#id28" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text">SR785: Field sweeps inside the hysteresis.</span><a class="headerlink" href="#figure-5" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="influence-of-various-parameters-on-the-psd">
-<h4><a class="toc-backref" href="#id90" role="doc-backlink">Influence of various parameters on the PSD</a><a class="headerlink" href="#influence-of-various-parameters-on-the-psd" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#toc-entry-47" role="doc-backlink">Influence of various parameters on the PSD</a><a class="headerlink" href="#influence-of-various-parameters-on-the-psd" title="Permalink to this headline">¶</a></h4>
 <section id="temperature">
-<h5><a class="toc-backref" href="#id91" role="doc-backlink">Temperature</a><a class="headerlink" href="#temperature" title="Permalink to this headline"></a></h5>
-<figure class="align-default" id="id29">
+<h5><a class="toc-backref" href="#toc-entry-48" role="doc-backlink">Temperature</a><a class="headerlink" href="#temperature" title="Permalink to this headline">¶</a></h5>
+<figure class="align-default" id="figure-6">
 <a class="reference external image-reference" href="../../_static/sr785-temp.pdf"><img alt="../../_images/sr785-temp.png" src="../../_images/sr785-temp.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 23 </span><span class="caption-text">SR785: Field sweeps at different temperatures.</span><a class="headerlink" href="#id29" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text">SR785: Field sweeps at different temperatures.</span><a class="headerlink" href="#figure-6" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="sweeprate">
-<h5><a class="toc-backref" href="#id92" role="doc-backlink">Sweeprate</a><a class="headerlink" href="#sweeprate" title="Permalink to this headline"></a></h5>
-<figure class="align-default" id="id30">
+<h5><a class="toc-backref" href="#toc-entry-49" role="doc-backlink">Sweeprate</a><a class="headerlink" href="#sweeprate" title="Permalink to this headline">¶</a></h5>
+<figure class="align-default" id="figure-7">
 <a class="reference external image-reference" href="../../_static/sr785-sweeprates.pdf"><img alt="../../_images/sr785-sweeprates.png" src="../../_images/sr785-sweeprates.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 24 </span><span class="caption-text">SR785: Field sweeps for different sweeprates.</span><a class="headerlink" href="#id30" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">SR785: Field sweeps for different sweeprates.</span><a class="headerlink" href="#figure-7" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="applied-current-amplitude">
-<h5><a class="toc-backref" href="#id93" role="doc-backlink">Applied Current Amplitude</a><a class="headerlink" href="#applied-current-amplitude" title="Permalink to this headline"></a></h5>
-<figure class="align-default" id="id31">
+<h5><a class="toc-backref" href="#toc-entry-50" role="doc-backlink">Applied Current Amplitude</a><a class="headerlink" href="#applied-current-amplitude" title="Permalink to this headline">¶</a></h5>
+<figure class="align-default" id="figure-8">
 <a class="reference external image-reference" href="../../_static/sr785-voltages.pdf"><img alt="../../_images/sr785-voltages.png" src="../../_images/sr785-voltages.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 25 </span><span class="caption-text">SR785: Field sweeps with different applied currents.</span><a class="headerlink" href="#id31" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">SR785: Field sweeps with different applied currents.</span><a class="headerlink" href="#figure-8" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 </section>
 </section>
 <section id="sr830-data-acquisition-sr830daq">
-<h3><a class="toc-backref" href="#id94" role="doc-backlink">SR830 Data Acquisition (SR830DAQ)</a><a class="headerlink" href="#sr830-data-acquisition-sr830daq" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#toc-entry-51" role="doc-backlink">SR830 Data Acquisition (SR830DAQ)</a><a class="headerlink" href="#sr830-data-acquisition-sr830daq" title="Permalink to this headline">¶</a></h3>
 <p>These measurements have been performed solely with the SR830 lock-in amplifier.</p>
 <section id="time-signals">
-<h4><a class="toc-backref" href="#id95" role="doc-backlink">Time-Signals</a><a class="headerlink" href="#time-signals" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#toc-entry-52" role="doc-backlink">Time-Signals</a><a class="headerlink" href="#time-signals" title="Permalink to this headline">¶</a></h4>
 <p>The SR830 can be programmed to send automatically data to the computer.
 Using this feature it is possible to acquire the raw (unfiltered) data.</p>
-<figure class="align-default" id="id32">
+<figure class="align-default" id="figure-9">
 <a class="reference external image-reference" href="../../_static/hist447_2.pdf"><img alt="../../_images/hist446_1.png" src="../../_images/hist446_1.png" style="width: 49%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 26 </span><span class="caption-text">SR830DAQ: Time-Signal’s KDEs at static positions (m446).</span><a class="headerlink" href="#id32" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 26 </span><span class="caption-text">SR830DAQ: Time-Signal’s KDEs at static positions (m446).</span><a class="headerlink" href="#figure-9" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<figure class="align-default" id="id33">
+<figure class="align-default" id="figure-10">
 <a class="reference external image-reference" href="../../_static/hist447_2.pdf"><img alt="../../_images/hist447_2.png" src="../../_images/hist447_2.png" style="width: 49%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 27 </span><span class="caption-text">SR830DAQ: Time-Signal’s KDEs at static positions (m447).</span><a class="headerlink" href="#id33" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 27 </span><span class="caption-text">SR830DAQ: Time-Signal’s KDEs at static positions (m447).</span><a class="headerlink" href="#figure-10" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<figure class="align-default" id="id34">
+<figure class="align-default" id="figure-11">
 <a class="reference external image-reference" href="../../_static/daq-time-446.pdf"><img alt="../../_images/daq-time-446.png" src="../../_images/daq-time-446.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 28 </span><span class="caption-text">SR830DAQ: Time-Signal at selected positions (m446).</span><a class="headerlink" href="#id34" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 28 </span><span class="caption-text">SR830DAQ: Time-Signal at selected positions (m446).</span><a class="headerlink" href="#figure-11" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<figure class="align-default" id="id35">
+<figure class="align-default" id="figure-12">
 <a class="reference external image-reference" href="../../_static/daq-time-447.pdf"><img alt="../../_images/daq-time-447.png" src="../../_images/daq-time-447.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 29 </span><span class="caption-text">SR830DAQ: Time-Signal at selected positions (m447).</span><a class="headerlink" href="#id35" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 29 </span><span class="caption-text">SR830DAQ: Time-Signal at selected positions (m447).</span><a class="headerlink" href="#figure-12" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<figure class="align-default" id="id36">
+<figure class="align-default" id="figure-13">
 <a class="reference external image-reference" href="../../_static/daq-time-446-2.pdf"><img alt="../../_images/daq-time-446-2.png" src="../../_images/daq-time-446-2.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 30 </span><span class="caption-text">SR830DAQ: Time-Signal at selected positions (m446).</span><a class="headerlink" href="#id36" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 30 </span><span class="caption-text">SR830DAQ: Time-Signal at selected positions (m446).</span><a class="headerlink" href="#figure-13" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="analysis-overview">
-<h4><a class="toc-backref" href="#id96" role="doc-backlink">Analysis Overview</a><a class="headerlink" href="#analysis-overview" title="Permalink to this headline"></a></h4>
-<figure class="align-default" id="id37">
+<h4><a class="toc-backref" href="#toc-entry-53" role="doc-backlink">Analysis Overview</a><a class="headerlink" href="#analysis-overview" title="Permalink to this headline">¶</a></h4>
+<figure class="align-default" id="figure-14">
 <a class="reference external image-reference" href="../../_static/daq-info-446.pdf"><img alt="../../_images/daq-info-446.png" src="../../_images/daq-info-446.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 31 </span><span class="caption-text">SR830DAQ: Analysis Overview (m446).</span><a class="headerlink" href="#id37" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 31 </span><span class="caption-text">SR830DAQ: Analysis Overview (m446).</span><a class="headerlink" href="#figure-14" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<figure class="align-default" id="id38">
+<figure class="align-default" id="figure-15">
 <a class="reference external image-reference" href="../../_static/daq-info-447.pdf"><img alt="../../_images/daq-info-447.png" src="../../_images/daq-info-447.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 32 </span><span class="caption-text">SR830DAQ: Analysis Overview (m447).</span><a class="headerlink" href="#id38" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 32 </span><span class="caption-text">SR830DAQ: Analysis Overview (m447).</span><a class="headerlink" href="#figure-15" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="calculated-psd">
-<h4><a class="toc-backref" href="#id97" role="doc-backlink">Calculated PSD</a><a class="headerlink" href="#calculated-psd" title="Permalink to this headline"></a></h4>
-<figure class="align-default" id="id39">
+<h4><a class="toc-backref" href="#toc-entry-54" role="doc-backlink">Calculated PSD</a><a class="headerlink" href="#calculated-psd" title="Permalink to this headline">¶</a></h4>
+<figure class="align-default" id="figure-16">
 <a class="reference external image-reference" href="../../_static/daq-sweeprate.pdf"><img alt="../../_images/daq-sweeprate.png" src="../../_images/daq-sweeprate.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 33 </span><span class="caption-text">SR830DAQ: Field sweeps for different sweeprates.</span><a class="headerlink" href="#id39" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 33 </span><span class="caption-text">SR830DAQ: Field sweeps for different sweeprates.</span><a class="headerlink" href="#figure-16" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<figure class="align-default" id="id40">
+<figure class="align-default" id="figure-17">
 <a class="reference external image-reference" href="../../_static/daq-volt.pdf"><img alt="../../_images/daq-volt.png" src="../../_images/daq-volt.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 34 </span><span class="caption-text">SR830DAQ: Field sweeps with different applied currents.</span><a class="headerlink" href="#id40" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text">SR830DAQ: Field sweeps with different applied currents.</span><a class="headerlink" href="#figure-17" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 </section>
 </section>
 <section id="mfn-signal-analyzer">
-<h2><a class="toc-backref" href="#id55" role="doc-backlink">MFN: Signal Analyzer</a><a class="headerlink" href="#mfn-signal-analyzer" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#toc-entry-12" role="doc-backlink">MFN: Signal Analyzer</a><a class="headerlink" href="#mfn-signal-analyzer" title="Permalink to this headline">¶</a></h2>
 <dl class="field-list simple">
 <dt class="field-odd">Date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>2019</p>
@@ -479,11 +570,11 @@ choosing the sensitivity extremly depend on the temperature. It was on overload 
 <p>After stabalizing the temp, 5mV was OK.</p>
 </div></blockquote>
 <section id="static-field">
-<h3><a class="toc-backref" href="#id56" role="doc-backlink">Static Field</a><a class="headerlink" href="#static-field" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#toc-entry-13" role="doc-backlink">Static Field</a><a class="headerlink" href="#static-field" title="Permalink to this headline">¶</a></h3>
 <section id="important-measurements">
-<h4><a class="toc-backref" href="#id57" role="doc-backlink">Important Measurements</a><a class="headerlink" href="#important-measurements" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#toc-entry-14" role="doc-backlink">Important Measurements</a><a class="headerlink" href="#important-measurements" title="Permalink to this headline">¶</a></h4>
 <section id="measurement-plan-11-different-applied-current-for-plusses">
-<h5><a class="toc-backref" href="#id58" role="doc-backlink">Measurement Plan #11: different applied current for plusses</a><a class="headerlink" href="#measurement-plan-11-different-applied-current-for-plusses" title="Permalink to this headline"></a></h5>
+<h5><a class="toc-backref" href="#toc-entry-15" role="doc-backlink">Measurement Plan #11: different applied current for plusses</a><a class="headerlink" href="#measurement-plan-11-different-applied-current-for-plusses" title="Permalink to this headline">¶</a></h5>
 <p>Together with Measurement Plan #5: Static field effect</p>
 <table class="docutils align-default">
 <thead>
@@ -542,7 +633,7 @@ choosing the sensitivity extremly depend on the temperature. It was on overload 
 </section>
 </section>
 <section id="first-measurements-at-90deg">
-<h4><a class="toc-backref" href="#id59" role="doc-backlink">First measurements at 90deg</a><a class="headerlink" href="#first-measurements-at-90deg" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#toc-entry-16" role="doc-backlink">First measurements at 90deg</a><a class="headerlink" href="#first-measurements-at-90deg" title="Permalink to this headline">¶</a></h4>
 <dl class="field-list simple">
 <dt class="field-odd">Date<span class="colon">:</span></dt>
 <dd class="field-odd"><ol class="arabic simple" start="6">
@@ -754,7 +845,7 @@ choosing the sensitivity extremly depend on the temperature. It was on overload 
 </table>
 </section>
 <section id="measurement-plan-2">
-<h4><a class="toc-backref" href="#id60" role="doc-backlink">Measurement Plan #2</a><a class="headerlink" href="#measurement-plan-2" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#toc-entry-17" role="doc-backlink">Measurement Plan #2</a><a class="headerlink" href="#measurement-plan-2" title="Permalink to this headline">¶</a></h4>
 <dl class="field-list simple">
 <dt class="field-odd">Date<span class="colon">:</span></dt>
 <dd class="field-odd"><ol class="arabic simple" start="13">
@@ -862,7 +953,7 @@ choosing the sensitivity extremly depend on the temperature. It was on overload 
 </section>
 </section>
 <section id="moving-field">
-<h3><a class="toc-backref" href="#id61" role="doc-backlink">Moving Field</a><a class="headerlink" href="#moving-field" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#toc-entry-18" role="doc-backlink">Moving Field</a><a class="headerlink" href="#moving-field" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Date<span class="colon">:</span></dt>
 <dd class="field-odd"><ol class="arabic simple" start="13">
@@ -879,14 +970,14 @@ choosing the sensitivity extremly depend on the temperature. It was on overload 
 <li><p><strong>#1</strong>: Empty Cross</p></li>
 </ul>
 </aside>
-<figure class="align-default" id="id41">
+<figure class="align-default" id="figure-18">
 <img alt="../../_images/03_mfn_first_field_sweeps.png" src="../../_images/03_mfn_first_field_sweeps.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 35 </span><span class="caption-text">First field sweeps</span><a class="headerlink" href="#id41" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 35 </span><span class="caption-text">First field sweeps</span><a class="headerlink" href="#figure-18" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<section id="id2">
-<h4><a class="toc-backref" href="#id62" role="doc-backlink">Measurement Plan #2</a><a class="headerlink" href="#id2" title="Permalink to this headline"></a></h4>
+<section id="measurement-plan-2-1">
+<h4><a class="toc-backref" href="#toc-entry-19" role="doc-backlink">Measurement Plan #2</a><a class="headerlink" href="#measurement-plan-2-1" title="Permalink to this headline">¶</a></h4>
 <dl class="field-list simple">
 <dt class="field-odd">Date<span class="colon">:</span></dt>
 <dd class="field-odd"><ol class="arabic simple" start="13">
@@ -1121,15 +1212,15 @@ choosing the sensitivity extremly depend on the temperature. It was on overload 
 <dd class="field-odd"><p>m322; m327; m328</p>
 </dd>
 </dl>
-<figure class="align-default" id="id42">
+<figure class="align-default" id="figure-19">
 <img alt="../../_images/m32278.png" src="../../_images/m32278.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 36 </span><span class="caption-text"><strong>Plan #2</strong>: Field sweeps inside hysteresis (m322/327/328).</span><a class="headerlink" href="#id42" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 36 </span><span class="caption-text"><strong>Plan #2</strong>: Field sweeps inside hysteresis (m322/327/328).</span><a class="headerlink" href="#figure-19" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="large-sweep-ranges">
-<h4><a class="toc-backref" href="#id63" role="doc-backlink">Large Sweep Ranges</a><a class="headerlink" href="#large-sweep-ranges" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#toc-entry-20" role="doc-backlink">Large Sweep Ranges</a><a class="headerlink" href="#large-sweep-ranges" title="Permalink to this headline">¶</a></h4>
 <dl class="field-list simple">
 <dt class="field-odd">Temperature<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span class="math notranslate nohighlight">\(T = 30~K\)</span></p>
@@ -1197,11 +1288,11 @@ choosing the sensitivity extremly depend on the temperature. It was on overload 
 </tbody>
 </table>
 <section id="plots">
-<h5><a class="toc-backref" href="#id64" role="doc-backlink">Plots</a><a class="headerlink" href="#plots" title="Permalink to this headline"></a></h5>
+<h5><a class="toc-backref" href="#toc-entry-21" role="doc-backlink">Plots</a><a class="headerlink" href="#plots" title="Permalink to this headline">¶</a></h5>
 </section>
 </section>
 <section id="different-sweep-rates">
-<h4><a class="toc-backref" href="#id65" role="doc-backlink">Different Sweep Rates</a><a class="headerlink" href="#different-sweep-rates" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#toc-entry-22" role="doc-backlink">Different Sweep Rates</a><a class="headerlink" href="#different-sweep-rates" title="Permalink to this headline">¶</a></h4>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <ul class="simple">
@@ -1235,52 +1326,52 @@ choosing the sensitivity extremly depend on the temperature. It was on overload 
 </section>
 </section>
 <section id="mfn-lock-in">
-<h2><a class="toc-backref" href="#id66" role="doc-backlink">MFN: Lock-In</a><a class="headerlink" href="#mfn-lock-in" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#toc-entry-23" role="doc-backlink">MFN: Lock-In</a><a class="headerlink" href="#mfn-lock-in" title="Permalink to this headline">¶</a></h2>
 <dl class="field-list simple">
 <dt class="field-odd">Date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Feb - Aug. 2020</p>
 </dd>
 </dl>
-<nav class="contents local" id="id3">
+<nav class="contents local" id="topic-2">
 <p class="topic-title">Content</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#sr830-daq" id="id98">SR830 DAQ</a></p></li>
-<li><p><a class="reference internal" href="#deg-measurements" id="id99">45deg Measurements</a></p>
+<li><p><a class="reference internal" href="#sr830-daq" id="toc-entry-55">SR830 DAQ</a></p></li>
+<li><p><a class="reference internal" href="#deg-measurements" id="toc-entry-56">45deg Measurements</a></p>
 <ul>
-<li><p><a class="reference internal" href="#useful-measurements" id="id100">Useful Measurements</a></p></li>
+<li><p><a class="reference internal" href="#useful-measurements" id="toc-entry-57">Useful Measurements</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#id4" id="id101">80deg Measurements</a></p>
+<li><p><a class="reference internal" href="#deg-measurements-1" id="toc-entry-58">80deg Measurements</a></p>
 <ul>
-<li><p><a class="reference internal" href="#initial-80deg-measurements" id="id102">Initial 80deg measurements</a></p></li>
-<li><p><a class="reference internal" href="#deg-missing-measurements" id="id103">80deg missing measurements</a></p></li>
+<li><p><a class="reference internal" href="#initial-80deg-measurements" id="toc-entry-59">Initial 80deg measurements</a></p></li>
+<li><p><a class="reference internal" href="#deg-missing-measurements" id="toc-entry-60">80deg missing measurements</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#deg-remeasure-missing-measurements" id="id104">45deg remeasure missing measurements</a></p>
+<li><p><a class="reference internal" href="#deg-remeasure-missing-measurements" id="toc-entry-61">45deg remeasure missing measurements</a></p>
 <ul>
-<li><p><a class="reference internal" href="#plusses-repeat-430-431" id="id105">Plusses (Repeat 430/431)</a></p></li>
-<li><p><a class="reference internal" href="#empty-cross-17-hz" id="id106">Empty Cross (17 Hz)</a></p></li>
-<li><p><a class="reference internal" href="#histogram-of-empty-cross-m491" id="id107">Histogram of empty cross (m491)</a></p></li>
+<li><p><a class="reference internal" href="#plusses-repeat-430-431" id="toc-entry-62">Plusses (Repeat 430/431)</a></p></li>
+<li><p><a class="reference internal" href="#empty-cross-17-hz" id="toc-entry-63">Empty Cross (17 Hz)</a></p></li>
+<li><p><a class="reference internal" href="#histogram-of-empty-cross-m491" id="toc-entry-64">Histogram of empty cross (m491)</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#deg-repeating-selected-measurements" id="id108">90deg Repeating selected measurements</a></p>
+<li><p><a class="reference internal" href="#deg-repeating-selected-measurements" id="toc-entry-65">90deg Repeating selected measurements</a></p>
 <ul>
-<li><p><a class="reference internal" href="#changing-angle-to-90deg" id="id109">Changing Angle to 90deg</a></p></li>
-<li><p><a class="reference internal" href="#repeat-selected-signal-analyzer-measurements-with-sr830" id="id110">Repeat selected signal analyzer measurements with SR830</a></p></li>
-<li><p><a class="reference internal" href="#changing-angle-again-to-90deg" id="id111">Changing Angle again to 90deg</a></p>
+<li><p><a class="reference internal" href="#changing-angle-to-90deg" id="toc-entry-66">Changing Angle to 90deg</a></p></li>
+<li><p><a class="reference internal" href="#repeat-selected-signal-analyzer-measurements-with-sr830" id="toc-entry-67">Repeat selected signal analyzer measurements with SR830</a></p></li>
+<li><p><a class="reference internal" href="#changing-angle-again-to-90deg" id="toc-entry-68">Changing Angle again to 90deg</a></p>
 <ul>
-<li><p><a class="reference internal" href="#before-changing-angle" id="id112">Before Changing Angle</a></p></li>
-<li><p><a class="reference internal" href="#after-changing-angle" id="id113">After Changing Angle</a></p>
+<li><p><a class="reference internal" href="#before-changing-angle" id="toc-entry-69">Before Changing Angle</a></p></li>
+<li><p><a class="reference internal" href="#after-changing-angle" id="toc-entry-70">After Changing Angle</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id22" id="id114">5-10</a></p></li>
-<li><p><a class="reference internal" href="#id23" id="id115">6-8</a></p></li>
+<li><p><a class="reference internal" href="#section-1" id="toc-entry-71">5-10</a></p></li>
+<li><p><a class="reference internal" href="#section-2" id="toc-entry-72">6-8</a></p></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#repeating-m351-354" id="id116">Repeating m351-354</a></p></li>
-<li><p><a class="reference internal" href="#repeating-m378-382-different-voltages" id="id117">Repeating m378-382 (<strong>different voltages</strong>)</a></p></li>
-<li><p><a class="reference internal" href="#repeating-m362-366" id="id118">Repeating m362-366</a></p></li>
+<li><p><a class="reference internal" href="#repeating-m351-354" id="toc-entry-73">Repeating m351-354</a></p></li>
+<li><p><a class="reference internal" href="#repeating-m378-382-different-voltages" id="toc-entry-74">Repeating m378-382 (<strong>different voltages</strong>)</a></p></li>
+<li><p><a class="reference internal" href="#repeating-m362-366" id="toc-entry-75">Repeating m362-366</a></p></li>
 </ul>
 </li>
 </ul>
@@ -1291,10 +1382,10 @@ choosing the sensitivity extremly depend on the temperature. It was on overload 
 Measurements</p>
 </aside>
 <section id="sr830-daq">
-<h3><a class="toc-backref" href="#id98" role="doc-backlink">SR830 DAQ</a><a class="headerlink" href="#sr830-daq" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#toc-entry-55" role="doc-backlink">SR830 DAQ</a><a class="headerlink" href="#sr830-daq" title="Permalink to this headline">¶</a></h3>
 </section>
 <section id="deg-measurements">
-<h3><a class="toc-backref" href="#id99" role="doc-backlink">45deg Measurements</a><a class="headerlink" href="#deg-measurements" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#toc-entry-56" role="doc-backlink">45deg Measurements</a><a class="headerlink" href="#deg-measurements" title="Permalink to this headline">¶</a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Nr.</p></th>
@@ -1647,7 +1738,7 @@ Measurements</p>
 </tbody>
 </table>
 <section id="useful-measurements">
-<h4><a class="toc-backref" href="#id100" role="doc-backlink">Useful Measurements</a><a class="headerlink" href="#useful-measurements" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#toc-entry-57" role="doc-backlink">Useful Measurements</a><a class="headerlink" href="#useful-measurements" title="Permalink to this headline">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Nr.</p></th>
@@ -1831,15 +1922,15 @@ Measurements</p>
 </div></blockquote>
 </section>
 </section>
-<section id="id4">
-<h3><a class="toc-backref" href="#id101" role="doc-backlink">80deg Measurements</a><a class="headerlink" href="#id4" title="Permalink to this headline"></a></h3>
+<section id="deg-measurements-1">
+<h3><a class="toc-backref" href="#toc-entry-58" role="doc-backlink">80deg Measurements</a><a class="headerlink" href="#deg-measurements-1" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>July 2020</p>
 </dd>
 </dl>
 <section id="initial-80deg-measurements">
-<h4><a class="toc-backref" href="#id102" role="doc-backlink">Initial 80deg measurements</a><a class="headerlink" href="#initial-80deg-measurements" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#toc-entry-59" role="doc-backlink">Initial 80deg measurements</a><a class="headerlink" href="#initial-80deg-measurements" title="Permalink to this headline">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Nr.</p></th>
@@ -1960,7 +2051,7 @@ The results are not useful.</p>
 </ul>
 </section>
 <section id="deg-missing-measurements">
-<h4><a class="toc-backref" href="#id103" role="doc-backlink">80deg missing measurements</a><a class="headerlink" href="#deg-missing-measurements" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#toc-entry-60" role="doc-backlink">80deg missing measurements</a><a class="headerlink" href="#deg-missing-measurements" title="Permalink to this headline">¶</a></h4>
 <dl class="field-list simple">
 <dt class="field-odd">Date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>30.06.2020 - 09.07.2020</p>
@@ -2225,7 +2316,7 @@ The results are not useful.</p>
 </section>
 </section>
 <section id="deg-remeasure-missing-measurements">
-<h3><a class="toc-backref" href="#id104" role="doc-backlink">45deg remeasure missing measurements</a><a class="headerlink" href="#deg-remeasure-missing-measurements" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#toc-entry-61" role="doc-backlink">45deg remeasure missing measurements</a><a class="headerlink" href="#deg-remeasure-missing-measurements" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>July 2020</p>
@@ -2234,7 +2325,7 @@ The results are not useful.</p>
 <p>The first time at 45deg not all needed information could be gathered.
 Going back to 45deg to remeasure some missing parameters.</p>
 <section id="plusses-repeat-430-431">
-<h4><a class="toc-backref" href="#id105" role="doc-backlink">Plusses (Repeat 430/431)</a><a class="headerlink" href="#plusses-repeat-430-431" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#toc-entry-62" role="doc-backlink">Plusses (Repeat 430/431)</a><a class="headerlink" href="#plusses-repeat-430-431" title="Permalink to this headline">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Nr</p></th>
@@ -2263,7 +2354,7 @@ Going back to 45deg to remeasure some missing parameters.</p>
 <td colspan="4"><p>.1</p></td>
 <td><p>.005</p></td>
 <td colspan="4"><p>.1</p></td>
-<td colspan="2"><p>$` R_{22} = 13.5 kOmega <a href="#id5"><span class="problematic" id="id6">`</span></a>$</p></td>
+<td colspan="2"><p>$` R_{22} = 13.5 kOmega <a href="#system-message-1"><span class="problematic" id="problematic-1">`</span></a>$</p></td>
 </tr>
 <tr class="row-odd"><td><p>483</p></td>
 <td><p>Plusses</p></td>
@@ -2276,7 +2367,7 @@ Going back to 45deg to remeasure some missing parameters.</p>
 <td colspan="4"><p>.1</p></td>
 <td><p>.005</p></td>
 <td colspan="4"><p>.1</p></td>
-<td colspan="2"><p>$` R_{22} = 13.5 kOmega <a href="#id7"><span class="problematic" id="id8">`</span></a>$</p></td>
+<td colspan="2"><p>$` R_{22} = 13.5 kOmega <a href="#system-message-2"><span class="problematic" id="problematic-2">`</span></a>$</p></td>
 </tr>
 <tr class="row-even"><td><p>484</p></td>
 <td><p>Plusses</p></td>
@@ -2285,7 +2376,7 @@ Going back to 45deg to remeasure some missing parameters.</p>
 <td colspan="2"><p>15</p></td>
 <td colspan="2"><p>8</p></td>
 <td colspan="2"><p>1024</p></td>
-<td colspan="13"><p>Down |   .1  | .005|      .1       | $` R_{22} = 13.5 kOmega <a href="#id9"><span class="problematic" id="id10">`</span></a>$</p></td>
+<td colspan="13"><p>Down |   .1  | .005|      .1       | $` R_{22} = 13.5 kOmega <a href="#system-message-3"><span class="problematic" id="problematic-3">`</span></a>$</p></td>
 </tr>
 <tr class="row-odd"><td><p>485</p></td>
 <td><p>Plusses</p></td>
@@ -2294,33 +2385,33 @@ Going back to 45deg to remeasure some missing parameters.</p>
 <td colspan="2"><p>15</p></td>
 <td colspan="2"><p>8</p></td>
 <td colspan="2"><p>1024</p></td>
-<td colspan="13"><p>Up   |   .1  | .005|      .1       | $` R_{22} = 13.5 kOmega <a href="#id11"><span class="problematic" id="id12">`</span></a>$</p></td>
+<td colspan="13"><p>Up   |   .1  | .005|      .1       | $` R_{22} = 13.5 kOmega <a href="#system-message-4"><span class="problematic" id="problematic-4">`</span></a>$</p></td>
 </tr>
 <tr class="row-even"><td><p>486</p></td>
 <td><p>Plusses</p></td>
 <td><p>5</p></td>
-<td colspan="21"><p>17      |  15    |  8    | 1024 | Down |   .2  | .01 |      .1       | $` R_{22} = 5 kOmega <a href="#id13"><span class="problematic" id="id14">`</span></a>$</p></td>
+<td colspan="21"><p>17      |  15    |  8    | 1024 | Down |   .2  | .01 |      .1       | $` R_{22} = 5 kOmega <a href="#system-message-5"><span class="problematic" id="problematic-5">`</span></a>$</p></td>
 </tr>
 <tr class="row-odd"><td><p>487</p></td>
 <td><p>Plusses</p></td>
 <td><p>5</p></td>
-<td colspan="21"><p>17      |  15    |  8    | 1024 | Up   |   .2  | .01 |      .1       | $` R_{22} = 5 kOmega <a href="#id15"><span class="problematic" id="id16">`</span></a>$</p></td>
+<td colspan="21"><p>17      |  15    |  8    | 1024 | Up   |   .2  | .01 |      .1       | $` R_{22} = 5 kOmega <a href="#system-message-6"><span class="problematic" id="problematic-6">`</span></a>$</p></td>
 </tr>
 <tr class="row-even"><td><p>488</p></td>
 <td><p>Plusses</p></td>
 <td><p>5</p></td>
-<td colspan="21"><p>17      |  15    |  8    | 1024 | Down |   .2  | .01 |      .03      | $` R_{22} = 5 kOmega <a href="#id17"><span class="problematic" id="id18">`</span></a>$</p></td>
+<td colspan="21"><p>17      |  15    |  8    | 1024 | Down |   .2  | .01 |      .03      | $` R_{22} = 5 kOmega <a href="#system-message-7"><span class="problematic" id="problematic-7">`</span></a>$</p></td>
 </tr>
 <tr class="row-odd"><td><p>489</p></td>
 <td><p>Plusses</p></td>
 <td><p>5</p></td>
-<td colspan="21"><p>17      |  15    |  8    | 1024 | Up   |   .2  | .01 |      .03      | $` R_{22} = 5 kOmega <a href="#id19"><span class="problematic" id="id20">`</span></a>$</p></td>
+<td colspan="21"><p>17      |  15    |  8    | 1024 | Up   |   .2  | .01 |      .03      | $` R_{22} = 5 kOmega <a href="#system-message-8"><span class="problematic" id="problematic-8">`</span></a>$</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="empty-cross-17-hz">
-<h4><a class="toc-backref" href="#id106" role="doc-backlink">Empty Cross (17 Hz)</a><a class="headerlink" href="#empty-cross-17-hz" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#toc-entry-63" role="doc-backlink">Empty Cross (17 Hz)</a><a class="headerlink" href="#empty-cross-17-hz" title="Permalink to this headline">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Nr</p></th>
@@ -2416,23 +2507,23 @@ Going back to 45deg to remeasure some missing parameters.</p>
 <p>After finished measurements (untill m493), we discovered that the gate grounding (4-9) device (Yokogawa 7651 Programmable DC Source) was turned off.
 Probably no gate grounding since power shortage.</p>
 </aside>
-<div class="admonition-todo admonition" id="id21">
+<div class="admonition-todo admonition" id="todo-node-1">
 <p class="admonition-title">Todo</p>
 <p>write about power shortage.</p>
 </aside>
 </section>
 <section id="histogram-of-empty-cross-m491">
-<h4><a class="toc-backref" href="#id107" role="doc-backlink">Histogram of empty cross (m491)</a><a class="headerlink" href="#histogram-of-empty-cross-m491" title="Permalink to this headline"></a></h4>
-<figure class="align-default" id="id43">
+<h4><a class="toc-backref" href="#toc-entry-64" role="doc-backlink">Histogram of empty cross (m491)</a><a class="headerlink" href="#histogram-of-empty-cross-m491" title="Permalink to this headline">¶</a></h4>
+<figure class="align-default" id="figure-20">
 <img alt="../../_images/m491-hist_0-100.png" src="../../_images/m491-hist_0-100.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 37 </span><span class="caption-text">m491: Histogram of empty cross (gradiometry) at different external fields (subtracted mean).</span><a class="headerlink" href="#id43" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 37 </span><span class="caption-text">m491: Histogram of empty cross (gradiometry) at different external fields (subtracted mean).</span><a class="headerlink" href="#figure-20" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 </section>
 <section id="deg-repeating-selected-measurements">
-<h3><a class="toc-backref" href="#id108" role="doc-backlink">90deg Repeating selected measurements</a><a class="headerlink" href="#deg-repeating-selected-measurements" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#toc-entry-65" role="doc-backlink">90deg Repeating selected measurements</a><a class="headerlink" href="#deg-repeating-selected-measurements" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Aug. 2020</p>
@@ -2443,7 +2534,7 @@ Probably no gate grounding since power shortage.</p>
 <p>Changing back to 90deg again to try and repeat some selected signal analyzer measurements (from SR785) with SR830</p>
 </aside>
 <section id="changing-angle-to-90deg">
-<h4><a class="toc-backref" href="#id109" role="doc-backlink">Changing Angle to 90deg</a><a class="headerlink" href="#changing-angle-to-90deg" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#toc-entry-66" role="doc-backlink">Changing Angle to 90deg</a><a class="headerlink" href="#changing-angle-to-90deg" title="Permalink to this headline">¶</a></h4>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <ul class="simple">
@@ -2455,7 +2546,7 @@ Probably no gate grounding since power shortage.</p>
 </aside>
 </section>
 <section id="repeat-selected-signal-analyzer-measurements-with-sr830">
-<h4><a class="toc-backref" href="#id110" role="doc-backlink">Repeat selected signal analyzer measurements with SR830</a><a class="headerlink" href="#repeat-selected-signal-analyzer-measurements-with-sr830" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#toc-entry-67" role="doc-backlink">Repeat selected signal analyzer measurements with SR830</a><a class="headerlink" href="#repeat-selected-signal-analyzer-measurements-with-sr830" title="Permalink to this headline">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Repeating</p></th>
@@ -2524,9 +2615,9 @@ Probably no gate grounding since power shortage.</p>
 </aside>
 </section>
 <section id="changing-angle-again-to-90deg">
-<h4><a class="toc-backref" href="#id111" role="doc-backlink">Changing Angle again to 90deg</a><a class="headerlink" href="#changing-angle-again-to-90deg" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#toc-entry-68" role="doc-backlink">Changing Angle again to 90deg</a><a class="headerlink" href="#changing-angle-again-to-90deg" title="Permalink to this headline">¶</a></h4>
 <section id="before-changing-angle">
-<h5><a class="toc-backref" href="#id112" role="doc-backlink">Before Changing Angle</a><a class="headerlink" href="#before-changing-angle" title="Permalink to this headline"></a></h5>
+<h5><a class="toc-backref" href="#toc-entry-69" role="doc-backlink">Before Changing Angle</a><a class="headerlink" href="#before-changing-angle" title="Permalink to this headline">¶</a></h5>
 <p>Measuring at +1 T external field and adjusting angle.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2558,9 +2649,9 @@ Probably no gate grounding since power shortage.</p>
 </aside>
 </section>
 <section id="after-changing-angle">
-<h5><a class="toc-backref" href="#id113" role="doc-backlink">After Changing Angle</a><a class="headerlink" href="#after-changing-angle" title="Permalink to this headline"></a></h5>
-<section id="id22">
-<h6><a class="toc-backref" href="#id114" role="doc-backlink">5-10</a><a class="headerlink" href="#id22" title="Permalink to this headline"></a></h6>
+<h5><a class="toc-backref" href="#toc-entry-70" role="doc-backlink">After Changing Angle</a><a class="headerlink" href="#after-changing-angle" title="Permalink to this headline">¶</a></h5>
+<section id="section-1">
+<h6><a class="toc-backref" href="#toc-entry-71" role="doc-backlink">5-10</a><a class="headerlink" href="#section-1" title="Permalink to this headline">¶</a></h6>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>setting 5-10 to 0</p>
@@ -2586,8 +2677,8 @@ Probably no gate grounding since power shortage.</p>
 </table>
 </aside>
 </section>
-<section id="id23">
-<h6><a class="toc-backref" href="#id115" role="doc-backlink">6-8</a><a class="headerlink" href="#id23" title="Permalink to this headline"></a></h6>
+<section id="section-2">
+<h6><a class="toc-backref" href="#toc-entry-72" role="doc-backlink">6-8</a><a class="headerlink" href="#section-2" title="Permalink to this headline">¶</a></h6>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>checking 6-8 if contacts are fine.</p>
@@ -2622,7 +2713,7 @@ voltage is still to 0</p>
 </section>
 </section>
 <section id="repeating-m351-354">
-<h4><a class="toc-backref" href="#id116" role="doc-backlink">Repeating m351-354</a><a class="headerlink" href="#repeating-m351-354" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#toc-entry-73" role="doc-backlink">Repeating m351-354</a><a class="headerlink" href="#repeating-m351-354" title="Permalink to this headline">¶</a></h4>
 <div class="admonition-sweeping-field-different-sweeprates admonition">
 <p class="admonition-title">Sweeping Field (different sweeprates)</p>
 <p>from -25 mT to 25 mT  (negative saturation at -.9 T)</p>
@@ -2710,7 +2801,7 @@ voltage is still to 0</p>
 </aside>
 </section>
 <section id="repeating-m378-382-different-voltages">
-<h4><a class="toc-backref" href="#id117" role="doc-backlink">Repeating m378-382 (<strong>different voltages</strong>)</a><a class="headerlink" href="#repeating-m378-382-different-voltages" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#toc-entry-74" role="doc-backlink">Repeating m378-382 (<strong>different voltages</strong>)</a><a class="headerlink" href="#repeating-m378-382-different-voltages" title="Permalink to this headline">¶</a></h4>
 <p>from -100 mT to 100 mT with negative saturation (using 5.9 mT/min to measure for 35 min.)</p>
 <table class="docutils align-default">
 <thead>
@@ -2784,7 +2875,7 @@ voltage is still to 0</p>
 </aside>
 </section>
 <section id="repeating-m362-366">
-<h4><a class="toc-backref" href="#id118" role="doc-backlink">Repeating m362-366</a><a class="headerlink" href="#repeating-m362-366" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#toc-entry-75" role="doc-backlink">Repeating m362-366</a><a class="headerlink" href="#repeating-m362-366" title="Permalink to this headline">¶</a></h4>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>changing different field ranges</p>
@@ -2847,33 +2938,50 @@ voltage is still to 0</p>
 
 
            </div>
+           
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../hloop/index.html" class="btn btn-neutral float-left" title="Magnetic Characterization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="../../modules/notebooks.html" class="btn btn-neutral float-right" title="Jupyter Notebooks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../hloop/index.html" class="btn btn-neutral float-left" title="Magnetic Characterization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020/2021, Jonathan Pieper.</p>
-  </div>
+    <p>
+        &#169; Copyright 2020/2021, Jonathan Pieper.
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
         </div>
       </div>
+
     </section>
+
   </div>
-  <script>
+  
+
+  <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
