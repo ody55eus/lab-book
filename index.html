@@ -17,6 +17,8 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -134,6 +136,103 @@
 <a class="reference external image-reference" href="https://gitlab.com/ody55eus/master-data"><img alt="https://img.shields.io/badge/Data-Repository-FCA121?style=plastic&amp;logo=gitlab" src="https://img.shields.io/badge/Data-Repository-FCA121?style=plastic&amp;logo=gitlab" /></a>
 <p>This Lab Book is a review of my work at the <a class="reference external" href="https://www.uni-frankfurt.de/49964693/Molecular_Metals_and_Magnetic_Nanostructures">AG Müller</a> (Goethe University Frankfurt).
 It also contains supplemental information and data descriptions to my master thesis.</p>
+<section id="abstract">
+<span id="abstract-1"></span><h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline"></a></h2>
+<p>The detailed understanding of micro–and nanoscale structures, in
+particular their magnetization dynamics, dominates contemporary
+solid–state physics studies. Most investigations already identified an
+abundance of phenomena in one–and two–dimensional nanostructures. The
+following thesis focuses on the magnetic fingerprint of
+three–dimensional <span class="math notranslate nohighlight">\(\mathrm{CoFe}\)</span> nano–magnets, specifically the
+temporal development of their hysteresis loop. These nano–magnets were
+grown in a tetrahedral pattern on top of a highly susceptible home–build
+<span class="math notranslate nohighlight">\(\mathrm{GaAs}/\mathrm{AlGaAs}\)</span> micro–Hall sensor using focused
+electron beam induced deposition (FEBID).</p>
+<p>During the measurements, utmost efforts were employed to exemplify
+current best research practices. The data life cycle of the present
+thesis is based upon open–source data science tools and packages. Data
+acquisition and analysis required self–written automated algorithms to
+handle the extensive quantity of data. Existing instrumental–controlling
+software was improved, and new Python packages were devised to analyze
+and visualize the gathered data. The open–source Python data analysis
+framework (<code class="docutils literal notranslate"><span class="pre">ana</span></code>) was developed to facilitate computational
+reproducibility. This framework transparently analyses and visualizes
+the gathered data automatically using Continuous Analysis tools based on
+GitLab and Continuous Integration. This automatization uses bespoke
+scripts combined with virtualization tools like Docker to facilitate
+reproducible and device–independent results.</p>
+<p>The hysteresis loops reveal distinct differences in subsequently
+measured loops with identical initial experimental parameters,
+originating from the nano–magnet’s magnetic noise. This noise amplifies
+in regions where switching processes occur. In such noise–prone regions,
+the time–dependent scrutinization reveals presumably thermally induced
+metastable magnetization states. The frequency–dependent power spectral
+density uncovers a characteristic <span class="math notranslate nohighlight">\(1/f^2\)</span> behavior at noise–prone
+regions with metastable magnetization states.</p>
+</section>
+<section id="summary-and-conclusion">
+<h2>Summary and Conclusion<a class="headerlink" href="#summary-and-conclusion" title="Permalink to this headline"></a></h2>
+<p>The present study aims to find and characterize fluctuations in the
+magnetic fingerprint of three–dimensional nano–tetrapods. These
+tetrapods were deposited by means of focused electron beam induced
+deposition (FEBID) on top of a micro–Hall magnetometer. The micro–Hall
+measurements scrutinized the magnetic fingerprint by measuring the
+nanostructures’ stray–field during an external field sweep and obtaining
+the hysteresis loop. Repetitions of identical experiments yield several,
+nearly equivalent hysteresis loops that differ in noise–prone regions
+near the remanence. These noise–prone regions are further investigated
+using statistical methods to determine the noise’s power spectral
+density (PSD).</p>
+<p>During the process of data acquisition and analysis, utmost efforts were
+employed to comply with current best research practices. In general, the
+data processing steps involve customized, self–written computer
+algorithms that are freely available and fundamentally documented. Based
+on experiences, the workflow’s documentation process evolved from
+proprietary OneNote notebooks towards an open–source driven Continuous
+Analysis infrastructure, allowing automated data analysis and
+interoperable documentation. In detail, a self–maintained GitLab server
+provides the infrastructure to manage git repositories that
+version–control data, code, and documentation. In addition, Continuous
+Integration tools automate tasks and increase productivity. These
+aforementioned data processing and workflow steps have been
+fundamentally documented, converted into a presentable format, and made
+online available via the supplemental information.</p>
+<p>The noise investigations utilized two separate methods to dissect the
+Hall signal of the nano–tetrapods during an external field sweep.
+Firstly, a signal–analyzer examines the signal’s PSD <span class="math notranslate nohighlight">\(S_V (f)\)</span> in
+the frequency domain. This examination discloses a <span class="math notranslate nohighlight">\(1/f^2\)</span>
+correlation of the PSD only when measuring the stray–field during an
+external magnetic field sweep inside a noise–prone region. This
+correlation is noteably invariant to changes in the temperature or
+sweeprate. A novel data acquisition technique (SR830DAQ) further
+scrutinizes this fluctuating nature of the nano–tetrapods’ magnetic
+response. This SR830DAQ technique corroborates preceding findings on
+<span class="math notranslate nohighlight">\(1/f^2\)</span> correlations. Additionally, sensitive fluctuations,
+although not detectable in a pre–amplified signal with the
+signal–analyzer, measured by the SR830DAQ technique, reveal a
+<span class="math notranslate nohighlight">\(S_V \sim I^2\)</span> current dependence of the PSD and confirming
+expectations. Closer inspection of the persisting time–signal of
+interrupted field sweeps inside the hysteresis loop’s noise–prone
+regions exposes metastable magnetization states with spontaneous
+switching processes. The author deduces that this spontaneous switching
+originates from thermal activation processes.</p>
+<section id="key-points">
+<h3>Key Points<a class="headerlink" href="#key-points" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Best practices were pursued by fundamentally documenting and
+publishing both, data workflow and analysis methods. A self–written
+Python data analysis framework (<code class="docutils literal notranslate"><span class="pre">ana</span></code>) was created for a
+transparent evaluation and Continuous Analysis methods were employed
+to automate time–invasive tasks.</p></li>
+<li><p>The magnetic fingerprint of FEBID deposited three–dimensional
+nano–tetrapods revealed fluctuations with a characteristic
+<span class="math notranslate nohighlight">\(1/f^2\)</span> behavior. These characteristics were further
+investigated by means of data acquisition methods. The time–signal at
+magnetization states with assumed complex, vortex–like magnetization
+discloses metastable states with spontaneous switching processes.
+These switching processes are concluded to arise from thermally
+activation.</p></li>
+</ul>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>You can find all information about the <a class="reference internal" href="data/index.html"><span class="doc">data and measurements</span></a>
@@ -487,6 +586,8 @@ the data:</p>
 <li class="toctree-l1"><a class="reference internal" href="info/idx.html">Index</a></li>
 </ul>
 </div>
+</section>
+</section>
 </section>
 
 

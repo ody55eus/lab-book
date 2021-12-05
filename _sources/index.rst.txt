@@ -30,6 +30,8 @@ Welcome to my Lab Book!
 This Lab Book is a review of my work at the `AG Müller <https://www.uni-frankfurt.de/49964693/Molecular_Metals_and_Magnetic_Nanostructures>`_ (Goethe University Frankfurt).
 It also contains supplemental information and data descriptions to my master thesis.
 
+.. include:: abstract.rst
+
 .. important::
    You can find all information about the :doc:`data and measurements <data/index>` 
    inside the exported :doc:`OneNote Notebooks <data/onenote/index>`
