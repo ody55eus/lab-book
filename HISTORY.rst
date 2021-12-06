@@ -2,7 +2,7 @@
 History
 =======
 
-0.4 (2021-12-11)
+0.4 (2021-12-06)
 ----------------
 * Published publicly together with master thesis.
 * Fixed some spelling / grammar errors.
