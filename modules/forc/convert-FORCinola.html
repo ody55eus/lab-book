@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; Lab Book 0.4 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Lab Book
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Lab Book</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info/gitlab.html">GitLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/onenote/index.html">Original Lab Book</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../data/index.html">About the Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/hloop/index.html">Magnetic Characterization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/mfn/index.html">Magnetic Flux Noise (MFN)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ana/index.html">Data Analysis Framework (Ana)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sa/index.html">SpectrumAnalyzer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eve/index.html">EVE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripts.html">Python Scripts</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../info/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info/idx.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Lab Book</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/modules/forc/convert-FORCinola.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>__author__ = &#39;Jonathan Pieper&#39;
+__license__ = &#39;tbd&#39;
+__version__ = &#39;0.1&#39;
+__status__ = &quot;Development&quot;
+
+import os, sys, time
+from glob import glob
+import pylab as plt
+import numpy as np
+from scipy import stats
+import pandas as pd
+from scipy.interpolate import interp1d
+
+folder = &quot;D:\\Programming\\FORC-data\\0deg_30K_0.15T_Cub\\Up to&quot;
+current = 2.5e-6 # R = V/I approx M
+out_name = &quot;output.dat&quot;
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>def get_filenames(datadir):
+    &quot;&quot;&quot;Returns all *.dat files in data directory&quot;&quot;&quot;
+    return glob(datadir + &quot;\\*.dat&quot;)
+
+def sort_files(filenames):
+    &quot;&quot;&quot;Sorting files by filename key HA&quot;&quot;&quot;
+    sort_dict = {}
+    for f in filenames:
+        if(f.find(&quot;HA=&quot;) == -1):
+            continue
+
+        pos1 = f.find(&quot;HA=&quot;) + 3 # Cursor Position after HA=
+        pos2 = f.find(&quot;.dat&quot;)    # Cursor Position before .dat
+        HA = float(f[pos1:pos2]) # Number between cursor positions
+
+        sort_dict[HA] = f
+
+    new_filenames = []
+    for HA in sorted(sort_dict):
+        new_filenames.append(sort_dict[HA])
+
+    return sort_dict
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>all_files = get_filenames(folder)
+all_files_sorted = sort_files(all_files)
+raw_df = {}
+new_df = {}
+for HA in sorted(all_files_sorted):
+    data = pd.read_csv(all_files_sorted[HA], sep=&#39;\t&#39;, header=0, index_col=False, skiprows=[1,2])
+    H = data[&#39;Magnetic field&#39;]
+    V = data[&#39;Vx&#39;]
+    R = V[H&gt;HA]/current*1e3
+    H = H[H&gt;HA]*1e3
+
+    raw_df[HA] = pd.DataFrame({&#39;Ha&#39;: H, &#39;Hb&#39;: HA, &#39;M&#39;: R})
+
+
+    f1 = interp1d(H, R, kind = &#39;linear&#39;)
+    new_H = []
+    new_R = []
+    for i in np.linspace(H.min(), H.max(), 149):
+        new_H.append(i)
+        new_R.append(f1(i))
+
+    new_df[HA] = pd.DataFrame({&#39;Ha&#39;: new_H, &#39;Hb&#39;: HA, &#39;M&#39;: new_R})
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>fig, (ax1, ax2) = plt.subplots(2,1,figsize=[16,19], sharex=True)
+for HA in sorted(new_df):
+    ax1.plot(raw_df[HA][&#39;Ha&#39;], raw_df[HA][&#39;M&#39;])
+    ax2.plot(new_df[HA][&#39;Ha&#39;], new_df[HA][&#39;M&#39;])
+plt.xlim(-150,150)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(-150, 150)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/modules_forc_convert-FORCinola_3_1.png" src="../../_images/modules_forc_convert-FORCinola_3_1.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>dd = []
+for HA in sorted(new_df):
+    dd.append(new_df[HA])
+    dd.append(pd.DataFrame({&#39;Ha&#39;: [0], &#39;Hb&#39;: [HA], &#39;M&#39;: 0}))
+output_df = pd.concat(dd, ignore_index=True)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>output_df
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ha</th>
+      <th>Hb</th>
+      <th>M</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-149.500000</td>
+      <td>-0.150</td>
+      <td>-1797.836</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-147.476351</td>
+      <td>-0.150</td>
+      <td>-1797.794891891892</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-145.452703</td>
+      <td>-0.150</td>
+      <td>-1794.7287567567566</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-143.429054</td>
+      <td>-0.150</td>
+      <td>-1803.0449891891892</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-141.405405</td>
+      <td>-0.150</td>
+      <td>-1823.4816216216213</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>-139.381757</td>
+      <td>-0.150</td>
+      <td>-1848.5928432432431</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>-137.358108</td>
+      <td>-0.150</td>
+      <td>-1823.5575567567562</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>-135.334459</td>
+      <td>-0.150</td>
+      <td>-1844.10032972973</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>-133.310811</td>
+      <td>-0.150</td>
+      <td>-1844.7276540540543</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>-131.287162</td>
+      <td>-0.150</td>
+      <td>-1844.2337891891889</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>-129.263514</td>
+      <td>-0.150</td>
+      <td>-1826.4385729729727</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>-127.239865</td>
+      <td>-0.150</td>
+      <td>-1854.881108108108</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>-125.216216</td>
+      <td>-0.150</td>
+      <td>-1851.277837837838</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>-123.192568</td>
+      <td>-0.150</td>
+      <td>-1847.9550540540542</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>-121.168919</td>
+      <td>-0.150</td>
+      <td>-1845.4946378378377</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>-119.145270</td>
+      <td>-0.150</td>
+      <td>-1844.5028324324326</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>-117.121622</td>
+      <td>-0.150</td>
+      <td>-1854.0031351351352</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>-115.097973</td>
+      <td>-0.150</td>
+      <td>-1864.3441351351353</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>-113.074324</td>
+      <td>-0.150</td>
+      <td>-1860.768054054054</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>-111.050676</td>
+      <td>-0.150</td>
+      <td>-1870.4745675675674</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>-109.027027</td>
+      <td>-0.150</td>
+      <td>-1859.2924972972976</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>-107.003378</td>
+      <td>-0.150</td>
+      <td>-1850.728616216216</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>-104.979730</td>
+      <td>-0.150</td>
+      <td>-1845.4407459459455</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>-102.956081</td>
+      <td>-0.150</td>
+      <td>-1860.2315999999996</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>-100.932432</td>
+      <td>-0.150</td>
+      <td>-1856.7181189189187</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>-98.908784</td>
+      <td>-0.150</td>
+      <td>-1847.6015459459459</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>-96.885135</td>
+      <td>-0.150</td>
+      <td>-1834.8346378378376</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>-94.861486</td>
+      <td>-0.150</td>
+      <td>-1834.1141936936936</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>-92.837838</td>
+      <td>-0.150</td>
+      <td>-1822.6861621621622</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>-90.814189</td>
+      <td>-0.150</td>
+      <td>-1813.7109351351348</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>14970</th>
+      <td>130.797297</td>
+      <td>0.048</td>
+      <td>747.8040648648642</td>
+    </tr>
+    <tr>
+      <th>14971</th>
+      <td>131.483108</td>
+      <td>0.048</td>
+      <td>760.264054054054</td>
+    </tr>
+    <tr>
+      <th>14972</th>
+      <td>132.168919</td>
+      <td>0.048</td>
+      <td>765.8083783783783</td>
+    </tr>
+    <tr>
+      <th>14973</th>
+      <td>132.854730</td>
+      <td>0.048</td>
+      <td>758.2552540540541</td>
+    </tr>
+    <tr>
+      <th>14974</th>
+      <td>133.540541</td>
+      <td>0.048</td>
+      <td>747.8927567567567</td>
+    </tr>
+    <tr>
+      <th>14975</th>
+      <td>134.226351</td>
+      <td>0.048</td>
+      <td>740.9037513513513</td>
+    </tr>
+    <tr>
+      <th>14976</th>
+      <td>134.912162</td>
+      <td>0.048</td>
+      <td>747.7046270270272</td>
+    </tr>
+    <tr>
+      <th>14977</th>
+      <td>135.597973</td>
+      <td>0.048</td>
+      <td>762.4154000000002</td>
+    </tr>
+    <tr>
+      <th>14978</th>
+      <td>136.283784</td>
+      <td>0.048</td>
+      <td>766.3847999999997</td>
+    </tr>
+    <tr>
+      <th>14979</th>
+      <td>136.969595</td>
+      <td>0.048</td>
+      <td>758.1801189189189</td>
+    </tr>
+    <tr>
+      <th>14980</th>
+      <td>137.655405</td>
+      <td>0.048</td>
+      <td>754.1802612612612</td>
+    </tr>
+    <tr>
+      <th>14981</th>
+      <td>138.341216</td>
+      <td>0.048</td>
+      <td>754.8248270270269</td>
+    </tr>
+    <tr>
+      <th>14982</th>
+      <td>139.027027</td>
+      <td>0.048</td>
+      <td>758.386162162162</td>
+    </tr>
+    <tr>
+      <th>14983</th>
+      <td>139.712838</td>
+      <td>0.048</td>
+      <td>770.867751351351</td>
+    </tr>
+    <tr>
+      <th>14984</th>
+      <td>140.398649</td>
+      <td>0.048</td>
+      <td>780.5293945945945</td>
+    </tr>
+    <tr>
+      <th>14985</th>
+      <td>141.084459</td>
+      <td>0.048</td>
+      <td>779.0256648648647</td>
+    </tr>
+    <tr>
+      <th>14986</th>
+      <td>141.770270</td>
+      <td>0.048</td>
+      <td>774.6803675675676</td>
+    </tr>
+    <tr>
+      <th>14987</th>
+      <td>142.456081</td>
+      <td>0.048</td>
+      <td>768.406708108108</td>
+    </tr>
+    <tr>
+      <th>14988</th>
+      <td>143.141892</td>
+      <td>0.048</td>
+      <td>756.779708108108</td>
+    </tr>
+    <tr>
+      <th>14989</th>
+      <td>143.827703</td>
+      <td>0.048</td>
+      <td>753.2762702702701</td>
+    </tr>
+    <tr>
+      <th>14990</th>
+      <td>144.513514</td>
+      <td>0.048</td>
+      <td>762.8805945945943</td>
+    </tr>
+    <tr>
+      <th>14991</th>
+      <td>145.199324</td>
+      <td>0.048</td>
+      <td>768.9406378378377</td>
+    </tr>
+    <tr>
+      <th>14992</th>
+      <td>145.885135</td>
+      <td>0.048</td>
+      <td>764.9464216216212</td>
+    </tr>
+    <tr>
+      <th>14993</th>
+      <td>146.570946</td>
+      <td>0.048</td>
+      <td>762.2711945945945</td>
+    </tr>
+    <tr>
+      <th>14994</th>
+      <td>147.256757</td>
+      <td>0.048</td>
+      <td>764.5932756756756</td>
+    </tr>
+    <tr>
+      <th>14995</th>
+      <td>147.942568</td>
+      <td>0.048</td>
+      <td>767.5610486486488</td>
+    </tr>
+    <tr>
+      <th>14996</th>
+      <td>148.628378</td>
+      <td>0.048</td>
+      <td>771.3099135135134</td>
+    </tr>
+    <tr>
+      <th>14997</th>
+      <td>149.314189</td>
+      <td>0.048</td>
+      <td>769.1991675675674</td>
+    </tr>
+    <tr>
+      <th>14998</th>
+      <td>150.000000</td>
+      <td>0.048</td>
+      <td>766.856</td>
+    </tr>
+    <tr>
+      <th>14999</th>
+      <td>0.000000</td>
+      <td>0.048</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>15000 rows × 3 columns</p>
+</div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>#output_df = pd.concat(new_df, ignore_index=True)
+output_df.to_csv(out_name, sep=&#39;\t&#39;, index=False)
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020/2021, Jonathan Pieper.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
