@@ -37,7 +37,7 @@ Contributors
  - Co-experimentor
 
 
-
+.. _eve-credits:
 EVE
 ----
 
