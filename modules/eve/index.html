@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EVE &mdash; Lab Book 0.4 documentation</title>
+  <title>Efficient Virtual Environment (EVE) &mdash; Lab Book 0.4 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -17,6 +17,8 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -60,8 +62,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../notebooks.html">Jupyter Notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ana/index.html">Data Analysis Framework (Ana)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sa/index.html">SpectrumAnalyzer</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">EVE</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#licensing">Licensing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Efficient Virtual Environment (EVE)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-structure">Basic Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instruments">Instruments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lock-in-amplifier">Lock-In Amplifier</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sr830">SR830</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hf2li">HF2LI</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#magnetic-power-supply-ips120">Magnetic Power Supply (IPS120)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#automated-measurements">Automated Measurements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#saving-routine-files">Saving Routine Files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#license">License</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../scripts.html">Python Scripts</a></li>
@@ -89,7 +105,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>EVE</li>
+      <li>Efficient Virtual Environment (EVE)</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/modules/eve/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -123,17 +139,112 @@
     text-align: unset;
 }
 </style>
-<section id="eve">
-<span id="id1"></span><h1>EVE<a class="headerlink" href="#eve" title="Permalink to this headline"></a></h1>
-<section id="licensing">
-<h2>Licensing<a class="headerlink" href="#licensing" title="Permalink to this headline"></a></h2>
+<section id="efficient-virtual-environment-eve">
+<span id="eve"></span><h1>Efficient Virtual Environment (EVE)<a class="headerlink" href="#efficient-virtual-environment-eve" title="Permalink to this headline"></a></h1>
+<div class="contents local topic" id="content">
+<p class="topic-title">Content</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#basic-structure" id="id6">Basic Structure</a></p></li>
+<li><p><a class="reference internal" href="#instruments" id="id7">Instruments</a></p>
+<ul>
+<li><p><a class="reference internal" href="#lock-in-amplifier" id="id8">Lock-In Amplifier</a></p>
+<ul>
+<li><p><a class="reference internal" href="#sr830" id="id9">SR830</a></p></li>
+<li><p><a class="reference internal" href="#hf2li" id="id10">HF2LI</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#magnetic-power-supply-ips120" id="id11">Magnetic Power Supply (IPS120)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#automated-measurements" id="id12">Automated Measurements</a></p>
+<ul>
+<li><p><a class="reference internal" href="#saving-routine-files" id="id13">Saving Routine Files</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#license" id="id14">License</a></p></li>
+</ul>
+</div>
+<section id="basic-structure">
+<h2><a class="toc-backref" href="#id6">Basic Structure</a><a class="headerlink" href="#basic-structure" title="Permalink to this headline"></a></h2>
+<p>EVE is the main program to perform all measurements and collect all data in the working group of Prof. Jens Müller.
+It was programmed in collaboration by this working group’s students over the last years and continuously extended
+(see also <a class="reference internal" href="../../authors.html#eve-credits"><span class="std std-ref">Credits</span></a>).
+The graphical user interface (GUI) of EVE is based on the popular PyQt project and supports adding multiple instruments to a measurement process.</p>
+<figure class="align-default" id="id1">
+<img alt="../../_images/eve-structure.png" src="../../_images/eve-structure.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 40 </span><span class="caption-text">Functional flowchart diagram of EVE’s fundamental objects</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="instruments">
+<h2><a class="toc-backref" href="#id7">Instruments</a><a class="headerlink" href="#instruments" title="Permalink to this headline"></a></h2>
+<p>To ensure the safety of the instruments, I scrutinized some algorithms for errors and updated them if necessary.</p>
+<section id="lock-in-amplifier">
+<h3><a class="toc-backref" href="#id8">Lock-In Amplifier</a><a class="headerlink" href="#lock-in-amplifier" title="Permalink to this headline"></a></h3>
+<section id="sr830">
+<h4><a class="toc-backref" href="#id9">SR830</a><a class="headerlink" href="#sr830" title="Permalink to this headline"></a></h4>
+<p>The SR830 from Stanford Research is a highly sensitive Lock-In amplifier and a core element of most measurements.
+For this project, I programmed a Data Aquisition Mode (DAQ) for fast measurements.
+This permits measuring the data at a sampling rate between
+<span class="math notranslate nohighlight">\(62.5\;\mathrm{mHz} \leq f_S \leq 512\;\mathrm{Hz}\)</span>.</p>
+<p>There are three different ways to use the DAQ mode:</p>
+<p><em>FAST</em>:
+The Lock-In sends continuously every <code class="docutils literal notranslate"><span class="pre">timestep</span> <span class="pre">=</span> <span class="pre">1/rate</span></code> a value to EVE which is stored into a variable. When pressing stop (or after <span class="math notranslate nohighlight">\(2^{14}\)</span> Points a timeout occurs), EVE converts the data into the Unit V using the sensitivity from the Lock-In at the start of the measurements.</p>
+<p><em>Single</em>:
+A single measurement is performed, measuring a given number of samples and reading them all in one step (after the time expires) and saving them into the file.</p>
+<p><em>Loop</em>:
+Multiple Single measurements in a loop until the stop button is pressed. Between each measurement the internal buffer of the lock in is reset to avoid an overflow.</p>
+</section>
+<section id="hf2li">
+<h4><a class="toc-backref" href="#id10">HF2LI</a><a class="headerlink" href="#hf2li" title="Permalink to this headline"></a></h4>
+<p>The High Frequency Lock-In (HF2LI) by Zurich Instruments is a fully digital Lock-In amplifier.</p>
+</section>
+</section>
+<section id="magnetic-power-supply-ips120">
+<h3><a class="toc-backref" href="#id11">Magnetic Power Supply (IPS120)</a><a class="headerlink" href="#magnetic-power-supply-ips120" title="Permalink to this headline"></a></h3>
+<p>The intelligent magnetic power supply (IPS120) controls the superconducting magnet inside the cryostat.
+It features the possibility of a persistent magnetic field.
+To ensure that nothing breaks in this process, I created a flowchart diagram of the existing algorithm.
+The following flowchart pictures the internal programming structure of the two buttons <strong>Goto Set</strong> and <strong>Goto Zero</strong> (which change the magnetic field):</p>
+<figure class="align-default" id="id2">
+<img alt="../../_images/IPS120.png" src="../../_images/IPS120.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 41 </span><span class="caption-text">Flowchart Diagram of IPS120 Magnetic Power Supply Algorithm</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="automated-measurements">
+<h2><a class="toc-backref" href="#id12">Automated Measurements</a><a class="headerlink" href="#automated-measurements" title="Permalink to this headline"></a></h2>
+<p>EVE supports scheduled measurements, effectively programming changing variables and running loops to run predefined measurements and automatically change parameters on the fly.
+The following figure shows a screenshot of a sample measurement, where the magnet sweeps to various fields and the lock-in measures in-between these sweeps:</p>
+<figure class="align-default" id="id3">
+<img alt="../../_images/EVE-scheduled.png" src="../../_images/EVE-scheduled.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 42 </span><span class="caption-text">Scheduled Measurement Example</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="saving-routine-files">
+<h3><a class="toc-backref" href="#id13">Saving Routine Files</a><a class="headerlink" href="#saving-routine-files" title="Permalink to this headline"></a></h3>
+<p>These measurements can be saved into <a class="reference external" href="https://gitlab.com/ody55eus/master-data/-/tree/master/measurement_routines">routine files</a> which have the following structure:</p>
+<figure class="align-default" id="id4">
+<img alt="../../_images/EVE-routine.png" src="../../_images/EVE-routine.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 43 </span><span class="caption-text">EVE Routine File Structure</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="license">
+<h2><a class="toc-backref" href="#id14">License</a><a class="headerlink" href="#license" title="Permalink to this headline"></a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>EVE does not have a license yet and can not be published at this point. But it uses licensed software as dependencies and has to comply with these licenses.</p>
 </div>
-<figure class="align-default" id="id2">
+<figure class="align-default" id="id5">
 <img alt="../../_images/EVE-packages.svg" src="../../_images/EVE-packages.svg" /><figcaption>
-<p><span class="caption-number">Fig. 40 </span><span class="caption-text">EVE Dependencies and Licensing Compliances</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 44 </span><span class="caption-text">EVE Dependencies and Licensing Compliances</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
