@@ -17,7 +17,7 @@ Lab Book
 
 .. note::
    This Lab Book as a compendium of all its containing code, data, documentation, and examples is a database by definition of the
-   german »Urheberrecht« (`§87a <https://www.urheberrecht.org/law/normen/urhg/2016-12-20/text/bgbl_I_3728_02_06_p87a-87e.php>`_).
+   German »Urheberrecht« (`§87a <https://www.urheberrecht.org/law/normen/urhg/2016-12-20/text/bgbl_I_3728_02_06_p87a-87e.php>`_).
    You can redistribute it and/or modify it under the terms of the
    Creative Commons Attribution 4.0 International (`CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/legalcode>`_) license.
 
