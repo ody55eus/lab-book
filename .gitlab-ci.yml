@@ -2,13 +2,13 @@ variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
 stages:
-  - doc
+  - deploy
   - ana
 
 image: registry.gitlab.com/ody5-dev/docker/jupyterlab:ana
 
-docs:html:
-  stage: doc
+pages:
+  stage: deploy
   allow_failure: true
   before_script:
     - git clone http://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/ody55eus/ana.git ana
