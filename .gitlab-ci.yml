@@ -1,5 +1,6 @@
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
+  GIT_SSL_NO_VERIFY: true
 
 stages:
   - deploy
@@ -11,6 +12,7 @@ pages:
   stage: deploy
   allow_failure: true
   before_script:
+    - git config http.sslVerify "false"
     - git clone ${ANA_URL} ana
     - cd ana && python -m pip install -e . && cd ..
     - cd docs/modules && git clone ${FORC_URL} forc && cd ../..
