@@ -9,10 +9,6 @@ image: registry.gitlab.com/ody5-dev/docker/jupyterlab:ana
 
 pages:
   stage: deploy
-  variables:
-    CLONE_NS: ${CI_SERVER_HOST}/${CI_PROJECT_ROOT_NAMESPACE}
-    ANA_URL: http://gitlab-ci-token:${CI_JOB_TOKEN}@${CLONE_URL}/ana
-    FORC_URL: http://gitlab-ci-token:${CI_JOB_TOKEN}@${CLONE_URL}/FORC-data
   allow_failure: true
   before_script:
     - git clone ${ANA_URL} ana
@@ -33,9 +29,6 @@ pages:
 ana:prepair:
   stage: ana
   variables:
-    CLONE_NS: ${CI_SERVER_HOST}/${CI_PROJECT_ROOT_NAMESPACE}
-    ANA_URL: http://gitlab-ci-token:${CI_JOB_TOKEN}@${CLONE_URL}/ana
-    SPECTRUM_URL: http://gitlab-ci-token:${CI_JOB_TOKEN}@${CLONE_URL}/spectrumanalyzer
     TEST_DIR: tests/ana/prepair
   before_script:
     - git clone --recursive ${ANA_URL} ana
