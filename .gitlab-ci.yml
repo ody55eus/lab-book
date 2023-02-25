@@ -1,6 +1,5 @@
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
-  CLONE_URL: http://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_ROOT_NAMESPACE}
 
 stages:
   - deploy
@@ -10,11 +9,13 @@ image: registry.gitlab.com/ody5-dev/docker/jupyterlab:ana
 
 pages:
   stage: deploy
+  variables:
+    CLONE_URL: ${CI_SERVER_HOST}/${CI_PROJECT_ROOT_NAMESPACE}
   allow_failure: true
   before_script:
-    - git clone ${CLONE_URL}/ana.git ana
+    - git clone http://gitlab-ci-token:${CI_JOB_TOKEN}@${CLONE_URL}/ana.git ana
     - cd ana && python -m pip install -e . && cd ..
-    - cd docs/modules && git clone ${CLONE_URL}/FORC-data.git forc && cd ../..
+    - cd docs/modules && git clone http://gitlab-ci-token:${CI_JOB_TOKEN}@${CLONE_URL}/FORC-data.git forc && cd ../..
     - mv source/onenote/html docs/_static/html
     - mv source/onenote/word docs/_static/word
   script:
@@ -30,10 +31,12 @@ pages:
 ana:prepair:
   stage: ana
   variables:
+    CLONE_URL: ${CI_SERVER_HOST}/${CI_PROJECT_ROOT_NAMESPACE}
+  variables:
     TEST_DIR: tests/ana/prepair
   before_script:
-    - git clone --recursive ${CLONE_URL}/ana.git ana
-    - python -m pip install git+${CLONE_URL}/spectrumanalyzer.git
+    - git clone --recursive http://gitlab-ci-token:${CI_JOB_TOKEN}@${CLONE_URL}/ana.git ana
+    - python -m pip install git+http://gitlab-ci-token:${CI_JOB_TOKEN}@${CLONE_URL}/spectrumanalyzer.git
     - cd ana && python -m pip install -e . && cd ..
     - python -m pip install coverage
     - cd ana
