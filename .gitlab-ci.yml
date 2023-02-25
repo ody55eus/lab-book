@@ -1,5 +1,6 @@
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
+  CLONE_URL: http://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_ROOT_NAMESPACE}
 
 stages:
   - deploy
@@ -11,9 +12,9 @@ pages:
   stage: deploy
   allow_failure: true
   before_script:
-    - git clone http://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/ody55eus/ana.git ana
+    - git clone ${CLONE_URL}/ana.git ana
     - cd ana && python -m pip install -e . && cd ..
-    - cd docs/modules && git clone http://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/ody55eus/FORC-data.git forc && cd ../..
+    - cd docs/modules && git clone ${CLONE_URL}/FORC-data.git forc && cd ../..
     - mv source/onenote/html docs/_static/html
     - mv source/onenote/word docs/_static/word
   script:
@@ -31,8 +32,8 @@ ana:prepair:
   variables:
     TEST_DIR: tests/ana/prepair
   before_script:
-    - git clone --recursive http://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/ody55eus/ana.git ana
-    - python -m pip install git+http://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/ody55eus/spectrumanalyzer.git
+    - git clone --recursive ${CLONE_URL}/ana.git ana
+    - python -m pip install git+${CLONE_URL}/spectrumanalyzer.git
     - cd ana && python -m pip install -e . && cd ..
     - python -m pip install coverage
     - cd ana
