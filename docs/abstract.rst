@@ -8,11 +8,11 @@ particular their magnetization dynamics, dominates contemporary
 solid–state physics studies. Most investigations already identified an
 abundance of phenomena in one–and two–dimensional nanostructures. The
 following thesis focuses on the magnetic fingerprint of
-three–dimensional :math:`\mathrm{CoFe}` nano–magnets, specifically the
+three–dimensional :math:`\mathrm{CoFe}` nano–magnets [#]_, specifically the
 temporal development of their hysteresis loop. These nano–magnets were
 grown in a tetrahedral pattern on top of a highly susceptible home–build
 :math:`\mathrm{GaAs}/\mathrm{AlGaAs}` micro–Hall sensor using focused
-electron beam induced deposition (FEBID).
+electron beam induced deposition (FEBID) [#]_.
 
 During the measurements, utmost efforts were employed to exemplify
 current best research practices. The data life cycle of the present
@@ -103,3 +103,7 @@ Key Points
    discloses metastable states with spontaneous switching processes.
    These switching processes are concluded to arise from thermally
    activation.
+
+
+.. [#] https://doi.org/10.3390/ma11020289
+.. [#] https://doi.org/10.3390/ma13173774
