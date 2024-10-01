@@ -1,7 +1,7 @@
 Python Scripts
 ==============
 
-The following scripts are small projets to help with data analysis.
+The following scripts are small projects to help with data analysis.
 
 
 FORC Data Script
@@ -15,4 +15,5 @@ FORC Data Script
    :maxdepth: 2
    :caption: FORC
 
+   forc/README.md
    forc/FORC_Data.ipynb
